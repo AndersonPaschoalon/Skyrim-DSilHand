@@ -1,16 +1,24 @@
+Archive.exe
 atimgpud.dll
 binkw32.dll
+CreationKit.exe
+DataFiles.txt
+EditorWarnings.txt
+flowchartx32.dll
 high.ini
 installscript.vdf
 low.ini
 medium.ini
 readme.txt
+RendererInfo.txt
 skse_1_9_32.dll
 skse_loader.exe
 skse_steam_boot.exe
 skse_steam_loader.dll
+
 SkyrimLauncher.exe
 Skyrim_default.ini
+ssce5432.dll
 steam_api.dll
 TESV.exe
 VeryHigh.ini
@@ -22,10 +30,12 @@ Data/Alternate\ Start\ -\ Live\ Another\ Life.ini
 Data/Alternate\ Start\ -\ Live\ Another\ Life.txt
 Data/Dawnguard.bsa
 Data/Dawnguard.esm
+
 Data/Dragonborn.bsa
 Data/Dragonborn.esm
 Data/HearthFires.bsa
 Data/HearthFires.esm
+
 Data/Skyrim\ -\ Animations.bsa
 Data/Skyrim\ -\ Interface.bsa
 Data/Skyrim\ -\ Meshes.bsa
@@ -40,6 +50,12 @@ Data/Update.bsa
 Data/Update.esm
 Data/vortex.deployment.json
 Data/Interface/Translate_ENGLISH.txt
+Data/LSData/DtC6dal.dat
+Data/LSData/DtC6dl.dat
+Data/LSData/Wt16M9bs.dat
+Data/LSData/Wt16M9fs.dat
+Data/LSData/Wt8S9bs.dat
+Data/LSData/Wt8S9fs.dat
 Data/scripts/activemagiceffect.pex
 Data/scripts/actor.pex
 Data/scripts/actorbase.pex
@@ -100,6 +116,11 @@ Data/scripts/utility.pex
 Data/scripts/weapon.pex
 Data/scripts/weather.pex
 Data/scripts/wornobject.pex
+Data/shadersfx/Lighting/059/P800C05.fxp
+Data/shadersfx/Lighting/059/V800400.fxp
+Data/shadersfx/Lighting/059/V800405.fxp
+Data/shadersfx/Lighting/059/VC00401.fxp
+Data/Sound/Voice/Processing/FonixData.cdf
 Data/Strings/Skyrim_English.DLSTRINGS
 Data/Strings/Skyrim_English.ILSTRINGS
 Data/Strings/Skyrim_English.STRINGS
@@ -254,5 +275,23 @@ DirectX10/OCT2006_d3dx9_31_x86.cab
 DirectX10/OCT2006_XACT_x64.cab
 DirectX10/OCT2006_XACT_x86.cab
 DotNetFX/dotnetfx35setup.exe
+lex/accent.tlx
+lex/ssceam.tlx
+lex/ssceam2.clx
+lex/sscebr.tlx
+lex/sscebr2.clx
+lex/ssceca.tlx
+lex/ssceca2.clx
+lex/tech.tlx
+lex/User/correct.tlx
+lex/User/userdic.tlx
+Papyrus\ Compiler/antlr.runtime.dll
+Papyrus\ Compiler/Antlr3.Runtime.dll
+Papyrus\ Compiler/Antlr3.Utility.dll
+Papyrus\ Compiler/PapyrusAssembler.exe
+Papyrus\ Compiler/PapyrusCompiler.exe
+Papyrus\ Compiler/PCompiler.dll
+Papyrus\ Compiler/ScriptCompile.bat
+Papyrus\ Compiler/StringTemplate.dll
 Skyrim/SkyrimPrefs.ini
 VCRedist/vcredist_x86.exe

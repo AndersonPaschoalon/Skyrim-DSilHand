@@ -1,0 +1,58 @@
+# Quest
+
+Stage: 10
+Journal: Now I'm a silver hand initiate, I may talk to Krev to know my next task.
+Objective: Talk to Krev
+
+Stage: 20
+Journal: Krev has told me that he received a letter from the Driftshade camp's leader telling him that he believes a fragment of Ysgramor's axe is located in a treasure of an ancient Nordic ruin on the Rift. I should talk to Hillara for more details. She will go along with me on this adventure.
+Objective: Talk to Hillara
+
+Stage: 30
+Journal: Krev has told me that he received a letter from the Driftshade camp's leader telling him that he believes a fragment of Wuuthrad,  the Ysgramor's axe is located in a treasure of an ancient nordic ruin on the Rift. Hillara told me this ruin is called Angarvunde, and is located between Riften and Ivarstead. 
+Objective: Find the Treasure of Angarvunde
+
+Stage: 40
+Journal: I found the fragment located on the treasure of  Angarvunde. We should go back to Gallows Rock now, report to Krev. 
+Objective: Bring the Fragment ro Krev.
+
+
+Stage: 50
+Journal: I found a Wuuthrad fragment on  Angarvunde. Krev told me I should go meet the Driftshade Refuge leader, Fjol. He may have another task for me. 
+Objective: --
+
+# Dialogue
+
+-----------------------[Stage 10]-----------------------
+Dragonborn: What will be my first job?
+Krev: Actually, I have a first task for you. Have you heard about the Wuuthrad ax?
+
+Dragonborn(a): No, never.
+Dragonborn(b): I'm not sure...
+Krev: The Wuuthrad ax is a legendary weapon owned by the great Nord hero, Ysgramoor, the spiritual leader of our group.
+Krev: The legends say it was forged by his son, Yngol, a day after the Night of Tears. 
+Krev: He used the tears of grief from his father, made of pure ebony.  
+Krev: But it was broken into dozens of pieces, many centuries ago.
+Krev: The fragments were spread all across Tamriel. We, the Silver Hands, have been looking for the fragments since our foundation.
+Krev: I received a letter this morning from Fjol, the leader of the Driftshade Refugee camp, the second after my command.  
+Krev: His research led him to conclude that a possible location of one of the remaining fragments is an old Nordic ruin on the Rift.
+Krev: Talk to Hillara. She will accompany you on this adventure.
+--------------------------------------------------------
+
+-----------------------[Stage 20]-----------------------
+Dragonborn: Krev said that we will look for the Wuuthrad ax.
+Hillara: Aw yes. He told me that Fjol found evidence of the whereabouts. He believes that one of the remaining fragments is part of the Angarvunde treasure.
+Hillara: I'll mark the location of the tomb on your map. It is located between Riften and Ivarstead. 
+
+Dragonborn: Let's go!
+Hillara: Lead the way. 
+--------------------------------------------------------
+
+
+-----------------------[Stage 40]-----------------------
+Hillara: We did it! You found the fragment! Let not waste any time. We must return to Gallows Rock and bring the to Krev. 
+
+Krev: By Ysgramor! You did it. You find the fragment! Fjol was right once again about this location. Congradulations. You are doing very well brother. 
+Krev: You should meet Fjol. He should have another task for you. 
+--------------------------------------------------------
+

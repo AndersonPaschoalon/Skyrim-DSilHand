@@ -1,0 +1,170 @@
+---------------------------------[M10: The Drunken Huntsman]---------------------------------
+DSilHand_M_DSilHand_M10_Dr_00009875_1
+DSilHand_M10SilverHunt__00009878_1
+
+Dragonborn: You seems worried about something...
+Silver Hand: I can smell wolfs nearby. My senses do not fool me. There is daedric influence nearby.
+
+Dragonborn: What are you talking about?
+Silver Hand: I can sense the presence of evil daedra nearby. Go to gallows rock, if you want to know the truth.
+
+---------------------------------------------------------------------------------------------
+
+
+---------------------------------[M10: Driftshade Refugee]---------------------------------
+DSilHand_M_DSilHand_M10_Dr_00009879_1
+DSilHand_M_DSilHand_M10_Dr_0000987B_1
+DSilHand_M_DSilHand_M10_Dr_00009DE0_1
+DSilHand_M_DSilHand_M10_Dr_00009DE2_1
+
+Dragonborn:
+Silver Hand Guard: Stop right there. What do you want?
+
+Dragonborn : I’m just passing by.
+Silver Hand Guard: So get out of here.
+
+Dragonborn: Who are you?
+Silver Hand Guard: We are the Silver Hand. We are werewolf hunters.
+
+Dragonborn: Can I join the Silver Hand?
+Silver Hand Guard: It is not an easy task. But if you want to know if you are worth it, go to Gallows Rock.
+
+---------------------------------------------------------------------------------------------
+
+---------------------------------[M10: Gallows Rock]---------------------------------
+
+DSilHand_M_DSilHand_M10_Ga_00009DE3_1
+Dragonborn: 
+Silver Hand Guard: Stop right there. What do you want?
+
+DSilHand_M_DSilHand_M10_Ga_00009DE5_1
+Dragonborn : I’m just passing by.
+Silver Hand Guard: So get out of here.
+
+DSilHand_M_DSilHand_M10_Ga_00009DE7_1
+Dragonborn: Who are you?
+Silver Hand Guard: We are the Silver Hand. We are werewolf hunters.
+
+~
+
+DSilHand_M_DSilHand_M10_Ga_00009DEE_1
+DSilHand_M_DSilHand_M10_Ga_00009DEE_2
+Dragonborn: Can I join the Silverhand?
+Silver Hand Guard: That is not a simple question. As I said, our group hunts and is persecuted by powerful enemies. 
+Silver Hand Guard: First we have to know if you are thrustfull and worth joining us. 
+
+~
+
+DSilHand_M_DSilHand_M10_Ga_00009DF0_1
+DSilHand_M_DSilHand_M10_Ga_00009DF0_2
+Dragonborn: What should I do to join? 
+Silver Hand Guard: Go to Cold Rock Pass and kill the Frost Troll that is living there, the bigger one, and come back with a proof of your hunt. Than we may talk again. 
+Silver Hand Guard: If  you are unable to kill that frost troll, you will be unable to kill werewolves anyways.
+(end-ok)
+
+~
+DSilHand_M_DSilHand_M10_Ga_00009DF1_1
+Dragonborn: You seems to be outcast
+Silver Hand: That's because we have really powerful enemies out there.
+
+DSilHand_M10SilverHunt__00009DF3_1
+Dragonborn: What enemies?
+Silver Hand Guard: The companions in whiterun.
+
+~
+
+DSilHand_M_DSilHand_M10_Ga_00009DF4_1
+Dragonborn: I want to become a Werewolf.
+Silver Hand Guard:  So get you of here before I kill you.
+(end-nok)
+
+~
+DSilHand_M_DSilHand_M10_Ga_00009DF6_1
+Dragonborn: I want to join the Companions!
+Silver Hand Guard: So get you of here before I kill you.
+(end-nok)
+
+~
+
+DSilHand_M_DSilHand_M10_Ga_00009DF5_1
+Dragonborn: You group seems to be just smugglers tiefs!
+Silver Hand Guard:  So get you of here before I kill you.
+(quest fails)
+
+~
+Dragonborn: I don’t want to get involved in this…
+Silver Hand Guard: So, good look out there. May the divines and Ysgramor guide your path. 
+~
+DSilHand_M_DSilHand_M10_Ga_00009DFA_1
+Dragonborn: So, goodbye. I must be going.
+Silver Hand Guard: So, good look out there. May the divines and Ysgramor guide your path. 
+
+~
+
+---------------------------------[M10: Gallows Rock Aftr Troll]---------------------------------
+
+[Dragonborn retorna a Gallows Rock depois de matar o frost troll]
+Dragonborn: I killed the toll in Cold Rock Pass. Here is its Skull.
+Silver Hand Guard: I know you would be able to do it. Go talk to "Krev the Skinner", our leader. He is inside, on the main Hall. Go talk to him. Good Luck!
+
+---------------------------------[M10: Gallows Rock Aftr Troll]---------------------------------
+
+---------------------------------[M10: Gallows Rock Krev Meet]---------------------------------
+
+[Dragonborn se Aproxima de "Krev the Skinner" depois de entrar em Gallows Rock pela primeira vez]
+
+Dragonborn: Are you Krev the Skinner? I'm here bacause I want to join the Silver Hand. 
+Krev: Yes I'm! Welcome! You did well against the frost troll on the Cold Rock Pass. Congratulations! You proceed well on our initiation. 
+Krev: But, before we proceed, I have a question. Why do you want to join the Silver Hands?
+
+Dragonborn: I want to hunt Werewolfs.
+OR
+Dragonborn: I want to fight against the influence of Daedra in Skyrim.
+Krev: An adventure seeker eh? We need more people like you here. 
+Krev: This is an honor cause that every sons and daughters of Skyrim who wish to go Sovengard one day, must fight for.
+Krev: But I have more things to say before you can join us. 
+
+Dragonborn: What things?
+Krev: We fight against these beasts to cleanse this foul daedric disease that has taken the sanity of many of our brothers and sisters here on Skyrim.
+Krev: But worst than that, have corrupted the souls of many sons of Skyrim, and take them away from Sovengard in exchange of an ephemeral power in life.
+Krev: But, you must be aware. No only beggars and forgotten people have lycantropy here on Skyrim. 
+Krev: Many influential and rich people have this curse... or "gift" as many of them say. 
+Krev: If you become a Silver Hand, you will have to fight not only physically, but also politically and economically powerful people. 
+Krev: After all I said, do you still want to become a Silver Hand?
+
+Dragonborn: Yes, I do!
+Krev: Now, you are officially a silver hand initiate. Take this armor and shields. 
+Krev: They are not expensive ones, but are especially good to protect against the cold weather of the ice fields.
+Krev: Also, take this weapon, a Silver sword. This one will protect you against foul creatures we fight against.
+
+(fur armor e iron shield added)
+(silver short sword added)
+
+---------------
+
+
+Krev: Now we know you are able to deal with werewolves. As a silverhand initiate, we have a first task for you. Go to Dustman's Cairn. 
+Krev: Meet the brothers on the entrance of the tumb, and help them retrieve the lost Fragment of Wuuthrad.
+
+Dragonborn: Fragment of Wuuthrad?
+
+Krev: Yes. Wuuthrad is a legendary axe owned by the great nord hero Ysgramor, our spíritual patron and guide of our group. 
+Krev: But it was broken into pieces many centuries ago. 
+Krev: We have been investigating  and searching all over Skyrim to find all pieces since the beginning of the Silver Hand. 
+Krev: We were able to find many of them. Now we have enough clues to believe that one of the last fragments lies on Dustman Cairn. 
+Krev: We need to investigate, before the damn Companions put their dog dirty hands on it.
+Krev: That's because we belive The Companions, our greatest enemies, might alread know that.
+Krev: What they do not have in brains, they have on good contacts.
+Krev: By the way, as you may aready imagine, the Companions veterans are Werewolfes. All of them. 
+Krev: They have that smalltalk about Nord proud and Ysgramor, but the thuth is: they are traitors servants worshipers of Hercine. 
+Krev: Just the newcomers are not yet, but make no mistake. Many of them know about this "secret" and are still loyal.
+Krev: But, enough talk. You must go to Dustman Cairn now! 
+
+Dragonborn: I’ll retrieve the Fragment to honor Ysgramor.
+
+Krev: Perfect. You you find the rest of the man on the entrance of the Dustman Cairn. They you aid you on this task. 
+Krev: If you find the fragment, give it to Fjol's hand. He is the leader of Driftshade Refuge.
+
+Dragonborn: Considere the task done. 
+
+Krev: That is the spirit  brother! Once you complete the task, you may ask any doubt you have to Fjol. He is the bigger brain we have.

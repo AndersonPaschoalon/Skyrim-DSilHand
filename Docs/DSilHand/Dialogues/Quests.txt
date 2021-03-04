@@ -1,0 +1,210 @@
+Debug.Trace("TopicInfo DSilHand_M1-Stage10 End")
+#
+# M1 Silver Hunt
+#
+
+10
+Journal:
+I have met a strange man on Whiterun, who calls himself Irrokas Head-Torn. He says something sending the presence of the Daedra, and smelling a dirty dog smell. I asked him what he was talking about, and he told me to go to Gallows Rock to know the truth. 
+Objective:
+Investigate Gallows Rock
+
+20
+Journal:
+I talked to a guard in front of an abandoned fort. He seemed to be a bandit, but didn't attack me. Instead, he told me that he was a Silver Hand. A  member of a Skyrim's  faction of Werewolves hunters. I asked to join, and he told me to go to Gallows Rock. 
+Objective:
+Investigate Gallows Rock
+
+30
+Journal:
+When I arrived at Gallows Rock, a guard told me he was a part of the Silver Hands, a faction of werewolf hunters. When I asked to join them, he told me that I  need to prove I'm able to deal with those kinds of beasts. He sent me to Cold Rock Pass, and asked me to kill a Frost Troll... the bigger one I would find there, as a test task. Once I killed the beast, I might talk to the Silverhand leader, and ask him to join.
+Objective:  
+Kill a frost Troll in cold rock pass
+
+40
+Journal:
+When I arrived at Gallows Rock, a guard told me he was a part of the Silver Hands, a faction of werewolf hunters. When I asked to join them, he told me that I first need to prove I'm able to deal with those kinds of beasts, since werewolves are hard to kill. He sent me to Cold Rock Pass, and asked me to kill a Frost Troll... the bigger one I would find there. Once I killed the beast, I might talk to the Silverhand leader.
+Objective: 
+Report to Silver Hand guard on Gallows Rock 
+
+50
+Journal:
+I delivered to Gallows Rock the Frost Troll's Skull as proof I killed the beast. Now I can talk to Krev and ask permission to join the Silver Hand. 
+Objective: 
+Ask Krev the Skinner permission to join
+
+100
+Quest Failed
+
+#
+# M2 Companion Conspiracy
+#
+
+10
+Journal:
+I was told to go to Dustman's Cairn and retrieve the Fragment of Wuuthrad.
+Objective: 
+Meet the Silverhands on Dustman's Cairn
+
+20
+Journal:
+I was told to go to Dustman's Cairn and retrieve the Fragment of Wuuthrad.
+Objective: 
+Explore Dustman Cairn
+
+30
+Journal:
+I was told to go to Dustman's Cairn and retrieve the Fragment of Wuuthrad.
+Objective: 
+Kill Farkas
+
+40
+Journal:
+I was told to go to Dustman's Cairn and retrieve the Fragment of Wuuthrad.
+Objective: 
+Retrieve the Fragment of Wuuthrad
+
+
+50
+Journal:
+I was told to go to Dustman's Cairn and retrieve the Fragment of Wuuthrad.
+Objective: 
+Give the Fragment to Driftshade Refugee's leader
+
+60
+Journal:
+I was told to go to Dustman's Cairn and retrieve the Fragment of Wuuthrad.
+Objective: 
+Report to Krev the Skinner hte mission was completed
+
+#
+# M3 Wolf Ambush
+#
+
+
+10
+Journal:
+I was informed that some  companions were hired to kill a best nearby falkreath. So I was told to investigate a cave near Falkreath called Bonechill Passage. 
+Objective: 
+Investigate Bonechill Passage 
+
+
+20
+Journal:
+I was informed that some  companions were hired to kill a best nearby falkreath. So I was told to investigate a cave near Falkreath called Bonechill Passage. 
+Objective: 
+Kill Njada Stonearm
+
+
+30
+Journal:
+I was informed that some  companions were hired to kill a best nearby falkreath. So I was told to investigate a cave near Falkreath called Bonechill Passage. 
+Objective: 
+Go back to Gallows Rock
+
+
+#
+# M4 Retaliation
+#
+
+10
+Journal:
+Once I arrived back at Gallows Rock, I discovered that the Companions have just assaulted our base. I must go inside and retake the fort.
+Objective: 
+Investigate what happened to Gallows Rock Fort
+
+
+20
+Journal:
+Once I arrived back at Gallows Rock, I discovered that the Companions have just assaulted our base. I must go inside and retake the fort.
+Objective: 
+Kill all the Companions inside Gallows rock
+
+
+#
+# M5 Uncovering the Past
+#
+
+10
+Journal:
+Once I retake the fort, a silver hand brother have reported me that the leader of the  Driftshade Refuge fort wants to talk with me.
+Objective: 
+Talk to a survival silverhand brother to discover what happened
+
+20
+Journal:
+Once I retake the fort, a silver hand brother have reported me that the leader of the  Driftshade Refuge fort wants to talk with me.
+Objective: 
+Go talk with Fjol, the Driftshade Refuge leader
+
+
+30
+Journal:
+Once I retake the fort, a silver hand brother have reported me that the leader of the  Driftshade Refuge fort wants to talk with me.
+Objective: 
+Learn the truth about Kriev past
+
+
+40
+Journal:
+Once I retake the fort, a silver hand brother have reported me that the leader of the  Driftshade Refuge fort wants to talk with me.
+Objective: 
+Learn about the plans of retaliation
+
+
+#
+# M6 Assault on Jorrvaskr
+#
+
+10
+Journal:
+I'm going to join Fjol on his plan to infiltrate Whiterun by the sewers, and Assault Jorrvaskr by surprise. 
+Objective: 
+Meet the Fjol outside Whiterun at night.
+
+20
+Journal:
+I'm going to join Fjol on his plan to infiltrate Whiterun by the sewers, and Assault Jorrvaskr by surprise.  
+Objective: 
+Enter Jorrvaskr from the sewers secret passage.
+
+30
+Journal:
+I'm going to join Fjol on his plan to infiltrate Whiterun by the sewers, and Assault Jorrvaskr by surprise. 
+Objective: 
+Kill all the circle members.
+
+#
+# M7 In honor of Ysgramor
+#
+
+10
+Journal:
+We defeated the companions from the circle, and the low rank survivors have surrounded. The spies will  take care of collecting the proof that the circle was a group of werewolves, and expose it. I should search for the 4 fragments of Wuuthrad the Companions are holding.
+Objective: 
+Find the last fragment of Wuuthrad
+
+
+
+20
+We defeated the companions from the circle, and the low rank survivors have surrounded. The spies will  take care of collecting the proof that the circle was a group of werewolves, and expose it. I should search for the 4 fragments of Wuuthrad the Companions are holding.
+Objective: 
+Put together all fragments
+
+30
+We defeated the companions from the circle, and the low rank survivors have surrounded. The spies will  take care of collecting the proof that the circle was a group of werewolves, and expose it. I should search for the 4 fragments of Wuuthrad the Companions are holding.
+Objective: 
+Forge Wuuthrad
+
+
+
+
+
+
+
+
+
+
+
+
+

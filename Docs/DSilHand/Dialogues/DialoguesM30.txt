@@ -1,0 +1,73 @@
+-----------------------[Stage 10]-----------------------
+Dragonborn: Are you Fjol?
+Fjol: Yes. I'm. And I belive you are the new recruit, I'm right?
+
+Dragonborn: Yes, you are. We found the Wuuthrad fragment on Angarvunde's treasure.
+Fjol: Is that true? Brave! We are one piece closer to finish that puzzle.
+Fjol: As Krev may have told you, we the Silver Hand have been search for the pieces of Wuuthrad for some centuries from now. 
+Fjol: It was broken into twelve pieces hundreds of years ago. Right now, the Dogs on Whiterun have four pieces. 
+Fjol: But, thanks to your help, we do have five fragments right now. 
+
+Dragonborn: Dogs in Whiterun?
+Fjol: Yes. The Companions. The members of the circle. They are werewolves. All of them.
+
+Dragonborn: Members of the circle?
+Fjol: Yes. Their leaders. They say they are all equals. That was true on the past. Centuries ago. 
+Fjol: Before they started to worship Hercine. Now, all the members of the circle share the same beast blood. 
+
+Dragonborn: How do you know that?
+Fjol: This is a long history. Let's I and Krev were invited to become beasts, and refused the "gift". 
+Fjol: But we didn't want to stay quiet as well. Now, they are persecuting us.  
+Fjol: Enought talk about the past...  Soon we may talk more about the past. Now I need a favor.  
+Fjol: Could you please talk to an informant we have on Whinterhold? He is called Nelacar. 
+Fjol: Just ask him, if he still have that silver ring to sell. If he has any good news, he will find a way to tell you. 
+
+Dragonborn: Considere the task done. 
+Fjol: Good Brother! That's the spirit! Please, be discret as possible. No one should know he is our informant. 
+--------------------------------------------------------
+
+
+-----------------------[Stage 20]-----------------------
+Dragonborn: Do you still have that silver ring to sell?
+Nelacar: ...
+(dragonborn receives a letter with some information)
+"My suspects were correct. The mages of the College were able to find a piece of Wuuthrad on that ancient nordic ruin. 
+Is was informed that Sergius Turrianus is studying the fragment. Search for it on his desk.
+Also, I recomend you explore Dustman Cairn as well. They suspect another fragment of Wuuthrad is there. 
+My informant on the college told me they were going to tell the Companions about this other fragment. So
+you must be hurry, if want to take it before they.
+
+N."
+--------------------------------------------------------
+
+
+-----------------------[Stage 30]-----------------------
+--------------------------------------------------------
+
+-----------------------[Stage 40]-----------------------
+Dragonborn: I found another fragment. The mages were studying it. 
+Fjol: I can't believe it. Ysgramor must be helping us from Sovngard. 
+
+Dragonborn: Also, Nelacar has given to me this letter. 
+Fjol: Let me see... That is amazing! The mages of the college have discovered another possible location for the next fragment!
+Fjol: Dustman's Cairn. I know where is this place. We must be hurry! It says they were going to inform the Companions about the location. 
+Fjol: We must go fast and be there as soon as possible. I'll mark the location on your map. I'll make the arrangements and gather some 
+Fjol: manpower for the excavations. Meet me there in a few hours. I'll make the location on your map.   
+
+Dragonborn: I'll be there. 
+Fjol: Good! Before we continue, I need to thank you for your efforts.
+Fjol: Take this sword as a reward for your efforts. It is a silver sword, but with a secret tempering method that uses dwemer oil. 
+Fjol: This tempering makes it become as hard as ebony. 
+
+--------------------------------------------------------
+
+
+-----------------------[Stage 50]-----------------------
+--------------------------------------------------------
+
+
+-----------------------[Stage 60]-----------------------
+--------------------------------------------------------
+
+
+

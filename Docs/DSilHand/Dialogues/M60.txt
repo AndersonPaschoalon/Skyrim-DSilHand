@@ -1,0 +1,56 @@
+[10]
+Stage: Once I arrived back at Gallows Rock, I discovered that the Companions have just assaulted our base. I must go inside and retake the fort.
+Objective: Investigate what happened to Gallows Rock Fort
+
+[20]
+Stage: Once I arrived back at Gallows Rock, I discovered that the Companions have just assaulted our base. I must go inside and retake the fort.
+Objective: Kill all the Companions inside Gallows Rock
+
+[30]
+Stage: I was successful in countering the Companions' assault on Gallows Rock. However, Krev, our leader, perished in the battle. Now, I must discover what has happened. 
+Objective: Talk to a survival Silver Hand brother to discover what happened
+
+[40]
+Stage: A silver hand brother asked me to go do Driftshade report Fjol about what has happened. Since Krev has died, Fjol must claim our leadership now.
+Objective: Notify Fjol about what happened on Gallows Rock
+
+[50]
+Stage: Once I retake the fort from the Companion’s assault, a silver hand brother told me I must go do Driftshade report Fjol about what has happened. Since Krev has died, Fjol is our leader right now. Fjol reveals secrets about his and Krev's past. Although his friend Krev died, he is not sad. Krev is certainly in Sovngarde at that very moment. He also informed me of plans to attack Jorrvaskr, so that we can end once and for all the lycanthropy infiltrated in the Companions.
+Objective: Attend to Krev Funeral
+
+[60]
+Stage: Once I retake the fort from the Companion’s assault, a silver hand brother told me I must go do Driftshade report Fjol about what has happened. Since Krev has died, Fjol is our leader right now. Fjol reveals secrets about his and Krev's past. Although his friend Krev died, he is not sad. Krev is certainly in Sovngarde at that very moment. He also informed me of plans to attack Jorrvaskr, so that we can end once and for all the lycanthropy infiltrated in the Companions.
+Objective: FINAL
+
+================
+
+Silver Hand Guard : hurry, you must help us.
+Dragon born : what happened?
+
+Silver Hand Guard : companions... th-they came sneaky, assaut the fort. They released those beasts on the cages…. Please brother… avenge our shed blood.... ohhh
+
+--
+DSilHand_M60_Senaar
+DSilHand_M60SE_Topic01
+
+
+
+[Dragonborn]:  It's done...
+[Silverhand]: Yes, we did, we won the battle! But we lost our Leader, Krev. May his soul rest in peace in Sovngarde.
+
+[Dragonborn]: Any idea why the Companions attacked today? 
+[Silverhand]: We were waiting to be attacked in retaliation to Farkas and Njada. But they attacked sooner than we expected. Anyway, we had an important victory! We defeated three members of the circle. Krev must be proud of us now. Fjol must be notified of what happened. He is the first after Krev... he must claim our leadership!
+
+[Dragonborn]: I’ll notify him!
+[Silverhand]: Good! We will be taking care of things here. We must rebuild our defenses, and make a proper funeral for our fallen brothers. 
+
+
+
+
+
+
+
+
+
+
+

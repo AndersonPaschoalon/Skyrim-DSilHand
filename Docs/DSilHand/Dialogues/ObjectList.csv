@@ -1,0 +1,51 @@
+# Actors
+DSilHand_CompanionRookieBreton01, Actor
+DSilHand_CompanionRookieBreton02, Actor
+DSilHand_CompanionRookieImperial01, Actor
+DSilHand_CompanionRookieImperial02, Actor
+DSilHand_CompanionRookieNord01, Actor
+DSilHand_CompanionRookieNord02, Actor
+DSilHand_CompanionRookieNord03, Actor
+DSilHand_CompanionRookieNord04, Actor
+DSilHand_CompanionRookieNord05, Actor
+DSilHand_CompanionRookieRedguard01, Actor
+DSilHand_CompanionRookieRedguard02, Actor
+DSilHand_Fjol, Actor
+DSilHand_Hillara, Actor
+DSilHand_KrevTheSkinner, Actor
+DSilHand_HaknrmEbonFingers, Actor
+DSilHand_IrronkasHeadTorn, Actor
+DSilHand_KylmirShadeSkinner, Actor
+
+# Outfit
+DSilHand_ArmorFjol, Outfit
+DSilHand_ArmorHillara, Outfit
+DSilHand_ArmorPlate, Outfit
+
+
+# Quests
+DSilHand_M10SilverHunt, Quest		Silver Hunt
+DSilHand_M20CompConspiracy, Quest	Companion Conspiracy
+DSilHand_M30WolfAmbush, Quest		Wolf Ambush
+DSilHand_M40Relatiation, Quest		Retaliation
+DSilHand_M50UncPast, Quest			Uncovering the Past
+DSilHand_M69AssaultJor, Quest		Assault on Jorrvaskr
+DSilHand_M70HonYsgramor, Quest		In honor of Ysgramor
+
+# Triggers
+DSilHand_GallowsRockEntranceTrigger, Trigger
+DSilHand_DriftshadeEntranceTrigger, Trigger
+DSilHand_DrunkenEntranceTrigger, Trigger
+
+# Globals
+DSilHand_hasQuestStarted, Global 
+
+
+
+
+
+
+
+
+
+

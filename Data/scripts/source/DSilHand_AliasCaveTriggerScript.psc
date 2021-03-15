@@ -61,7 +61,7 @@ Function bonechillDSIlHandM50EventHandler(ObjectReference akTriggerRef)
             bonechillDSilHandM50ForceCombat()
         endif
     else 
-        Debug.MessageBox(THIS_FILE + "**ERROR** DSilHand_M50WolfAmbush is NULL or not initialized!!" )
+        Debug.Trace(THIS_FILE + "**ERROR** DSilHand_M50WolfAmbush is NULL or not initialized!!", 2)
     endif 
 EndFunction
 

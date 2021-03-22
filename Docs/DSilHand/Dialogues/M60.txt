@@ -1,56 +1,82 @@
-[10]
-Stage: Once I arrived back at Gallows Rock, I discovered that the Companions have just assaulted our base. I must go inside and retake the fort.
-Objective: Investigate what happened to Gallows Rock Fort
+Quest M60: DSilHand_M60Retaliation
 
-[20]
-Stage: Once I arrived back at Gallows Rock, I discovered that the Companions have just assaulted our base. I must go inside and retake the fort.
-Objective: Kill all the Companions inside Gallows Rock
+DSilHand_M60_Guard
 
-[30]
-Stage: I was successful in countering the Companions' assault on Gallows Rock. However, Krev, our leader, perished in the battle. Now, I must discover what has happened. 
-Objective: Talk to a survival Silver Hand brother to discover what happened
+DSilHand_M60GU_Topic01
+D: ...
+Silver Hand Guard : Hurry, you must help us.
 
-[40]
-Stage: A silver hand brother asked me to go do Driftshade report Fjol about what has happened. Since Krev has died, Fjol must claim our leadership now.
-Objective: Notify Fjol about what happened on Gallows Rock
+DSilHand_M60GU_Topic02
+D: What happened?
+Silver Hand Guard : companions... th-they came sneaky, assaut the fort. They released those beasts from the cages. Please brother... avenge our shed blood.... ohhh
 
-[50]
-Stage: Once I retake the fort from the Companion’s assault, a silver hand brother told me I must go do Driftshade report Fjol about what has happened. Since Krev has died, Fjol is our leader right now. Fjol reveals secrets about his and Krev's past. Although his friend Krev died, he is not sad. Krev is certainly in Sovngarde at that very moment. He also informed me of plans to attack Jorrvaskr, so that we can end once and for all the lycanthropy infiltrated in the Companions.
-Objective: Attend to Krev Funeral
+DSilHand_M60_Sennar
+Stage 30
 
-[60]
-Stage: Once I retake the fort from the Companion’s assault, a silver hand brother told me I must go do Driftshade report Fjol about what has happened. Since Krev has died, Fjol is our leader right now. Fjol reveals secrets about his and Krev's past. Although his friend Krev died, he is not sad. Krev is certainly in Sovngarde at that very moment. He also informed me of plans to attack Jorrvaskr, so that we can end once and for all the lycanthropy infiltrated in the Companions.
-Objective: FINAL
-
-================
-
-Silver Hand Guard : hurry, you must help us.
-Dragon born : what happened?
-
-Silver Hand Guard : companions... th-they came sneaky, assaut the fort. They released those beasts on the cages…. Please brother… avenge our shed blood.... ohhh
-
---
-DSilHand_M60_Senaar
 DSilHand_M60SE_Topic01
+D: It 's done...
+Sennar: Yes, we did, we won the battle! But we lost our Leader, Krev. May his soul rest in peace in Sovngarde.
 
+DSilHand_M60SE_Topic02
+D: Any idea did they decide to attack us? 
+Sennar: We were waiting to be attacked in retaliation to Farkas and Njada's death. But they attacked sooner than we expected. 
+Sennar: Anyway, we had an important victory tonight. Krev must be proud of all of us now. Listen, Fjol needs to be notified of what happened. 
+Sennar: Since he was the second in charge, he must claim our leadership now.  
 
+DSilHand_M60SE_Topic03
+D: I'll notify him!
+Sennar: Good! We will be taking care of things here. We must clean up this mess, rebuild our defenses, and make the proper funerals. 
+Sennar: Fjol will tell us the next steps.
 
-[Dragonborn]:  It's done...
-[Silverhand]: Yes, we did, we won the battle! But we lost our Leader, Krev. May his soul rest in peace in Sovngarde.
+DSilHand_M60_FjolPlans
+Stage 40
 
-[Dragonborn]: Any idea why the Companions attacked today? 
-[Silverhand]: We were waiting to be attacked in retaliation to Farkas and Njada. But they attacked sooner than we expected. Anyway, we had an important victory! We defeated three members of the circle. Krev must be proud of us now. Fjol must be notified of what happened. He is the first after Krev... he must claim our leadership!
+DSilHand_M60FP_Topic01
+D: ...
+Fjol: Come on in. What brings you here?
 
-[Dragonborn]: I’ll notify him!
-[Silverhand]: Good! We will be taking care of things here. We must rebuild our defenses, and make a proper funeral for our fallen brothers. 
+DSilHand_M60FP_Topic02
+D: The companions have just attacked Gallows Rock. But we defeated them. 
+Fjol: By the nine! Did we have many casualties?
 
+DSilHand_M60FP_Topic03
+D: Yes... many brothers  have fallen, including our leader Krev...
+Fjol: No... Krev... My best friend... but... He must be  better  than us now, for sure! 
+Fjol: He must be drinking the most delicious mead, with the most delightful woman in Sovngarde. 
+Fjol: And about the Companions... How many of them were werewolves? 
 
+DSilHand_M60FP_Topic04
+D: Three, including  Aela and Skjor!
+Fjol: Even though many of us have perished, this was a great victory for sure.
+Fjol: You know I must tell you some things... 
 
+DSilHand_M60FP_Topic05
+D: What things?
+Fjol: A long time ago... Krev and I were Companions too. We were almost like twin brothers, we were inseparable in the battles. 
+Fjol: But one day...  We both were invited to ascend to the circle. 
+Fjol: Fortunately, Krev noticed what the circle was about, and we fled before being forced to drink the cursed wolf blood. 
+Fjol: Since then, we have been fighting for the Silver Hand. They didn't know... but Krev's mother was murdered by a werewolf... 
+Fjol: We have been hiring valiant warriors who hate werewolves and Daedra more than anything.  
+Fjol: Now, the Silver Hand had grown stronger than ever.  But enough talk. We must celebrate our victory.  Come on, let's celebrate!
 
+DSilHand_M60_FjolDiscourse
+Stage 50
 
+DSilHand_M60FD_Topic01
+D: ...
+Fjol: Listen brothers of Hunt! We just had a victory over the Companions. They assaulted Gallows Rock, but we were able to defeat them! 
+Fjol: And two members of the circle, Aela and Skjor have fallen. Unfortunately our former leader Krev has fallen. 
+Fjol: He guided us for our these years, and turned the Silverhands a group stronger than ever.
+Fjol: Now we celebrate for the honor of his name, and his glorious entrance to Sovngarde!
 
+DSilHand_M60_FjolParticular
+Stage 60
 
+DSilHand_M60FPt_Topic01
+D: ...
+Fjol: And as a reward for the bravery and efforts annihilating wolfes, I offer you the leadership of the Gallows Rock fort. Do you accept?
 
-
-
+DSilHand_M60FP_Topic02
+D: Yes, I accept!
+Fjol: Now you are officially an Stronghold Chief, and the second on the succession line of our group. Congratulations! Please, accept these gifts.
 

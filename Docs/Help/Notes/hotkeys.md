@@ -57,7 +57,7 @@ COCMarkerHeading
 
 # Skyrim Console
 
-## Comandos de Cnsole Uteis
+## Comandos de Console Uteis
 
 * Page Up and Page Down keys can be used to scroll up or down the Console gui
 

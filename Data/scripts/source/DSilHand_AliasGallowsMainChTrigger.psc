@@ -34,7 +34,6 @@ Event OnTriggerEnter(ObjectReference akTriggerRef)
     if(DSilHand_M50WolfAmbush != None)
         ; The last quest must be completed to enable this trigger to be activated
         if( (akTriggerRef == Game.GetPlayer()) && (DSilHand_M50WolfAmbush.GetStage() >= M50_FINAL_STAGE ))
-            Debug.MessageBox("Test m60-01")
 			; Move Circle Actors to Gallows' Main Chamber
             Debug.Trace(THIS_FILE + " -- The player activated the trigger DSilHand_GallowsMainChamberTrigger!")
             ; Move Circle members (Aela and Skjor)

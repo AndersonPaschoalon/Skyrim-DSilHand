@@ -2,6 +2,26 @@
 ;NEXT FRAGMENT INDEX 17
 Scriptname QF_DSilHand_M60Retaliation_020092FE Extends Quest Hidden
 
+;BEGIN ALIAS PROPERTY AelaReal
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_AelaReal Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY GallowsInTrigger
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_GallowsInTrigger Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY CompImp1
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CompImp1 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY CompRed2
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CompRed2 Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY CompNord4
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_CompNord4 Auto
@@ -12,24 +32,9 @@ ReferenceAlias Property Alias_CompNord4 Auto
 ReferenceAlias Property Alias_SkjorReal Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY CompNord3
+;BEGIN ALIAS PROPERTY CompBret1
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CompNord3 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Fjol
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Fjol Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY KrevBody
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_KrevBody Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Sennar
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Sennar Auto
+ReferenceAlias Property Alias_CompBret1 Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Skjor
@@ -37,14 +42,9 @@ ReferenceAlias Property Alias_Sennar Auto
 ReferenceAlias Property Alias_Skjor Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Aela
+;BEGIN ALIAS PROPERTY CompRed1
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Aela Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CompBret1
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CompBret1 Auto
+ReferenceAlias Property Alias_CompRed1 Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY MainChamberTrigger
@@ -52,14 +52,19 @@ ReferenceAlias Property Alias_CompBret1 Auto
 ReferenceAlias Property Alias_MainChamberTrigger Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY CompRed2
+;BEGIN ALIAS PROPERTY KrevBody
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CompRed2 Auto
+ReferenceAlias Property Alias_KrevBody Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY CompImp1
+;BEGIN ALIAS PROPERTY CompNord3
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CompImp1 Auto
+ReferenceAlias Property Alias_CompNord3 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Aela
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Aela Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Krev
@@ -67,71 +72,15 @@ ReferenceAlias Property Alias_CompImp1 Auto
 ReferenceAlias Property Alias_Krev Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY CompRed1
+;BEGIN ALIAS PROPERTY Fjol
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CompRed1 Auto
+ReferenceAlias Property Alias_Fjol Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY GallowsInTrigger
+;BEGIN ALIAS PROPERTY Sennar
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GallowsInTrigger Auto
+ReferenceAlias Property Alias_Sennar Auto
 ;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY AelaReal
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_AelaReal Auto
-;END ALIAS PROPERTY
-
-;BEGIN FRAGMENT Fragment_15
-Function Fragment_15()
-;BEGIN CODE
-; Dragonborn listen to Fjol in particular
-Debug.Trace("(DSilHand_M60) -- M60 Stage 60")
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_16
-Function Fragment_16()
-;BEGIN CODE
-; Quest completed 
-Debug.Trace("(DSilHand_M60) -- M60 Stage 70")
-
-; Add Fjol Gift
-Debug.Trace("-- Adding Fjol Gift")
-Game.GetPlayer().AddItem(ArmorSteelPlateCuirass)
-Game.GetPlayer().AddItem(ArmorSteelPlateBoots)
-Game.GetPlayer().AddItem(ArmorSteelPlateGauntlets)
-Game.GetPlayer().AddItem(ArmorSteelPlateHelmet)
-Game.GetPlayer().AddItem(DSilHand_TemperedSilverGreatsword)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_12
-Function Fragment_12()
-;BEGIN CODE
-; Dragonborn have killed all Companions invaders on Gallows Rock
-Debug.Trace("-- M60 Stage 30")
-Debug.Trace("-- Dragonborn killed all Companions members. Now Need to talk with Senaar")
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_8
-Function Fragment_8()
-;BEGIN AUTOCAST TYPE DSilHand_M60Helper
-Quest __temp = self as Quest
-DSilHand_M60Helper kmyQuest = __temp as DSilHand_M60Helper
-;END AUTOCAST
-;BEGIN CODE
-; DSilHand_M60Helper, Stage 10
-; Before entering on Gallows Rock
-Debug.Trace("(DSilHand_M60) -- M60 Stage 10")
-Debug.Trace("(DSilHand_M60) -- Setup Stage(10) Enables the conversation with the Gallows Guard!" )
-;END CODE
-EndFunction
-;END FRAGMENT
 
 ;BEGIN FRAGMENT Fragment_6
 Function Fragment_6()
@@ -142,6 +91,15 @@ DSilHand_M60Helper kmyQuest = __temp as DSilHand_M60Helper
 ;BEGIN CODE
 ; Start-Up stage.
 Debug.Trace("(DSilHand_M60) -- Setup Stage() Start-Up Stage!" )
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_13
+Function Fragment_13()
+;BEGIN CODE
+; Dragonborn goes to Driftshade listen to Fjol
+Debug.Trace("(DSilHand_M60) -- M60 Stage 40")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -191,6 +149,40 @@ Alias_KrevBody.GetActorReference().Enable()
 EndFunction
 ;END FRAGMENT
 
+;BEGIN FRAGMENT Fragment_15
+Function Fragment_15()
+;BEGIN CODE
+; Dragonborn listen to Fjol in particular
+Debug.Trace("(DSilHand_M60) -- M60 Stage 60")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_8
+Function Fragment_8()
+;BEGIN AUTOCAST TYPE DSilHand_M60Helper
+Quest __temp = self as Quest
+DSilHand_M60Helper kmyQuest = __temp as DSilHand_M60Helper
+;END AUTOCAST
+;BEGIN CODE
+; DSilHand_M60Helper, Stage 10
+; Before entering on Gallows Rock
+Debug.Trace("(DSilHand_M60) -- M60 Stage 10")
+Debug.Trace("(DSilHand_M60) -- Setup Stage(10) Enables the conversation with the Gallows Guard!" )
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_12
+Function Fragment_12()
+;BEGIN CODE
+; Dragonborn have killed all Companions invaders on Gallows Rock
+Debug.Trace("-- M60 Stage 30")
+Debug.Trace("-- Dragonborn killed all Companions members. Now Need to talk with Senaar")
+;END CODE
+EndFunction
+;END FRAGMENT
+
 ;BEGIN FRAGMENT Fragment_14
 Function Fragment_14()
 ;BEGIN CODE
@@ -201,11 +193,23 @@ Debug.Trace("(DSilHand_M60) -- M60 Stage 50")
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_13
-Function Fragment_13()
+;BEGIN FRAGMENT Fragment_16
+Function Fragment_16()
 ;BEGIN CODE
-; Dragonborn goes to Driftshade listen to Fjol
-Debug.Trace("(DSilHand_M60) -- M60 Stage 40")
+; Quest completed 
+Debug.Trace("(DSilHand_M60) -- M60 Stage 70")
+
+; Add Fjol Gift
+Debug.Trace("-- Adding Fjol Gift")
+Game.GetPlayer().AddItem(ArmorSteelPlateCuirass)
+Game.GetPlayer().AddItem(ArmorSteelPlateBoots)
+Game.GetPlayer().AddItem(ArmorSteelPlateGauntlets)
+Game.GetPlayer().AddItem(ArmorSteelPlateHelmet)
+Game.GetPlayer().AddItem(DSilHand_TemperedSilverGreatsword)
+
+; Advance the next quest stage to setup stage
+Debug.Trace("(DSilHand_M60) -- Advance the next quest DSilHand_M70 to SETUP STAGE (Stage 5)")
+DSilHand_M70UncPast.SetStage(5);
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -251,3 +255,6 @@ Armor Property ArmorSteelPlateHelmet  Auto
 
 WEAPON Property DSilHand_TemperedSilverGreatsword  Auto  
 {Tempered Silver Greatsword gifted by Fjol, at the end of M60 quest. }
+
+Quest Property DSilHand_M70UncPast  Auto  
+{Reference to the next quest.}

@@ -7,7 +7,8 @@ DSilHand_M70FJ_Topic01
 D: What are going to be our next moves?
 Fjol: I just received a letter from a Silver brother who was investigating clues of the last missing Wuuthrad's  fragment in Morrowind. 
 Fjol: He discovered an ax  fragment was displayed many years ago at the Mournhold Museum of Artifacts, but disappeared during the Argonian invasion. 
-Fjol: But rumors emerged that a group of bandits found this fragment. They were last seen crossing the border near Riften, and are housed in Broken Helm Hollow. 
+Fjol: But rumors emerged that a group of bandits found this fragment. 
+Fjol: They were last seen crossing the border near Riften, and are housed in Broken Helm Hollow. 
 Fjol: Do you think you can handle this?
 
 DSilHand_M70FJ_Topic02

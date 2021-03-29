@@ -1,11 +1,11 @@
-Scriptname DSilHand_M70AliasFrag02 extends ReferenceAlias  
-{DSilHand: Script for Frag02 of Ysgramor Axe.}
+Scriptname DSilHand_M70AliasFrag01 extends ReferenceAlias  
+{DSilHand: Script for Frag01 of Ysgramor Axe.}
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; MEMBER VARIABLES
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-String THIS_FILE = "(DSilHand_M70AliasFrag02.psc) "
+String THIS_FILE = "(DSilHand_M70AliasFrag01.psc) "
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -21,7 +21,7 @@ String THIS_FILE = "(DSilHand_M70AliasFrag02.psc) "
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Event OnContainerChanged(ObjectReference akNewContainer, ObjectReference akOldContainer)
     ; If the player have grabed the Item from the chest
-    Debug.Trace(THIS_FILE + " -- OnContainerChanged()  for Frag02 GetOwningQuest()<" + GetOwningQuest() + ">")
+    Debug.Trace(THIS_FILE + " -- OnContainerChanged()  for Frag01 GetOwningQuest()<" + GetOwningQuest() + ">")
     if (akNewContainer == Game.GetPlayer() && GetOwningQuest().GetStage() >= 10)
         Debug.Trace(THIS_FILE + "-- Item Frag01 moved to player inventory!")
         GetOwningQuest().SetObjectiveCompleted(10)

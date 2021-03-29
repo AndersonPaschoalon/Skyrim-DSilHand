@@ -8,7 +8,7 @@ Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 ; Fjol sends Dragonborn to search for the last Ax fragment 
 Debug.Trace("(DSilHand M70) -- Set Stage/Objective to 10")
-GetOwningQuest().SetObjectiveCompleted(10)
+GetOwningQuest().SetObjectiveDisplayed(10)
 GetOwningQuest().SetStage(10);
 ;END CODE
 EndFunction

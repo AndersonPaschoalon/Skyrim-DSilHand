@@ -93,13 +93,15 @@ ReferenceAlias Property Fjol  Auto
 
 ReferenceAlias Property Krev  Auto  
 
-ReferenceAlias Property Frag02  Auto  
+ReferenceAlias Property Frag01  Auto  
 
 ReferenceAlias Property chest  Auto  
 
 ReferenceAlias Property xMarkGrave  Auto  
 
 ReferenceAlias Property xMarkSovngarde  Auto  
+
+SPELL Property AbFXSovengardeGlow  Auto  
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;  MEMBER VARIABLES
@@ -119,8 +121,13 @@ String THIS_FILE = "(DSilHand_M70Helper.psc) "
 Function moveKrevToSovngarde()
     Debug.Trace(THIS_FILE + " -- moveKrevToSovngarde()")
     Actor krevActor = Krev.GetReference() as Actor
+    krevActor.Enable()
     ObjectReference mark = xMarkSovngarde.GetReference() as ObjectReference
     moveSingleNpc(krevActor, mark, "Krev -> Sovngarde")
+    Debug.Trace(THIS_FILE + " -- make krev glow")
+    AbFXSovengardeGlow.Cast(krevActor, krevActor)
+    Debug.Trace(THIS_FILE + " -- make krev invulnerable")
+    krevActor.GetActorBase().SetInvulnerable(true)
 endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -252,9 +259,10 @@ bool Function enableSilverhandGraves()
     ObjectReference g14 = Grave14.GetReference() as ObjectReference   
     ObjectReference g15 = Grave15.GetReference() as ObjectReference          
     int nDeadSilHand = calcDeadSilverhand()
+    Debug.MessageBox("(DSilHand_M70Helper.psc) -- nDeadSilHand:<" + nDeadSilHand + ">");
     ; Enable graves
     Debug.Trace(THIS_FILE + " -- Enable Graves:<" + nDeadSilHand + ">")
-    if(nDeadSilHand >= 01)
+    if(nDeadSilHand >= 1)
         if(g01 != None)
             g01.Enable()
         else 
@@ -262,7 +270,7 @@ bool Function enableSilverhandGraves()
         endif
     endif
 
-    if(nDeadSilHand >= 02)
+    if(nDeadSilHand >= 2)
         if(g02 != None) 
             g02.Enable()
         else 
@@ -270,7 +278,7 @@ bool Function enableSilverhandGraves()
         endif
     endif
 
-    if(nDeadSilHand >= 03) 
+    if(nDeadSilHand >= 3) 
         if(g03 != None)
             g03.Enable()
         else 
@@ -278,7 +286,7 @@ bool Function enableSilverhandGraves()
         endif
     endif
 
-    if(nDeadSilHand >= 04)
+    if(nDeadSilHand >= 4)
         if(g04 != None) 
             g04.Enable()
         else 
@@ -286,7 +294,7 @@ bool Function enableSilverhandGraves()
         endif
     endif
 
-    if(nDeadSilHand >= 05)
+    if(nDeadSilHand >= 5)
         if(g05 != None) 
             g05.Enable()
         else 
@@ -294,7 +302,7 @@ bool Function enableSilverhandGraves()
         endif
     endif
 
-    if(nDeadSilHand >= 06) 
+    if(nDeadSilHand >= 6) 
         if(g06 != None)
             g06.Enable()
         else 
@@ -302,7 +310,7 @@ bool Function enableSilverhandGraves()
         endif
     endif
 
-    if(nDeadSilHand >= 07) 
+    if(nDeadSilHand >= 7) 
         if(g07 != None)
             g07.Enable()
         else 
@@ -310,7 +318,7 @@ bool Function enableSilverhandGraves()
         endif
     endif
 
-    if(nDeadSilHand >= 08)
+    if(nDeadSilHand >= 8)
         if(g08 != None) 
             g08.Enable()
         else 
@@ -318,7 +326,7 @@ bool Function enableSilverhandGraves()
         endif
     endif
 
-    if(nDeadSilHand >= 09) 
+    if(nDeadSilHand >= 9) 
         if(g09 != None)
             g09.Enable()
         else 
@@ -428,6 +436,8 @@ int Function calcDeadSilverhand()
     if(sh01 != None)    
         if(sh01.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh01<" + sh01 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh01 IS NULL", 2)    
@@ -436,6 +446,8 @@ int Function calcDeadSilverhand()
     if(sh02 != None)
         if(sh02.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh02<" + sh02 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh02 IS NULL", 2)    
@@ -444,6 +456,8 @@ int Function calcDeadSilverhand()
     if(sh03 != None) 
         if(sh03.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh03<" + sh03 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh03 IS NULL", 2)    
@@ -452,6 +466,8 @@ int Function calcDeadSilverhand()
     if(sh04 != None)
         if(sh04.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh04<" + sh04 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh04 IS NULL", 2)    
@@ -460,6 +476,8 @@ int Function calcDeadSilverhand()
     if(sh05 != None)
         if(sh05.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh05<" + sh05 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh05 IS NULL", 2)    
@@ -468,6 +486,8 @@ int Function calcDeadSilverhand()
     if(sh06 != None)            
         if(sh06.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh06<" + sh06 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh06 IS NULL", 2)    
@@ -476,6 +496,8 @@ int Function calcDeadSilverhand()
     if(sh07 != None)
         if(sh07.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh07<" + sh07 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh07 IS NULL", 2)    
@@ -484,6 +506,8 @@ int Function calcDeadSilverhand()
     if(sh08 != None)            
         if(sh08.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh08<" + sh08 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh08 IS NULL", 2)    
@@ -492,6 +516,8 @@ int Function calcDeadSilverhand()
     if(sh09 != None)            
         if(sh09.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh09<" + sh09 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh09 IS NULL", 2)    
@@ -500,6 +526,8 @@ int Function calcDeadSilverhand()
     if(sh10 != None)            
         if(sh10.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh10<" + sh10 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh10 IS NULL", 2)    
@@ -508,6 +536,8 @@ int Function calcDeadSilverhand()
     if(sh11 != None)            
         if(sh11.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh11<" + sh11 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh11 IS NULL", 2)    
@@ -516,6 +546,8 @@ int Function calcDeadSilverhand()
     if(sh12 != None)            
         if(sh12.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh12<" + sh12 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh12 IS NULL", 2)    
@@ -524,6 +556,8 @@ int Function calcDeadSilverhand()
     if(sh13 != None)            
         if(sh13.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh013<" + sh13 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh13 IS NULL", 2)    
@@ -532,6 +566,8 @@ int Function calcDeadSilverhand()
     if(sh14 != None)            
         if(sh14.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh14<" + sh14 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh14 IS NULL", 2)    
@@ -540,6 +576,8 @@ int Function calcDeadSilverhand()
     if(sh15 != None)            
         if(sh15.IsDead()) 
             retVal = retVal + 1
+        else 
+            Debug.Trace(THIS_FILE + " sh15<" + sh15 + "> is Alive")
         endif
     else 
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh15 IS NULL", 2)    
@@ -570,6 +608,7 @@ Function moveSingleNpc(Actor npc, ObjectReference marker, String logInfo)
         endif
     endif
 endFunction
+
 
 
 

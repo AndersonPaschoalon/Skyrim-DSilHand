@@ -93,10 +93,10 @@ bool Function invadersOutsideAreDead()
     Actor CompBret1 = Alias_CompBret1.GetReference() as Actor
     Actor CompImp1 = Alias_CompImp1.GetReference() as Actor
     if( (CompBret1 == None) || (CompImp1 == None) )
-        Debug.Trace(THIS_FILE + " ** ERROR ** SOME REFERENCES ARE EMPTY!!")
-        Debug.Trace(THIS_FILE + " -- Script references:")
-        Debug.Trace(THIS_FILE + "    * CompBret1: <" + CompBret1 + ">")
-        Debug.Trace(THIS_FILE + "    * CompImp1: <" + CompImp1 + ">")
+        Debug.Trace(THIS_FILE + " ** ERROR ** SOME REFERENCES ARE EMPTY!!", 2)
+        Debug.Trace(THIS_FILE + " -- Script references:", 2)
+        Debug.Trace(THIS_FILE + "    * CompBret1: <" + CompBret1 + ">", 2)
+        Debug.Trace(THIS_FILE + "    * CompImp1: <" + CompImp1 + ">", 2)
         Debug.MessageBox("FATAL ERROR ON QUEST M60: EMPTY REFERENCES")
     else 
     
@@ -126,14 +126,14 @@ bool Function invadersInsideAreDead()
     Actor Aela = Alias_Aela.GetReference() as Actor
     Actor Skjol = Alias_Skjol.GetReference() as Actor
     if( (CompNord3 == None) || (CompNord4 == None) || (CompRed1 == None) || (CompRed2 == None) || (Aela == None) || (Skjol == None) )
-        Debug.Trace(THIS_FILE + " ** ERROR ** SOME REFERENCES ARE EMPTY!!")
-        Debug.Trace(THIS_FILE + " -- Script references:")
-        Debug.Trace(THIS_FILE + "    * CompNord3: <" + CompNord3 + ">")
-        Debug.Trace(THIS_FILE + "    * CompNord4: <" + CompNord4 + ">")
-        Debug.Trace(THIS_FILE + "    * CompRed1: <" + CompRed1 + ">")
-        Debug.Trace(THIS_FILE + "    * CompRed2: <" + CompRed2 + ">")
-        Debug.Trace(THIS_FILE + "    * Aela: <" + Aela + ">")
-        Debug.Trace(THIS_FILE + "    * Skjol: <" + Skjol + ">")
+        Debug.Trace(THIS_FILE + " ** ERROR ** SOME REFERENCES ARE EMPTY!!", 2)
+        Debug.Trace(THIS_FILE + " -- Script references:", 2)
+        Debug.Trace(THIS_FILE + "    * CompNord3: <" + CompNord3 + ">", 2)
+        Debug.Trace(THIS_FILE + "    * CompNord4: <" + CompNord4 + ">", 2)
+        Debug.Trace(THIS_FILE + "    * CompRed1: <" + CompRed1 + ">", 2)
+        Debug.Trace(THIS_FILE + "    * CompRed2: <" + CompRed2 + ">", 2)
+        Debug.Trace(THIS_FILE + "    * Aela: <" + Aela + ">", 2)
+        Debug.Trace(THIS_FILE + "    * Skjol: <" + Skjol + ">", 2)
         Debug.MessageBox("FATAL ERROR ON QUEST M60: EMPTY REFERENCES")
     else 
     
@@ -194,13 +194,13 @@ Function enableWerewolves()
         Debug.Trace(THIS_FILE + " -- Enable wildWerewolf 1"); 
         wildWerewolf1.Enable()
     else
-        Debug.Trace(THIS_FILE + " **ERROR** WerewolfWild1 is EMPTY!"); 
+        Debug.Trace(THIS_FILE + " **ERROR** WerewolfWild1 is EMPTY!", 2); 
     endif
     if(wildWerewolf2 != None)
         Debug.Trace(THIS_FILE + " -- Enable wildWerewolf 2"); 
         wildWerewolf2.Enable()
     else
-        Debug.Trace(THIS_FILE + " **ERROR** wildWerewolf2 is EMPTY!"); 
+        Debug.Trace(THIS_FILE + " **ERROR** wildWerewolf2 is EMPTY!", 2); 
     endif
 EndFunction
 
@@ -231,9 +231,9 @@ Function moveSingleNpc(Actor npc, ObjectReference marker, String logInfo)
         npc.SetPosition(marker.GetPositionX(), marker.GetPositionY(), marker.GetPositionZ())
     else 
         if(npc == None)
-            Debug.Trace(THIS_FILE + " **ERROR** npc param is EMPTY: " + logInfo)
+            Debug.Trace(THIS_FILE + " **ERROR** npc param is EMPTY: " + logInfo, 2)
         else
-            Debug.Trace(THIS_FILE + " **ERROR** marker param is EMPTY: " + logInfo)
+            Debug.Trace(THIS_FILE + " **ERROR** marker param is EMPTY: " + logInfo, 2)
         endif
     endif
 endFunction
@@ -265,7 +265,7 @@ EndFunction
 ; Move the Cricle members to Gallows Main Chamber. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function moveCircleActors()
-    Debug.MessageBox("** moveCircleActors")
+    Debug.Trace("** moveCircleActors")
     Actor aela = Alias_Aela.GetReference() as Actor
     Actor skjol = Alias_Skjol.GetReference() as Actor
     moveSingleNpc(aela, markAela, "aela -> markAela")
@@ -279,7 +279,7 @@ EndFunction
 ; Disable the Circle members for this quest.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function disableCircleMembers()
-    Debug.MessageBox("-- disableCircleMembers()")
+    Debug.Trace("-- disableCircleMembers()")
     Actor aela = Alias_Aela.GetReference() as Actor
     Actor skjol = Alias_Skjol.GetReference() as Actor
     aela.Disable()
@@ -293,7 +293,7 @@ EndFunction
 ; Enable the circle members for this quest.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function enableCircleMembers()
-    Debug.MessageBox("-- enableCircleMembers()")
+    Debug.Trace("-- enableCircleMembers()")
     Actor aela = Alias_Aela.GetReference() as Actor
     Actor skjol = Alias_Skjol.GetReference() as Actor    
     aela.Enable()
@@ -314,10 +314,10 @@ Function closeGallowsBarredDoor ()
     ; Check properties
     if( (DSilHand_GallowsBarredDoor == None) || (doorScript == None) || (linkedDoor == None))
         Debug.MessageBox("**FATAL ERROR ON QUEST M60** closeGallowsBarredDoor references are EMPTY");
-        Debug.Trace(THIS_FILE + "**FATAL ERROR ON QUEST M60** closeGallowsBarredDoor references are EMPTY");
-        Debug.Trace(THIS_FILE + "    * DSilHand_GallowsBarredDoor: <" + DSilHand_GallowsBarredDoor + ">")
-        Debug.Trace(THIS_FILE + "    * doorScript: <" + doorScript + ">")
-        Debug.Trace(THIS_FILE + "    * linkedDoor: <" + linkedDoor + ">")
+        Debug.Trace(THIS_FILE + "**FATAL ERROR ON QUEST M60** closeGallowsBarredDoor references are EMPTY", 2);
+        Debug.Trace(THIS_FILE + "    * DSilHand_GallowsBarredDoor: <" + DSilHand_GallowsBarredDoor + ">", 2)
+        Debug.Trace(THIS_FILE + "    * doorScript: <" + doorScript + ">", 2)
+        Debug.Trace(THIS_FILE + "    * linkedDoor: <" + linkedDoor + ">", 2)
     else 
         ; Closes the door
         if(DSilHand_GallowsBarredDoor.GetOpenState() == 1)
@@ -349,7 +349,7 @@ Function openWerewolfCage()
         DSilHand_GallowsImpJailDoor01.SetOpen(true)
         Debug.Trace(THIS_FILE + "-- Current Door(GallowsImpJailDoor01) State: " + DSilHand_GallowsImpJailDoor01.GetOpenState());
     else
-        Debug.Trace(THIS_FILE + " **ERROR** DSilHand_GallowsImpJailDoor01 REFERENCE IS EMPTY!!");
+        Debug.Trace(THIS_FILE + " **ERROR** DSilHand_GallowsImpJailDoor01 REFERENCE IS EMPTY!!", 2);
     endif
 EndFunction
 

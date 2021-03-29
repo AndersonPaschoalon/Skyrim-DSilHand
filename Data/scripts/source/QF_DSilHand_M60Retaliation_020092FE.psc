@@ -208,8 +208,8 @@ Game.GetPlayer().AddItem(ArmorSteelPlateHelmet)
 Game.GetPlayer().AddItem(DSilHand_TemperedSilverGreatsword)
 
 ; Advance the next quest stage to setup stage
-Debug.Trace("(DSilHand_M60) -- Advance the next quest DSilHand_M70 to SETUP STAGE (Stage 5)")
-DSilHand_M70UncPast.SetStage(5);
+;Debug.Trace("(DSilHand_M60) -- Advance the next quest DSilHand_M70 to SETUP STAGE (Stage 5)")
+;DSilHand_M70UncPast.SetStage(5);
 ;END CODE
 EndFunction
 ;END FRAGMENT

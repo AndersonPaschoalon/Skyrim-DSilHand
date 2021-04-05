@@ -8,6 +8,8 @@ SPELL Property WerewolfChangeFX  Auto
 {WerewolfChangeFX werewolf spell}
 Race Property WerewolfBeastRace  Auto  
 {WerewolfBeastRace werewolf race reference.}
+Actor Property AelaTheHuntress  Auto  
+{Actual Aela reference}
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -172,5 +174,8 @@ EndEvent
 Event OnDeath(Actor akKiller)
     Debug.Trace(THIS_FILE + " -- OnDeath: advenceQuestStage()")
     advenceQuestStage()
+    AelaTheHuntress.Disable()
 EndEvent
+
+
 

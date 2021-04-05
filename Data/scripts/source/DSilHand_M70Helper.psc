@@ -583,7 +583,8 @@ int Function calcDeadSilverhand()
         Debug.Trace(THIS_FILE + " **ERROR** SilverHand Actor sh15 IS NULL", 2)    
     endif  
 
-    Debug.Trace(THIS_FILE + " -- calcDeadSilverhand ret val:" + retVal)        
+    Debug.Trace(THIS_FILE + " -- calcDeadSilverhand ret val:" + retVal)
+    return retVal        
 endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

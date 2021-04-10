@@ -231,8 +231,10 @@ https://www.youtube.com/watch?v=j4HkKToVtMc&ab_channel=Darkfox127
 
 
 
+#  Antony Bellingham
 
-
+* []  Skyrim: Creation Kit Tutorial - Enable/Disable Multiple Objects.Trigger Boxes, Xmarkers & Script 
+https://www.youtube.com/watch?v=UQvM520pyjo&t=277s
 
 
 

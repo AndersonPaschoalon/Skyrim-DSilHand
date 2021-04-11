@@ -1,0 +1,50 @@
+# Quest M40
+
+## DSilHand_M40_Start
+
+DSilHand_M40ST_Topic01
+D: ...
+Fjol: Welcome brother. Let's recover the fragment inside this tomb.
+Fjol: The rest of the men are already inside excavating. But beware. The Companions may be coming as well. Be ready to fight. 
+
+DSilHand_M40ST_Topic02
+D: ...
+Dragonborn: Let's do it!
+
+## DSilHand_M40_AfterBattle
+
+DSilHand_M40AB_Topic01
+D: ...
+Fjol: Great battle follow companion. We just killed one of the members of the Circle. 
+Fjol: That's the "beast blood gift" they say. I call it daedric abomination...  Anyway, let's continue!
+Fjol: Let's call the brothers inside to help us. 
+
+
+DSilHand_M40_CallFollower1
+DSilHand_M40CF1_Topic01
+D: Follow me!
+Silver Hand: Go ahead, I'll stand guard!
+
+DSilHand_M40_CallFollower2
+DSilHand_M40CF2_Topic01
+D: Follow me!
+Silver Hand: Lead the way!
+
+DSilHand_M40_Fagment
+
+DSilHand_M40FG_Topic01
+D: I found the Fragment!
+Fjol: Great. We now have seven fragments. The Companions four.  There is only one lost piece...
+
+DSilHand_M40FG_Topic02
+D: And do you know where is it?
+Fjol: To be fair, I don't know... We have been investigating for decades where it may be. Some clues, but no confirmation...
+
+DSilHand_M40_Krev
+
+DSilHand_M40KR_Topic03
+D: I found the Wuuthrad fragment and gave it to Fjol.
+Krev: Great work soldier. Now we have enough clues you are worth and thrustable. 
+Krev: Take this armor and weapon as a reward for your efforts. I promote you to  a silverhand hunter. 
+Krev: Congratulations. As reward for your efforts, take this bear armour and this greatsword.  
+

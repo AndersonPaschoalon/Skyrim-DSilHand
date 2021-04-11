@@ -27,6 +27,7 @@ Bool completeQuest = false
 ; Complete the quest M50 when the player arrives back to Gallows Rock.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Event OnTriggerEnter(ObjectReference akTriggerRef)
+    ; TODO checar se e o jogador que entra em gallows rock...
     if(DSilHand_M50WolfAmbush != None)
         if(DSilHand_M50WolfAmbush.GetStage() == 30 && completeQuest == false)
             DSilHand_M50WolfAmbush.SetObjectiveCompleted(30)

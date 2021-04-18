@@ -171,17 +171,23 @@ bool Function companionsAttack(int delayTime)
     endif
     moveSingleNpc(farkasObj, markStart, "Farkas -> markStart")
     moveSingleNpc(nord01Obj, markStart, "Nord01 -> markStart")
+    ; 4.  Wait the Delay time, to complete the objective "Explore dustmans cairn"
+    Debug.Trace(THIS_FILE + " -- Wait the Delay time, to complete the objective Explore dustmans cairn")
+    if (delayTime > 0)
+        Utility.Wait(delayTime) 
+    endif
     ; 2.  Make them start to run to the player
-    Debug.Trace(THIS_FILE + " -- 2.  Make them start to run to the player")    
-    farkasObj.PathToReference(Game.GetPlayer(), 1)
-    nord01Obj.PathToReference(Game.GetPlayer(), 1)
+    Debug.Trace(THIS_FILE + " -- 2.  Make them start to run to the player")
+    farkasObj.EvaluatePackage()
+    nord01Obj.EvaluatePackage()
+    bool farkasObjRet = farkasObj.PathToReference(Game.GetPlayer(), 1)
+    bool nord01ObjRet = nord01Obj.PathToReference(Game.GetPlayer(), 1)
+    ; DELETE
+    Debug.MessageBox("farkasObjRet:" + farkasObjRet + ", nord01ObjRet:" + nord01ObjRet)
     ; 3.  Make them invulnerable
     Debug.Trace(THIS_FILE + " -- 3.  Make them invulnerable")    
     farkasObj.GetActorBase().SetInvulnerable(true)
     nord01Obj.GetActorBase().SetInvulnerable(true)
-    ; 4.  Wait the Delay time, to complete the objective "Explore dustmans cairn"
-    Debug.Trace(THIS_FILE + " -- Wait the Delay time, to complete the objective Explore dustmans cairn")
-    Utility.Wait(delayTime)
     ; 5.  Complete the objective "Explore dustmans cairn" and setup "Kill Farkas"
     Debug.Trace(THIS_FILE + " -- 5.  Complete the objective Explore dustmans cairn and setup Kill Farkas")
     Debug.Trace(THIS_FILE + " -- Set Stage STAGE_KILL_FARKAS");
@@ -257,6 +263,7 @@ Function moveSilverToDriftshade()
     moveSingleNpc(s14, m14, moveMsg + "s14 => m14")
     moveSingleNpc(s15, m15, moveMsg + "s15 => m15")
     moveSingleNpc(s16, m16, moveMsg + "s16 => m16")
+    s01.EnableAI(false)
 endfunction
 
 

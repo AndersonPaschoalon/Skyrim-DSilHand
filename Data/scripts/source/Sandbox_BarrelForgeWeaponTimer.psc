@@ -1,0 +1,1 @@
+Scriptname Sandbox_BarrelForgeWeaponTimer extends ObjectReference  

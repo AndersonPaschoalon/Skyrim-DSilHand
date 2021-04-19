@@ -1,16 +1,16 @@
 ;BEGIN FRAGMENT CODE - Do not edit anything between this and the end comment
 ;NEXT FRAGMENT INDEX 1
-Scriptname DSilHand_M40_TIF__0202BED9 Extends TopicInfo Hidden
+Scriptname DSilHand_M40_TIF__0202EF5A Extends TopicInfo Hidden
 
 ;BEGIN FRAGMENT Fragment_0
 Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
-; Dragonborn talks with a Silver Hand to follow him
-Debug.Trace("(DSilHand_M40) -- Dragonborn: Follow Me")
-Debug.Trace("(DSilHand_M40) -- Silver Hand: lead the way!")
-Debug.Trace("(DSilHand_M40) -- Running on actor <" + akSpeaker + ">")
-akSpeaker.EvaluatePackage()
+; Dragonborn finish the talk with Fjol
+; Now Dragonborn giver the fragment to Fjol, and go talk with Krev
+GetOwningQuest().SetObjectiveCompleted(50)
+GetOwningQuest().SetObjectiveDisplayed(60)
+GetOwningQuest().SetStage(60)
 ;END CODE
 EndFunction
 ;END FRAGMENT

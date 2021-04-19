@@ -182,8 +182,6 @@ bool Function companionsAttack(int delayTime)
     nord01Obj.EvaluatePackage()
     bool farkasObjRet = farkasObj.PathToReference(Game.GetPlayer(), 1)
     bool nord01ObjRet = nord01Obj.PathToReference(Game.GetPlayer(), 1)
-    ; DELETE
-    Debug.MessageBox("farkasObjRet:" + farkasObjRet + ", nord01ObjRet:" + nord01ObjRet)
     ; 3.  Make them invulnerable
     Debug.Trace(THIS_FILE + " -- 3.  Make them invulnerable")    
     farkasObj.GetActorBase().SetInvulnerable(true)

@@ -101,7 +101,7 @@ EndEvent
 ; to be killed on the second
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Event OnEnterBleedout()
-    Debug.Trace("We entered bleedout...")
+    Debug.Trace(THIS_FILE + "We entered bleedout...")
     Actor currentActor = GetActorRef()
     ; Enable transformation
     if(enableTransformation == True)

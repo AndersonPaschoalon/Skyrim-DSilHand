@@ -34,11 +34,11 @@ DSilHand_M40_Fagment
 
 DSilHand_M40FG_Topic01
 D: I found the Fragment!
-Fjol: Great. We now have seven fragments. The Companions four.  There is only one lost piece...
+Fjol: Great! We now have seven fragments. The Companions four.  There is only one lost piece...
 
 DSilHand_M40FG_Topic02
 D: And do you know where is it?
-Fjol: To be fair, I don't know... We have been investigating for decades where it may be. Some clues, but no confirmation...
+Fjol: To be fair, I don't know yet... We have been investigating for decades where it may be. Some clues, but no confirmation...
 
 DSilHand_M40_Krev
 

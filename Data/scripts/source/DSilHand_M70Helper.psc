@@ -259,7 +259,7 @@ bool Function enableSilverhandGraves()
     ObjectReference g14 = Grave14.GetReference() as ObjectReference   
     ObjectReference g15 = Grave15.GetReference() as ObjectReference          
     int nDeadSilHand = calcDeadSilverhand()
-    Debug.MessageBox("(DSilHand_M70Helper.psc) -- nDeadSilHand:<" + nDeadSilHand + ">");
+    Debug.Trace("(DSilHand_M70Helper.psc) -- nDeadSilHand:<" + nDeadSilHand + ">");
     ; Enable graves
     Debug.Trace(THIS_FILE + " -- Enable Graves:<" + nDeadSilHand + ">")
     if(nDeadSilHand >= 1)

@@ -17,9 +17,11 @@ ReferenceAlias Property Nord01  Auto
 String THIS_FILE = "(DSilHand_M40AliasFarkasScript.psc) "
 Int nBleedout = -1
 Bool enableTransformation = False
-Int STAGE_AFTER_BATTLE = 40
 Int OBJECTIVE_KILL_FARKAS = 30
 Int OBJECTIVE_KILL_FARKAS_NEXT = 40
+; Temporary stage to set Fjol ForceGreeging
+; Int STAGE_AFTER_BATTLE = 40
+Int STAGE_AFTER_BATTLE = 35
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; FUNCTIONS

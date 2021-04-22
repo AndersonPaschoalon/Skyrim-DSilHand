@@ -7,6 +7,7 @@ Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 Debug.Trace("(DSilHand_M50_TIF) -- Stage 10")
+GetOwningQuest().Start()
 GetOwningQuest().SetStage(10)
 Debug.Trace("(DSilHand_M50_TIF) -- ObjectiveDisplayed 10")
 GetOwningQuest().SetObjectiveDisplayed(10)

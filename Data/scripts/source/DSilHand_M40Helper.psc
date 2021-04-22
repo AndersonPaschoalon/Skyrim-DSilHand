@@ -105,10 +105,14 @@ int    STAGE_KILL_FARKAS = 30
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function moveSingleNpc(Actor npc, ObjectReference marker, String logInfo)
     if( (npc != None) && (marker != None))
-        Debug.Trace(THIS_FILE + " moving NPC " + logInfo)
-        npc.MoveTo(marker)
-        npc.Enable()
-        npc.SetPosition(marker.GetPositionX(), marker.GetPositionY(), marker.GetPositionZ())
+        if ( npc.IsDead() == false)
+            Debug.Trace(THIS_FILE + " moving NPC " + logInfo)
+            npc.MoveTo(marker)
+            ;npc.Enable()
+            npc.SetPosition(marker.GetPositionX(), marker.GetPositionY(), marker.GetPositionZ())
+        else
+            Debug.Trace(THIS_FILE + " NPC:<" +npc + "> is Dead, cannot execute move: " +  logInfo)
+        endif
     else 
         if(npc == None)
             Debug.Trace(THIS_FILE + " **ERROR** npc param is EMPTY: " + logInfo, 2)
@@ -123,12 +127,10 @@ endFunction
 ;  Input: delay time this function will take to complete the objective
 ; 
 ; Setup the enviroment of the companions atack:
-; 1 . Move Farkas and Nor01 to the starting point
-; 2.  Make them start to run to the player
-; 3.  Make them invulnerable
-; 4.  Wait the Delay time, to complete the objective "Explore dustmans cairn"
-; 5.  Complete the objective "Explore dustmans cairn" and setup "Kill Farkas"
-; 6.  Make them vulnerable once again
+; 1 . Move Farkas and Nor01 to the starting point and disable original farkas
+; 2.  Wait the Delay time, to complete the objective "Explore dustmans cairn"
+; 3.  Complete the objective "Explore dustmans cairn" and setup "Kill Farkas"
+; 4.  Make them start to run to the player
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 bool Function companionsAttack(int delayTime)
     Debug.Trace(THIS_FILE + "-- companionsAttack()")
@@ -171,32 +173,34 @@ bool Function companionsAttack(int delayTime)
     endif
     moveSingleNpc(farkasObj, markStart, "Farkas -> markStart")
     moveSingleNpc(nord01Obj, markStart, "Nord01 -> markStart")
-    ; 4.  Wait the Delay time, to complete the objective "Explore dustmans cairn"
+    ; 2.  Wait the Delay time, to complete the objective "Explore dustmans cairn"
     Debug.Trace(THIS_FILE + " -- Wait the Delay time, to complete the objective Explore dustmans cairn")
     if (delayTime > 0)
         Utility.Wait(delayTime) 
     endif
-    ; 2.  Make them start to run to the player
+    ; 3.  Complete the objective "Explore dustmans cairn" and setup "Kill Farkas"
+    ; complete objective
+    Debug.Trace(THIS_FILE + " -- 5.  Complete the objective Explore dustmans cairn and setup Kill Farkas")
+    Debug.Trace(THIS_FILE + " -- Set Objective Completed/Displayed OBJECTIVE_EXPLORE_DUSTMANS_CAIRN/OBJECTIVE_KILL_FARKAS"); 
+    SetObjectiveCompleted(OBJECTIVE_EXPLORE_DUSTMANS_CAIRN)
+    ; advance quest
+    Debug.Trace(THIS_FILE + " -- Set Stage STAGE_KILL_FARKAS");
+    SetStage(STAGE_KILL_FARKAS)
+    SetObjectiveDisplayed(OBJECTIVE_KILL_FARKAS)
+    ; 4.  Make them start to run to the player
     Debug.Trace(THIS_FILE + " -- 2.  Make them start to run to the player")
     farkasObj.EvaluatePackage()
     nord01Obj.EvaluatePackage()
     bool farkasObjRet = farkasObj.PathToReference(Game.GetPlayer(), 1)
     bool nord01ObjRet = nord01Obj.PathToReference(Game.GetPlayer(), 1)
-    ; 3.  Make them invulnerable
-    Debug.Trace(THIS_FILE + " -- 3.  Make them invulnerable")    
-    farkasObj.GetActorBase().SetInvulnerable(true)
-    nord01Obj.GetActorBase().SetInvulnerable(true)
-    ; 5.  Complete the objective "Explore dustmans cairn" and setup "Kill Farkas"
-    Debug.Trace(THIS_FILE + " -- 5.  Complete the objective Explore dustmans cairn and setup Kill Farkas")
-    Debug.Trace(THIS_FILE + " -- Set Stage STAGE_KILL_FARKAS");
-    SetStage(STAGE_KILL_FARKAS)
-    Debug.Trace(THIS_FILE + " -- Set Objective Completed/Displayed OBJECTIVE_EXPLORE_DUSTMANS_CAIRN/OBJECTIVE_KILL_FARKAS"); 
-    SetObjectiveCompleted(OBJECTIVE_EXPLORE_DUSTMANS_CAIRN)
-    SetObjectiveDisplayed(OBJECTIVE_KILL_FARKAS)
-    ; 6.  Make them vulnerable once again   
-    Debug.Trace(THIS_FILE + " -- 6.  Make them vulnerable once again")    
-    farkasObj.GetActorBase().SetInvulnerable(false)
-    nord01Obj.GetActorBase().SetInvulnerable(false)  
+    ;; 3.  Make them invulnerable
+    ;Debug.Trace(THIS_FILE + " -- 3.  Make them invulnerable")    
+    ;farkasObj.GetActorBase().SetInvulnerable(true)
+    ;nord01Obj.GetActorBase().SetInvulnerable(true)
+    ; 5.  Make them vulnerable once again   
+    ;Debug.Trace(THIS_FILE + " -- 6.  Make them vulnerable once again")    
+    ;farkasObj.GetActorBase().SetInvulnerable(false)
+    ;nord01Obj.GetActorBase().SetInvulnerable(false)  
     return true   
 endfunction
 
@@ -261,7 +265,23 @@ Function moveSilverToDriftshade()
     moveSingleNpc(s14, m14, moveMsg + "s14 => m14")
     moveSingleNpc(s15, m15, moveMsg + "s15 => m15")
     moveSingleNpc(s16, m16, moveMsg + "s16 => m16")
-    s01.EnableAI(false)
+    Debug.Trace(THIS_FILE + "-- EvaluatePackage() to make the silver soldiers sandboxing")
+    ;s01.EvaluatePackage()
+    ;s02.EvaluatePackage()
+    ;s03.EvaluatePackage()
+    ;s04.EvaluatePackage()
+    ;s05.EvaluatePackage()
+    ;s06.EvaluatePackage()
+    ;s07.EvaluatePackage()
+    ;s08.EvaluatePackage()
+    ;s09.EvaluatePackage()
+    ;s10.EvaluatePackage()
+    ;s11.EvaluatePackage()
+    ;s12.EvaluatePackage()
+    ;s13.EvaluatePackage()
+    ;s14.EvaluatePackage()
+    ;s15.EvaluatePackage()
+    ;s16.EvaluatePackage()    
 endfunction
 
 

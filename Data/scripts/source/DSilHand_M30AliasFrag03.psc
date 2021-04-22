@@ -22,7 +22,7 @@ Event OnContainerChanged(ObjectReference akNewContainer, ObjectReference akOldCo
     Debug.Trace(THIS_FILE + "Event OnContainerChanged");
     ; If the player have grabed the Item from the chest
     if (akNewContainer == Game.GetPlayer())
-        Debug.Trace(THIS_FILE + "-- Item Frag03 moved to player inventor!")
+        Debug.Trace(THIS_FILE + "-- Item Frag03 moved to player inventory!")
         GetOwningQuest().SetObjectiveCompleted(40)
         GetOwningQuest().SetObjectiveDisplayed(50)
         GetOwningQuest().SetStage(50)

@@ -11,9 +11,11 @@ ReferenceAlias Property Farkas  Auto
 ; MEMBER VARIABLES
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 String THIS_FILE = "(DSilHand_M40Nord01Script.psc) "
-Int STAGE_AFTER_BATTLE = 40
 Int OBJECTIVE_KILL_FARKAS = 30
 Int OBJECTIVE_KILL_FARKAS_NEXT = 40
+; Temporary stage to set Fjol ForceGreeging
+; Int STAGE_AFTER_BATTLE = 40
+Int STAGE_AFTER_BATTLE = 35
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

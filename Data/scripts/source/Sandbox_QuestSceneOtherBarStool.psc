@@ -1,0 +1,1 @@
+Scriptname Sandbox_QuestSceneOtherBarStool extends ReferenceAlias  

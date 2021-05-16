@@ -20,3 +20,5 @@ Event OnActivate(ObjectReference akActionRef)
         Sandbox_SetAiToNpc.SetStage(0)        
     endif
 endEvent
+
+

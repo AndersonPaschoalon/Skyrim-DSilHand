@@ -349,11 +349,26 @@ Function openWerewolfCage()
         DSilHand_GallowsImpJailDoor01.SetOpen(true)
         Debug.Trace(THIS_FILE + "-- Current Door(GallowsImpJailDoor01) State: " + DSilHand_GallowsImpJailDoor01.GetOpenState());
     else
-        Debug.Trace(THIS_FILE + " **ERROR** DSilHand_GallowsImpJailDoor01 REFERENCE IS EMPTY!!", 2);
+        Debug.Trace(THIS_FILE + " **ERROR** DSilHand_GallowsImpJailDoor01 REFERENCE IS EMPTY!!", 2)
     endif
 EndFunction
 
 
+Function playIdleHelper(ReferenceAlias aliasActor, Idle akIdle, String idleDescription)
+    Actor actorObj = aliasActor.GetReference() as Actor
+    if(actorObj != None)
+        if actorObj.PlayIdle(akIdle)
+            Debug.Trace(THIS_FILE + " -- idle animation (" + idleDescription + ") is running")
+          else
+            Debug.Trace(THIS_FILE + " ** ERROR: Something went wrong on idle animation (" + idleDescription + ")... ", 2)
+            Debug.Trace(THIS_FILE + " ** aliasActor:<" + aliasActor + ">", 2)
+            Debug.Trace(THIS_FILE + " ** akIdle:<" + akIdle + ">", 2)
+            Debug.Trace(THIS_FILE + " ** actorObj:<" + actorObj + ">", 2)
+          endIf    
+    else
+        Debug.Trace(THIS_FILE + " ** ERROR: CANNOT EXECUTE IDDLE ANIMATION, ACTOR OBJECT FOR (" + idleDescription + ") IS EMPTY")      
+    endif
+EndFunction
 
 
 

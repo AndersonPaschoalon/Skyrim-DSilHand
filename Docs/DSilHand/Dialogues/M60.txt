@@ -59,14 +59,17 @@ Fjol: Since then, we have been fighting for the Silver Hand. They didn't know...
 Fjol: We have been hiring valiant warriors who hate werewolves and Daedra more than anything.  
 Fjol: Now, the Silver Hand had grown stronger than ever.  But enough talk. We must celebrate our victory.  Come on, let's celebrate!
 
+---
+
 DSilHand_M60_FjolDiscourse
 Stage 50
 
 DSilHand_M60FD_Topic01
 D: ...
 Fjol: Listen brothers of Hunt! We just had a victory over the Companions. They assaulted Gallows Rock, but we were able to defeat them! 
-Fjol: And two members of the circle, Aela and Skjor have fallen. Unfortunately our former leader Krev has fallen. 
-Fjol: He guided us for our these years, and turned the Silverhands a group stronger than ever.
+Fjol: Three members of the circle have fallen, including Aela and Skjor.
+Fjol: Unfortunately our leader Krev have perished in the battle. 
+Fjol: He guided us for our these years, and turned the Silver hands stronger than ever.
 Fjol: Now we celebrate for the honor of his name, and his glorious entrance to Sovngarde!
 
 DSilHand_M60_FjolParticular

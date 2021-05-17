@@ -69,6 +69,20 @@ ObjectReference Property DSilHand_GallowsImpJailDoor01  Auto
 Quest Property DSilHand_M60Retaliation  Auto  
 {Reference to the script Owning Quest.}
 
+ReferenceAlias Property SilverRef01  Auto  
+{Forced reference to a Silver Hand soldier.}
+
+ReferenceAlias Property SilverRef02  Auto  
+{Forced reference to a Silver Hand soldier.}
+
+ReferenceAlias Property SilverRef03  Auto  
+{Forced reference to a Silver Hand soldier.}
+
+ReferenceAlias Property SilverRef04  Auto  
+{Forced reference to a Silver Hand soldier.}
+
+ReferenceAlias Property SilverRef05  Auto  
+{Forced reference to a Silver Hand soldier.}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;  MEMBER VARIABLES
@@ -353,7 +367,14 @@ Function openWerewolfCage()
     endif
 EndFunction
 
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: ReferenceAlias aliasActor - Actor that will execute the animation
+; Input: Idle akIdle - idle animation that will be executed by the NPC 
+; Input: String idleDescription - Name or information about the Idle. This
+;        value will be logged, but does not interfere on the function execution.
+; 
+; Force an actor to play an Idle.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function playIdleHelper(ReferenceAlias aliasActor, Idle akIdle, String idleDescription)
     Actor actorObj = aliasActor.GetReference() as Actor
     if(actorObj != None)
@@ -368,6 +389,81 @@ Function playIdleHelper(ReferenceAlias aliasActor, Idle akIdle, String idleDescr
     else
         Debug.Trace(THIS_FILE + " ** ERROR: CANNOT EXECUTE IDDLE ANIMATION, ACTOR OBJECT FOR (" + idleDescription + ") IS EMPTY")      
     endif
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Bool Function silverHandDriftshadeSetup()
+    SilverRef01.TryToEnable()
+    SilverRef02.TryToEnable()
+    SilverRef03.TryToEnable()
+    SilverRef04.TryToEnable()
+    SilverRef05.TryToEnable()
+
+    Actor sil01 = SilverRef01.GetActorReference()
+    Actor sil02 = SilverRef02.GetActorReference()
+    Actor sil03 = SilverRef03.GetActorReference()
+    Actor sil04 = SilverRef04.GetActorReference()
+    Actor sil05 = SilverRef05.GetActorReference()
+
+    if (sil01 == None)
+        sil01.Enable()
+    else
+        Debug.Trace(THIS_FILE + " **ERROR Actor sil01 is EMPTY", 2)
+        return false
+    endif
+
+    if (sil02 == None)
+        sil02.Enable()
+    else
+        Debug.Trace(THIS_FILE + " **ERROR Actor sil02 is EMPTY", 2)
+        return false
+    endif
+    
+    if (sil03 == None)
+        sil03.Enable()
+    else
+        Debug.Trace(THIS_FILE + " **ERROR Actor sil03 is EMPTY", 2)
+        return false
+    endif    
+    
+    if (sil04 == None)
+        sil04.Enable()
+    else
+        Debug.Trace(THIS_FILE + " **ERROR Actor sil04 is EMPTY", 2)
+        return false
+    endif
+
+    if (sil05 == None)
+        sil05.Enable()
+    else
+        Debug.Trace(THIS_FILE + " **ERROR Actor sil05 is EMPTY", 2)
+        return false
+    endif    
+
+    if(sil01.IsDead())
+        sil01.Resurrect()
+    endif
+
+    if(sil02.IsDead())
+        sil02.Resurrect()
+    endif
+
+    if(sil03.IsDead())
+        sil03.Resurrect()
+    endif  
+
+    if(sil04.IsDead())
+        sil04.Resurrect()
+    endif
+
+    if(sil05.IsDead())
+        sil05.Resurrect()
+    endif
+
 EndFunction
 
 

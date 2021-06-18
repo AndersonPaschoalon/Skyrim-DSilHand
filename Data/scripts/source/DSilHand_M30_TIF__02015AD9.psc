@@ -7,8 +7,8 @@ Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 ; Dragonborn delivers the Fragment 03 to Fjol
-Debug.Trace("-- DSilHand_M30_FFL_BranchTopic")
-Debug.Trace("-- Dragonborn delivers the Fragment 03 to Fjol")
+Debug.Trace("(DSilHand_M30) -- DSilHand_M30_FFL_BranchTopic")
+Debug.Trace("(DSilHand_M30) -- Dragonborn delivers the Fragment 03 to Fjol")
 ;END CODE
 EndFunction
 ;END FRAGMENT

@@ -2,109 +2,9 @@
 ;NEXT FRAGMENT INDEX 17
 Scriptname QF_DSilHand_M60Retaliation_020092FE Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY SilverRef04
+;BEGIN ALIAS PROPERTY xHead07
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SilverRef04 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY SilverRef03
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SilverRef03 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xHead01
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xHead01 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CompBret1
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CompBret1 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY SilverRef02
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SilverRef02 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Krev
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Krev Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Sennar
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Sennar Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xHead02
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xHead02 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CompImp1
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CompImp1 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CompNord4
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CompNord4 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY SilverRef01
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SilverRef01 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CompRed1
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CompRed1 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CompRed2
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CompRed2 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xHead04
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xHead04 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY GallowsInTrigger
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GallowsInTrigger Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Aela
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Aela Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xHead05
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xHead05 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xHeadFjol
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xHeadFjol Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY KrevBody
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_KrevBody Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xHead06
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xHead06 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CompNord3
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CompNord3 Auto
+ReferenceAlias Property Alias_xHead07 Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY xHead03
@@ -112,9 +12,64 @@ ReferenceAlias Property Alias_CompNord3 Auto
 ReferenceAlias Property Alias_xHead03 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Skjor
+;BEGIN ALIAS PROPERTY SkjorReal
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Skjor Auto
+ReferenceAlias Property Alias_SkjorReal Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY GallowsGuard
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_GallowsGuard Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY KrevBody
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_KrevBody Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xHead05
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xHead05 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY CompRed2
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CompRed2 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY SilverRef03
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SilverRef03 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY SilverRef02
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SilverRef02 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Aela
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Aela Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xHead02
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xHead02 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY SilverRef01
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SilverRef01 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Krev
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Krev Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY fjol
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_fjol Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY xHead08
@@ -122,24 +77,14 @@ ReferenceAlias Property Alias_Skjor Auto
 ReferenceAlias Property Alias_xHead08 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY AelaReal
+;BEGIN ALIAS PROPERTY Sennar
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_AelaReal Auto
+ReferenceAlias Property Alias_Sennar Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY xHead07
+;BEGIN ALIAS PROPERTY CompImp1
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xHead07 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Fjol
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Fjol Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY SkjorReal
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SkjorReal Auto
+ReferenceAlias Property Alias_CompImp1 Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY MainChamberTrigger
@@ -147,10 +92,115 @@ ReferenceAlias Property Alias_SkjorReal Auto
 ReferenceAlias Property Alias_MainChamberTrigger Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY xMarkerEnabler
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xMarkerEnabler Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY AelaReal
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_AelaReal Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY CompRed1
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CompRed1 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY SilverRef04
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SilverRef04 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY CompBret1
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CompBret1 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY GallowsInTrigger
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_GallowsInTrigger Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY SilverRef05
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_SilverRef05 Auto
 ;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Skjor
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Skjor Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xHead04
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xHead04 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xHeadFjol
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xHeadFjol Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xHead06
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xHead06 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xHead01
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xHead01 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY CompNord3
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CompNord3 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY CompNord4
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CompNord4 Auto
+;END ALIAS PROPERTY
+
+;BEGIN FRAGMENT Fragment_13
+Function Fragment_13()
+;BEGIN CODE
+; Dragonborn goes to Driftshade listen to Fjol
+Debug.Trace("(DSilHand_M60) -- M60 Stage 40")
+
+; Set senaar as a potential follower
+int facRank = DSilHand_Senaar.GetFactionRank(PotentialFollowerFaction)
+Debug.Trace(" -- DSilHand_Senaar: PotentialFollowerFaction:" + facRank)
+DSilHand_Senaar.SetFactionRank(PotentialFollowerFaction, 0)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_12
+Function Fragment_12()
+;BEGIN CODE
+; Dragonborn have killed all Companions invaders on Gallows Rock
+Debug.Trace("-- M60 Stage 30")
+Debug.Trace("-- Dragonborn killed all Companions members. Now Need to talk with Senaar")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_8
+Function Fragment_8()
+;BEGIN AUTOCAST TYPE DSilHand_M60Helper
+Quest __temp = self as Quest
+DSilHand_M60Helper kmyQuest = __temp as DSilHand_M60Helper
+;END AUTOCAST
+;BEGIN CODE
+; DSilHand_M60Helper, Stage 10
+; Before entering on Gallows Rock
+Debug.Trace("(DSilHand_M60) -- M60 Stage 10")
+Debug.Trace("(DSilHand_M60) -- Enables injuried Gallows Guard scene and enables the conversation")
+SceneGuardWounded.Start()
+;END CODE
+EndFunction
+;END FRAGMENT
 
 ;BEGIN FRAGMENT Fragment_16
 Function Fragment_16()
@@ -167,8 +217,22 @@ Game.GetPlayer().AddItem(ArmorSteelPlateHelmet)
 Game.GetPlayer().AddItem(DSilHand_TemperedSilverGreatsword)
 
 ; Advance the next quest stage to setup stage
-;Debug.Trace("(DSilHand_M60) -- Advance the next quest DSilHand_M70 to SETUP STAGE (Stage 5)")
-;DSilHand_M70UncPast.SetStage(5);
+Debug.Trace("(DSilHand_M60) -- Advance the next quest DSilHand_M70 to SETUP STAGE (Stage 5)")
+DSilHand_M70UncPast.SetStage(5);
+
+; disable Krev Body
+Alias_KrevBody.GetReference().Disable()
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_14
+Function Fragment_14()
+;BEGIN CODE
+; Dragonborn listen to Fjol discourse 
+; ** THIS STAGE DOES NOT HAVE OBJECTIVES**
+Debug.Trace("(DSilHand_M60) -- M60 Stage 50")
+SceneFjolDiscourse.Start()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -218,16 +282,6 @@ Alias_KrevBody.GetActorReference().Enable()
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_12
-Function Fragment_12()
-;BEGIN CODE
-; Dragonborn have killed all Companions invaders on Gallows Rock
-Debug.Trace("-- M60 Stage 30")
-Debug.Trace("-- Dragonborn killed all Companions members. Now Need to talk with Senaar")
-;END CODE
-EndFunction
-;END FRAGMENT
-
 ;BEGIN FRAGMENT Fragment_15
 Function Fragment_15()
 ;BEGIN AUTOCAST TYPE DSilHand_M60Helper
@@ -239,25 +293,19 @@ DSilHand_M60Helper kmyQuest = __temp as DSilHand_M60Helper
 Debug.Trace("(DSilHand_M60) -- M60 Stage 60")
 
 Debug.Trace("(DSilHand_M60) -- play  IdleApplaud animations for the Silver Hand NPC's expectors")
-kmyQuest.playIdleHelper(Alias_SilverRef01, IdleApplaud2, "IdleApplaud2")
-kmyQuest.playIdleHelper(Alias_SilverRef02, IdleApplaud2, "IdleApplaud2")
-kmyQuest.playIdleHelper(Alias_SilverRef03, IdleApplaud3, "IdleApplaud3")
-kmyQuest.playIdleHelper(Alias_SilverRef04, IdleApplaud4, "IdleApplaud4")
-kmyQuest.playIdleHelper(Alias_SilverRef05, IdleApplaud5, "IdleApplaud5")
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_13
-Function Fragment_13()
-;BEGIN CODE
-; Dragonborn goes to Driftshade listen to Fjol
-Debug.Trace("(DSilHand_M60) -- M60 Stage 40")
-
-; Set senaar as a potential follower
-int facRank = DSilHand_Senaar.GetFactionRank(PotentialFollowerFaction)
-Debug.Trace(" -- DSilHand_Senaar: PotentialFollowerFaction:" + facRank)
-DSilHand_Senaar.SetFactionRank(PotentialFollowerFaction, 0)
+int i = 0
+while(i < 7)
+    kmyQuest.playIdleHelper(Alias_SilverRef01, IdleApplaud2, "IdleApplaud2")
+    kmyQuest.playIdleHelper(Alias_SilverRef02, IdleApplaud2, "IdleApplaud2")
+    kmyQuest.playIdleHelper(Alias_SilverRef03, IdleApplaud2, "IdleApplaud2")
+    kmyQuest.playIdleHelper(Alias_SilverRef04, IdleApplaud2, "IdleApplaud2")
+    if(i < 5)
+        kmyQuest.playIdleHelper(Alias_SilverRef05, IdleApplaud2, "IdleApplaud2")
+        kmyQuest.playIdleHelper(Alias_Fjol, IdleApplaud2, "IdleApplaud2")
+    endif
+    Utility.Wait(0.3)
+    i += 1
+endwhile
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -269,37 +317,17 @@ Quest __temp = self as Quest
 DSilHand_M60Helper kmyQuest = __temp as DSilHand_M60Helper
 ;END AUTOCAST
 ;BEGIN CODE
+;
 ; Start-Up stage.
+;
 Debug.Trace("(DSilHand_M60) -- Setup Stage() Start-Up Stage!" )
 
+;
+; Enable soldiers on Driftshade Refugee
+; 
 Debug.Trace("(DSilHand_M60) -- Setup kmyQuest.silverHandDriftshadeSetup()!" )
+Alias_xMarkerEnabler.GetReference().Enable()
 kmyQuest.silverHandDriftshadeSetup()
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_8
-Function Fragment_8()
-;BEGIN AUTOCAST TYPE DSilHand_M60Helper
-Quest __temp = self as Quest
-DSilHand_M60Helper kmyQuest = __temp as DSilHand_M60Helper
-;END AUTOCAST
-;BEGIN CODE
-; DSilHand_M60Helper, Stage 10
-; Before entering on Gallows Rock
-Debug.Trace("(DSilHand_M60) -- M60 Stage 10")
-Debug.Trace("(DSilHand_M60) -- Setup Stage(10) Enables the conversation with the Gallows Guard!" )
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_14
-Function Fragment_14()
-;BEGIN CODE
-; Dragonborn listen to Fjol discourse 
-; ** THIS STAGE DOES NOT HAVE OBJECTIVES**
-Debug.Trace("(DSilHand_M60) -- M60 Stage 50")
-SceneFjolDiscourse.Start()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -340,6 +368,11 @@ Idle Property IdleApplaud3  Auto
 Idle Property IdleApplaud4  Auto  
 {Clapping animation 4}
 
-
 Idle Property IdleApplaud5  Auto  
 {Idle clapping animation 5}
+
+Scene Property SceneGuardWounded  Auto  
+{Scene to make the Gallows Guard feel pain.}
+
+Quest Property DSilHand_M70UncPast  Auto  
+{reference to Uncovering the Past quest}

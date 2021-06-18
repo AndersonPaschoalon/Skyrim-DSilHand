@@ -21,9 +21,9 @@ Event OnTriggerEnter(ObjectReference akTriggerRef)
     if(GetOwningQuest().GetStage() == STAGE_PRE_START_QUEST)
         if(akTriggerRef == Game.GetPlayer())
             ; Starts next quest
-            Debug.Trace("(QF_DSilHand_M30) -- Starts quest M40")
+            Debug.Trace(THIS_FILE + "-- Starts quest M40")
             GetOwningQuest().Start()
-            Debug.Trace("(QF_DSilHand_M30) --  M40 -> Stage:10 ObjectiveDisplayed:10")
+            Debug.Trace(THIS_FILE + "--  M40 -> Stage:10 ObjectiveDisplayed:10")
             GetOwningQuest().SetStage(STAGE_START_QUEST)
             GetOwningQuest().SetObjectiveDisplayed(OBJECTIVE_START_QUEST)
         else

@@ -5,14 +5,9 @@ Scriptname DSilHand_AliasGallowsMainChTrigger extends ReferenceAlias
 ;  PROPERTIES
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;Quest Property DSilHand_M60Retaliation  Auto  
-;{DSilHand_M60Retaliation Quest reference to start the next stage when the Dragonborn enters on Gallows Rock fort during the companion invasion. }
-
 Quest Property DSilHand_M50WolfAmbush  Auto  
 {DSilHand_M50WolfAmbush reference to the last Quest. The Last quest (M50) must be completed to enable the trigger activation.}
 
-;DSilHand_M60Helper Property m60Helper Auto
-;{Reference to script helper}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;  MEMBER VARIABLES

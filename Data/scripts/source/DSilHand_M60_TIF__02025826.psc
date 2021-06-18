@@ -8,8 +8,8 @@ Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 ; Finished the first talk with Fjol. 
 ; Now you must listen to him speach
-Debug.Trace("(DSilHand M60) -- Set Objective 40 Complete")
-Debug.Trace("(DSilHand M60) -- Set Stage to 50")
+Debug.Trace("(DSilHand_M60) -- Set Objective 40 Complete")
+Debug.Trace("(DSilHand_M60) -- Set Stage to 50")
 GetOwningQuest().SetObjectiveCompleted(40);
 GetOwningQuest().SetStage(50);
 GetOwningQuest().SetObjectiveDisplayed(50);

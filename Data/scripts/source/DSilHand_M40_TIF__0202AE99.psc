@@ -7,11 +7,11 @@ Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 ; Fjol receives Draborn on the entrance of the Tomb
-Debug.Trace("(DSilHand M40) -- Objective Completed 10")
+Debug.Trace("(DSilHand_M40) -- Objective Completed 10")
 GetOwningQuest().SetObjectiveCompleted(10);
-Debug.Trace("(DSilHand M40) -- ObjectiveDisplayed 20")
+Debug.Trace("(DSilHand_M40) -- ObjectiveDisplayed 20")
 GetOwningQuest().SetObjectiveDisplayed(20)
-Debug.Trace("(DSilHand M40) -- Stage 20")
+Debug.Trace("(DSilHand_M40) -- Stage 20")
 GetOwningQuest().SetStage(20)
 ;END CODE
 EndFunction

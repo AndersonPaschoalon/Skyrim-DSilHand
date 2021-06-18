@@ -7,8 +7,8 @@ Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 ; Dragonborn receive a letter fom Nelacar
-Debug.Trace("-- M30 ObjectiveCompleted:20")
-Debug.Trace("-- M30 Stage/Objective:30/30")
+Debug.Trace("(DSilHand_M30) -- M30 ObjectiveCompleted:20")
+Debug.Trace("(DSilHand_M30) -- M30 Stage/Objective:30/30")
 GetOwningQuest().SetObjectiveCompleted(20);
 GetOwningQuest().SetObjectiveDisplayed(30)
 GetOwningQuest().SetStage(30)

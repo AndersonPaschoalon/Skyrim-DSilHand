@@ -26,7 +26,9 @@ Event OnContainerChanged(ObjectReference akNewContainer, ObjectReference akOldCo
         Debug.Trace(THIS_FILE + "-- Item Frag01 moved to player inventory!")
         GetOwningQuest().SetObjectiveCompleted(10)
         GetOwningQuest().SetObjectiveDisplayed(20)
-        GetOwningQuest().SetStage(20)
+        ; go to the intermediate stage, where the funeral will be prepared.
+        ; than, advances to stage 20 imediatelly
+        GetOwningQuest().SetStage(15)
     endIf
 EndEvent
 

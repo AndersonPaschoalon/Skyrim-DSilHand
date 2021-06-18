@@ -394,76 +394,62 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ;
-;
+; Enable the references and actors for the scene of Fjol discourse.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Bool Function silverHandDriftshadeSetup()
-    SilverRef01.TryToEnable()
-    SilverRef02.TryToEnable()
-    SilverRef03.TryToEnable()
-    SilverRef04.TryToEnable()
-    SilverRef05.TryToEnable()
-
+    Debug.Trace(THIS_FILE + " silverHandDriftshadeSetup()")
     Actor sil01 = SilverRef01.GetActorReference()
     Actor sil02 = SilverRef02.GetActorReference()
     Actor sil03 = SilverRef03.GetActorReference()
     Actor sil04 = SilverRef04.GetActorReference()
     Actor sil05 = SilverRef05.GetActorReference()
-
-    if (sil01 == None)
-        sil01.Enable()
-    else
-        Debug.Trace(THIS_FILE + " **ERROR Actor sil01 is EMPTY", 2)
-        return false
-    endif
-
-    if (sil02 == None)
-        sil02.Enable()
-    else
-        Debug.Trace(THIS_FILE + " **ERROR Actor sil02 is EMPTY", 2)
-        return false
-    endif
-    
-    if (sil03 == None)
-        sil03.Enable()
-    else
-        Debug.Trace(THIS_FILE + " **ERROR Actor sil03 is EMPTY", 2)
-        return false
-    endif    
-    
-    if (sil04 == None)
-        sil04.Enable()
-    else
-        Debug.Trace(THIS_FILE + " **ERROR Actor sil04 is EMPTY", 2)
-        return false
-    endif
-
-    if (sil05 == None)
-        sil05.Enable()
-    else
-        Debug.Trace(THIS_FILE + " **ERROR Actor sil05 is EMPTY", 2)
-        return false
-    endif    
-
+    Debug.Trace(THIS_FILE + " (Actor) sil01:{" + sil01 + "} (ReferenceAlias) SilverRef01:{" + SilverRef01 + "}")
+    Debug.Trace(THIS_FILE + " (Actor) sil02:{" + sil02 + "} (ReferenceAlias) SilverRef02:{" + SilverRef02 + "}")
+    Debug.Trace(THIS_FILE + " (Actor) sil03:{" + sil03 + "} (ReferenceAlias) SilverRef03:{" + SilverRef03 + "}")
+    Debug.Trace(THIS_FILE + " (Actor) sil04:{" + sil04 + "} (ReferenceAlias) SilverRef04:{" + SilverRef04 + "}")
+    Debug.Trace(THIS_FILE + " (Actor) sil05:{" + sil05 + "} (ReferenceAlias) SilverRef05:{" + SilverRef05 + "}")
+    ; Enable actors
+    ;if (sil01 != None)
+    ;    sil01.Enable()
+    ;else
+    ;    Debug.Trace(THIS_FILE + " **ERROR Actor sil01 is EMPTY", 2)
+    ;endif
+    ;if (sil02 != None)
+    ;    sil02.Enable()
+    ;else
+    ;    Debug.Trace(THIS_FILE + " **ERROR Actor sil02 is EMPTY", 2)
+    ;endif
+    ;if (sil03 != None)
+    ;    sil03.Enable()
+    ;else
+    ;    Debug.Trace(THIS_FILE + " **ERROR Actor sil03 is EMPTY", 2)
+    ;endif    
+    ;if (sil04 != None)
+    ;    sil04.Enable()
+    ;else
+    ;    Debug.Trace(THIS_FILE + " **ERROR Actor sil04 is EMPTY", 2)
+    ;endif
+    ;if (sil05 != None)
+    ;    sil05.Enable()
+    ;else
+    ;    Debug.Trace(THIS_FILE + " **ERROR Actor sil05 is EMPTY", 2)
+    ;endif  
+    ; Ressurect actors if they are dead  
     if(sil01.IsDead())
         sil01.Resurrect()
     endif
-
     if(sil02.IsDead())
         sil02.Resurrect()
     endif
-
     if(sil03.IsDead())
         sil03.Resurrect()
     endif  
-
     if(sil04.IsDead())
         sil04.Resurrect()
     endif
-
     if(sil05.IsDead())
         sil05.Resurrect()
     endif
-
 EndFunction
 
 

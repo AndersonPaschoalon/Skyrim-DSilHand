@@ -7,7 +7,7 @@ Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 ; Dragonborn go speak with Krev after finding the fragment on Dustmans Cairn
-Debug.Trace("(DSilHand_m40) -- Dragonborn go speak with Krev after finding the fragment on Dustmans Cairn")
+Debug.Trace("(DSilHand_M40) -- Dragonborn go speak with Krev after finding the fragment on Dustmans Cairn")
 Debug.Trace("(DSilHand_M40) -- M40 ObjectiveCompleted:60")
 Debug.Trace("(DSilHand_M40) -- M40 Stage 70: Quest completed!")
 GetOwningQuest().SetObjectiveCompleted(60);

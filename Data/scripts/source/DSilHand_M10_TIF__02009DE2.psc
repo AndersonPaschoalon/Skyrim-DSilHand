@@ -7,7 +7,7 @@ Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 ; Debug
-Debug.Trace("TopicInfo DSilHand_M10Ds_Topic01 <Can I join the Silver Hand?> ")
+Debug.Trace("(DSilHand_M10) TopicInfo DSilHand_M10Ds_Topic01 <Can I join the Silver Hand?> ")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -19,7 +19,7 @@ Actor akSpeaker = akSpeakerRef as Actor
 ; Dragonborn ask the Driftshade Guard to join
 ; The guard tell him to go to Gallows Rock
 
-Debug.Trace("TopicInfo DSilHand_M10Ds_Topic01 End")
+Debug.Trace("(DSilHand_M10) TopicInfo DSilHand_M10Ds_Topic01 End")
 GetOwningQuest().SetStage(20)
 GetOwningQuest().SetObjectiveDisplayed(10)
 ;END CODE

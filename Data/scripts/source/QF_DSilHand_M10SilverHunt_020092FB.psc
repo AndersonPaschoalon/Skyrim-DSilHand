@@ -7,29 +7,14 @@ Scriptname QF_DSilHand_M10SilverHunt_020092FB Extends Quest Hidden
 ReferenceAlias Property Alias_GallowsEntranceTrigger Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY GiantTroll
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GiantTroll Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY SpyWhiterun
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_SpyWhiterun Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY DriftshadeGuard
+;BEGIN ALIAS PROPERTY GiantTroll
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_DriftshadeGuard Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY GallowsGuard
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GallowsGuard Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Krev
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Krev Auto
+ReferenceAlias Property Alias_GiantTroll Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY DriftshadeEntranceTrigger
@@ -37,15 +22,30 @@ ReferenceAlias Property Alias_Krev Auto
 ReferenceAlias Property Alias_DriftshadeEntranceTrigger Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY DriftshadeGuard
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_DriftshadeGuard Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY Skull
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_Skull Auto
 ;END ALIAS PROPERTY
 
-;BEGIN FRAGMENT Fragment_5
-Function Fragment_5()
+;BEGIN ALIAS PROPERTY Krev
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Krev Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY GallowsGuard
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_GallowsGuard Auto
+;END ALIAS PROPERTY
+
+;BEGIN FRAGMENT Fragment_3
+Function Fragment_3()
 ;BEGIN CODE
-Debug.Trace("** SILVERHAND QUEST! <" + GetStage() + ">")
+Debug.Trace("(DSilHand_M10) -- Stage:<" + GetStage() + ">")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -53,7 +53,7 @@ EndFunction
 ;BEGIN FRAGMENT Fragment_0
 Function Fragment_0()
 ;BEGIN CODE
-Debug.Trace("**STARTING SILVERHAND QUEST! <" + GetStage() + ">")
+Debug.Trace("(DSilHand_M10) -- STARTING SILVERHAND QUEST! <" + GetStage() + ">")
 String LOGMSG = "(DSilHand_M10) "
 
 ; Diasable Troll
@@ -82,25 +82,54 @@ endif
 EndFunction
 ;END FRAGMENT
 
+;BEGIN FRAGMENT Fragment_17
+Function Fragment_17()
+;BEGIN CODE
+; Add Reward
+Debug.Trace("(DSilHand_M10) -- Adding reward after joining the Silver Hand")
+Game.GetPlayer().AddItem(ArmorBanditCuirass)
+Game.GetPlayer().AddItem(ArmorBanditHelmet)
+Game.GetPlayer().AddItem(ArmorStormcloakBoots)
+Game.GetPlayer().AddItem(ArmorBanditGauntlets)
+Game.GetPlayer().AddItem(ArmorIronBandedShield)
+Game.GetPlayer().AddItem(SilverSword)
+Debug.Trace("(DSilHand_M10) -- Adding Reward done!")
+
+Debug.Trace("(DSilHand_M10) -- Starting next quest!")
+DSilHand_M20AngarvundesTreasure.Start()
+DSilHand_M20AngarvundesTreasure.SetStage(10)
+DSilHand_M20AngarvundesTreasure.SetObjectiveDisplayed(10)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_5
+Function Fragment_5()
+;BEGIN CODE
+Debug.Trace("(DSilHand_M10)  -- Stage:<" + GetStage() + ">")
+;END CODE
+EndFunction
+;END FRAGMENT
+
 ;BEGIN FRAGMENT Fragment_11
 Function Fragment_11()
 ;BEGIN CODE
-Debug.Trace("** SILVERHAND QUEST! <" + GetStage() + ">")
+Debug.Trace("(DSilHand_M10) -- Stage:<" + GetStage() + ">")
+
+; remove the trool skull from the player inventory
+Game.GetPlayer().RemoveItem(Alias_Skull.GetReference())
 
 ; Resurrect if is dead
 Actor krev =  Alias_Krev.GetReference() as Actor
-Debug.Trace("-- krev <" +  krev  + ">")
+Debug.Trace("(DSilHand_M10) -- krev reference <" +  krev  + ">")
 Bool isKrevDead = krev.IsDead()
-Debug.Trace("-- Giant Krev is Dead? <" + isKrevDead + ">" )
 if (isKrevDead )
-    Debug.Trace("-- Krev is Dead -> Resurrect")
+    Debug.Trace("(DSilHand_M10) -- Krev is Dead -> Resurrect")
     krev.Resurrect()
-else 
-    Debug.Trace("-- Krev is Alive")
 endif
 
 ; Enable Krev
-Debug.Trace("-- Enable Krev")
+Debug.Trace("(DSilHand_M10) -- Enable Krev")
 Alias_Krev.GetReference().Enable()
 ;END CODE
 EndFunction
@@ -109,7 +138,7 @@ EndFunction
 ;BEGIN FRAGMENT Fragment_9
 Function Fragment_9()
 ;BEGIN CODE
-Debug.Trace("** SILVERHAND QUEST! <" + GetStage() + ">")
+Debug.Trace("(DSilHand_M10)  Stage:<" + GetStage() + ">")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -118,22 +147,22 @@ EndFunction
 Function Fragment_7()
 ;BEGIN CODE
 ; Log Quest Stage
-Debug.Trace("** SILVERHAND QUEST! <" + GetStage() + ">")
+Debug.Trace("(DSilHand_M10) -- Stage:<" + GetStage() + ">")
 
 ; Enable Frost troll
-Debug.Trace("-- Enable Giant Frost Troll")
+Debug.Trace("(DSilHand_M10) -- Enable Giant Frost Troll")
 Alias_GiantTroll.GetReference().Enable()
 
 ;  resurrect trol if is dead 
 Actor troll =  Alias_GiantTroll.GetReference() as Actor
-Debug.Trace("-- troll <" +  troll  + ">")
+Debug.Trace("(DSilHand_M10) -- troll <" +  troll  + ">")
 Bool isTrollDead = troll.IsDead()
-Debug.Trace("-- Giant Troll is Dead? <" + isTrollDead + ">" )
+Debug.Trace("(DSilHand_M10) -- Giant Troll is Dead? <" + isTrollDead + ">" )
 if (isTrollDead )
-    Debug.Trace("-- Giant Troll is Dead -> Resurrect")
+    Debug.Trace("(DSilHand_M10) -- Giant Troll is Dead -> Resurrect")
     troll.Resurrect()
 else 
-    Debug.Trace("-- Giant Troll is Alive")
+    Debug.Trace("(DSilHand_M10) -- Giant Troll is Alive")
 endif
 ;END CODE
 EndFunction
@@ -142,36 +171,7 @@ EndFunction
 ;BEGIN FRAGMENT Fragment_16
 Function Fragment_16()
 ;BEGIN CODE
-Debug.Trace("** SILVERHAND FAIL QUEST! <" + GetStage() + ">")
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_17
-Function Fragment_17()
-;BEGIN CODE
-; Add Reward
-Debug.Trace("-- Adding reward after joining the Silver Hand")
-Game.GetPlayer().AddItem(ArmorBanditCuirass)
-Game.GetPlayer().AddItem(ArmorBanditHelmet)
-Game.GetPlayer().AddItem(ArmorStormcloakBoots)
-Game.GetPlayer().AddItem(ArmorBanditGauntlets)
-Game.GetPlayer().AddItem(ArmorIronBandedShield)
-Game.GetPlayer().AddItem(SilverSword)
-Debug.Trace("-- Adding Reward done!")
-
-Debug.Trace("-- Starting next quest!")
-DSilHand_M20AngarvundesTreasure.Start()
-DSilHand_M20AngarvundesTreasure.SetStage(10)
-DSilHand_M20AngarvundesTreasure.SetObjectiveDisplayed(10)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_3
-Function Fragment_3()
-;BEGIN CODE
-Debug.Trace("** SILVERHAND QUEST! <" + GetStage() + ">")
+Debug.Trace("(DSilHand_M10) Stage:<" + GetStage() + ">")
 ;END CODE
 EndFunction
 ;END FRAGMENT

@@ -10,8 +10,7 @@ Event OnActivate(ObjectReference akActionRef)
     DSilHand_M60Retaliation.SetStage(70)
     Debug.MessageBox("Starting DSilHand_M70UncPast...");
     DSilHand_M70UncPast.Start()
-    DSilHand_M70UncPast.SetStage(10)
-    DSilHand_M70UncPast.SetObjectiveDisplayed(10)
+    DSilHand_M70UncPast.SetStage(5)
 EndEvent
 
 

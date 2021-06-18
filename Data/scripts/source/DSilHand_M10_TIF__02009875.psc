@@ -6,7 +6,7 @@ Scriptname DSilHand_M10_TIF__02009875 Extends TopicInfo Hidden
 Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
-Debug.Trace("Sarting conversation: <You seems worried about something...>" )
+Debug.Trace("(DSilHand_M10) Sarting conversation: <You seems worried about something...>" )
 ;END CODE
 EndFunction
 ;END FRAGMENT

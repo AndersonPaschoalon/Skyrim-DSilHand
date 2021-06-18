@@ -9,7 +9,7 @@ Actor akSpeaker = akSpeakerRef as Actor
 ; Dragonborn talk to the spy in Whiterun
 ; He tells him to go to Gallows Rock
 
-Debug.Trace("TopicInfo DSilHand_M10DH_Topic02 End")
+Debug.Trace("(DSilHand_M10) TopicInfo DSilHand_M10DH_Topic02 End")
 GetOwningQuest().SetStage(10)
 GetOwningQuest().SetObjectiveDisplayed(10)
 ;END CODE

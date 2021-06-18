@@ -6,14 +6,16 @@ Scriptname DSilHand_M10_TIF__0200DEA3 Extends TopicInfo Hidden
 Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
+;
 ; Dragonborn brings the Troll Skull to Krev
+;
 
 ; Complete Quest Objective
-Debug.Trace("-- Objective Completed 40")
+Debug.Trace("(DSilHand_M10) -- Objective Completed 40")
 GetOwningQuest().SetObjectiveCompleted(40);
-Debug.Trace("-- ObjectiveDisplayed 50")
+Debug.Trace("(DSilHand_M10) -- ObjectiveDisplayed 50")
 GetOwningQuest().SetObjectiveDisplayed(50)
-Debug.Trace("-- Stage 50")
+Debug.Trace("(DSilHand_M10) -- Stage 50")
 GetOwningQuest().SetStage(50)
 ;END CODE
 EndFunction

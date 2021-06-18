@@ -2,9 +2,14 @@
 ;NEXT FRAGMENT INDEX 6
 Scriptname QF_DSilHand_M30ScholarFragme_02012F9B Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY Fjol
+;BEGIN ALIAS PROPERTY Nelacar
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Fjol Auto
+ReferenceAlias Property Alias_Nelacar Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY fjol
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_fjol Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Satchel
@@ -12,19 +17,14 @@ ReferenceAlias Property Alias_Fjol Auto
 ReferenceAlias Property Alias_Satchel Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Player
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Player Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Nelacar
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Nelacar Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY LetterNelacar2
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_LetterNelacar2 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Player
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Player Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Frag03
@@ -36,6 +36,30 @@ ReferenceAlias Property Alias_Frag03 Auto
 Function Fragment_0()
 ;BEGIN CODE
 Debug.Trace("(QF_DSilHand_M30) -- starting DSilHand_M30")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_2
+Function Fragment_2()
+;BEGIN CODE
+; Nelecar gives to Dragonborn a letter
+Debug.Trace("(QF_DSilHand_M30) -- Add Item LetterNelacar2 to the players inventory");
+if(Alias_LetterNelacar2 != None)
+    Game.GetPlayer().AddItem(Alias_LetterNelacar2.GetReference())
+    Debug.MessageBox("Nelacar just smiles, and gives you a letter.")
+else 
+    Debug.Trace("(QF_DSilHand_M30) ** ERROR: Alias_LetterNelacar2 is NULL");
+endif
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_5
+Function Fragment_5()
+;BEGIN CODE
+Debug.Trace("(DSilHand_M30) -- Quest M30 at Stage:50")
+Alias_Fjol.GetActorRef().Enable()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -59,30 +83,6 @@ Game.GetPlayer().AddItem(DSilHand_TemperedSilverGreatsword)
 Debug.Trace("(QF_DSilHand_M30) -- Set temp stage -> Enables Driftshade Trigger")
 Debug.Trace("(QF_DSilHand_M30) --  M40 -> Stage:5")
 DSilHand_M40CompConspiracy.SetStage(5)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_5
-Function Fragment_5()
-;BEGIN CODE
-Debug.MessageBox("Quest m30:50")
-Alias_Fjol.GetActorRef().Enable()
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_2
-Function Fragment_2()
-;BEGIN CODE
-; Nelecar gives to Dragonborn a letter
-Debug.Trace("(QF_DSilHand_M30) -- Add Item LetterNelacar2 to the players inventory");
-if(Alias_LetterNelacar2 != None)
-    Game.GetPlayer().AddItem(Alias_LetterNelacar2.GetReference())
-    Debug.MessageBox("Nelacar just smiles, and gives you a letter.")
-else 
-    Debug.Trace("(QF_DSilHand_M30) ** ERROR: Alias_LetterNelacar2 is NULL");
-endif
 ;END CODE
 EndFunction
 ;END FRAGMENT

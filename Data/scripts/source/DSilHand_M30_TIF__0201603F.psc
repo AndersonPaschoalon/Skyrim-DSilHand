@@ -7,7 +7,7 @@ Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 ; Dragonborn delivers the fragment and the letter to Fjol
-Debug.Trace("-- M30: ObjectiveCompleted:50 Stage:60")
+Debug.Trace("(DSilHand_M30) -- M30: ObjectiveCompleted:50 Stage:60")
 GetOwningQuest().SetObjectiveCompleted(50)
 GetOwningQuest().SetStage(60)
 ;END CODE

@@ -6,7 +6,7 @@ Scriptname DSilHand_M10_TIF__02009DE0 Extends TopicInfo Hidden
 Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
-Debug.Trace("TopicInfo <Who are you?>")
+Debug.Trace("(DSilHand_M10) TopicInfo <Who are you?>")
 ;END CODE
 EndFunction
 ;END FRAGMENT

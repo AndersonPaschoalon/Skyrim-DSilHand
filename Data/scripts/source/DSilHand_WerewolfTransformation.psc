@@ -88,7 +88,7 @@ EndFunction
 ; and might be killed.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function turnWerewolfProcedute()
-    Debug.Trace("    Entered OnEnterBleedout or OnDying... @" + AliasName)
+    Debug.Trace(THIS_FILE + "    Entered OnEnterBleedout or OnDying... @" + AliasName)
     Actor currentActor = GetActorRef()
     ; Enable transformation
 	nBleedout = nBleedout + 1
@@ -115,7 +115,7 @@ Endfunction
 Event OnInit()
     ; set private flags to enable werewolf transformation
     enableWerewolfTransformation()
-    Debug.Trace("GetActorRef():<" + GetActorRef() + "> @" + AliasName)
+    Debug.Trace(THIS_FILE +"GetActorRef():<" + GetActorRef() + "> @" + AliasName)
 EndEvent
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -12,19 +12,19 @@ Actor akSpeaker = akSpeakerRef as Actor
 ; This conversation should start-up the next quest stage.
 
 ; Enable the Frost Troll on Cold Rock Pass
-Debug.Trace("** DSilHand_EncGiantTrollFrost.Enable()")
+Debug.Trace("(DSilHand_M10) -- DSilHand_EncGiantTrollFrost.Enable()")
 DSilHand_EncGiantTrollFrost.Enable()
 
 ; Complete Objective 10
-Debug.Trace("** GetOwningQuest().SetObjectiveCompleted(10)")
+Debug.Trace("(DSilHand_M10) -- GetOwningQuest().SetObjectiveCompleted(10)")
 GetOwningQuest().SetObjectiveCompleted(10)
 
 ; Display Objective 30
-Debug.Trace("** GetOwningQuest().SetObjectiveDisplayed(30)")
+Debug.Trace("(DSilHand_M10) -- GetOwningQuest().SetObjectiveDisplayed(30)")
 GetOwningQuest().SetObjectiveDisplayed(30)
 
 ; Set Stage as 30
-Debug.Trace("** GetOwningQuest().SetStage(30)");
+Debug.Trace("(DSilHand_M10) -- GetOwningQuest().SetStage(30)");
 GetOwningQuest().SetStage(30)
 ;END CODE
 EndFunction

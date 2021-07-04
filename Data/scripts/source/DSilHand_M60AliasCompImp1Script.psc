@@ -29,6 +29,8 @@ Event OnDeath(Actor akKiller)
           GetOwningQuest().Start()
           GetOwningQuest().SetStage(10)
           GetOwningQuest().SetObjectiveDisplayed(10)  
+          ; bugfix: in case the player killed the invaders inside first 
+          m60Helper.advanceStageKillInvaders()
     endif
 EndEvent
 

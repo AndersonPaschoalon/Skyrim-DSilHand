@@ -15,7 +15,9 @@ int    OBJECTIVE_START_QUEST = 10
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: player
 ; 
-; Complete the quest M50 when the player arrives back to Gallows Rock.
+; This trigger is located at the exit of Driftshade Refugee. When player 
+; completes the quest M30 after talking with Fjol, this trigger will be active. 
+; When the player go out, it will start the quest M40.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Event OnTriggerEnter(ObjectReference akTriggerRef)
     if(GetOwningQuest().GetStage() == STAGE_PRE_START_QUEST)

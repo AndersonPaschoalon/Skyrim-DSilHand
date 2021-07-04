@@ -2,14 +2,24 @@
 ;NEXT FRAGMENT INDEX 19
 Scriptname QF_DSilHand_M10SilverHunt_020092FB Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY GallowsEntranceTrigger
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GallowsEntranceTrigger Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY SpyWhiterun
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_SpyWhiterun Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY hillara
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_hillara Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Krev
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Krev Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY fjol
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_fjol Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY GiantTroll
@@ -22,6 +32,11 @@ ReferenceAlias Property Alias_GiantTroll Auto
 ReferenceAlias Property Alias_DriftshadeEntranceTrigger Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY GallowsEntranceTrigger
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_GallowsEntranceTrigger Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY DriftshadeGuard
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_DriftshadeGuard Auto
@@ -32,105 +47,24 @@ ReferenceAlias Property Alias_DriftshadeGuard Auto
 ReferenceAlias Property Alias_Skull Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Krev
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Krev Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY GallowsGuard
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_GallowsGuard Auto
 ;END ALIAS PROPERTY
 
-;BEGIN FRAGMENT Fragment_3
-Function Fragment_3()
+;BEGIN ALIAS PROPERTY SENAAR
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SENAAR Auto
+;END ALIAS PROPERTY
+
+;BEGIN FRAGMENT Fragment_7
+Function Fragment_7()
 ;BEGIN CODE
-Debug.Trace("(DSilHand_M10) -- Stage:<" + GetStage() + ">")
-;END CODE
-EndFunction
-;END FRAGMENT
+; Log Quest Stage
+Debug.Trace("(DSilHand_M10:30) -- starting stage 30")
 
-;BEGIN FRAGMENT Fragment_0
-Function Fragment_0()
-;BEGIN CODE
-Debug.Trace("(DSilHand_M10) -- STARTING SILVERHAND QUEST! <" + GetStage() + ">")
-String LOGMSG = "(DSilHand_M10) "
-
-; Diasable Troll
-Debug.Trace(LOGMSG + "-- Disable Giant Frost Troll")
-Alias_GiantTroll.GetReference().Disable()
-
-; Disable Krev
-Debug.Trace(LOGMSG + "-- Disable Krev the Skinnerl")
-Alias_Krev.GetReference().Disable()
-
-; Add to Silver Hand Faction
-Game.GetPlayer().AddToFaction(SilverHandFaction)
-
-; Disable Werewolves (for quest M60)
-if(WerewolfWild1 != None)
-    WerewolfWild1.Disable()
-else
-    Debug.Trace(LOGMSG + "**ERROR** WerewolfWild1 is EMPTY")
-endif
-if(WerewolfWild1 != None)
-    WerewolfWild2.Disable()
-else
-    Debug.Trace(LOGMSG + "**ERROR** WerewolfWild2 is EMPTY")
-endif
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_17
-Function Fragment_17()
-;BEGIN CODE
-; Add Reward
-Debug.Trace("(DSilHand_M10) -- Adding reward after joining the Silver Hand")
-Game.GetPlayer().AddItem(ArmorBanditCuirass)
-Game.GetPlayer().AddItem(ArmorBanditHelmet)
-Game.GetPlayer().AddItem(ArmorStormcloakBoots)
-Game.GetPlayer().AddItem(ArmorBanditGauntlets)
-Game.GetPlayer().AddItem(ArmorIronBandedShield)
-Game.GetPlayer().AddItem(SilverSword)
-Debug.Trace("(DSilHand_M10) -- Adding Reward done!")
-
-Debug.Trace("(DSilHand_M10) -- Starting next quest!")
-DSilHand_M20AngarvundesTreasure.Start()
-DSilHand_M20AngarvundesTreasure.SetStage(10)
-DSilHand_M20AngarvundesTreasure.SetObjectiveDisplayed(10)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_5
-Function Fragment_5()
-;BEGIN CODE
-Debug.Trace("(DSilHand_M10)  -- Stage:<" + GetStage() + ">")
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_11
-Function Fragment_11()
-;BEGIN CODE
-Debug.Trace("(DSilHand_M10) -- Stage:<" + GetStage() + ">")
-
-; remove the trool skull from the player inventory
-Game.GetPlayer().RemoveItem(Alias_Skull.GetReference())
-
-; Resurrect if is dead
-Actor krev =  Alias_Krev.GetReference() as Actor
-Debug.Trace("(DSilHand_M10) -- krev reference <" +  krev  + ">")
-Bool isKrevDead = krev.IsDead()
-if (isKrevDead )
-    Debug.Trace("(DSilHand_M10) -- Krev is Dead -> Resurrect")
-    krev.Resurrect()
-endif
-
-; Enable Krev
-Debug.Trace("(DSilHand_M10) -- Enable Krev")
-Alias_Krev.GetReference().Enable()
+; Enable Frost troll
+DSilHand_Utils.enableActorAliasRef(Alias_GiantTroll, "Alias_GiantTroll", "(DSilHand_M10:30)")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -138,40 +72,105 @@ EndFunction
 ;BEGIN FRAGMENT Fragment_9
 Function Fragment_9()
 ;BEGIN CODE
-Debug.Trace("(DSilHand_M10)  Stage:<" + GetStage() + ">")
+Debug.Trace("(DSilHand_M10:40) -- starting stage 40")
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_7
-Function Fragment_7()
+;BEGIN FRAGMENT Fragment_0
+Function Fragment_0()
 ;BEGIN CODE
-; Log Quest Stage
-Debug.Trace("(DSilHand_M10) -- Stage:<" + GetStage() + ">")
+Debug.Trace("(DSilHand_M10:0) -- STARTING SILVERHAND QUEST!")
+;END CODE
+EndFunction
+;END FRAGMENT
 
-; Enable Frost troll
-Debug.Trace("(DSilHand_M10) -- Enable Giant Frost Troll")
-Alias_GiantTroll.GetReference().Enable()
+;BEGIN FRAGMENT Fragment_17
+Function Fragment_17()
+;BEGIN AUTOCAST TYPE DSilHand_M10Helper
+Quest __temp = self as Quest
+DSilHand_M10Helper kmyQuest = __temp as DSilHand_M10Helper
+;END AUTOCAST
+;BEGIN CODE
+;
+; Faction Setup: add to Silver hand and make the Companions an enemy faction
+;
+Debug.Trace("(DSilHand_M10:60) -- Add player to Silver Hand Faction")
+kmyQuest.setupSilverHandJoin()
 
-;  resurrect trol if is dead 
-Actor troll =  Alias_GiantTroll.GetReference() as Actor
-Debug.Trace("(DSilHand_M10) -- troll <" +  troll  + ">")
-Bool isTrollDead = troll.IsDead()
-Debug.Trace("(DSilHand_M10) -- Giant Troll is Dead? <" + isTrollDead + ">" )
-if (isTrollDead )
-    Debug.Trace("(DSilHand_M10) -- Giant Troll is Dead -> Resurrect")
-    troll.Resurrect()
-else 
-    Debug.Trace("(DSilHand_M10) -- Giant Troll is Alive")
-endif
+;
+; Add Reward
+;
+Debug.Trace("(DSilHand_M10:60) -- Adding reward after joining the Silver Hand")
+Game.GetPlayer().AddItem(ArmorBanditCuirass)
+Game.GetPlayer().AddItem(ArmorBanditHelmet)
+Game.GetPlayer().AddItem(ArmorStormcloakBoots)
+Game.GetPlayer().AddItem(ArmorBanditGauntlets)
+Game.GetPlayer().AddItem(ArmorIronBandedShield)
+Game.GetPlayer().AddItem(SilverSword)
+
+;
+; Setup next quest
+;
+Debug.Trace("(DSilHand_M10:60) -- Starting next quest!")
+DSilHand_M20AngarvundesTreasure.Start()
+DSilHand_M20AngarvundesTreasure.SetStage(10)
+DSilHand_M20AngarvundesTreasure.SetObjectiveDisplayed(10)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_11
+Function Fragment_11()
+;BEGIN CODE
+Debug.Trace("(DSilHand_M10:50) -- starting stage 50")
+
+; remove the trool skull from the player inventory
+Game.GetPlayer().RemoveItem(Alias_Skull.GetReference())
+
+; Enable Krev
+DSilHand_Utils.enableActorAliasRef(Alias_Krev, "Alias_Krev", "(DSilHand_M10:50)")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_3
+Function Fragment_3()
+;BEGIN CODE
+Debug.Trace("(DSilHand_M10:10) -- starting stage 10")
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
 ;BEGIN FRAGMENT Fragment_16
 Function Fragment_16()
+;BEGIN AUTOCAST TYPE DSilHand_M10Helper
+Quest __temp = self as Quest
+DSilHand_M10Helper kmyQuest = __temp as DSilHand_M10Helper
+;END AUTOCAST
 ;BEGIN CODE
-Debug.Trace("(DSilHand_M10) Stage:<" + GetStage() + ">")
+Debug.Trace("(DSilHand_M10:100) Stage100:  FAILED")
+
+;
+; Setup after joined Companions
+; 
+Debug.Trace("(DSilHand_M10:100) -- kmyQuest.setupCompanionsJoin() ")
+kmyQuest.setupCompanionsJoin() 
+
+
+;
+; Set objective failed
+;
+Debug.Trace("(DSilHand_M10:100) -- SetObjectiveFailed(100)")
+SetObjectiveFailed(100)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_5
+Function Fragment_5()
+;BEGIN CODE
+Debug.Trace("(DSilHand_M10:20) -- starting stage 20")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -210,3 +209,9 @@ ObjectReference Property WerewolfWild1  Auto
 
 ObjectReference Property WerewolfWild2  Auto  
 {WerewolfWild2}
+
+Faction Property CompanionsFaction  Auto  
+{reference to companions faction}
+
+Faction Property PlayerFaction  Auto  
+{reference to the player faction}

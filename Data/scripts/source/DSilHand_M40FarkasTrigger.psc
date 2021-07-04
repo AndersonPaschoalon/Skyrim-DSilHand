@@ -14,7 +14,9 @@ int    STAGE_INTERMEDIATE_STAGE = 25
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: player
 ; 
-; Complete the quest M50 when the player arrives back to Gallows Rock.
+; The event is triggered when the player is exploring Dustman's Cairn and 
+; arrives at the first central chamber. Then, Farkas and his shield brother 
+; will appear to fight.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Event OnTriggerEnter(ObjectReference akTriggerRef)
     if(GetOwningQuest().GetStage() == STAGE_EXPLORING_DUSTMANS_CAIRN)

@@ -328,16 +328,37 @@ bool Function prepareSilverHandFuneral()
     ;
     i = 0
     int nCountXMarker = 0
+;    while ( (i < N_SILVERHANDS_REFERENCES) && (nCountXMarker < N_STANDING_SILVER_MAX) )
+;        if(silverArray[i] != None)
+;            ; if it is alive, move to xhead
+;            Debug.Trace(THIS_FILE + "-- try to move NPC silverArray[i]:<" + silverArray[i] + ">")
+;            if (silverArray[i].IsDead() == False)
+;                ; Ressurect just in case ... 
+;                silverArray[i].Resurrect()                
+;                moveSingleNpc(silverArray[i], xHArray[nCountXMarker], "silverArray[" + i + "] =>  xHArray[" + nCountXMarker + "]")
+;                ; make the actor look at krev grave
+;                silverArray[i].SetLookAt(KrevGrave01.GetActorReference(), true)  
+;                ; go to next marker
+;                nCountXMarker += 1
+;            else
+;                Debug.Trace(THIS_FILE + "-- silverArray[" + i + "] is dead -> silverArray[i]:<" + silverArray[i] + ">")
+;            endif
+;        else
+;            Debug.Trace(THIS_FILE + "**ERROR** silver and reference silverArray[" + i + "] is EMPTY!", 2)
+;        endif
+;        ; increment counters
+;        i += 1 
+;    endwhile
     while ( (i < N_SILVERHANDS_REFERENCES) && (nCountXMarker < N_STANDING_SILVER_MAX) )
         if(silverArray[i] != None)
+            string silverHandLabel = "silverArray[" + i + "]:<" + silverArray[i] + ">" 
             ; if it is alive, move to xhead
-            Debug.Trace(THIS_FILE + "-- try to move NPC silverArray[i]:<" + silverArray[i] + ">")
+            Debug.Trace(THIS_FILE + "-- try to move NPC "  + silverHandLabel)
             if (silverArray[i].IsDead() == False)
-                ; Ressurect just in case ... 
-                silverArray[i].Resurrect()                
-                moveSingleNpc(silverArray[i], xHArray[nCountXMarker], "silverArray[" + i + "] =>  xHArray[" + nCountXMarker + "]")
+                ; if it is alive, move to xhead - is ressurected if is dead
+                DSilHand_Utils.moveSingleNpc(silverArray[i], xHArray[nCountXMarker], silverHandLabel, THIS_FILE)
                 ; make the actor look at krev grave
-                silverArray[i].SetLookAt(KrevGrave01.GetActorReference(), true)  
+                silverArray[i].SetLookAt(KrevGrave01.GetReference(), true)  
                 ; go to next marker
                 nCountXMarker += 1
             else
@@ -354,28 +375,34 @@ bool Function prepareSilverHandFuneral()
     ; (4) If Hillara/Sennar is not your follower, move them to the funeral as well. 
     ;
     bool isFollower = false 
-    ObjectReference xhSennar = xHeadSennar.GetReference() as ObjectReference
-    ObjectReference xhHillara = xHeadHillara.GetReference() as ObjectReference
+    ; delete
+    ; ObjectReference xhSennar = xHeadSennar.GetReference() as ObjectReference
+    ; ObjectReference xhHillara = xHeadHillara.GetReference() as ObjectReference
     Actor hillaraActor = Hillara.GetReference() as Actor
     Actor sennarActor = Sennar.GetReference() as Actor
     ; make hillara follow
     isFollower = actorIsFollower(hillaraActor, "HILLARA")
     if(isFollower == false)
-        moveSingleNpc(hillaraActor, xhHillara, "hillaraActor => xhHillara")
+        ; delete 
+        ; moveSingleNpc(hillaraActor, xhHillara, "hillaraActor => xhHillara")
+        DSilHand_Utils.moveSingleNpcRefAlias(Hillara, xHeadHillara, "Hillara", THIS_FILE)
     endif
     ; make sennar follow
     isFollower = actorIsFollower(sennarActor, "SENAAR")
     if(isFollower == false)
-        moveSingleNpc(sennarActor, xhSennar, "sennarActor => xhSennar")
+        ; delete 
+        ; moveSingleNpc(sennarActor, xhSennar, "sennarActor => xhSennar")
+        DSilHand_Utils.moveSingleNpcRefAlias(Sennar, xHeadSennar, "Sennar", THIS_FILE)
     endif
 
     ;
     ; (5) Move Fjol to the funeral
     ;
-    Actor fjolActor = Fjol.GetReference() as Actor
-    ObjectReference xhFjol = xHeadFjol.GetReference() as ObjectReference 
-    moveSingleNpc(fjolActor, xhFjol, "fjolActor => xhFjol")
-
+    ; Delete
+    ; Actor fjolActor = Fjol.GetReference() as Actor
+    ; ObjectReference xhFjol = xHeadFjol.GetReference() as ObjectReference 
+    ; moveSingleNpc(fjolActor, xhFjol, "fjolActor => xhFjol")
+    DSilHand_Utils.moveSingleNpcRefAlias(Fjol, xHeadFjol, "Fjol", THIS_FILE)
 endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -399,8 +426,6 @@ Function cleanScript()
         endif   
         i += 1
     endWhile
-    Debug.Trace(THIS_FILE + " -- desalocated memory")
-    silverArray = None
 endFunction
 
 
@@ -418,7 +443,9 @@ Function moveKrevToSovngarde()
     Actor krevActor = Krev.GetReference() as Actor
     krevActor.Enable()
     ObjectReference mark = xMarkSovngarde.GetReference() as ObjectReference
-    moveSingleNpc(krevActor, mark, "Krev -> Sovngarde")
+    DSilHand_Utils.moveSingleNpc(krevActor, mark, "krevActor", THIS_FILE)
+    ; delete 
+    ; moveSingleNpc(krevActor, mark, "Krev -> Sovngarde")
     Debug.Trace(THIS_FILE + " -- make krev glow")
     krevActor.AddSpell(AbFXSovengardeGlow)
     ;AbFXSovengardeGlow.Cast(krevActor, krevActor)
@@ -498,7 +525,7 @@ int Function calcAndDisableDeadSilverhand()
                 silverArray[i].Disable()
             else 
                 if(silverArray[i].IsEnabled() == false)
-                    Debug.Trace(THIS_FILE + " silverArray[" + i + "] is diabled => enable")
+                    Debug.Trace(THIS_FILE + " silverArray[" + i + "] is diabled => enable on Actor:<" + silverArray[i] + ">")
                     silverArray[i].Enable()
                 endif
                 Debug.Trace(THIS_FILE + " silverArray[" + i + "]:<" + silverArray[i] + "> is Alive")
@@ -530,24 +557,24 @@ endfunction
 ; 
 ; Function to move a single NPC to a marker.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function moveSingleNpc(Actor npc, ObjectReference marker, String logInfo)
-    if( (npc != None) && (marker != None))
-        if ( npc.IsDead() == false)
-            Debug.Trace(THIS_FILE + " moving NPC " + logInfo + " npc:<" + npc + ">, marker:<" + marker + ">")
-            npc.MoveTo(marker)
-            ;npc.Enable()
-            npc.SetPosition(marker.GetPositionX(), marker.GetPositionY(), marker.GetPositionZ())
-        else
-            Debug.Trace(THIS_FILE + " NPC:<" +npc + "> is Dead, cannot execute move: " +  logInfo)
-        endif
-    else 
-        if(npc == None)
-            Debug.Trace(THIS_FILE + " **ERROR** npc param is EMPTY: " + logInfo, 2)
-        else
-            Debug.Trace(THIS_FILE + " **ERROR** marker param is EMPTY: " + logInfo, 2)
-        endif
-    endif
-endFunction
+; Function moveSingleNpc(Actor npc, ObjectReference marker, String logInfo)
+;     if( (npc != None) && (marker != None))
+;         if ( npc.IsDead() == false)
+;             Debug.Trace(THIS_FILE + " moving NPC " + logInfo + " npc:<" + npc + ">, marker:<" + marker + ">")
+;             npc.MoveTo(marker)
+;             ;npc.Enable()
+;             npc.SetPosition(marker.GetPositionX(), marker.GetPositionY(), marker.GetPositionZ())
+;         else
+;             Debug.Trace(THIS_FILE + " NPC:<" +npc + "> is Dead, cannot execute move: " +  logInfo)
+;         endif
+;     else 
+;         if(npc == None)
+;             Debug.Trace(THIS_FILE + " **ERROR** npc param is EMPTY: " + logInfo, 2)
+;         else
+;             Debug.Trace(THIS_FILE + " **ERROR** marker param is EMPTY: " + logInfo, 2)
+;         endif
+;     endif
+; endFunction
 
 
 

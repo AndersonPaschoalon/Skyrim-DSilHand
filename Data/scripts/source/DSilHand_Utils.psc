@@ -38,6 +38,28 @@ Scriptname DSilHand_Utils extends Quest
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; GAME AND UTILS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input:
+;
+; https://www.creationkit.com/index.php?title=Function_for_Time_of_Day
+; The global function GetCurrentGameTime can be used to return the number of 
+; in-game days passed, including the fraction of the current day that has 
+; passed.
+; This function removes the portion of GetCurrentGameTime's return value 
+; that returns to previous in-game days, then converts the remaining portion
+; to hours.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+float Function GetCurrentHourOfDay() global
+	float Time = Utility.GetCurrentGameTime()
+	Time -= Math.Floor(Time) ; Remove "previous in-game days passed" bit
+	Time *= 24 ; Convert from fraction of a day to number of hours
+	Return Time 
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ACTOR MOVE HANDLERS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

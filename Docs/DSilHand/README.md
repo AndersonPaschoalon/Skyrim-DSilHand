@@ -31,18 +31,26 @@ This is the Dawn of the Silver Hand Documentation.
 - [Dialogs Misc Quests](./Dialogues/misc.md )
 
 
-## Creation Lit Objects
+## Creation Kit Objects and Locations
 
 - [List of New Objects](./Objects/ObjectList.csv)
+
 - [List on Change of Vanilla Objects](./Objects/VanillaChanges.md)
+
+- [List of Changed Locations](./Locations/VanillaChanges.csv)
 
 
 ## Web Resources 
 
-- [Wuuthrad](https://elderscrolls.fandom.com/wiki/Wuuthrad_(Skyrim))
-- [Skyrim Search](https://www.skyrimsearch.com/)
+- [Skyrim Search](https://www.skyrimsearch.com/): Online documentation about all objects from Skyrim
+
+- [Wuuthrad Fragments](https://elderscrolls.fandom.com/wiki/Wuuthrad_(Skyrim)) : Wiki Page about the Ysgramour axe
+
 - [The Companions](https://elderscrolls.fandom.com/wiki/The_Companions)
-- [Vignar Gray-Mane](https://elderscrolls.fandom.com/wiki/Vignar_Gray-Mane)
+
+
+
+
 
 
 

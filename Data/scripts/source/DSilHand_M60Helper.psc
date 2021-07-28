@@ -102,28 +102,6 @@ Int KILL_ALL_INVADERS_NEXT = 30
 ; 
 ; Private: Tells if the invaders outside are all dead
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;bool Function invadersOutsideAreDead()
-;    Debug.Trace(THIS_FILE + "-- invadersOutsideAreDead()")
-;    Actor CompBret1 = Alias_CompBret1.GetReference() as Actor
-;    Actor CompImp1 = Alias_CompImp1.GetReference() as Actor
-;    if( (CompBret1 == None) || (CompImp1 == None) )
-;        Debug.Trace(THIS_FILE + " ** ERROR ** SOME REFERENCES ARE EMPTY!!", 2)
-;        Debug.Trace(THIS_FILE + " -- Script references:", 2)
-;        Debug.Trace(THIS_FILE + "    * CompBret1: <" + CompBret1 + ">", 2)
-;        Debug.Trace(THIS_FILE + "    * CompImp1: <" + CompImp1 + ">", 2)
-;        Debug.MessageBox("FATAL ERROR ON QUEST M60: EMPTY REFERENCES")
-;    else 
-;    
-;        if( (CompBret1.IsDead() == true) && (CompImp1.IsDead() == true))
-;            Debug.Trace(THIS_FILE + " -- All invaders OUTSIDE are dead!")
-;            return True
-;        endif
-;        Debug.Trace(THIS_FILE + " -- Invaders OUTSIDE IsDead() result:")
-;        Debug.Trace(THIS_FILE + "    * CompBret1: <" + CompBret1.IsDead() + ">")
-;        Debug.Trace(THIS_FILE + "    * CompImp1: <" + CompImp1.IsDead() + ">")
-;    endif  
-;    return false
-;EndFunction
 bool Function invadersOutsideAreDead()
     Debug.Trace(THIS_FILE + " -- invadersOutsideAreDead()")
     bool retVal = DSilHand_Utils.are2ActorsRefAliasDead(Alias_CompBret1, Alias_CompImp1, THIS_FILE)
@@ -144,40 +122,6 @@ endFunction
 ; Private: Tells if the invaders inside gallows rock (except the wild werewolves)
 ; are all dead.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; bool Function invadersInsideAreDead()
-;     Debug.Trace(THIS_FILE + "-- invadersInsideAreDead()")
-;     Actor CompNord3 = Alias_CompNord3.GetReference() as Actor
-;     Actor CompNord4 = Alias_CompNord4.GetReference() as Actor
-;     Actor CompRed1 = Alias_CompRed1.GetReference() as Actor
-;     Actor CompRed2 = Alias_CompRed2.GetReference() as Actor
-;     Actor Aela = Alias_Aela.GetReference() as Actor
-;     Actor Skjol = Alias_Skjol.GetReference() as Actor
-;     if( (CompNord3 == None) || (CompNord4 == None) || (CompRed1 == None) || (CompRed2 == None) || (Aela == None) || (Skjol == None) )
-;         Debug.Trace(THIS_FILE + " ** ERROR ** SOME REFERENCES ARE EMPTY!!", 2)
-;         Debug.Trace(THIS_FILE + " -- Script references:", 2)
-;         Debug.Trace(THIS_FILE + "    * CompNord3: <" + CompNord3 + ">", 2)
-;         Debug.Trace(THIS_FILE + "    * CompNord4: <" + CompNord4 + ">", 2)
-;         Debug.Trace(THIS_FILE + "    * CompRed1: <" + CompRed1 + ">", 2)
-;         Debug.Trace(THIS_FILE + "    * CompRed2: <" + CompRed2 + ">", 2)
-;         Debug.Trace(THIS_FILE + "    * Aela: <" + Aela + ">", 2)
-;         Debug.Trace(THIS_FILE + "    * Skjol: <" + Skjol + ">", 2)
-;         Debug.MessageBox("FATAL ERROR ON QUEST M60: EMPTY REFERENCES")
-;     else 
-;     
-;         if( (CompNord3.IsDead() == true) && (CompNord4.IsDead() == true) && (CompRed1.IsDead() == true) && (CompRed2.IsDead() == true) && (Aela.IsDead() == true) && (Skjol.IsDead() == true) )
-;             Debug.Trace(THIS_FILE + " -- All invaders INSIDE are dead!")
-;             return True
-;         endif
-;         Debug.Trace(THIS_FILE + " -- Invaders IsDead() result:")
-;         Debug.Trace(THIS_FILE + "    * CompNord3: <" + CompNord3.IsDead() + ">")
-;         Debug.Trace(THIS_FILE + "    * CompNord4: <" + CompNord4.IsDead() + ">")
-;         Debug.Trace(THIS_FILE + "    * CompRed1: <" + CompRed1.IsDead() + ">")
-;         Debug.Trace(THIS_FILE + "    * CompRed2: <" + CompRed2.IsDead() + ">")
-;         Debug.Trace(THIS_FILE + "    * Aela: <" + Aela.IsDead() + ">")
-;         Debug.Trace(THIS_FILE + "    * Skjol: <" + Skjol.IsDead() + ">")
-;     endif  
-;     return false
-; EndFunction
 bool Function invadersInsideAreDead()
     Debug.Trace(THIS_FILE + " -- invadersInsideAreDead()")
     ReferenceAlias[] npcsArray = new ReferenceAlias[6]
@@ -267,28 +211,6 @@ Function setupDoors()
     openWerewolfCage()
 EndFunction
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: Actor npc - NPC to be moved
-; Input: ObjectReference marker - ObjectReference to the marker the NPC will
-;        be moved
-; Input: String logInfo - information about the NPC and Marker, to be loged.
-; 
-; Function to move a single NPC to a marker.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Function moveSingleNpc(Actor npc, ObjectReference marker, String logInfo)
-;     if( (npc != None) && (marker != None))
-;         Debug.Trace(THIS_FILE + " moving NPC " + logInfo)
-;         npc.MoveTo(marker)
-;         npc.Enable()
-;         npc.SetPosition(marker.GetPositionX(), marker.GetPositionY(), marker.GetPositionZ())
-;     else 
-;         if(npc == None)
-;             Debug.Trace(THIS_FILE + " **ERROR** npc param is EMPTY: " + logInfo, 2)
-;         else
-;             Debug.Trace(THIS_FILE + " **ERROR** marker param is EMPTY: " + logInfo, 2)
-;         endif
-;     endif
-; endFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -307,35 +229,6 @@ Function moveNpcs()
     DSilHand_Utils.moveSingleNpcRefAlias2(Alias_Aela, markAela, "Alias_Aela", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias2(Alias_Skjol, markSkjol, "Alias_Skjol", THIS_FILE)
 EndFunction
-
-; Function moveNpcs()
-;     Actor nord3 = Alias_CompNord3.GetReference() as Actor
-;     Actor nord4 = Alias_CompNord4.GetReference() as Actor
-;     Actor red1 = Alias_CompRed1.GetReference() as Actor
-;     Actor red2 = Alias_CompRed2.GetReference() as Actor
-;     Actor aela = Alias_Aela.GetReference() as Actor
-;     Actor skjol = Alias_Skjol.GetReference() as Actor
-;     moveSingleNpc(nord3, markCompNord3, "nord3 -> markCompNord3")
-;     moveSingleNpc(nord4, markCompNord4, "nord4 -> markCompNord4")
-;     moveSingleNpc(red1, markCompRed1, "red1 -> markCompRed1")
-;     moveSingleNpc(red2, markCompRed2, "red2 -> markCompRed2")
-;     moveSingleNpc(aela, markAela, "aela -> markAela")
-;     moveSingleNpc(skjol, markSkjol, "skjol -> markSkjol")
-; EndFunction
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
-; 
-; Move the Cricle members to Gallows Main Chamber. 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;Function moveCircleActors()
-;    Debug.Trace("** moveCircleActors")
-;    Actor aela = Alias_Aela.GetReference() as Actor
-;    Actor skjol = Alias_Skjol.GetReference() as Actor
-;    moveSingleNpc(aela, markAela, "aela -> markAela")
-;    moveSingleNpc(skjol, markSkjol, "skjol -> markSkjol")
-;EndFunction
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -417,30 +310,6 @@ Function openWerewolfCage()
         Debug.Trace(THIS_FILE + " **ERROR** DSilHand_GallowsImpJailDoor01 REFERENCE IS EMPTY!!", 2)
     endif
 EndFunction
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: ReferenceAlias aliasActor - Actor that will execute the animation
-; Input: Idle akIdle - idle animation that will be executed by the NPC 
-; Input: String idleDescription - Name or information about the Idle. This
-;        value will be logged, but does not interfere on the function execution.
-; 
-; Force an actor to play an Idle.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;Function playIdleHelper(ReferenceAlias aliasActor, Idle akIdle, String idleDescription)
-;    Actor actorObj = aliasActor.GetReference() as Actor
-;    if(actorObj != None)
-;        if actorObj.PlayIdle(akIdle)
-;            Debug.Trace(THIS_FILE + " -- idle animation (" + idleDescription + ") is running")
-;          else
-;            Debug.Trace(THIS_FILE + " ** ERROR: Something went wrong on idle animation (" + idleDescription + ")... ", 2)
-;            Debug.Trace(THIS_FILE + " ** aliasActor:<" + aliasActor + ">", 2)
-;            Debug.Trace(THIS_FILE + " ** akIdle:<" + akIdle + ">", 2)
-;            Debug.Trace(THIS_FILE + " ** actorObj:<" + actorObj + ">", 2)
-;          endIf    
-;    else
-;        Debug.Trace(THIS_FILE + " ** ERROR: CANNOT EXECUTE IDDLE ANIMATION, ACTOR OBJECT FOR (" + idleDescription + ") IS EMPTY")      
-;    endif
-;EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void

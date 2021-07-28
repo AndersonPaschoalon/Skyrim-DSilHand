@@ -15,6 +15,9 @@ Event OnActivate(ObjectReference akActionRef)
     CompanionsFaction.SetEnemy(SilverHandFaction)
     CompanionsFaction.SetEnemy(PlayerFaction)    
     Debug.MessageBox("DSilHand_TestM80");
+    DSilHand_M10SilverHunt.Start()
+    DSilHand_M10SilverHunt.SetStage(60)
+    DSilHand_M10SilverHunt.SetObjectiveCompleted(60)
     DSilHand_M80AssaultJor.Start()
     DSilHand_M80AssaultJor.SetStage(10)
     DSilHand_M80AssaultJor.SetObjectiveDisplayed(10)
@@ -22,3 +25,5 @@ EndEvent
 
 
 
+
+Quest Property DSilHand_M10SilverHunt  Auto  

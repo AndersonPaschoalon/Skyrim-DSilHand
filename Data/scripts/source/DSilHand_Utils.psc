@@ -1,39 +1,53 @@
 Scriptname DSilHand_Utils extends Quest  
 
 ;;
-;;  ; ACTOR MOVE HANDLERS
-;;  moveSingleNpcRefAlias(ReferenceAlias npc, ReferenceAlias marker, string npcLabel, string callerScript) 
-;;  moveSingleNpc(Actor npc, ObjectReference marker, string npcLabel, string callerScript)
-;;  
-;;  ; ACTOR FOLLOWER HELPERS
-;;  bool actorRefAliasIsFollower(ReferenceAlias npc, string actorNameStr, Faction PotentialFollowerFaction, Faction CurrentFollowerFaction, string callerScript)
-;;  bool actorIsFollower(Actor npc, string actorNameStr, Faction PotentialFollowerFaction, Faction CurrentFollowerFaction, string callerScript)
-;;  setupFollowerRefAlias(ReferenceAlias npc, string actorName, string callerScript)
-;;  setupFollower(Actor npc, string actorName, string callerScript)
-;;  shutdownFollowerRefAlias(ReferenceAlias npc, string actorName, string callerScript)
-;;  shutdownFollower(Actor npc, string actorName, string callerScript)
-;;  
-;;  ; ACTOR STATUS
-;;  bool areAllActorsAliasRefDead(ReferenceAlias[] npcsArray, string callerScript)
-;;  bool areAllActorsDead(Actor[] npcsArray, string callerScript)
-;;  bool are2ActorsRefAliasDead(ReferenceAlias npc1, ReferenceAlias npc2, string callerScript)
-;;  bool are2ActorsDead(Actor npc1, Actor npc2, string callerScript)
-;;  
-;;  ; ENABLE/DISABLE 
-;;  enableActorAliasRef(ReferenceAlias npc, string actorName, string callerScript) 
-;;  enableActor(Actor npc, string actorName, string callerScript) 
-;;  enableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript)
-;;  enableObject(ObjectReference obj, string objName, string callerScript)
-;;  disableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript)
-;;  disableActor(Actor npc, string actorName, string callerScript)
-;;  disableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript)
-;;  disableObject(ObjectReference obj, string objName, string callerScript)
-;;  
-;;  ; ANIMATIONS 
-;;  playIdleHelper(ReferenceAlias aliasActor, string actorName, Idle akIdle, string idleDescription, string callerScript)
-;;
-;;  ; TROUBLESHOOTING
-;;  string logActorStatus(Actor actorObj, string actorName, int logLevel, string callerScript)
+;; ;; GAME AND UTILS
+;; float Function GetCurrentHourOfDay() 
+;; 
+;; ;; ACTOR MOVE HANDLERS
+;; 
+;; Function moveSingleNpcRefAlias(ReferenceAlias npc, ReferenceAlias marker, string npcLabel, string callerScript) 
+;; Function moveSingleNpcRefAlias2(ReferenceAlias npc, ObjectReference marker, string npcLabel, string callerScript) 
+;; Function moveSingleNpc(Actor npc, ObjectReference marker, string npcLabel, string callerScript) 
+;; Function moveNpcRefAliasIfAlive(ReferenceAlias npc, ReferenceAlias marker, String logInfo, string callerScript) 
+;; Function moveNpcIfAlive(Actor npc, ObjectReference marker, String logInfo, string callerScript) 
+;; 
+;; ;; ACTOR FOLLOWER HELPERS
+;; 
+;; bool Function actorRefAliasIsFollower(ReferenceAlias npc, string actorNameStr, Faction PotentialFollowerFaction, Faction CurrentFollowerFaction, string callerScript)  
+;; bool Function actorIsFollower(Actor npc, string actorNameStr, Faction PotentialFollowerFaction, Faction CurrentFollowerFaction, string callerScript) 
+;; Function setupFollowerRefAlias(ReferenceAlias npc, string actorName, string callerScript) 
+;; Function setupFollower(Actor npc, string actorName, string callerScript) 
+;; Function shutdownFollowerRefAlias(ReferenceAlias npc, string actorName, string callerScript) 
+;; Function shutdownFollower(Actor npc, string actorName, string callerScript) 
+;; 
+;; ;; ACTOR STATUS
+;; bool Function areAllActorsAliasRefDead(ReferenceAlias[] npcsArray, string callerScript) 
+;; bool Function areAllActorsDead(Actor[] npcsArray, string callerScript) 
+;; bool Function are2ActorsRefAliasDead(ReferenceAlias npc1, ReferenceAlias npc2, string callerScript) 
+;; bool Function are2ActorsDead(Actor npc1, Actor npc2, string callerScript) 
+;; 
+;; ;; ENABLE/DISABLE 
+;; Function enableActorAliasRef(ReferenceAlias npc, string actorName, string callerScript) 
+;; Function enableActor(Actor npc, string actorName, string callerScript) 
+;; Function enableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) 
+;; Function enableObject(ObjectReference obj, string objName, string callerScript) 
+;; Function disableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) 
+;; Function disableActor(Actor npc, string actorName, string callerScript) 
+;; 
+;; Function disableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) 
+;; Function disableObject(ObjectReference obj, string objName, string callerScript) 
+;; 
+;; ;; COMBAT
+;; Function stopAllCombat(Actor npc, string actorName, string callerScript) 
+;; Function stopAllCombatRefAlias(ReferenceAlias npc, string actorName, string callerScript) 
+;; 
+;; ;; ANIMATIONS 
+;; Function playIdleHelper(ReferenceAlias aliasActor, string actorName, Idle akIdle, string idleDescription, string callerScript) 
+;; 
+;; 
+;; ;; TROUBLESHOOTING
+;; string Function logActorStatus(Actor actorObj, string actorName, int logLevel, string callerScript) 
 ;;
 
 
@@ -145,7 +159,7 @@ Function moveSingleNpc(Actor npc, ObjectReference marker, string npcLabel, strin
     endif
 endFunction
 
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: Actor npc - NPC to be moved
 ; Input: ObjectReference marker - ObjectReference to the marker the NPC will
 ;        be moved
@@ -493,7 +507,6 @@ bool Function are2ActorsDead(Actor npc1, Actor npc2, string callerScript) global
 endFunction
 
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ENABLE/DISABLE 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -637,6 +650,44 @@ Function disableObject(ObjectReference obj, string objName, string callerScript)
     else
         Debug.Trace(loginfo +" **ERROR** ObjectReference to obj " + objName + " is EMPTY!", 2)
     endif   
+endFunction
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; COMBAT
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: Actor npc - npc to be pacified
+;
+; stops all combat and combat alargs against the specified npc 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function stopAllCombat(Actor npc, string actorName, string callerScript) global
+    string loginfo = logPrefix(callerScript)
+    Debug.Trace(loginfo + " -- exec StopCombat() and StopCombatAlarm() on npc " + actorName + "<" + npc + ">")
+    if(npc != None)
+        npc.StopCombat()
+        npc.StopCombatAlarm()
+    else
+        Debug.Trace(loginfo + " **WARNING** NPC object is EMPTY!", 1)
+    endif
+endFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: Actor npc - npc to be pacified
+;
+; stops all combat and combat alargs against the specified npc 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function stopAllCombatRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
+    string loginfo = logPrefix(callerScript)
+    Debug.Trace(loginfo + " -- exec StopCombat() and StopCombatAlarm() on npc " + actorName + "<" + npc + ">")
+    if(npc != None)
+        Actor npcActor = npc.GetActorReference()
+        stopAllCombat(npcActor, actorName, loginfo)
+    else
+        Debug.Trace(loginfo + " **WARNING** NPC ReferenceAlias object is EMPTY!", 1)
+    endif
 endFunction
 
 

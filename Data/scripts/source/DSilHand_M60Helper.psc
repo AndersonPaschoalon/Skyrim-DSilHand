@@ -131,7 +131,7 @@ bool Function invadersInsideAreDead()
     npcsArray[3] = Alias_CompRed2
     npcsArray[4] = Alias_Aela
     npcsArray[5] = Alias_Skjol
-    bool retVal = DSilHand_Utils.areAllActorsAliasRefDead(npcsArray, THIS_FILE)
+    bool retVal = DSilHand_Utils.areAllActorsRefAliasDead(npcsArray, THIS_FILE)
     if(retval == true)
         Debug.Trace(THIS_FILE + " -- All invaders INSIDE are dead!")
         return true

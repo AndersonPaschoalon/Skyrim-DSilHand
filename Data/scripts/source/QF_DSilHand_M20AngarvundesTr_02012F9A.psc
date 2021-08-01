@@ -2,16 +2,6 @@
 ;NEXT FRAGMENT INDEX 10
 Scriptname QF_DSilHand_M20AngarvundesTr_02012F9A Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY Krev
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Krev Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY hillara
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_hillara Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY chest
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_chest Auto
@@ -22,29 +12,15 @@ ReferenceAlias Property Alias_chest Auto
 ReferenceAlias Property Alias_Frag08 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN FRAGMENT Fragment_2
-Function Fragment_2()
-;BEGIN CODE
-Debug.Trace("(DSilHand_M20) -- Stage 10");
+;BEGIN ALIAS PROPERTY hillara
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_hillara Auto
+;END ALIAS PROPERTY
 
-; Enable Frag08
-Debug.Trace("(DSilHand_M20) -- Enable Frag08")
-DSilHand_Utils.enableObjectRefAlias(Alias_Frag08, "Alias_Frag08", "(DSilHand_M20:10)")
-;Alias_Frag08.GetReference().Enable()
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_0
-Function Fragment_0()
-;BEGIN CODE
-; Diasable Ax Fragment 08
-Debug.Trace("(DSilHand_M20:0) -- Disable  Frag08 before quest starts")
-DSilHand_Utils.disableObjectRefAlias(Alias_Frag08, "Alias_Frag08", "(DSilHand_M20:0)")
-; Alias_Frag08.GetReference().Disable()
-;END CODE
-EndFunction
-;END FRAGMENT
+;BEGIN ALIAS PROPERTY Krev
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Krev Auto
+;END ALIAS PROPERTY
 
 ;BEGIN FRAGMENT Fragment_6
 Function Fragment_6()
@@ -87,6 +63,14 @@ DSilHand_Utils.setupFollowerRefAlias(Alias_Hillara, "Alias_Hillara", "(DSilHand_
 EndFunction
 ;END FRAGMENT
 
+;BEGIN FRAGMENT Fragment_9
+Function Fragment_9()
+;BEGIN CODE
+Debug.Trace("(DSilHand_M20:20)  -- Stage 20");
+;END CODE
+EndFunction
+;END FRAGMENT
+
 ;BEGIN FRAGMENT Fragment_8
 Function Fragment_8()
 ;BEGIN CODE
@@ -95,10 +79,24 @@ Debug.Trace("(DSilHand_M20:40) -- Stage 40");
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_9
-Function Fragment_9()
+;BEGIN FRAGMENT Fragment_0
+Function Fragment_0()
 ;BEGIN CODE
-Debug.Trace("(DSilHand_M20:20)  -- Stage 20");
+; Diasable Ax Fragment 08
+Debug.Trace("(DSilHand_M20:0) -- Disable  Frag08 before quest starts")
+DSilHand_Utils.disableObjectRefAlias(Alias_Frag08, "Alias_Frag08", "(DSilHand_M20:0)")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_2
+Function Fragment_2()
+;BEGIN CODE
+Debug.Trace("(DSilHand_M20) -- Stage 10");
+
+; Enable Frag08
+Debug.Trace("(DSilHand_M20) -- Enable Frag08")
+DSilHand_Utils.enableObjectRefAlias(Alias_Frag08, "Alias_Frag08", "(DSilHand_M20:10)")
 ;END CODE
 EndFunction
 ;END FRAGMENT

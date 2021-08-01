@@ -6,10 +6,10 @@ Scriptname DSilHand_M80FakeVilkas extends ReferenceAlias
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ReferenceAlias Property CircleNord01  Auto  
-{}
+{Reference to the Actor CircleNord01}
 
 ReferenceAlias Property FakeKodlak  Auto  
-{}
+{Reference to the Actor FakeKodlak}
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -18,6 +18,7 @@ ReferenceAlias Property FakeKodlak  Auto
 
 String THIS_FILE = "(DSilHand_M80FakeVilkas.psc)"
 int STAGE_BATTLE_END = 60
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; EVENTS

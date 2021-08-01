@@ -28,25 +28,25 @@ This is the Dawn of the Silver Hand Documentation.
 - [Dialogs Quest M80](./Dialogues/M80.md)
 - [Dialogs Quest M90](./Dialogues/M90.md)
 - [Dialogs Quest S01](./Dialogues/S01.md )
-- [Dialogs Misc Quests](./Dialogues/misc.md )
+- [Dialogs Misc Quests](./Dialogues/Misc.md )
 
 
 ## Creation Kit Objects and Locations
 
 - [List of New Objects](./Objects/ObjectList.csv)
 
-- [List on Change of Vanilla Objects](./Objects/VanillaChanges.md)
+- [List of Change of Vanilla Objects](./Objects/VanillaChanges.md)
 
 - [List of Changed Locations](./Locations/VanillaChanges.csv)
 
 
 ## Web Resources 
 
-- [Skyrim Search](https://www.skyrimsearch.com/): Online documentation about all objects from Skyrim
+- [Skyrim Search](https://www.skyrimsearch.com/): Online documentation about all objects from Skyrim.
 
-- [Wuuthrad Fragments](https://elderscrolls.fandom.com/wiki/Wuuthrad_(Skyrim)) : Wiki Page about the Ysgramour axe
+- [Wuuthrad Fragments](https://elderscrolls.fandom.com/wiki/Wuuthrad_(Skyrim)): Wiki Page about the Ysgramour axe.
 
-- [The Companions](https://elderscrolls.fandom.com/wiki/The_Companions)
+- [The Companions](https://elderscrolls.fandom.com/wiki/The_Companions): Wiki para for the Companions.
 
 
 

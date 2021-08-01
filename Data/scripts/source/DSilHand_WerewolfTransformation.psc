@@ -65,6 +65,10 @@ Function castWerewolfTransformation(Actor currentActor)
     currentActor.DispelAllSpells()
     ; invulnerable
     currentActor.GetActorBase().SetInvulnerable(true)
+    ; ressurect just in case
+    if(currentActor.IsDead() == true)
+        currentActor.Resurrect()
+    endif
     ; restore actor health
     int actorFullHealth = (currentActor.GetBaseAV("Health") as Int)
     currentActor.RestoreAV("Health", actorFullHealth )

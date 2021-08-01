@@ -2,19 +2,9 @@
 ;NEXT FRAGMENT INDEX 19
 Scriptname QF_DSilHand_M10SilverHunt_020092FB Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY SpyWhiterun
+;BEGIN ALIAS PROPERTY DriftshadeEntranceTrigger
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SpyWhiterun Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY hillara
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_hillara Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Krev
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Krev Auto
+ReferenceAlias Property Alias_DriftshadeEntranceTrigger Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY fjol
@@ -22,14 +12,9 @@ ReferenceAlias Property Alias_Krev Auto
 ReferenceAlias Property Alias_fjol Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY GiantTroll
+;BEGIN ALIAS PROPERTY Krev
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GiantTroll Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY DriftshadeEntranceTrigger
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_DriftshadeEntranceTrigger Auto
+ReferenceAlias Property Alias_Krev Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY GallowsEntranceTrigger
@@ -37,9 +22,29 @@ ReferenceAlias Property Alias_DriftshadeEntranceTrigger Auto
 ReferenceAlias Property Alias_GallowsEntranceTrigger Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY hillara
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_hillara Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY DriftshadeGuard
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_DriftshadeGuard Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY SpyWhiterun
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SpyWhiterun Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY SENAAR
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SENAAR Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY GiantTroll
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_GiantTroll Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Skull
@@ -52,35 +57,18 @@ ReferenceAlias Property Alias_Skull Auto
 ReferenceAlias Property Alias_GallowsGuard Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY SENAAR
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SENAAR Auto
-;END ALIAS PROPERTY
-
-;BEGIN FRAGMENT Fragment_7
-Function Fragment_7()
+;BEGIN FRAGMENT Fragment_5
+Function Fragment_5()
 ;BEGIN CODE
-; Log Quest Stage
-Debug.Trace("(DSilHand_M10:30) -- starting stage 30")
-
-; Enable Frost troll
-DSilHand_Utils.enableActorAliasRef(Alias_GiantTroll, "Alias_GiantTroll", "(DSilHand_M10:30)")
+Debug.Trace("(DSilHand_M10:20) -- starting stage 20")
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_9
-Function Fragment_9()
+;BEGIN FRAGMENT Fragment_3
+Function Fragment_3()
 ;BEGIN CODE
-Debug.Trace("(DSilHand_M10:40) -- starting stage 40")
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_0
-Function Fragment_0()
-;BEGIN CODE
-Debug.Trace("(DSilHand_M10:0) -- STARTING SILVERHAND QUEST!")
+Debug.Trace("(DSilHand_M10:10) -- starting stage 10")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -120,6 +108,18 @@ DSilHand_M20AngarvundesTreasure.SetObjectiveDisplayed(10)
 EndFunction
 ;END FRAGMENT
 
+;BEGIN FRAGMENT Fragment_7
+Function Fragment_7()
+;BEGIN CODE
+; Log Quest Stage
+Debug.Trace("(DSilHand_M10:30) -- starting stage 30")
+
+; Enable Frost troll
+DSilHand_Utils.enableActorRefAlias(Alias_GiantTroll, "Alias_GiantTroll", "(DSilHand_M10:30)")
+;END CODE
+EndFunction
+;END FRAGMENT
+
 ;BEGIN FRAGMENT Fragment_11
 Function Fragment_11()
 ;BEGIN CODE
@@ -129,15 +129,15 @@ Debug.Trace("(DSilHand_M10:50) -- starting stage 50")
 Game.GetPlayer().RemoveItem(Alias_Skull.GetReference())
 
 ; Enable Krev
-DSilHand_Utils.enableActorAliasRef(Alias_Krev, "Alias_Krev", "(DSilHand_M10:50)")
+DSilHand_Utils.enableActorRefAlias(Alias_Krev, "Alias_Krev", "(DSilHand_M10:50)")
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_3
-Function Fragment_3()
+;BEGIN FRAGMENT Fragment_9
+Function Fragment_9()
 ;BEGIN CODE
-Debug.Trace("(DSilHand_M10:10) -- starting stage 10")
+Debug.Trace("(DSilHand_M10:40) -- starting stage 40")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -167,10 +167,10 @@ SetObjectiveFailed(100)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_5
-Function Fragment_5()
+;BEGIN FRAGMENT Fragment_0
+Function Fragment_0()
 ;BEGIN CODE
-Debug.Trace("(DSilHand_M10:20) -- starting stage 20")
+Debug.Trace("(DSilHand_M10:0) -- STARTING SILVERHAND QUEST!")
 ;END CODE
 EndFunction
 ;END FRAGMENT

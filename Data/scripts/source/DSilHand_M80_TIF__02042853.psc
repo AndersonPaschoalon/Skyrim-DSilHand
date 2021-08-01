@@ -7,7 +7,10 @@ Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 ; Dragonborn  follow the man to Jorrvaskr.
+; Advances quest stage, so the teleport script will be activated
 Debug.Trace("(DSilHand_M80) -- Set Stage 40")
+GetOwningQuest().SetObjectiveCompleted(30)
+GetOwningQuest().SetObjectiveDisplayed(40)
 GetOwningQuest().SetStage(40)
 ;END CODE
 EndFunction

@@ -1,6 +1,10 @@
 Scriptname DSilHand_M80FakeKodlak extends ReferenceAlias  
 {Script for Kodlack. When all circle members are ded, the quest advances.}
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;  PROPERTIES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ReferenceAlias Property FakeVilkas  Auto  
 {FakeVilkas ACTOR OBJECT}
 

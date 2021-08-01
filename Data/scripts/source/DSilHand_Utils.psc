@@ -22,13 +22,13 @@ Scriptname DSilHand_Utils extends Quest
 ;; Function shutdownFollower(Actor npc, string actorName, string callerScript) 
 ;; 
 ;; ;; ACTOR STATUS
-;; bool Function areAllActorsAliasRefDead(ReferenceAlias[] npcsArray, string callerScript) 
+;; bool Function areAllActorsRefAliasDead(ReferenceAlias[] npcsArray, string callerScript) 
 ;; bool Function areAllActorsDead(Actor[] npcsArray, string callerScript) 
 ;; bool Function are2ActorsRefAliasDead(ReferenceAlias npc1, ReferenceAlias npc2, string callerScript) 
 ;; bool Function are2ActorsDead(Actor npc1, Actor npc2, string callerScript) 
 ;; 
 ;; ;; ENABLE/DISABLE 
-;; Function enableActorAliasRef(ReferenceAlias npc, string actorName, string callerScript) 
+;; Function enableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) 
 ;; Function enableActor(Actor npc, string actorName, string callerScript) 
 ;; Function enableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) 
 ;; Function enableObject(ObjectReference obj, string objName, string callerScript) 
@@ -365,7 +365,7 @@ endFunction
 ; If any actors is alive it return false.
 ; If any of the actors or the vector is null pointer it return false.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-bool Function areAllActorsAliasRefDead(ReferenceAlias[] npcsArray, string callerScript) global
+bool Function areAllActorsRefAliasDead(ReferenceAlias[] npcsArray, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if(npcsArray == None)
         Debug.Trace(loginfo + " **WARNING** Actor[] npcsArray IS EMPTY!", 1);
@@ -521,7 +521,7 @@ endFunction
 ;
 ; Enables an actor object. If the actor is dead, it resurrect it. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function enableActorAliasRef(ReferenceAlias npc, string actorName, string callerScript) global
+Function enableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if (npc == None) 
         Debug.Trace(loginfo + " **WARNING** CANNOT ENABLE ACTOR ReferenceAlias: IT IS EMPTY", 1)
@@ -549,6 +549,7 @@ Function enableActor(Actor npc, string actorName, string callerScript) global
             Debug.Trace(loginfo + " -- NPC " + actorName + " is dead! => Resurrect!")
             npc.Resurrect()
         endif
+        ;npc.EvaluatePackage()
     endif
 endfunction
 

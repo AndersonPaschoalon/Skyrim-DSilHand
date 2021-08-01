@@ -1,1 +1,0 @@
-Scriptname DSilHand_TriggerEnterCaveScript extends ReferenceAlias  

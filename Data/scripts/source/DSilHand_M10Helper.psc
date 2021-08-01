@@ -10,6 +10,9 @@ Quest Property C00  Auto
 Quest Property C00JorrvaskrFight  Auto  
 {Companion hidden quest that manages the fight between Athis and Njada Stonearm when you arrive on Jorrvaskr.}
 
+Quest Property C00GiantAttack  Auto  
+{Comapanion hidden quest thah manages the Giant Attack to Whi, used to present the Companions}
+
 Faction Property SilverHandFaction  Auto  
 {Silver Hand Faction}
 
@@ -107,6 +110,7 @@ String THIS_FILE = "(DSilHand_M10Helper.psc) "
 int C00_FAILED_STAGE = 90
 int C00_FAILED_OBJECTIVE = 90
 int C00JORRVASKRFIGHT_LASTSTAGE = 100
+int C00GIANTATTACK_LASTSTAGE = 200
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -131,6 +135,8 @@ Function setupSilverHandJoin()
     disable_C00()
     Debug.Trace(THIS_FILE + " -- DISABLE C00JorrvaskrFight")
     disable_C00JorrvaskrFight()
+    Debug.Trace(THIS_FILE + " -- DISABLE C00GiantAttack")
+    disable_C00GiantAttack()
     Debug.Trace(THIS_FILE + " -- JOIN THE SILVER HANDS")
     joinSilverHand()
 endFunction
@@ -222,6 +228,7 @@ Function disable_C00()
     C00.SetStage(C00_FAILED_STAGE)
     Debug.Trace(THIS_FILE + " -- C00.SetObjectiveFailed()")
     C00.SetObjectiveFailed(C00_FAILED_OBJECTIVE)
+    C00.Stop()
 endFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -238,6 +245,26 @@ Function disable_C00JorrvaskrFight()
     if (currentStage < C00JORRVASKRFIGHT_LASTSTAGE)
         Debug.Trace(THIS_FILE + " -- 00JorrvaskrFight.SetStage(" + C00JORRVASKRFIGHT_LASTSTAGE + ")")
         C00JorrvaskrFight.SetStage(C00JORRVASKRFIGHT_LASTSTAGE)
+        C00JorrvaskrFight.Stop()
+    endif
+endFunction
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+; 
+; Disable C00GiantAttack. If the current quest stage is smaller than the 
+; last (that means, if the fight did not happened yet), it set it to the last 
+; (so the fight will not happen).
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function disable_C00GiantAttack()
+    Debug.Trace(THIS_FILE + " -- disable_C00GiantAttack()")
+    int currentStage = C00GiantAttack.GetStage()
+    Debug.Trace(THIS_FILE + " -- currentStage:<" + currentStage + ">")
+    if (currentStage < C00GIANTATTACK_LASTSTAGE)
+        Debug.Trace(THIS_FILE + " -- 00JorrvaskrFight.SetStage(" + C00GIANTATTACK_LASTSTAGE + ")")
+        C00GiantAttack.SetStage(C00GIANTATTACK_LASTSTAGE)
+        C00GiantAttack.Stop()
     endif
 endFunction
 
@@ -290,4 +317,6 @@ Function disableSilverhandUniqueActors()
     ; Disable Whiterun Spy 
     DSilHand_Utils.disableActorRefAlias(SpyWhiterun, "SpyWhiterun", THIS_FILE)
 endFunction
+
+
 

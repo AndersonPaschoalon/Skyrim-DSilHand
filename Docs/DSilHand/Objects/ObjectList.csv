@@ -1,5 +1,4 @@
 # Object Type, Editor Id, Name
-
 Actor, DSilHand_CompanionRookieBreton01, ""
 Actor, DSilHand_CompanionRookieBreton02, ""
 Actor, DSilHand_CompanionRookieImperial01, ""
@@ -17,11 +16,9 @@ Actor, DSilHand_KrevTheSkinner, ""
 Actor, DSilHand_HaknrmEbonFingers, ""  
 Actor, DSilHand_IrronkasHeadTorn, ""  
 Actor, DSilHand_KylmirShadeSkinner, ""  
-
 Outfit, DSilHand_ArmorFjol, ""  
 Outfit, DSilHand_ArmorHillara, ""  
 Outfit, DSilHand_ArmorPlate, ""  
-
 Quest, DSilHand_M10SilverHunt, Silver Hunt
 Quest, DSilHand_M20CompConspiracy, Companion Conspiracy
 Quest, DSilHand_M30WolfAmbush, Wolf Ambush
@@ -29,11 +26,9 @@ Quest, DSilHand_M40Relatiation, Retaliation
 Quest, DSilHand_M50UncPast, Uncovering the Past
 Quest, DSilHand_M69AssaultJor, Assault on Jorrvaskr
 Quest, DSilHand_M70HonYsgramor, In honor of Ysgramor
-
 Trigger, DSilHand_GallowsRockEntranceTrigger, ""  
 Trigger, DSilHand_DriftshadeEntranceTrigger, ""  
 Trigger, DSilHand_DrunkenEntranceTrigger, ""  
-
 Global, DSilHand_hasQuestStarted, ""  
 
 

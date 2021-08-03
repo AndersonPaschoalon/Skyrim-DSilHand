@@ -39,6 +39,12 @@ This is the Dawn of the Silver Hand Documentation.
 
 - [List of Changed Locations](./Locations/VanillaChanges.csv)
 
+- [Scene Lists](./Objects/ScenesList.csv)
+
+- [Scene Objects - Quest M60](./Objects/SceneObjectsM60.csv)
+
+- [Scene Objects - Quest M80](./Objects/SceneObjectsM80.csv)
+
 
 ## Web Resources 
 

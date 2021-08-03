@@ -1,0 +1,44 @@
+# (Type:)Object, Scene ID                       , (Actor:)Object ID
+
+Scene          , DSilHand_M60_SceneFjolDiscourse, DSilHand_M60_SceneFjolDiscourse
+Phase          , DSilHand_M60_SceneFjolDiscourse, DSilHand_M60_SceneFjolDiscourse_Phase01
+Action:Dialogue, DSilHand_M60_SceneFjolDiscourse, DSilHand_M60FD_Topic01
+Action:Package , DSilHand_M60_SceneFjolDiscourse, Fjol:DSilHand_M60FjolMoveToTribuneAnimation
+Action:Package , DSilHand_M60_SceneFjolDiscourse, SilverRef01:DSilHand_M60Silver01TrevelAnimation
+Action:Package , DSilHand_M60_SceneFjolDiscourse, SilverRef02:DSilHand_M60Silver02TrevelAnimation
+Action:Package , DSilHand_M60_SceneFjolDiscourse, SilverRef03:DSilHand_M60Silver03TrevelAnimation
+Action:Package , DSilHand_M60_SceneFjolDiscourse, SilverRef04:DSilHand_M60Silver04TrevelAnimation
+Action:Package , DSilHand_M60_SceneFjolDiscourse, SilverRef05:DSilHand_M60Silver05TrevelAnimation
+Action:Package , DSilHand_M60_SceneFjolDiscourse, SilverRef06:DSilHand_M60Silver06TrevelAnimation
+
+Phase          , DSilHand_M60_SceneFjolDiscourse, DSilHand_M60_SceneFjolDiscourse_Phase02
+Action:Package , DSilHand_M60_SceneFjolDiscourse, Fjol:DSilHand_M60StayAnimation
+Action:Package , DSilHand_M60_SceneFjolDiscourse, SilverRef01:DSilHand_M60StayAnimation
+Action:Package , DSilHand_M60_SceneFjolDiscourse, SilverRef02:DSilHand_M60StayAnimation
+Action:Package , DSilHand_M60_SceneFjolDiscourse, SilverRef03:DSilHand_M60StayAnimation
+Action:Package , DSilHand_M60_SceneFjolDiscourse, SilverRef04:DSilHand_M60StayAnimation
+Action:Package , DSilHand_M60_SceneFjolDiscourse, SilverRef05:DSilHand_M60StayAnimation
+Action:Package , DSilHand_M60_SceneFjolDiscourse, SilverRef06:DSilHand_M60StayAnimation
+Action:Timer   , DSilHand_M60_SceneFjolDiscourse, Fjol:DSilHand_M60_SceneFjolCreWait
+
+Phase          , DSilHand_M60_SceneFjolDiscourse, DSilHand_M60_SceneFjolDiscourse_Phase03
+Action:Dialogue, DSilHand_M60_SceneFjolDiscourse, Fjol:DSilHand_M60FD_Topic02
+
+Scene          , DSilHand_M60_SceneGuardInjuried, DSilHand_M60_SceneFjolDiscourse
+Phase          , DSilHand_M60_SceneGuardInjuried, DSilHand_M60_SceneGuardInjuried_Phase01
+Action:Package , DSilHand_M60_SceneFjolDiscourse, GallowsGuard:DSilHand_M60WoundedAnimation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

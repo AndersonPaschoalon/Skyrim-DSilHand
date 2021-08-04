@@ -6,7 +6,7 @@ Action:Dialogue, DSilHand_M60_SceneAssault, DSilHand_M80DB_Topic01
 
 Scene          , DSilHand_M80_SceneArmistice, DSilHand_M80_SceneArmistice
 Phase          , DSilHand_M80_SceneArmistice, DSilHand_M80_SceneArmistice_Phase01
-Action:Package , DSilHand_M80_SceneArmistice, Fol:DSilHand_M80_SceneGoToSpeech
+Action:Package , DSilHand_M80_SceneArmistice, Fjol:DSilHand_M80_SceneGoToSpeech
 Action:Package , DSilHand_M80_SceneArmistice, FakeAthis:DSilHand_M80_SceneLookAtFjol
 Action:Package , DSilHand_M80_SceneArmistice, Hillara:DSilHand_M80_SceneLookAtFjol
 Action:Package , DSilHand_M80_SceneArmistice, Senaar:DSilHand_M80_SceneLookAtFjol
@@ -75,7 +75,46 @@ Action:Dialogue, DSilHand_M80_SceneArmistice, Vignar:DSilHand_M80SA_Topic10
 Phase          , DSilHand_M80_SceneArmistice, DSilHand_M80_SceneArmistice_Phase14
 Action:Dialogue, DSilHand_M80_SceneArmistice, Athis:DSilHand_M80SA_Topic11
 
+Scene          , DSilHand_M80_SceneFjolCallToSkyforge, DSilHand_M80_SceneFjolCallToSkyforge
+Phase          , DSilHand_M80_SceneFjolCallToSkyforge, DSilHand_M80_SceneFjolCallToSkyforge_Phase01
+Action:Package , DSilHand_M80_SceneFjolCallToSkyforge, Fjol:DSilHand_M80_SceneGoToSpeechFragment
+Action:Package , DSilHand_M80_SceneFjolCallToSkyforge, Haknrm:DSilHand_M80SceneLookAtFjol
+Action:Package , DSilHand_M80_SceneFjolCallToSkyforge, Hillara:DSilHand_M80SceneLookAtFjol
+Action:Package , DSilHand_M80_SceneFjolCallToSkyforge, Kurdak:DSilHand_M80SceneLookAtFjol
+Action:Package , DSilHand_M80_SceneFjolCallToSkyforge, Kylmir:DSilHand_M80SceneLookAtFjol
+Action:Package , DSilHand_M80_SceneFjolCallToSkyforge, Senaar:DSilHand_M80SceneLookAtFjol
+Action:Package , DSilHand_M80_SceneFjolCallToSkyforge, Irronkas:DSilHand_M80SceneLookAtFjol
+Action:Package , DSilHand_M80_SceneFjolCallToSkyforge, SilverHand1:DSilHand_M80SceneLookAtFjol
+Action:Package , DSilHand_M80_SceneFjolCallToSkyforge, SilverHand2:DSilHand_M80SceneLookAtFjol
+Action:Package , DSilHand_M80_SceneFjolCallToSkyforge, SilverHand3:DSilHand_M80SceneLookAtFjol
+Action:Package , DSilHand_M80_SceneFjolCallToSkyforge, SilverHand4:DSilHand_M80SceneLookAtFjol
+Phase          , DSilHand_M80_SceneFjolCallToSkyforge, DSilHand_M80_SceneFjolCallToSkyforge_Phase02
+Action:Dialogue, DSilHand_M80_SceneFjolCallToSkyforge, Fjol:DSilHand_M80SFC_Topic01 
 
+
+Scene          , DSilHand_M80_SceneWuuthradReassemble, DSilHand_M80_SceneWuuthradReassemble
+
+Phase          , DSilHand_M80_SceneWuuthradReassemble, DSilHand_M80_SceneWuuthradReassemble_Phase01
+Action:Package , DSilHand_M80_SceneWuuthradReassemble, Fjol:DSilHand_M80_SceneUseForge
+Action:Timer , DSilHand_M80_SceneWuuthradReassemble, Fjol:DSilHand_M80_ReassembleTime
+
+Phase          , DSilHand_M80_SceneWuuthradReassemble, DSilHand_M80_SceneWuuthradReassemble_Phase02
+Action:Package , DSilHand_M80_SceneWuuthradReassemble, Fjol:DSilHand_M80_SceneGoToWuultradSpeech
+
+Phase          , DSilHand_M80_SceneWuuthradReassemble, DSilHand_M80_SceneWuuthradReassemble_Phase03
+Action:Dialogue , DSilHand_M80_SceneWuuthradReassemble, Fjol:DSilHand_M80SWP_Topic01
+
+Phase          , DSilHand_M80_SceneWuuthradReassemble, DSilHand_M80_SceneWuuthradReassemble_Phase04
+Action:Package , DSilHand_M80_SceneWuuthradReassemble, Hilarra:DSilHand_M80_SceneClap
+Action:Package , DSilHand_M80_SceneWuuthradReassemble, Senaar:DSilHand_M80_SceneClap
+Action:Package , DSilHand_M80_SceneWuuthradReassemble, Haknrm:DSilHand_M80_SceneClap
+Action:Package , DSilHand_M80_SceneWuuthradReassemble, Kurdak:DSilHand_M80_SceneClap
+Action:Package , DSilHand_M80_SceneWuuthradReassemble, Kylmir:DSilHand_M80_SceneClap
+Action:Package , DSilHand_M80_SceneWuuthradReassemble, Irronkas:DSilHand_M80_SceneClap
+Action:Package , DSilHand_M80_SceneWuuthradReassemble, SilverHand1:DSilHand_M80_SceneClap
+Action:Package , DSilHand_M80_SceneWuuthradReassemble, SilverHand2:DSilHand_M80_SceneClap
+Action:Package , DSilHand_M80_SceneWuuthradReassemble, SilverHand3:DSilHand_M80_SceneClap
+Action:Package , DSilHand_M80_SceneWuuthradReassemble, SilverHand4:DSilHand_M80_SceneClap
 
 
 

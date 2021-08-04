@@ -3,7 +3,9 @@
 Repository for the mod I'm developing about the silver hands.
 
 
-# Token Configuration
+
+
+# Gihhub: Token Configuration
 
 * Crate your access token: 
 https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token

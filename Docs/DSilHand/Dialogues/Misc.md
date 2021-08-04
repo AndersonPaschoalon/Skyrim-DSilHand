@@ -1,22 +1,16 @@
-# mi10MeetFjol
+# Misc Quest mi20: DSilHand_mi20preDwammerTempering
 
-
-
-
-# DSilHand_mi20preDwammerTempering
-
-## DSilHand_mi20_meetKurdak
 
 ### DSilHand_mi20_firstMeetingKurdak
 
 
-DSilHand_mi20FM_Topic01
+* DSilHand_mi20FM_Topic01
 
     Dragonborn: Are you Kurdak?
 
     Kurdak: Yes, I'm. I believe you are the new recruit, right? I heard a lot about you.
 
-DSilHand_mi20FM_Topic02
+* DSilHand_mi20FM_Topic02
 
     Dragonborn: Fjol told me you could tell me more about this secret silver tempering method.
 
@@ -28,13 +22,13 @@ DSilHand_mi20FM_Topic02
 
     Kurdak: Let's make a deal: you go search for the materials, I will teach you everything I know about silver forgering. 
 
-DSilHand_mi20FM_Topic03
+* DSilHand_mi20FM_Topic03
 
     Dragonborn: Now now.
 
     Kurdak: Ok. Come back if you change your mind. 
 
-DSilHand_mi20FM_Topic04
+* DSilHand_mi20FM_Topic04
 
     Dragonborn: Deal!
 

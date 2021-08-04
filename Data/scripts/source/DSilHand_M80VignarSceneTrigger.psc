@@ -18,6 +18,7 @@ ReferenceAlias Property FakeVignar  Auto
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 String THIS_FILE = "(DSilHand_M80VignarSceneTrigger.psc) "
 int VIGNAR_SCENE_START_STAGE = 60
+int VIGNAR_SCENE_ARRIVED_STAGE = 65
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; FUNCTIONS
@@ -40,8 +41,9 @@ Function vignarSceneTriggerHandler(ObjectReference akTriggerRef)
         if(akTriggerRef == vignarActorObj && GetOwningQuest().GetStage() == VIGNAR_SCENE_START_STAGE)
             Debug.Trace(THIS_FILE + " -- Vignar entered on the trigger after Jarrskar battle.")
             Debug.Trace(THIS_FILE + " -- Start Vignar Scene!")
-            Debug.MessageBox("DSilHand_M80_SceneArmistice.Start()")
-            DSilHand_M80_SceneArmistice.Start()
+            ;Debug.MessageBox("DSilHand_M80_SceneArmistice.Start()")
+            ;DSilHand_M80_SceneArmistice.Start()
+            ;GetOwningQuest().SetStage(VIGNAR_SCENE_ARRIVED_STAGE)
         endif
     else
         Debug.Trace(THIS_FILE + " **ERROR** Vignar Reference is EMPTY!", 2)

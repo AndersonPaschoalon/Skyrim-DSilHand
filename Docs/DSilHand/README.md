@@ -50,6 +50,10 @@ This is the Dawn of the Silver Hand Documentation.
 
 - [Skyrim Search](https://www.skyrimsearch.com/): Online documentation about all objects from Skyrim.
 
+- [Actor Script](): 
+
+- [Quest Tutorial](): 
+
 - [Wuuthrad Fragments](https://elderscrolls.fandom.com/wiki/Wuuthrad_(Skyrim)): Wiki Page about the Ysgramour axe.
 
 - [The Companions](https://elderscrolls.fandom.com/wiki/The_Companions): Wiki para for the Companions.

@@ -6,15 +6,15 @@ Scriptname PF_DSilHand_M80_SceneTravelV_02044E2F Extends Package Hidden
 Function Fragment_0(Actor akActor)
 ;BEGIN CODE
 ; here, vignar completed his action of arriving at the right position.
-Debug.Trace("DSilHand_M80 -- Vignar Scene completed")
+Debug.Trace("PF_DSilHand_M80 -- Vignar Scene completed")
 
 ; wait 1 second
 int waitSeconds = 1
-Debug.Trace("DSilHand_M80 -- wait:<" + waitSeconds + "> seconds")
+Debug.Trace("PF_DSilHand_M80 -- wait:<" + waitSeconds + "> seconds")
 Utility.Wait(waitSeconds)
 
 ; advances to stage 61
-Debug.Trace("DSilHand_M80 -- Advaces to Stage 61")
+Debug.Trace("PF_DSilHand_M80 -- Advaces to Stage 61")
 GetOwningQuest().SetStage(61)
 ;END CODE
 EndFunction

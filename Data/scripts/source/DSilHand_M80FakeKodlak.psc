@@ -17,6 +17,7 @@ ReferenceAlias Property CircleNord01  Auto
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 String THIS_FILE = "(DSilHand_M80FakeKodlak.psc)"
+int STAGE_BATTLE = 50
 int STAGE_BATTLE_END = 60
 
 
@@ -34,6 +35,8 @@ Event OnDeath(Actor akKiller)
     if(DSilHand_Utils.are2ActorsRefAliasDead(CircleNord01, FakeVilkas, THIS_FILE))
         Debug.Trace(THIS_FILE + " -- CircleNord01, FakeVilkas, FakeKodlak are Dead!")
         Debug.Trace(THIS_FILE + " -- ADVANCES TO STAGE " + STAGE_BATTLE_END)
+        GetOwningQuest().SetObjectiveCompleted(STAGE_BATTLE)
+        GetOwningQuest().SetObjectiveDisplayed(STAGE_BATTLE_END)
         GetOwningQuest().SetStage(STAGE_BATTLE_END)
     else 
         Debug.Trace(THIS_FILE + " Not all circle members are dead yet!")

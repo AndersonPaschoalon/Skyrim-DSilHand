@@ -161,6 +161,8 @@ ReferenceAlias Property xMarkerKylmir  Auto
 ReferenceAlias Property xMarkerSenaar  Auto  
 {xMarker for the place where Senar will starn outside Whiterun, before the Battle}
 
+;; not used xMarkerSkyforge
+
 ReferenceAlias Property xMarkerSkyforge01  Auto  
 {xMarker for the place where the 01th Silver Hand Soldier will stand on Skyforge Scene}
 
@@ -196,6 +198,8 @@ ReferenceAlias Property xMarkerSkyforgeBlacksmith  Auto
 
 ReferenceAlias Property xMarkerSkyforgeFjolSpeach  Auto  
 {xMarker for the place where Fjol will stand on his Skyforge Scene}
+
+;; NOT USED xMarkerVignar
 
 ReferenceAlias Property xMarkerVignarAthisListen  Auto  
 {xMarker for the place where Athis will stand on his Scene after the battle}
@@ -233,6 +237,9 @@ Faction Property SilverHandFaction  Auto
 Faction Property CompanionsFaction  Auto  
 {Companions Faction object}
 
+Faction Property GuardFactionWhiterun  Auto  
+{Guard Faction object}
+
 Armor Property ArmorSteelPlateBoots  Auto  
 {Steel Plate Boots armor object}
 
@@ -266,6 +273,54 @@ ReferenceAlias Property FakeTilma2  Auto
 ReferenceAlias Property FakeBrill  Auto  
 {Reference to Brill Copy}
 
+Faction Property BanditFaction  Auto  
+{}
+
+Faction Property NewProperty  Auto  
+{Object IsGuardFaction}
+
+Faction Property IsGuardFaction  Auto  
+{}
+
+Faction Property DragonsreachBasementGuards  Auto  
+{}
+
+ObjectReference Property WallFrag01  Auto  
+{}
+
+ObjectReference Property WallFrag02  Auto  
+{}
+
+ObjectReference Property WallFrag03  Auto  
+{}
+
+ObjectReference Property WallFrag04  Auto  
+{}
+
+ObjectReference Property WallFrag05  Auto  
+{}
+
+ObjectReference Property WallFrag06  Auto  
+{}
+
+ObjectReference Property WallFrag07  Auto  
+{}
+
+ObjectReference Property WallFrag08  Auto  
+{}
+
+ObjectReference Property WallFrag09  Auto  
+{}
+
+ObjectReference Property WallFrag10  Auto  
+{}
+
+ObjectReference Property WallFrag11  Auto  
+{}
+
+ObjectReference Property WallFrag12  Auto  
+{}
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Member variables
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -278,108 +333,6 @@ int STAGE_FJOL_SPEACH1 = 30
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Public Methods
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
-;
-; Prepare to the Scene of peace.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function prepareScenePeace()
-    Debug.Trace(THIS_FILE + " -- disable other actors temprally, so they will not interfere in the scenes")
-    DSilHand_Utils.enableActorRefAlias(FakeVignar, "FakeVignar", THIS_FILE)
-    DSilHand_Utils.enableActorRefAlias(Eorlund, "Eorlund", THIS_FILE)
-    DSilHand_Utils.enableActorRefAlias(FakeBrill, "FakeBrill", THIS_FILE)
-    DSilHand_Utils.enableActorRefAlias(FakeTilma2, "FakeTilma2", THIS_FILE)
-    ; Move actors outside Jorrvaskr, so they may run to their positions
-    Debug.Trace(THIS_FILE + " -- move actors outside Jorrvaskr")
-    DSilHand_Utils.moveSingleNpcRefAlias(FakeVignar, xMarkerVignarStarting, "FakeVignar2", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias(FakeBrill, xMarkerVignarStarting, "FakeBrill2", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias(FakeTilma2, xMarkerVignarStarting, "FakeTilma2", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias(Guard01, xMarkerVignarStarting, "Guard01", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias(Guard02, xMarkerVignarStarting, "Guard02", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias(Guard03, xMarkerVignarStarting, "Guard03", THIS_FILE)
-EndFunction
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
-;
-; Enable/Disable the right actors on Jorrvaskr to start the quest.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function prepareJorrvaskr()
-    Debug.Trace(THIS_FILE + " -- prepareJorrvaskr()")
-    Debug.Trace(THIS_FILE + " -- disable original actors / enable copies and new npcs")
-    ; Enable NPCs copies
-    DSilHand_Utils.enableActorRefAlias(FakeKodlak, "FakeKodlak", THIS_FILE)
-    DSilHand_Utils.enableActorRefAlias(FakeTorvar, "FakeTorvar", THIS_FILE)
-    DSilHand_Utils.enableActorRefAlias(FakeVilkas, "FakeVilkas", THIS_FILE)
-    ; Enable new NPCs
-    DSilHand_Utils.enableActorRefAlias(CircleNord01, "CircleNord01", THIS_FILE)
-    DSilHand_Utils.enableActorRefAlias(CompImp02, "CompImp02", THIS_FILE)
-    DSilHand_Utils.enableActorRefAlias(CompBretFrost, "CompBretFrost", THIS_FILE)
-    ; diable originals
-    DSilHand_Utils.disableActorRefAlias(Kodlak, "Kodlak", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(Torvar, "Torvar", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(Vilkas, "Vilkas", THIS_FILE)
-    ; disable other actors temprally, so they will not interfere in the scenes
-    Debug.Trace(THIS_FILE + " -- disable other actors temprally, so they will not interfere in the scenes")
-    DSilHand_Utils.disableActorRefAlias(Vignar, "Vignar", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(Eorlund, "Eorlund", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(Brill, "Brill", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(Tilma, "Tilma", THIS_FILE)
-    ; Move actors to Jorrvaskr
-    Debug.Trace(THIS_FILE + " -- move actors to Jorrvaskr")
-    DSilHand_Utils.moveSingleNpcRefAlias(FakeKodlak, xMarkerAssaultDst, "FakeKodlak", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias(FakeTorvar, xMarkerAssaultDst, "FakeTorvar", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias(FakeVilkas, xMarkerAssaultDst, "FakeVilkas", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias(CircleNord01, xMarkerAssaultDst, "CircleNord01", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias(CompImp02, xMarkerAssaultDst, "CompImp02", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias(CompBretFrost, xMarkerAssaultDst, "CompBretFrost", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias(Ria, xMarkerAssaultDst, "Ria", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias(Athis, xMarkerAssaultDst, "Athis", THIS_FILE)
-Endfunction
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
-;
-; After the quest is done, this function must be called to disable all the 
-; actor's copies and enable all originals 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function enableOriginals()
-    ; Torvar: Enable if he is alive
-    if (FakeTorvar.GetActorReference() != None && FakeTorvar.GetActorReference().IsDead() == false)
-        Debug.Trace(THIS_FILE + " -- disable FakeTorvar")
-        FakeTorvar.GetActorReference().Disable()
-        if(Torvar != None)
-            Torvar.GetActorReference().Enable()
-        else
-            Debug.Trace(THIS_FILE + " **ERROR** Tovar ReferenceAlias is EMPTY")
-        endif
-    else
-        Debug.Trace(THIS_FILE + " **WARNING** FakeTorvar referenceAlias is emptry or dead: cannot enable", 1)
-    endif
-    ;
-    ; All essential and non-replacable companions/afiliated
-    ;
-    ; Vignar
-    DSilHand_Utils.enableActorRefAlias(Vignar, "Vignar", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(FakeVignar, "FakeVignar", THIS_FILE)
-    ; Eorlund -- no copy
-    DSilHand_Utils.enableActorRefAlias(Eorlund, "Eorlund", THIS_FILE)
-    ; Brill
-    DSilHand_Utils.enableActorRefAlias(Brill, "Brill", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(FakeBrill, "FakeBrill", THIS_FILE)
-    ; TODO ---------- avaliar se e melhor manter as copias ou os originais
-    ; Ria
-    DSilHand_Utils.enableActorRefAlias(Ria, "Ria", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(FakeRia, "FakeRia", THIS_FILE)
-    ; Athis
-    DSilHand_Utils.enableActorRefAlias(Athis, "Athis", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(FakeAthis, "FakeAthis", THIS_FILE)
-    ; Tilma     
-    DSilHand_Utils.enableActorRefAlias(Tilma, "Tilma", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(FakeTilma2, "FakeTilma2", THIS_FILE)
-EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -401,6 +354,54 @@ Function setAlarmWaitUntilDusk()
     Debug.Trace(THIS_FILE + "**WARNING** WRONG ALARM", 1)
     RegisterForSingleUpdateGameTime(testAlarm)
 EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+; Enable/Disable the right actors on Jorrvaskr so the quest may start and 
+; work properly
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function prepareJorrvaskr()
+    Debug.Trace(THIS_FILE + " -- prepareJorrvaskr()")
+    Debug.Trace(THIS_FILE + " -- disable original actors / enable copies and new npcs")
+    ; Enable NPCs copies
+    DSilHand_Utils.enableActorRefAlias(FakeKodlak, "FakeKodlak", THIS_FILE)
+    DSilHand_Utils.enableActorRefAlias(FakeTorvar, "FakeTorvar", THIS_FILE)
+    DSilHand_Utils.enableActorRefAlias(FakeVilkas, "FakeVilkas", THIS_FILE)
+    DSilHand_Utils.enableActorRefAlias(FakeRia, "FakeRia", THIS_FILE)
+    DSilHand_Utils.enableActorRefAlias(FakeAthis, "FakeAthis", THIS_FILE)
+    ; Enable new NPCs
+    DSilHand_Utils.enableActorRefAlias(CircleNord01, "CircleNord01", THIS_FILE)
+    DSilHand_Utils.enableActorRefAlias(CompImp02, "CompImp02", THIS_FILE)
+    DSilHand_Utils.enableActorRefAlias(CompBretFrost, "CompBretFrost", THIS_FILE)
+    ; diable originals
+    DSilHand_Utils.disableActorRefAlias(Kodlak, "Kodlak", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(Torvar, "Torvar", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(Vilkas, "Vilkas", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(Ria, "Ria", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(Athis, "Athis", THIS_FILE)
+    ; disable other actors temprally, so they will not interfere in the scenes
+    Debug.Trace(THIS_FILE + " -- disable other actors temprally, so they will not interfere in the scenes")
+    DSilHand_Utils.disableActorRefAlias(Vignar, "Vignar", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(Eorlund, "Eorlund", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(Brill, "Brill", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(Tilma, "Tilma", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(FakeTilma2, "FakeTilma2", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(FakeVignar, "FakeVignar", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(FakeBrill, "FakeBrill", THIS_FILE)
+    ; Move actors to Jorrvaskr
+    Debug.Trace(THIS_FILE + " -- move actors to Jorrvaskr")
+    DSilHand_Utils.moveSingleNpcRefAlias(FakeKodlak, xMarkerAssaultDst, "FakeKodlak", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(FakeTorvar, xMarkerAssaultDst, "FakeTorvar", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(FakeVilkas, xMarkerAssaultDst, "FakeVilkas", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(CircleNord01, xMarkerAssaultDst, "CircleNord01", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(CompImp02, xMarkerAssaultDst, "CompImp02", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(CompBretFrost, xMarkerAssaultDst, "CompBretFrost", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(FakeRia, xMarkerAssaultDst, "FakeRia", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(FakeAthis, xMarkerAssaultDst, "FakeAthis", THIS_FILE)
+    ; show/hide the right fragments
+    prepareWulltradWallBeforeBattle()
+Endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -431,6 +432,9 @@ Function moveNpcsToSecretPassage()
         DSilHand_Utils.moveSingleNpcRefAlias(SENAAR, xMarkerSenaar, "Sennar", THIS_FILE)
     endif
     ; Enable random NPCS
+
+    int facRank = SilverHand1.GetActorReference().GetFactionRank(BanditFaction)
+    Debug.Trace(THIS_FILE + " ############## SilverHand1.GetActorReference().GetFactionRank(BanditFaction)=" + facRank)
     DSilHand_Utils.enableActorRefAlias(SilverHand1, "SilverHand1", THIS_FILE)
     DSilHand_Utils.enableActorRefAlias(SilverHand2, "SilverHand2", THIS_FILE)
     DSilHand_Utils.enableActorRefAlias(SilverHand3, "SilverHand3", THIS_FILE)
@@ -463,12 +467,86 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ;
-; End Silver Hand and Companions War. 
+; Prepare to the Scene of peace. This method will enable all actor that will 
+; participate on the scene of peace, and place them outside Jarrvaskar. 
+; In the Stage 60 of the quest M80, all of them should use an AI package to 
+; go to their positions for the Scene DSilHand_M80_SceneArmistice.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function prepareScenePeace()
+    Debug.Trace(THIS_FILE + " -- prepareScenePeace()")
+    Debug.Trace(THIS_FILE + " -- Force AI package reevaluation for Silver Hand")
+    ;SENAAR.GetActorReference().EvaluatePackage()
+    ;Hillara.GetActorReference().EvaluatePackage()
+    ;Irronkas.GetActorReference().EvaluatePackage()
+    ;Kurdak.GetActorReference().EvaluatePackage()
+    ;Kylmir.GetActorReference().EvaluatePackage()
+    ;Haknrm.GetActorReference().EvaluatePackage()
+    ;SilverHand1.GetActorReference().EvaluatePackage()
+    ;SilverHand2.GetActorReference().EvaluatePackage()
+    ;SilverHand3.GetActorReference().EvaluatePackage()
+    ;SilverHand4.GetActorReference().EvaluatePackage()
+    Debug.Trace(THIS_FILE + " -- Force AI package reevaluation for Companions")
+    ;CompImp02.GetActorReference().EvaluatePackage()
+    ;CompBretFrost.GetActorReference().EvaluatePackage()
+    ;FakeAthis.GetActorReference().EvaluatePackage()
+    ;FakeRia.GetActorReference().EvaluatePackage()
+    ;FakeTorvar.GetActorReference().EvaluatePackage()
+    ;DSilHand_Utils.enableActorRefAlias(FakeVignar, "FakeVignar", THIS_FILE)
+    ;DSilHand_Utils.enableActorRefAlias(Eorlund, "Eorlund", THIS_FILE)
+    ;DSilHand_Utils.enableActorRefAlias(FakeBrill, "FakeBrill", THIS_FILE)
+    ;DSilHand_Utils.enableActorRefAlias(FakeTilma2, "FakeTilma2", THIS_FILE)
+    ; Move actors outside Jorrvaskr, so they may run to their positions
+    ;Debug.Trace(THIS_FILE + " -- move actors outside Jorrvaskr")
+    ;DSilHand_Utils.moveSingleNpcRefAlias(FakeVignar, xMarkerVignarStarting, "FakeVignar2", THIS_FILE)
+    ;DSilHand_Utils.moveSingleNpcRefAlias(FakeBrill, xMarkerVignarStarting, "FakeBrill", THIS_FILE)
+    ;DSilHand_Utils.moveSingleNpcRefAlias(FakeTilma2, xMarkerVignarStarting, "FakeTilma2", THIS_FILE)
+    ;DSilHand_Utils.moveSingleNpcRefAlias(Guard01, xMarkerVignarStarting, "Guard01", THIS_FILE)
+    ;DSilHand_Utils.moveSingleNpcRefAlias(Guard02, xMarkerVignarStarting, "Guard02", THIS_FILE)
+    ;DSilHand_Utils.moveSingleNpcRefAlias(Guard03, xMarkerVignarStarting, "Guard03", THIS_FILE)
+    ;DSilHand_Utils.moveSingleNpcRefAlias(FakeVignar, xMarkerVignarVignar, "FakeVignar2", THIS_FILE)
+    ;DSilHand_Utils.moveSingleNpcRefAlias(FakeBrill, xMarkerVignarBril, "FakeBrill", THIS_FILE)
+    ;DSilHand_Utils.moveSingleNpcRefAlias(FakeTilma2, xMarkerVignarTilma, "FakeTilma2", THIS_FILE)
+    ;DSilHand_Utils.moveSingleNpcRefAlias(Guard01, xMarkerVignarGuard01, "Guard01", THIS_FILE)
+    ;DSilHand_Utils.moveSingleNpcRefAlias(Guard02, xMarkerVignarGuard02, "Guard02", THIS_FILE)
+    ;DSilHand_Utils.moveSingleNpcRefAlias(Guard03, xMarkerVignarGuard03, "Guard03", THIS_FILE)    
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function prepareSceneVignarArmstice()
+    Debug.Trace(THIS_FILE + " -- prepareSceneVignarArmstice()")
+    ; Enable actors before moving
+    Debug.Trace(THIS_FILE + " -- enable actors before moving")
+    DSilHand_Utils.enableActorRefAlias(FakeVignar, "FakeVignar", THIS_FILE)
+    DSilHand_Utils.enableActorRefAlias(Eorlund, "Eorlund", THIS_FILE)
+    DSilHand_Utils.enableActorRefAlias(FakeBrill, "FakeBrill", THIS_FILE)
+    DSilHand_Utils.enableActorRefAlias(FakeTilma2, "FakeTilma2", THIS_FILE)
+    ; Move actors outside Jorrvaskr, so they may run to their positions
+    Debug.Trace(THIS_FILE + " -- move actors outside Jorrvaskr")
+    DSilHand_Utils.moveSingleNpcRefAlias(FakeVignar, xMarkerVignarStarting, "FakeVignar2", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(FakeBrill, xMarkerVignarStarting, "FakeBrill", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(FakeTilma2, xMarkerVignarStarting, "FakeTilma2", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(Guard01, xMarkerVignarStarting, "Guard01", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(Guard02, xMarkerVignarStarting, "Guard02", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(Guard03, xMarkerVignarStarting, "Guard03", THIS_FILE) 
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+; End Silver Hand and Companions War. Form here and on, the Silver Hands and
+; the Companions will be allies, and the GUards of Whiterun will do no 
+; harm on the Silver Hands.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function endSilverHandCompanionsWar()
     Debug.Trace(THIS_FILE + " -- endSilverHandCompanionsWar()")
     ; make the faction allies
     SilverHandFaction.SetAlly(CompanionsFaction)
+    SilverHandFaction.SetAlly(GuardFactionWhiterun)
+    SilverHandFaction.SetAlly(IsGuardFaction)
+    SilverHandFaction.SetAlly(DragonsreachBasementGuards)
     ; stop combat 
     stopAssaultNpcsCombat()
     Utility.Wait(2)
@@ -476,23 +554,42 @@ Function endSilverHandCompanionsWar()
     stopAssaultNpcsCombat()
 EndFunction
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+; 
+; This function is used change the Wuultrad Wall, so that the framents Fjol
+; collected disapear. It happens when the player collect the last frament.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function fjolCollectFragments()
+    Debug.Trace(THIS_FILE + " --  fjolCollectFragments()")  
+    ; disable the fragments that were enabled  
+    DSilHand_Utils.disableObject(WallFrag05, "WallFrag05", THIS_FILE)
+    DSilHand_Utils.disableObject(WallFrag06, "WallFrag06", THIS_FILE)
+    DSilHand_Utils.disableObject(WallFrag11, "WallFrag11", THIS_FILE)
+EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ;
-; End Silver Hand and Companions NPCs combat 
+; End Silver Hand and Companions NPCs combat  Force the Playes to kill each
+; other. The same result are going to happen using the function 
+; endSilverHandCompanionsWar() but it may take a while untill all the AI get
+; recalculated, wich may lead to weird results. This function forces the 
+; combat to stop imediatelly, so when the AI are recalculated, the two fations
+; are already ally. BUT  endSilverHandCompanionsWar() MUST be called. If it
+; is not, they will continue to kill each other some seconds later.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function stopAssaultNpcsCombat()
     Debug.Trace(THIS_FILE + " -- stop companions combat")
-    DSilHand_Utils.stopAllCombatRefAlias(Athis, "Athis", THIS_FILE)
-    DSilHand_Utils.stopAllCombatRefAlias(Brill, "Brill", THIS_FILE)
+    DSilHand_Utils.stopAllCombatRefAlias(FakeAthis, "FakeAthis", THIS_FILE)
+    DSilHand_Utils.stopAllCombatRefAlias(FakeBrill, "FakeBrill", THIS_FILE)
     DSilHand_Utils.stopAllCombatRefAlias(CompBretFrost, "CompBretFrost", THIS_FILE) 
     DSilHand_Utils.stopAllCombatRefAlias(CompImp02, "CompImp02", THIS_FILE)
     DSilHand_Utils.stopAllCombatRefAlias(Eorlund, "Eorlund", THIS_FILE) 
     DSilHand_Utils.stopAllCombatRefAlias(FakeTorvar, "FakeTorvar", THIS_FILE)
-    DSilHand_Utils.stopAllCombatRefAlias(Ria, "Ria", THIS_FILE) 
-    DSilHand_Utils.stopAllCombatRefAlias(Tilma, "Tilma", THIS_FILE)
-    DSilHand_Utils.stopAllCombatRefAlias(Vignar, "Vignar", THIS_FILE) 
+    DSilHand_Utils.stopAllCombatRefAlias(FakeRia, "FakeRia", THIS_FILE) 
+    DSilHand_Utils.stopAllCombatRefAlias(FakeTilma2, "FakeTilma2", THIS_FILE)
+    DSilHand_Utils.stopAllCombatRefAlias(FakeVignar, "FakeVignar", THIS_FILE) 
     Debug.Trace(THIS_FILE + " -- stop silver hand combat")
     DSilHand_Utils.stopAllCombatRefAlias(fjol, "fjol", THIS_FILE) 
     DSilHand_Utils.stopAllCombatRefAlias(hillara, "hillara", THIS_FILE)
@@ -507,10 +604,52 @@ Function stopAssaultNpcsCombat()
     DSilHand_Utils.stopAllCombatRefAlias(Kurdak, "Kurdak", THIS_FILE)
 EndFunction
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+; After the quest is done, this function must be called to disable all the 
+; actor's copies and enable all originals.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function enableOriginals()
+    ; Torvar: Enable if he is alive
+    if (FakeTorvar.GetActorReference() != None && FakeTorvar.GetActorReference().IsDead() == false)
+        Debug.Trace(THIS_FILE + " -- disable FakeTorvar")
+        FakeTorvar.GetActorReference().Disable()
+        if(Torvar != None)
+            Torvar.GetActorReference().Enable()
+        else
+            Debug.Trace(THIS_FILE + " **ERROR** Tovar ReferenceAlias is EMPTY")
+        endif
+    else
+        Debug.Trace(THIS_FILE + " **WARNING** FakeTorvar referenceAlias is emptry or dead: cannot enable", 1)
+    endif
+    ;
+    ; All essential and non-replacable companions/afiliated
+    ;
+    ; Vignar
+    DSilHand_Utils.enableActorRefAlias(Vignar, "Vignar", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(FakeVignar, "FakeVignar", THIS_FILE)
+    ; Eorlund -- no copy
+    DSilHand_Utils.enableActorRefAlias(Eorlund, "Eorlund", THIS_FILE)
+    ; Brill
+    DSilHand_Utils.enableActorRefAlias(Brill, "Brill", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(FakeBrill, "FakeBrill", THIS_FILE)
+    ; Ria
+    DSilHand_Utils.enableActorRefAlias(Ria, "Ria", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(FakeRia, "FakeRia", THIS_FILE)
+    ; Athis
+    DSilHand_Utils.enableActorRefAlias(Athis, "Athis", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(FakeAthis, "FakeAthis", THIS_FILE)
+    ; Tilma     
+    DSilHand_Utils.enableActorRefAlias(Tilma, "Tilma", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(FakeTilma2, "FakeTilma2", THIS_FILE)
+EndFunction
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Private Methods
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -526,8 +665,32 @@ Function equipIrronkasPlateArmor()
         Irronkas.GetActorReference().EquipItem(ArmorSteelPlateGauntlets, true)
         Irronkas.GetActorReference().EquipItem(DSilHand_TemperedSilverGreatsword, true)
     else
-        Debug.Trace(THIS_FILE + " **WARNING** Irronkas Alias is EMPTY!", 1)
+        Debug.Trace(THIS_FILE + " **WARNING** Irronkas Alias is EMPTY! -- CANNOT EQUIP PLATE ARMOR", 1)
     endif
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+; 
+; Show and hide the right fragments according to the story.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function prepareWulltradWallBeforeBattle()
+    Debug.Trace(THIS_FILE + " --  prepareWulltradWallBeforeBattle()")  
+    ; disable WallFrag02, wich is kept by Kodlack
+    DSilHand_Utils.disableObject(WallFrag02, "WallFrag02", THIS_FILE)
+    ; enable the 3 fragments that should appear -- just in case
+    DSilHand_Utils.enableObject(WallFrag05, "WallFrag05", THIS_FILE)
+    DSilHand_Utils.enableObject(WallFrag06, "WallFrag06", THIS_FILE)
+    DSilHand_Utils.enableObject(WallFrag11, "WallFrag11", THIS_FILE)
+    ; disable all the other fragments -- just in case
+    DSilHand_Utils.disableObject(WallFrag01, "WallFrag01", THIS_FILE)
+    DSilHand_Utils.disableObject(WallFrag03, "WallFrag03", THIS_FILE)
+    DSilHand_Utils.disableObject(WallFrag04, "WallFrag04", THIS_FILE)
+    DSilHand_Utils.disableObject(WallFrag07, "WallFrag07", THIS_FILE)
+    DSilHand_Utils.disableObject(WallFrag08, "WallFrag08", THIS_FILE)
+    DSilHand_Utils.disableObject(WallFrag09, "WallFrag09", THIS_FILE)
+    DSilHand_Utils.disableObject(WallFrag10, "WallFrag10", THIS_FILE)
+    DSilHand_Utils.disableObject(WallFrag12, "WallFrag12", THIS_FILE)      
 EndFunction
 
 
@@ -551,6 +714,9 @@ Event OnUpdateGameTime()
         SetObjectiveDisplayed(STAGE_MEET_AT_SECRET_PASSAGE)
     ;endif
 EndEvent
+
+
+
 
 
 

@@ -28,6 +28,9 @@ Event OnContainerChanged(ObjectReference akNewContainer, ObjectReference akOldCo
         GetOwningQuest().SetObjectiveCompleted(QUEST_STAGE_FRAMENT)
         GetOwningQuest().SetObjectiveDisplayed(QUEST_STAGE_DELIVER)
         GetOwningQuest().SetStage(QUEST_STAGE_DELIVER)
+        Debug.Trace(THIS_FILE + "-- Emulates Fjol collecting the other fragments")
+        DSilHand_M80Helper m80Helper = (GetOwningQuest() as DSilHand_M80Helper)
+        m80Helper.fjolCollectFragments()        
     endIf
 EndEvent
 

@@ -9,11 +9,11 @@ Actor akSpeaker = akSpeakerRef as Actor
 ; Fjol called all man to Skyforge
 Debug.Trace("DSilHand_M80_TIF -- Fjol called the man to Skyforge")
 
-; advances to stage 61
-Debug.Trace("DSilHand_M80_TIF -- Advaces to Stage/Objective 110")
-; GetOwningQuest().SetObjectiveCompleted(100)
-GetOwningQuest().SetStage(110)
-GetOwningQuest().SetObjectiveDisplayed(110)
+; advances to stage 100
+int STAGE_GOSKYFORGE = 100
+Debug.Trace("DSilHand_M80_TIF -- Advaces to Stage/Objective " + STAGE_GOSKYFORGE)
+GetOwningQuest().SetObjectiveDisplayed(STAGE_GOSKYFORGE)
+GetOwningQuest().SetStage(STAGE_GOSKYFORGE)
 ;END CODE
 EndFunction
 ;END FRAGMENT

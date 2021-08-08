@@ -44,7 +44,7 @@ Scriptname DSilHand_Utils extends Quest
 ;; 
 ;; ;; ANIMATIONS 
 ;; Function playIdleHelper(ReferenceAlias aliasActor, string actorName, Idle akIdle, string idleDescription, string callerScript) 
-;; 
+;; Function forceScene(Scene sceneObject, string sceneName, int max, string callerScript)
 ;; 
 ;; ;; TROUBLESHOOTING
 ;; string Function logActorStatus(Actor actorObj, string actorName, int logLevel, string callerScript) 
@@ -524,7 +524,7 @@ endFunction
 Function enableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if (npc == None) 
-        Debug.Trace(loginfo + " **WARNING** CANNOT ENABLE ACTOR ReferenceAlias: IT IS EMPTY", 1)
+        Debug.Trace(loginfo + " **WARNING** CANNOT ENABLE ACTOR ReferenceAlias " + actorName + " Reason:IT IS EMPTY", 1)
     else
         enableActor(npc.GetActorReference(), actorName, loginfo)
     endif
@@ -542,7 +542,7 @@ endfunction
 Function enableActor(Actor npc, string actorName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if (npc == None)
-        Debug.Trace(loginfo + " **WARNING** CANNOT ENABLE ACTOR: IT IS EMPTY", 1)
+        Debug.Trace(loginfo + " **WARNING** CANNOT ENABLE ACTOR " + actorName + " Reason:IT IS EMPTY", 1)
     else
         npc.Enable()
         if(npc.IsDead() == true)
@@ -721,6 +721,31 @@ Function playIdleHelper(ReferenceAlias aliasActor, string actorName, Idle akIdle
     endif
 EndFunction
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: Scene sceneObject - scene object that must be forced to run
+; Input: string sceneName -   script name to be logged
+; Input: string callerScript - Script wich called this function
+;
+;  
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+bool Function forceRunScene(Scene sceneObject, string sceneName, int maxTries, string callerScript) global
+    int i = 0
+    bool sceneIsRunning = false
+    string loginfo = logPrefix(callerScript)
+    while (i < maxTries)
+        Debug.Trace(loginfo + " -- running scene " + sceneName + " try [" + i + "/" + maxTries + "]")
+        sceneObject.ForceStart()
+        Utility.Wait(0.5)
+        sceneIsRunning = sceneObject.IsPlaying()
+        if(sceneIsRunning == true)
+            Debug.Trace(loginfo + " -- SCENE <" + sceneName + "> IS RUNNING")
+            i = maxTries
+        else
+            i += 1
+        endif
+    endWhile
+    return sceneIsRunning
+EndFunction  
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TROUBLESHOOTING
@@ -757,6 +782,7 @@ string Function logActorStatus(Actor actorObj, string actorName, int logLevel, s
         Debug.Trace(callerScript + "**WARNING** Actor Object is EMPTY", logLevel)
     endif
 EndFunction
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

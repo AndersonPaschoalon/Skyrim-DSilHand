@@ -103,6 +103,22 @@ Actor Property FakeTorvar  Auto
 Actor Property FakeKodlak  Auto  
 {Actor object for the copy of the actor KodlakWhitemane used on the quest M80.}
 
+
+Actor Property FakeVignar  Auto  
+{Actor object for the copy of Torvar used on the quest M80.}
+
+Actor Property FakeBrill  Auto  
+{Actor object for the copy of Torvar used on the quest M80.}
+
+Actor Property FakeAthis  Auto  
+{Actor object for the copy of Torvar used on the quest M80.}
+
+Actor Property FakeRia  Auto  
+{Actor object for the copy of Torvar used on the quest M80.}
+
+Actor Property FakeTilma  Auto  
+{Actor object for the copy of Torvar used on the quest M80.}
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Member variables
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -205,6 +221,11 @@ Function dSilHandSetup()
     DSilHand_Utils.disableActor(FakeVilkas , "FakeVilkas", THIS_FILE)  
     DSilHand_Utils.disableActor(FakeTorvar , "FakeTorvar", THIS_FILE)  
     DSilHand_Utils.disableActor(FakeKodlak , "FakeKodlak", THIS_FILE)  
+    DSilHand_Utils.disableActor(FakeBrill , "FakeBrill", THIS_FILE)  
+    DSilHand_Utils.disableActor(FakeVignar , "FakeVignar", THIS_FILE)  
+    DSilHand_Utils.disableActor(FakeTilma , "FakeTilma", THIS_FILE)  
+    DSilHand_Utils.disableActor(FakeRia , "FakeRia", THIS_FILE)  
+    DSilHand_Utils.disableActor(FakeAthis , "FakeAthis", THIS_FILE)  
 endFunction
 
 

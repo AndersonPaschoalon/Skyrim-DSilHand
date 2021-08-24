@@ -1,4 +1,35 @@
-# Misc Quest mi20: DSilHand_mi20preDwammerTempering
+# Quest DSilHand_mi01preAngarvundesTreasure
+
+No dialog
+
+
+# Quest DSilHand_mi02MeetFjol
+
+No dialog
+
+
+# Quest DSilHand_mi03preHonYsgramor
+
+### DSilHand_mi03_AfterForging2
+
+* DSilHand_mi03_AF_Topic01
+
+    Dragonborn: Fjol, I've found Kodlak journal.
+
+    Fjol: Ow... let me see....
+
+    Fjol: ... I see... So what Vignar said was true... Kodlack was trying to find a cure...
+
+    Fjol: So... the witches responsible for the curse are on Glenmoril Coven...
+
+    Fjol: He believed that he could achieve the cure burning a Witch head in the Flame of the Harbinger...
+
+    Fjol: Since he has regret at the end of his life, the least we should do is to try to save his soul in that way.  
+
+    Fjol: We shall do that in honor of Ysgramor.
+
+
+# Quest DSilHand_mi20preDwammerTempering
 
 
 ### DSilHand_mi20_firstMeetingKurdak

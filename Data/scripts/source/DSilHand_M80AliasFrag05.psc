@@ -7,6 +7,7 @@ Scriptname DSilHand_M80AliasFrag05 extends ReferenceAlias
 String THIS_FILE = "(DSilHand_M80AliasFrag05.psc) "
 int QUEST_STAGE_FRAMENT = 80
 int QUEST_STAGE_DELIVER = 90
+bool disabledOnInit = false
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -23,14 +24,15 @@ int QUEST_STAGE_DELIVER = 90
 Event OnContainerChanged(ObjectReference akNewContainer, ObjectReference akOldContainer)
     ; If the player have grabed the Item from the chest
     Debug.Trace(THIS_FILE + " -- OnContainerChanged()  for Frag05 GetOwningQuest()<" + GetOwningQuest() + "> (last frament quest)")
+    if(akNewContainer != Game.GetPlayer() && disabledOnInit == false)
+        Debug.Trace(THIS_FILE + "-- FORCE DISABLE Frag05")
+        GetReference().Disable()
+    endif
     if (akNewContainer == Game.GetPlayer() && GetOwningQuest().GetStage() >= QUEST_STAGE_FRAMENT)
         Debug.Trace(THIS_FILE + "-- Item Frag05 moved to player's inventory!")
         GetOwningQuest().SetObjectiveCompleted(QUEST_STAGE_FRAMENT)
         GetOwningQuest().SetObjectiveDisplayed(QUEST_STAGE_DELIVER)
         GetOwningQuest().SetStage(QUEST_STAGE_DELIVER)
-        Debug.Trace(THIS_FILE + "-- Emulates Fjol collecting the other fragments")
-        DSilHand_M80Helper m80Helper = (GetOwningQuest() as DSilHand_M80Helper)
-        m80Helper.fjolCollectFragments()        
     endIf
 EndEvent
 

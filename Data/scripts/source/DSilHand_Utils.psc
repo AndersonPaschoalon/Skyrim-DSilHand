@@ -520,13 +520,16 @@ endFunction
 ;         information.
 ;
 ; Enables an actor object. If the actor is dead, it resurrect it. 
+; Returns true in case of success. In case of failure returns false and logs
+; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function enableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
+Bool Function enableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if (npc == None) 
         Debug.Trace(loginfo + " **WARNING** CANNOT ENABLE ACTOR ReferenceAlias " + actorName + " Reason:IT IS EMPTY", 1)
+        return false
     else
-        enableActor(npc.GetActorReference(), actorName, loginfo)
+        return enableActor(npc.GetActorReference(), actorName, loginfo)
     endif
 endfunction
 
@@ -538,11 +541,14 @@ endfunction
 ;         information.
 ;
 ; Enables an actor object. If the actor is dead, it resurrect it. 
+; Returns true in case of success. In case of failure returns false and logs
+; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function enableActor(Actor npc, string actorName, string callerScript) global
+Bool Function enableActor(Actor npc, string actorName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if (npc == None)
         Debug.Trace(loginfo + " **WARNING** CANNOT ENABLE ACTOR " + actorName + " Reason:IT IS EMPTY", 1)
+        return false
     else
         npc.Enable()
         if(npc.IsDead() == true)
@@ -550,6 +556,7 @@ Function enableActor(Actor npc, string actorName, string callerScript) global
             npc.Resurrect()
         endif
         ;npc.EvaluatePackage()
+        return true
     endif
 endfunction
 
@@ -559,13 +566,16 @@ endfunction
 ; 
 ; Enables an object using its alias reference, after checking if the reference 
 ; is empty. It it fails, logs an error message.
+; Returns true in case of success. In case of failure returns false and logs
+; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function enableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) global
+Bool Function enableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if(objAlias != None)
-        enableObject(objAlias.GetReference(), objectName, loginfo)
+        return enableObject(objAlias.GetReference(), objectName, loginfo)
     else
         Debug.Trace(loginfo + " **WARNING** ReferenceAlias to objAlias <" + objectName + "> is EMPTY!", 1)
+        return false
     endif     
 endFunction
 
@@ -575,14 +585,18 @@ endFunction
 ; 
 ; Enable an ObjectReference after checking if the reference is empty. 
 ; It it fails,  logs an error message.
+; Returns true in case of success. In case of failure returns false and logs
+; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function enableObject(ObjectReference obj, string objName, string callerScript) global
+Bool Function enableObject(ObjectReference obj, string objName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     Debug.Trace(loginfo + " -- Enable Object " + objName + " <" + obj + ">")
     if(obj != None)
         obj.Enable()
+        return true
     else
         Debug.Trace(loginfo + " **ERROR** ObjectReference obj to <" + objName + "> is EMPTY!", 2)
+        return false
     endif   
 endFunction
 
@@ -592,13 +606,16 @@ endFunction
 ; 
 ; Disable an actor after checking if the reference is empty. It it fails, 
 ; logs an error message.
+; Returns true in case of success. In case of failure returns false and logs
+; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function disableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
+Bool Function disableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if(npc != None)
-        disableActor(npc.GetActorReference(), actorName, loginfo)
+        return disableActor(npc.GetActorReference(), actorName, loginfo)
     else
         Debug.Trace(loginfo + " **ERROR** ReferenceAlias to npc " + actorName + " is EMPTY!", 2)
+        return false
     endif     
 endFunction
 
@@ -609,30 +626,38 @@ endFunction
 ; 
 ; Disable an actor after checking if the reference is empty. It it fails, 
 ; logs an error message.
+; Returns true in case of success. In case of failure returns false and logs
+; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function disableActor(Actor npc, string actorName, string callerScript) global
+Bool Function disableActor(Actor npc, string actorName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     Debug.Trace(loginfo + " -- Disable Actor " + actorName + " <" + npc + ">")
     if(npc != None)
         npc.Disable()
+        return true
     else
         Debug.Trace(loginfo + " **ERROR** Actor npc " + actorName + " is EMPTY!", 2)
+        return false
     endif     
 endFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: ReferenceAlias obj - Object to be disabled ReferenceAlias.
 ; Input: string actorName - the name or actor label to be identifed on the logs
+; Input: string callerScript - caller script, to log in case of error
 ; 
 ; Disable an object using its alias reference, after checking if the reference 
 ; is empty. It it fails, logs an error message.
+; Returns true in case of success. In case of failure returns false and logs
+; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function disableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) global
+Bool Function disableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if(objAlias != None)
-        disableObject(objAlias.GetReference(), objectName, loginfo)
+        return disableObject(objAlias.GetReference(), objectName, loginfo)
     else
         Debug.Trace(loginfo + " **ERROR** ReferenceAlias to object objAlias <" + objectName + "> is EMPTY!", 2)
+        return false
     endif     
 endFunction
 
@@ -642,17 +667,43 @@ endFunction
 ; 
 ; Disable an ObjectReference after checking if the reference is empty. 
 ; It it fails,  logs an error message.
+; Returns true in case of success. In case of failure returns false and logs
+; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function disableObject(ObjectReference obj, string objName, string callerScript) global
+Bool Function disableObject(ObjectReference obj, string objName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     Debug.Trace(loginfo + " -- Disable Object " + objName + " <" + obj + ">")
     if(obj != None)
         obj.Disable()
+        return true
     else
         Debug.Trace(loginfo +" **ERROR** ObjectReference to obj " + objName + " is EMPTY!", 2)
+        return false
     endif   
 endFunction
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: ReferenceAlias obj - Object to be disabled ReferenceAlias.
+; Input: string actorName - the name or actor label to be identifed on the logs
+; Input: string callerScript - caller script, to log in case of error
+; Return: true in case of success and false in case of error or failure.
+; 
+; Disable Actor of Reference Alias if actor is dead. Do nothing otherwise. 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Bool Function disableActorRefAliasIfDead(ReferenceAlias npc, string actorName, string callerScript) global
+    string loginfo = logPrefix(callerScript)
+    if(npc != None)
+        Actor npcActor = npc.GetActorReference()
+        if(npcActor.IsDead() == true)
+            Debug.Trace(loginfo + " -- Actor " + actorName + " is dead => disable")
+            npcActor.Disable()
+        endif
+        return true
+    else
+        Debug.Trace(loginfo +" **ERROR** ObjectReference to obj " + actorName + " is EMPTY!", 2)
+        return false
+    endif  
+Endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; COMBAT

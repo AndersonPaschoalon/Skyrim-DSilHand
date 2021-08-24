@@ -2,6 +2,7 @@
 
 Here are placed some documentation usefull during the develpment process.
 
+
 ## Reference Guides
 
 * [Idle Markers](./IdleMarkers.md)
@@ -16,7 +17,19 @@ Here are placed some documentation usefull during the develpment process.
 * [Package emplates Tutorial](./PackageTemplatesTutorial.md)
 
 
-
 ## Console Commands 
 
 * [Console Commands](./ConsoleCmds.md)
+
+
+## Docs
+
+* [Combat Style](https://www.creationkit.com/index.php?title=Combat_Style)
+
+
+
+
+
+
+
+

@@ -2,6 +2,18 @@
 
 This document enumerates the changes on the Vanilla Pluings.
 
+## Actor LvlSilverhandMelee2H
+
+* Location: `Actors > Actor > LvlSilverhandMelee2H`
+
+* Change Description: option `Template Data > Use Script` UNCHECKED
+
+## Actor LvlSilverhandBoss
+
+* Location: `Actors > Actor > LvlSilverhandBoss`
+
+* Change Description: option `Template Data > Use Script` UNCHECKED
+
 ## (Faction) SilverHandFaction 
 
 * Location: `Character > Faction > SilverHandFaction` 

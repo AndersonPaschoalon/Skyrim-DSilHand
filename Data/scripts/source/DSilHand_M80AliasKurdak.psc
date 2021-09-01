@@ -30,8 +30,7 @@ Event OnLocationChange(Location akOldLoc, Location akNewLoc)
         ; this must happen once, and cant not be recursive
         alreadyActivated = true
         Debug.Trace(THIS_FILE + " -- moving Kurdak to the last M80 scene location....")
-        Debug.MessageBox("Self trick" + (Self as ReferenceAlias))
-        DSilHand_Utils.moveSingleNpcRefAlias((Self as ReferenceAlias), xMarkerSkyforgeBlacksmith, "Kurdak", THIS_FILE)
+        DSilHand_Utils.moveSingleNpc(GetActorReference(), xMarkerSkyforgeBlacksmith.GetReference(), "Kurdak", THIS_FILE)
     endIf
 endEvent
 

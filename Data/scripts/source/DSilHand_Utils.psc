@@ -220,7 +220,7 @@ endFunction
 bool Function actorRefAliasIsFollower(ReferenceAlias npc, string actorNameStr, Faction PotentialFollowerFaction, Faction CurrentFollowerFaction, string callerScript) global 
     string loginfo = logPrefix(callerScript)
     ; check if the actor is valid
-    if ( npc == None)
+    if (npc == None)
         Debug.Trace(loginfo + " **WARNING** ReferenceAlias npc <" + actorNameStr + ">", 1);
         return false
     endif

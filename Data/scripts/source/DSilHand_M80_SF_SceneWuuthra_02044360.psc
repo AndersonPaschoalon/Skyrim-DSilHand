@@ -1,13 +1,12 @@
 ;BEGIN FRAGMENT CODE - Do not edit anything between this and the end comment
-;NEXT FRAGMENT INDEX 21
+;NEXT FRAGMENT INDEX 25
 Scriptname DSilHand_M80_SF_SceneWuuthra_02044360 Extends Scene Hidden
 
-;BEGIN FRAGMENT Fragment_8
-Function Fragment_8(ReferenceAlias akAlias)
+;BEGIN FRAGMENT Fragment_24
+Function Fragment_24(ReferenceAlias akAlias)
 ;BEGIN CODE
-; Wait some time to finish the quest
-Debug.Trace("DSilHand_M80_SF -- wait 20 seconds to finish the quest")
-GetOwningQuest().SetStage(110)
+; After 28s it must avance to next pahse step
+Debug.Trace("(DSilHand_M80_SF) --  28s Sharpening Time done")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -15,9 +14,18 @@ EndFunction
 ;BEGIN FRAGMENT Fragment_17
 Function Fragment_17(ReferenceAlias akAlias)
 ;BEGIN CODE
-; After 15s it must avance to next pahse step
-Debug.MessageBox("DSilHand_M80_ReassembleTime")
-GetOwningQuest().SetStage(101)
+; After 65s it must avance to next pahse step
+Debug.Trace("(DSilHand_M80_SF) -- 65s ReassembleTime done")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_8
+Function Fragment_8(ReferenceAlias akAlias)
+;BEGIN CODE
+; Wait some time to finish the quest
+Debug.Trace("DSilHand_M80_SF -- wait 20 seconds to finish the quest")
+GetOwningQuest().SetStage(110)
 ;END CODE
 EndFunction
 ;END FRAGMENT

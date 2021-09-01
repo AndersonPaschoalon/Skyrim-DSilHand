@@ -27,10 +27,13 @@ ReferenceAlias Property Irronkas  Auto
 ReferenceAlias Property xMarkerSkyforgeBlacksmith  Auto  
 {}
 
+ReferenceAlias Property xMarkerSkyforgeBlacksmith2  Auto  
+{}
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; MEMBER VARIABLES
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-String THIS_FILE = "(DSilHand_M80_SceneWuuthradReassemble.psc) "
+String THIS_FILE = "(DSilHand_M80SkyforgeTrigger.psc) "
 int LAST_M80_SCENE_START = 100
 int OBJ_M80_GOTOSKYFORGE = 100
 int OBJ_JOIN_WUUTHRAD_REASSEMBLY = 110
@@ -50,21 +53,6 @@ Bool alreadyActivated = false
 ; Handle the trigger activation. If M80 quest stage is 60, it will start the 
 ; Scene.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function startWulthradReassembleScene(ObjectReference akTriggerRef)
-    Debug.Trace(THIS_FILE + " -- startWulthradReassembleScene()")
-    ; Only activates if is the Player at M58 Stage 110
-    if( akTriggerRef == Game.GetPlayer() && GetOwningQuest().GetStage() == LAST_M80_SCENE_START)
-        Debug.Trace(THIS_FILE + "-- Player entered on Skyforge trigger for Wuulthrad reassemble.")
-        if(alreadyActivated == false)
-            ; DELETE
-            Debug.MessageBox("DSilHand_M80_SceneWuuthradReassemble")
-            ; Activate only ONCE
-            alreadyActivated = true
-            DSilHand_M80_SceneWuuthradReassemble.Start()
-        endif
-    endif
-EndFunction
-
 Function reassembleTriggerHandler(ObjectReference akTriggerRef)
     Debug.Trace(THIS_FILE + " -- reassembleTriggerHandler()")
     if(GetOwningQuest().GetStage() == LAST_M80_SCENE_START)
@@ -73,7 +61,7 @@ Function reassembleTriggerHandler(ObjectReference akTriggerRef)
             Debug.Trace(THIS_FILE + " -- PLAYER is whatching")
             playerIsIn = true
             if(fjolIsIn == false)
-                DSilHand_Utils.moveSingleNpcRefAlias(Fjol, xMarkerSkyforgeBlacksmith, "Fjol", THIS_FILE)
+                DSilHand_Utils.moveSingleNpcRefAlias(Fjol, xMarkerSkyforgeBlacksmith2, "Fjol", THIS_FILE)
                 fjolIsIn = true
             endif
             if(kurdakIsIn == false)
@@ -92,14 +80,13 @@ Function reassembleTriggerHandler(ObjectReference akTriggerRef)
             fjolIsIn           == true && \
             kurdakIsIn         == true && \
             playerIsIn         == true )
+            ; Activate only ONCE
+            alreadyActivated = true
             Debug.Trace(THIS_FILE + " -- Complete Objective " + OBJ_M80_GOTOSKYFORGE)
             GetOwningQuest().SetObjectiveCompleted(OBJ_M80_GOTOSKYFORGE)
             GetOwningQuest().SetObjectiveDisplayed(OBJ_JOIN_WUUTHRAD_REASSEMBLY)
-            Debug.MessageBox("DSilHand_M80_SceneWuuthradReassemble")
             Debug.Trace(THIS_FILE + " -- STARTING SCENE DSilHand_M80_SceneWuuthradReassemble")
-            ; Activate only ONCE
-            alreadyActivated = true
-            DSilHand_M80_SceneWuuthradReassemble.ForceStart() 
+            DSilHand_M80_SceneWuuthradReassemble.Start() 
         endif
     endif
 EndFunction
@@ -118,5 +105,7 @@ Event OnTriggerEnter(ObjectReference akTriggerRef)
     reassembleTriggerHandler(akTriggerRef)
     ;startWulthradReassembleScene(akTriggerRef)     
 EndEvent
+
+
 
 

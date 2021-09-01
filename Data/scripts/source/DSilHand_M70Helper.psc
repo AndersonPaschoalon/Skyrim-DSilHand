@@ -6,49 +6,49 @@ Scriptname DSilHand_M70Helper extends Quest
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ReferenceAlias Property SilverHand01  Auto  
-{todo}
+{Referene to the 01th silver hand NPC}
 
 ReferenceAlias Property SilverHand02  Auto  
-{todo}
+{Referene to the 02th silver hand NPC}
 
 ReferenceAlias Property SilverHand03  Auto  
-{todo}
+{Referene to the 03th silver hand NPC}
 
 ReferenceAlias Property SilverHand04  Auto  
-{todo}
+{Referene to the 04th silver hand NPC}
 
 ReferenceAlias Property SilverHand05  Auto  
-{todo}
+{Referene to the 05th silver hand NPC}
 
 ReferenceAlias Property SilverHand06  Auto  
-{todo}
+{Referene to the 06th silver hand NPC}
 
 ReferenceAlias Property SilverHand07  Auto  
-{todo}
+{Referene to the 07th silver hand NPC}
 
 ReferenceAlias Property SilverHand08  Auto  
-{todo}
+{Referene to the 08th silver hand NPC}
 
 ReferenceAlias Property SilverHand09  Auto  
-{todo}
+{Referene to the 09th silver hand NPC}
 
 ReferenceAlias Property SilverHand10  Auto  
-{todo}
+{Referene to the 10th silver hand NPC}
 
 ReferenceAlias Property SilverHand11  Auto  
-{todo}
+{Referene to the 11th silver hand NPC}
 
 ReferenceAlias Property SilverHand12  Auto  
-{todo}
+{Referene to the 12th silver hand NPC}
 
 ReferenceAlias Property SilverHand13  Auto  
-{todo}
+{Referene to the 13th silver hand NPC}
 
 ReferenceAlias Property SilverHand14  Auto  
-{todo}
+{Referene to the 14th silver hand NPC}
 
 ReferenceAlias Property SilverHand15  Auto  
-{todo}
+{Referene to the 15th silver hand NPC}
 
 ReferenceAlias Property SilverHand16  Auto  
 {Reference to the 16th siilver hand NPC}
@@ -57,103 +57,103 @@ ReferenceAlias Property SilverHand17  Auto
 {Referene to the 17th silver hand NPC}
 
 ReferenceAlias Property Grave01  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 01}
 
 ReferenceAlias Property Grave02  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 02}
 
 ReferenceAlias Property Grave03  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 03}
 
 ReferenceAlias Property Grave04  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 04}
 
 ReferenceAlias Property Grave05  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 05}
 
 ReferenceAlias Property Grave06  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 06}
 
 ReferenceAlias Property Grave07  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 07}
 
 ReferenceAlias Property Grave08  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 08}
 
 ReferenceAlias Property Grave09  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 09}
 
 ReferenceAlias Property Grave10  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 10}
 
 ReferenceAlias Property Grave11  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 11}
 
 ReferenceAlias Property Grave12  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 12}
 
 ReferenceAlias Property Grave13  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 13}
 
 ReferenceAlias Property Grave14  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 14}
 
 ReferenceAlias Property Grave15  Auto  
-{todo}
+{Reference to the dead Silver Hand NPC Grave 15}
 
 ReferenceAlias Property Grave16  Auto  
-{Reference to the Grave 16}
+{Reference to the dead Silver Hand NPC Grave 16}
 
 ReferenceAlias Property Grave17  Auto  
-{Reference to the Grave 17}
+{Reference to the dead Silver Hand NPC Grave 17}
 
 ReferenceAlias Property KrevGrave01  Auto  
 {Not used}
 
-ReferenceAlias Property KrevGrave02  Auto  
-{Not used}
+;ReferenceAlias Property KrevGrave02  Auto  
+;{Not used}
 
-ReferenceAlias Property KrevGrave03  Auto  
-{Not used}
+;ReferenceAlias Property KrevGrave03  Auto  
+;{Not used}
 
-ReferenceAlias Property KrevGrave04  Auto  
-{Not used}
+;ReferenceAlias Property KrevGrave04  Auto  
+;{Not used}
 
-ReferenceAlias Property KrevGrave05  Auto  
-{Not used}
+;ReferenceAlias Property KrevGrave05  Auto  
+;{Not used}
 
-ReferenceAlias Property KrevGrave06  Auto  
-{Not used}
+;ReferenceAlias Property KrevGrave06  Auto  
+;{Not used}
 
-ReferenceAlias Property KrevGrave07  Auto  
-{Not used}
+;ReferenceAlias Property KrevGrave07  Auto  
+;{Not used}
 
-ReferenceAlias Property KrevGrave08  Auto  
-{Not used}
+;ReferenceAlias Property KrevGrave08  Auto  
+;{Not used}
 
-ReferenceAlias Property KrevGrave09  Auto  
-{Not used}
+;ReferenceAlias Property KrevGrave09  Auto  
+;{Not used}
 
-ReferenceAlias Property KrevGrave10  Auto  
-{Not used}
+;ReferenceAlias Property KrevGrave10  Auto  
+;{Not used}
 
-ReferenceAlias Property KrevGrave11  Auto  
-{Not used}
+;ReferenceAlias Property KrevGrave11  Auto  
+;{Not used}
 
-ReferenceAlias Property KrevGrave12  Auto  
-{Not used}
+;ReferenceAlias Property KrevGrave12  Auto  
+;{Not used}
 
 ReferenceAlias Property Fjol  Auto  
 {Reference to Fjol}
 
-ReferenceAlias Property Krev  Auto  
-{Reference to Krev}
+;ReferenceAlias Property Krev  Auto  
+;{Reference to Krev}
 
 ReferenceAlias Property Frag01  Auto  
-{todo}
+{Wuulthrad fragment Frag01 object}
 
 ReferenceAlias Property chest  Auto  
-{todo}
+{Chest where the last Wuulthrad fragment Frag01 is placed}
 
 ReferenceAlias Property xMarkGrave  Auto  
 {Reference to xMarker that enables Krev Grave and rites}
@@ -161,50 +161,54 @@ ReferenceAlias Property xMarkGrave  Auto
 ReferenceAlias Property xMarkSovngarde  Auto  
 {Reference to the place where Krev will be teleported on Sovngarde on the Hall of Valor}
 
-SPELL Property AbFXSovengardeGlow  Auto  
-{Spell for glowing on sovngarde -- not working}
+; SPELL Property AbFXSovengardeGlow  Auto  
+; {Spell for glowing on sovngarde -- not working}
 
 ReferenceAlias Property xHeadSilver01  Auto  
-{todo}
+{reference to xMarker where the Silver Hand 01 is placed on Krev's funeral}
 
 ReferenceAlias Property xHeadSilver02  Auto  
-{todo}
+{reference to xMarker where the Silver Hand 02 is placed on Krev's funeral}
 
 ReferenceAlias Property xHeadSilver03  Auto  
-{todo}
+{reference to xMarker where the Silver Hand 03 is placed on Krev's funeral}
 
 ReferenceAlias Property xHeadSilver04  Auto  
-{todo}
+{reference to xMarker where the Silver Hand 04 is placed on Krev's funeral}
 
 ReferenceAlias Property xHeadSilver05  Auto  
-{todo}
+{reference to xMarker where the Silver Hand 06 is placed on Krev's funeral}
 
 ReferenceAlias Property xHeadSilver06  Auto  
-{todo}
+{reference to xMarker where the Silver Hand 06 is placed on Krev's funeral}
 
 ReferenceAlias Property xHeadSilver07  Auto  
-{todo}
-
-ReferenceAlias Property hillara  Auto  
-{todo}
-
-ReferenceAlias Property Sennar  Auto  
-{todo}
+{reference to xMarker where the Silver Hand 07 is placed on Krev's funeral}
 
 ReferenceAlias Property xHeadSennar  Auto  
-{todo}
+{reference to xMarker where Sennar is placed on Krev's funeral}
 
 ReferenceAlias Property xHeadHillara  Auto  
-{todo}
+{reference to xMarker where Hillara is placed on Krev's funeral}
 
 ReferenceAlias Property xHeadFjol  Auto  
-{todo}
+{reference to xMarker where Fjol is placed on Krev's funeral}
+
+ReferenceAlias Property hillara  Auto  
+{reference alias to hillara actor}
+
+ReferenceAlias Property Sennar  Auto  
+{reference alias to Sennar actor}
 
 Faction Property PotentialFollowerFaction  Auto  
-{todo}
+{reference to PotentialFollowerFaction}
 
 Faction Property CurrentFollowerFaction  Auto  
-{todo}
+{reference to CurrentFollowerFaction}
+
+Actor Property KrevSovngarde  Auto  
+{Reference to Krev Glowing at Sovngarde.}
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;  MEMBER VARIABLES
@@ -237,7 +241,7 @@ Actor[] silverArray = None
 ; (5) Move Fjol to the funeral
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 bool Function prepareSilverHandFuneral()
-    Debug.Trace(THIS_FILE + " -- enableSilverhandGraves()")  
+    Debug.Trace(THIS_FILE + " -- prepareSilverHandFuneral()")  
     ; Load silver hand graves objects 
     ObjectReference g00 = Grave01.GetReference() as ObjectReference 
     ObjectReference g01 = Grave02.GetReference() as ObjectReference  
@@ -317,10 +321,8 @@ bool Function prepareSilverHandFuneral()
     ;
     ; (2) Enables Krev Coffing and funeral rites, move him to Sovngarde and make 
     ;     him glow 
-    ;
     enableKrevGrave()
     moveKrevToSovngarde()
-
     ;
     ; (3) Teleport to the XHeadingMarkes objects some alive  silverhands. It will
     ;     Stop teleport if there is not enough alive silverhands or if the 
@@ -328,27 +330,6 @@ bool Function prepareSilverHandFuneral()
     ;
     i = 0
     int nCountXMarker = 0
-;    while ( (i < N_SILVERHANDS_REFERENCES) && (nCountXMarker < N_STANDING_SILVER_MAX) )
-;        if(silverArray[i] != None)
-;            ; if it is alive, move to xhead
-;            Debug.Trace(THIS_FILE + "-- try to move NPC silverArray[i]:<" + silverArray[i] + ">")
-;            if (silverArray[i].IsDead() == False)
-;                ; Ressurect just in case ... 
-;                silverArray[i].Resurrect()                
-;                moveSingleNpc(silverArray[i], xHArray[nCountXMarker], "silverArray[" + i + "] =>  xHArray[" + nCountXMarker + "]")
-;                ; make the actor look at krev grave
-;                silverArray[i].SetLookAt(KrevGrave01.GetActorReference(), true)  
-;                ; go to next marker
-;                nCountXMarker += 1
-;            else
-;                Debug.Trace(THIS_FILE + "-- silverArray[" + i + "] is dead -> silverArray[i]:<" + silverArray[i] + ">")
-;            endif
-;        else
-;            Debug.Trace(THIS_FILE + "**ERROR** silver and reference silverArray[" + i + "] is EMPTY!", 2)
-;        endif
-;        ; increment counters
-;        i += 1 
-;    endwhile
     while ( (i < N_SILVERHANDS_REFERENCES) && (nCountXMarker < N_STANDING_SILVER_MAX) )
         if(silverArray[i] != None)
             string silverHandLabel = "silverArray[" + i + "]:<" + silverArray[i] + ">" 
@@ -370,45 +351,37 @@ bool Function prepareSilverHandFuneral()
         ; increment counters
         i += 1 
     endwhile
-
     ;
     ; (4) If Hillara/Sennar is not your follower, move them to the funeral as well. 
     ;
     bool isFollower = false 
-    ; delete
-    ; ObjectReference xhSennar = xHeadSennar.GetReference() as ObjectReference
-    ; ObjectReference xhHillara = xHeadHillara.GetReference() as ObjectReference
-    Actor hillaraActor = Hillara.GetReference() as Actor
-    Actor sennarActor = Sennar.GetReference() as Actor
+    ; -- old impl
+    ;Actor hillaraActor = Hillara.GetReference() as Actor
+    ;Actor sennarActor = Sennar.GetReference() as Actor
     ; make hillara follow
-    isFollower = actorIsFollower(hillaraActor, "HILLARA")
+    ; isFollower = actorIsFollower(hillaraActor, "HILLARA")
+    ; -- new impl
+    isFollower = DSilHand_Utils.actorRefAliasIsFollower(Hillara, "Hillara", PotentialFollowerFaction, CurrentFollowerFaction, THIS_FILE)
     if(isFollower == false)
-        ; delete 
-        ; moveSingleNpc(hillaraActor, xhHillara, "hillaraActor => xhHillara")
         DSilHand_Utils.moveSingleNpcRefAlias(Hillara, xHeadHillara, "Hillara", THIS_FILE)
     endif
     ; make sennar follow
-    isFollower = actorIsFollower(sennarActor, "SENAAR")
+    ; isFollower = actorIsFollower(sennarActor, "SENAAR")
+    ; -- new impl
+    isFollower = DSilHand_Utils.actorRefAliasIsFollower(Sennar, "Sennar", PotentialFollowerFaction, CurrentFollowerFaction, THIS_FILE)
     if(isFollower == false)
-        ; delete 
-        ; moveSingleNpc(sennarActor, xhSennar, "sennarActor => xhSennar")
         DSilHand_Utils.moveSingleNpcRefAlias(Sennar, xHeadSennar, "Sennar", THIS_FILE)
     endif
-
     ;
     ; (5) Move Fjol to the funeral
     ;
-    ; Delete
-    ; Actor fjolActor = Fjol.GetReference() as Actor
-    ; ObjectReference xhFjol = xHeadFjol.GetReference() as ObjectReference 
-    ; moveSingleNpc(fjolActor, xhFjol, "fjolActor => xhFjol")
     DSilHand_Utils.moveSingleNpcRefAlias(Fjol, xHeadFjol, "Fjol", THIS_FILE)
 endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ; 
-; Move Krev To Sovngarde, make him invulnerable and make him glow
+; Finalize the quest state, such as Look at.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function cleanScript()
     Debug.Trace(THIS_FILE + " -- cleanScript(): cleanning quest reference") 
@@ -440,17 +413,20 @@ endFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function moveKrevToSovngarde()
     Debug.Trace(THIS_FILE + " -- moveKrevToSovngarde()")
-    Actor krevActor = Krev.GetReference() as Actor
-    krevActor.Enable()
-    ObjectReference mark = xMarkSovngarde.GetReference() as ObjectReference
-    DSilHand_Utils.moveSingleNpc(krevActor, mark, "krevActor", THIS_FILE)
+    ; -- new impl
+    DSilHand_Utils.enableActor(KrevSovngarde, "KrevSovngarde", THIS_FILE)
+    ; -- old impl
+    ;Actor krevActor = Krev.GetReference() as Actor
+    ;krevActor.Enable()
+    ;ObjectReference mark = xMarkSovngarde.GetReference() as ObjectReference
+    ;DSilHand_Utils.moveSingleNpc(krevActor, mark, "krevActor", THIS_FILE)
     ; delete 
     ; moveSingleNpc(krevActor, mark, "Krev -> Sovngarde")
-    Debug.Trace(THIS_FILE + " -- make krev glow")
-    krevActor.AddSpell(AbFXSovengardeGlow)
+    ;Debug.Trace(THIS_FILE + " -- make krev glow")
+    ;krevActor.AddSpell(AbFXSovengardeGlow)
     ;AbFXSovengardeGlow.Cast(krevActor, krevActor)
-    Debug.Trace(THIS_FILE + " -- make krev invulnerable")
-    krevActor.GetActorBase().SetInvulnerable(true)
+    ;Debug.Trace(THIS_FILE + " -- make krev invulnerable")
+    ;krevActor.GetActorBase().SetInvulnerable(true)
 endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -550,62 +526,30 @@ endfunction
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: Actor npc - NPC to be moved
-; Input: ObjectReference marker - ObjectReference to the marker the NPC will
-;        be moved
-; Input: String logInfo - information about the NPC and Marker, to be loged.
-; 
-; Function to move a single NPC to a marker.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Function moveSingleNpc(Actor npc, ObjectReference marker, String logInfo)
-;     if( (npc != None) && (marker != None))
-;         if ( npc.IsDead() == false)
-;             Debug.Trace(THIS_FILE + " moving NPC " + logInfo + " npc:<" + npc + ">, marker:<" + marker + ">")
-;             npc.MoveTo(marker)
-;             ;npc.Enable()
-;             npc.SetPosition(marker.GetPositionX(), marker.GetPositionY(), marker.GetPositionZ())
-;         else
-;             Debug.Trace(THIS_FILE + " NPC:<" +npc + "> is Dead, cannot execute move: " +  logInfo)
-;         endif
-;     else 
-;         if(npc == None)
-;             Debug.Trace(THIS_FILE + " **ERROR** npc param is EMPTY: " + logInfo, 2)
-;         else
-;             Debug.Trace(THIS_FILE + " **ERROR** marker param is EMPTY: " + logInfo, 2)
-;         endif
-;     endif
-; endFunction
-
-
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: Actor npc - Actor to be checked if he/she is a follower or not
 ; Input: string actorNameStr - Actor name to be logged. It just used to be help 
 ;        the debug, has no effect on the method operation. 
 ; 
 ; Tells if an actor is a follower or not.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Bool Function actorIsFollower(Actor npc, string actorNameStr)
-    Debug.Trace(THIS_FILE + " -- checking if actor " + actorNameStr + ":<" + npc + "> is a follower");
-    ; check if the actor is valid
-    if ( npc == None)
-        Debug.Trace(THIS_FILE + " **WARNING** INPUT ACTOR IS EMPTY <" + actorNameStr + ">", 2);
-        return false
-    endif
-    ; do the actual check if the NPC is a follower. If the NPC is a follower,
-    ; both ranks must be equals to 0.
-    int facRankP = npc.GetFactionRank(PotentialFollowerFaction)
-    int facRankC = npc.GetFactionRank(CurrentFollowerFaction)
-    Debug.Trace(THIS_FILE + " -- PotentialFollowerFaction:<" + facRankP + ">");
-    Debug.Trace(THIS_FILE + " -- CurrentFollowerFaction:<" + facRankC + ">");
-    if(  (facRankP >= 0 ) && (facRankC >= 0) )
-        return true
-    endif
-    return false
-endFunction
-
-
+;Bool Function actorIsFollower(Actor npc, string actorNameStr)
+;    Debug.Trace(THIS_FILE + " -- checking if actor " + actorNameStr + ":<" + npc + "> is a follower");
+;    ; check if the actor is valid
+;    if ( npc == None)
+;        Debug.Trace(THIS_FILE + " **WARNING** INPUT ACTOR IS EMPTY <" + actorNameStr + ">", 2);
+;        return false
+;    endif
+;    ; do the actual check if the NPC is a follower. If the NPC is a follower,
+;    ; both ranks must be equals to 0.
+;    int facRankP = npc.GetFactionRank(PotentialFollowerFaction)
+;    int facRankC = npc.GetFactionRank(CurrentFollowerFaction)
+;    Debug.Trace(THIS_FILE + " -- PotentialFollowerFaction:<" + facRankP + ">");
+;    Debug.Trace(THIS_FILE + " -- CurrentFollowerFaction:<" + facRankC + ">");
+;    if(  (facRankP >= 0 ) && (facRankC >= 0) )
+;        return true
+;    endif
+;    return false
+;endFunction
 
 
 

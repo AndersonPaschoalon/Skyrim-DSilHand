@@ -1,16 +1,6 @@
 ;BEGIN FRAGMENT CODE - Do not edit anything between this and the end comment
-;NEXT FRAGMENT INDEX 6
+;NEXT FRAGMENT INDEX 7
 Scriptname QF_DSilHand_M30ScholarFragme_02012F9B Extends Quest Hidden
-
-;BEGIN ALIAS PROPERTY Satchel
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Satchel Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY fjol
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_fjol Auto
-;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Nelacar
 ;ALIAS PROPERTY TYPE ReferenceAlias
@@ -22,9 +12,9 @@ ReferenceAlias Property Alias_Nelacar Auto
 ReferenceAlias Property Alias_Frag03 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY LetterNelacar2
+;BEGIN ALIAS PROPERTY fjol
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_LetterNelacar2 Auto
+ReferenceAlias Property Alias_fjol Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Player
@@ -32,11 +22,21 @@ ReferenceAlias Property Alias_LetterNelacar2 Auto
 ReferenceAlias Property Alias_Player Auto
 ;END ALIAS PROPERTY
 
-;BEGIN FRAGMENT Fragment_5
-Function Fragment_5()
+;BEGIN ALIAS PROPERTY Satchel
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Satchel Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY LetterNelacar2
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_LetterNelacar2 Auto
+;END ALIAS PROPERTY
+
+;BEGIN FRAGMENT Fragment_0
+Function Fragment_0()
 ;BEGIN CODE
-Debug.Trace("(DSilHand_M30:50) -- Quest M30 at Stage:50")
-;Alias_Fjol.GetActorRef().Enable()
+Debug.Trace("(DSilHand_M30:0) -- starting DSilHand_M30")
+Alias_Frag03.GetReference().Disable()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -69,6 +69,14 @@ DSilHand_mi20preDwammerTempering.SetObjectiveDisplayed(10)
 EndFunction
 ;END FRAGMENT
 
+;BEGIN FRAGMENT Fragment_5
+Function Fragment_5()
+;BEGIN CODE
+Debug.Trace("(DSilHand_M30:50) -- Quest M30 at Stage:50")
+;END CODE
+EndFunction
+;END FRAGMENT
+
 ;BEGIN FRAGMENT Fragment_2
 Function Fragment_2()
 ;BEGIN CODE
@@ -80,14 +88,18 @@ if(Alias_LetterNelacar2 != None)
 else 
     Debug.Trace("(DSilHand_M30:30) ** ERROR**  Alias_LetterNelacar2 is NULL", 2);
 endif
+
+; Enables reference for the fragment
+Debug.Trace("(DSilHand_M30:30) -- Alias_Frag03.GetReference().Enable() ");
+Alias_Frag03.GetReference().Enable()
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_0
-Function Fragment_0()
+;BEGIN FRAGMENT Fragment_6
+Function Fragment_6()
 ;BEGIN CODE
-Debug.Trace("(DSilHand_M30:0) -- starting DSilHand_M30")
+Debug.Trace("(DSilHand_M30:10) -- ")
 ;END CODE
 EndFunction
 ;END FRAGMENT

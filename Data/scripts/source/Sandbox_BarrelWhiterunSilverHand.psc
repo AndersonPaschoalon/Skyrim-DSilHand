@@ -5,7 +5,7 @@ Actor Property SilverHand02  Auto
 bool isDisabled = false
 
 Event OnActivate(ObjectReference akActionRef)
-    Debug.MessageBox("Tutorial Sandbox_BarrelWhiterunSilverHand")
+    Debug.MessageBox("Tutorial Sandbox_BarrelWhiterunSilverHand => Enable Silver Hands")
     if (isDisabled == false)
         SilverHand01.Disable()
         SilverHand02.Disable()

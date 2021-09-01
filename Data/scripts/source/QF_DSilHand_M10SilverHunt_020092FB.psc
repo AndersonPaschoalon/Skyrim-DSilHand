@@ -2,6 +2,31 @@
 ;NEXT FRAGMENT INDEX 19
 Scriptname QF_DSilHand_M10SilverHunt_020092FB Extends Quest Hidden
 
+;BEGIN ALIAS PROPERTY SpyWhiterun
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SpyWhiterun Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY hillara
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_hillara Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY SENAAR
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SENAAR Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY DriftshadeGuard
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_DriftshadeGuard Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY GiantTroll
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_GiantTroll Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY DriftshadeEntranceTrigger
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_DriftshadeEntranceTrigger Auto
@@ -17,34 +42,9 @@ ReferenceAlias Property Alias_fjol Auto
 ReferenceAlias Property Alias_Krev Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY GallowsEntranceTrigger
+;BEGIN ALIAS PROPERTY GallowsGuard
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GallowsEntranceTrigger Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY hillara
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_hillara Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY DriftshadeGuard
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_DriftshadeGuard Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY SpyWhiterun
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SpyWhiterun Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY SENAAR
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SENAAR Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY GiantTroll
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GiantTroll Auto
+ReferenceAlias Property Alias_GallowsGuard Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Skull
@@ -52,15 +52,29 @@ ReferenceAlias Property Alias_GiantTroll Auto
 ReferenceAlias Property Alias_Skull Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY GallowsGuard
+;BEGIN ALIAS PROPERTY GallowsEntranceTrigger
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GallowsGuard Auto
+ReferenceAlias Property Alias_GallowsEntranceTrigger Auto
 ;END ALIAS PROPERTY
 
-;BEGIN FRAGMENT Fragment_5
-Function Fragment_5()
+;BEGIN FRAGMENT Fragment_0
+Function Fragment_0()
 ;BEGIN CODE
-Debug.Trace("(DSilHand_M10:20) -- starting stage 20")
+Debug.Trace("(DSilHand_M10:0) -- STARTING SILVERHAND QUEST!")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_11
+Function Fragment_11()
+;BEGIN CODE
+Debug.Trace("(DSilHand_M10:50) -- starting stage 50")
+
+; remove the trool skull from the player inventory
+Game.GetPlayer().RemoveItem(Alias_Skull.GetReference())
+
+; Enable Krev
+DSilHand_Utils.enableActorRefAlias(Alias_Krev, "Alias_Krev", "(DSilHand_M10:50)")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -96,6 +110,7 @@ Game.GetPlayer().AddItem(ArmorStormcloakBoots)
 Game.GetPlayer().AddItem(ArmorBanditGauntlets)
 Game.GetPlayer().AddItem(ArmorIronBandedShield)
 Game.GetPlayer().AddItem(SilverSword)
+Game.GetPlayer().AddItem(Book2CommonSongOfReturnV7)
 
 ;
 ; Setup next quest
@@ -108,28 +123,10 @@ DSilHand_M20AngarvundesTreasure.SetObjectiveDisplayed(10)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_7
-Function Fragment_7()
+;BEGIN FRAGMENT Fragment_5
+Function Fragment_5()
 ;BEGIN CODE
-; Log Quest Stage
-Debug.Trace("(DSilHand_M10:30) -- starting stage 30")
-
-; Enable Frost troll
-DSilHand_Utils.enableActorRefAlias(Alias_GiantTroll, "Alias_GiantTroll", "(DSilHand_M10:30)")
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_11
-Function Fragment_11()
-;BEGIN CODE
-Debug.Trace("(DSilHand_M10:50) -- starting stage 50")
-
-; remove the trool skull from the player inventory
-Game.GetPlayer().RemoveItem(Alias_Skull.GetReference())
-
-; Enable Krev
-DSilHand_Utils.enableActorRefAlias(Alias_Krev, "Alias_Krev", "(DSilHand_M10:50)")
+Debug.Trace("(DSilHand_M10:20) -- starting stage 20")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -138,6 +135,18 @@ EndFunction
 Function Fragment_9()
 ;BEGIN CODE
 Debug.Trace("(DSilHand_M10:40) -- starting stage 40")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_7
+Function Fragment_7()
+;BEGIN CODE
+; Log Quest Stage
+Debug.Trace("(DSilHand_M10:30) -- starting stage 30")
+
+; Enable Frost troll
+DSilHand_Utils.enableActorRefAlias(Alias_GiantTroll, "Alias_GiantTroll", "(DSilHand_M10:30)")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -163,14 +172,6 @@ kmyQuest.setupCompanionsJoin()
 ;
 Debug.Trace("(DSilHand_M10:100) -- SetObjectiveFailed(100)")
 SetObjectiveFailed(100)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_0
-Function Fragment_0()
-;BEGIN CODE
-Debug.Trace("(DSilHand_M10:0) -- STARTING SILVERHAND QUEST!")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -215,3 +216,6 @@ Faction Property CompanionsFaction  Auto
 
 Faction Property PlayerFaction  Auto  
 {reference to the player faction}
+
+Book Property Book2CommonSongOfReturnV7  Auto  
+{Book Songs Of Return V7, to be given to the player after the quest is completed.}

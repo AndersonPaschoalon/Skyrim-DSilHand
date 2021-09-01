@@ -42,7 +42,6 @@ Event OnRead()
         Debug.MessageBox("Once you opened the diary you've realized the last Wuuthrad fragment felt into the floor. You grabed it to your inventory.");
         ; Move the fragment to player inventory
         ; the quest stages and objectives will be updated on the OnContainerChanged() event of the fragment
-        Desk.GetReference().RemoveItem(Frag05.GetReference(), 1, false)
         Game.GetPlayer().AddItem(Frag05.GetReference(), 1, false)
         ; Advences the pre-m90 misc quest
         DSilHand_mi03preHonYsgramor.Start()

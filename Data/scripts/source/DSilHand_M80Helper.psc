@@ -134,8 +134,8 @@ ReferenceAlias Property xMarkerAssault10  Auto
 ReferenceAlias Property xMarkerAssault11  Auto  
 {xMarker for the place where the 11th Silver hand will start to run on Jorrvaskar, inside Whiterun}
 
-ReferenceAlias Property xMarkerAssault12  Auto  
-{xMarker for the place where the 12th Silver hand will start to run on Jorrvaskar, inside Whiterun}
+; ReferenceAlias Property xMarkerAssault12  Auto  
+; {xMarker for the place where the 12th Silver hand will start to run on Jorrvaskar, inside Whiterun}
 
 ReferenceAlias Property xMarkerAssaultDst  Auto  
 {xMarker for the place where all the Silver Hands soldiers will run inside Jorrvaskar to fight the Compaions}
@@ -161,69 +161,8 @@ ReferenceAlias Property xMarkerKylmir  Auto
 ReferenceAlias Property xMarkerSenaar  Auto  
 {xMarker for the place where Senar will starn outside Whiterun, before the Battle}
 
-;; not used xMarkerSkyforge
-
-ReferenceAlias Property xMarkerSkyforge01  Auto  
-{xMarker for the place where the 01th Silver Hand Soldier will stand on Skyforge Scene}
-
-ReferenceAlias Property xMarkerSkyforge02  Auto  
-{xMarker for the place where the 2th Silver Hand Soldier will stand on Skyforge Scene}
-
-ReferenceAlias Property xMarkerSkyforge03  Auto  
-{xMarker for the place where the 3th Silver Hand Soldier will stand on Skyforge Scene}
-
-ReferenceAlias Property xMarkerSkyforge04  Auto  
-{xMarker for the place where the 4th Silver Hand Soldier will stand on Skyforge Scene}
-
-ReferenceAlias Property xMarkerSkyforge05  Auto  
-{xMarker for the place where the 5th Silver Hand Soldier will stand on Skyforge Scene}
-
-ReferenceAlias Property xMarkerSkyforge06  Auto  
-{xMarker for the place where the 6th Silver Hand Soldier will stand on Skyforge Scene}
-
-ReferenceAlias Property xMarkerSkyforge07  Auto  
-{xMarker for the place where the 7th Silver Hand Soldier will stand on Skyforge Scene}
-
-ReferenceAlias Property xMarkerSkyforge08  Auto  
-{xMarker for the place where the 8th Silver Hand Soldier will stand on Skyforge Scene}
-
-ReferenceAlias Property xMarkerSkyforge09  Auto  
-{xMarker for the place where the 9th Silver Hand Soldier will stand on Skyforge Scene}
-
-ReferenceAlias Property xMarkerSkyforge10  Auto  
-{xMarker for the place where the 10th Silver Hand Soldier will stand on Skyforge Scene}
-
-ReferenceAlias Property xMarkerSkyforgeBlacksmith  Auto  
-{xMarker for the place where Fjol will stand for reforging Ultrad on his Skyforge Scene}
-
-ReferenceAlias Property xMarkerSkyforgeFjolSpeach  Auto  
-{xMarker for the place where Fjol will stand on his Skyforge Scene}
-
-;; NOT USED xMarkerVignar
-
-ReferenceAlias Property xMarkerVignarAthisListen  Auto  
-{xMarker for the place where Athis will stand on his Scene after the battle}
-
-ReferenceAlias Property xMarkerVignarBril  Auto  
-{xMarker for the place where Brill will stand on his Scene after the battle}
-
-ReferenceAlias Property xMarkerVignarFjolListen  Auto  
-{xMarker for the place where Fjol will stand on his Scene after the battle}
-
-ReferenceAlias Property xMarkerVignarGuard01  Auto  
-{xMarker for the place where the 1st Guard will stand on his Scene after the battle}
-
-ReferenceAlias Property xMarkerVignarGuard02  Auto  
-{xMarker for the place where the 2nd Guard will stand on his Scene after the battle}
-
-ReferenceAlias Property xMarkerVignarGuard03  Auto  
-{xMarker for the place where the 3rd Guard will stand on his Scene after the battle}
-
-ReferenceAlias Property xMarkerVignarTilma  Auto  
-{xMarker for the place where Tilma will stand on his Scene after the battle}
-
-ReferenceAlias Property xMarkerVignarVignar  Auto  
-{xMarker for the place where Vignar will stand on his Scene after the battle}
+ReferenceAlias Property xMarkerVignarStarting  Auto  
+{Reference to the xMarker outside of Jorrvaskr, where the NPCs are transported to the Scene after the battle and before the Armistice Scene starts}
 
 Faction Property PotentialFollowerFaction  Auto  
 {Reference to the PotentialFollowerFaction, to tell of the actor is a follower or not}
@@ -252,9 +191,6 @@ Armor Property ArmorSteelPlateGauntlets  Auto
 WEAPON Property DSilHand_TemperedSilverGreatsword  Auto  
 {Tempered Silver Greatsword weapon object}
 
-ReferenceAlias Property xMarkerVignarStarting  Auto  
-{Reference to the xMarker outside of Jorrvaskr, where the NPCs are transported to the Scene after the battle}
-
 ReferenceAlias Property VignarSceneTrigger  Auto  
 {Reference to the Trigger on the entrance of Jorrvaskar, where the trigger for the scene after the battle is fired}
 
@@ -273,50 +209,53 @@ ReferenceAlias Property FakeTilma2  Auto
 ReferenceAlias Property FakeBrill  Auto  
 {Reference to Brill Copy}
 
-Faction Property BanditFaction  Auto  
-{}
+ReferenceAlias Property FakeEorlund  Auto  
+{Reference to Eorlund Copy}
 
 Faction Property IsGuardFaction  Auto  
 {}
 
+Faction Property CrimeFactionWhiterun  Auto  
+{Whiterun crime faction}
+
 Faction Property DragonsreachBasementGuards  Auto  
-{}
+{Dragonsreach Basement Guards faction}
 
 ObjectReference Property WallFrag01  Auto  
-{}
+{Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
 ObjectReference Property WallFrag02  Auto  
-{}
+{Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
 ObjectReference Property WallFrag03  Auto  
-{}
+{Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
 ObjectReference Property WallFrag04  Auto  
-{}
+{Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
 ObjectReference Property WallFrag05  Auto  
-{}
+{Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
 ObjectReference Property WallFrag06  Auto  
-{}
+{Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
 ObjectReference Property WallFrag07  Auto  
-{}
+{Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
 ObjectReference Property WallFrag08  Auto  
-{}
+{Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
 ObjectReference Property WallFrag09  Auto  
-{}
+{Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
 ObjectReference Property WallFrag10  Auto  
-{}
+{Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
 ObjectReference Property WallFrag11  Auto  
-{}
+{Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
 ObjectReference Property WallFrag12  Auto  
-{}
+{Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
 Scene Property DSilHand_M80_SceneArmisticeCall  Auto  
 {Object of the scene where Fjol calls all the Silver hand to stop the Combat. It is much light and faster than the main armistice scene, wich was causing an odd delay.}
@@ -335,6 +274,7 @@ int STAGE_FJOL_SPEACH1 = 30
 ;; Public Methods
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ;
@@ -349,12 +289,14 @@ Function setAlarmWaitUntilDusk()
     float timeToAlarm = 18 + todayLastingTime
     ; register alarm
     Debug.Trace(THIS_FILE + " -- time remaning to the update:<" + timeToAlarm + ">")
-    ; uncomment on the final version
-    ;RegisterForSingleUpdateGameTime(timeToAlarm)
-    float testAlarm = 1
-    Debug.Trace(THIS_FILE + "**WARNING** WRONG ALARM", 1)
-    RegisterForSingleUpdateGameTime(testAlarm)
+    ; -- QUEST PRODUCTION
+    RegisterForSingleUpdateGameTime(timeToAlarm)
+    ; -- QUEST DEBUG
+    ;float testAlarm = 1
+    ;Debug.Trace(THIS_FILE + "**WARNING** WRONG ALARM", 1)
+    ;RegisterForSingleUpdateGameTime(testAlarm)
 EndFunction
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -387,9 +329,6 @@ Function prepareJorrvaskr()
     DSilHand_Utils.disableActorRefAlias(Eorlund, "Eorlund", THIS_FILE)
     DSilHand_Utils.disableActorRefAlias(Brill, "Brill", THIS_FILE)
     DSilHand_Utils.disableActorRefAlias(Tilma, "Tilma", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(FakeTilma2, "FakeTilma2", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(FakeVignar, "FakeVignar", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(FakeBrill, "FakeBrill", THIS_FILE)
     ; Move actors to Jorrvaskr
     Debug.Trace(THIS_FILE + " -- move actors to Jorrvaskr")
     DSilHand_Utils.moveSingleNpcRefAlias(FakeKodlak, xMarkerAssaultDst, "FakeKodlak", THIS_FILE)
@@ -403,6 +342,7 @@ Function prepareJorrvaskr()
     ; show/hide the right fragments
     prepareWulltradWallBeforeBattle()
 Endfunction
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -433,9 +373,6 @@ Function moveNpcsToSecretPassage()
         DSilHand_Utils.moveSingleNpcRefAlias(SENAAR, xMarkerSenaar, "Sennar", THIS_FILE)
     endif
     ; Enable random NPCS
-
-    int facRank = SilverHand1.GetActorReference().GetFactionRank(BanditFaction)
-    Debug.Trace(THIS_FILE + " ############## SilverHand1.GetActorReference().GetFactionRank(BanditFaction)=" + facRank)
     DSilHand_Utils.enableActorRefAlias(SilverHand1, "SilverHand1", THIS_FILE)
     DSilHand_Utils.enableActorRefAlias(SilverHand2, "SilverHand2", THIS_FILE)
     DSilHand_Utils.enableActorRefAlias(SilverHand3, "SilverHand3", THIS_FILE)
@@ -443,6 +380,7 @@ Function moveNpcsToSecretPassage()
     ; Change equipped items
     equipIrronkasPlateArmor()
 EndFunction
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -465,6 +403,7 @@ Function startSilverhandAssault()
     DSilHand_Utils.moveSingleNpcRefAlias(SilverHand4, xMarkerAssault11, "SilverHand4", THIS_FILE)
 EndFunction
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ;
@@ -478,7 +417,7 @@ Function prepareScenePeace()
     Debug.Trace(THIS_FILE + " -- prepareScenePeace()")
     Debug.Trace(THIS_FILE + " -- Force AI package reevaluation for Silver Hand")
     DSilHand_Utils.enableActorRefAlias(FakeVignar, "FakeVignar", THIS_FILE)
-    DSilHand_Utils.enableActorRefAlias(Eorlund, "Eorlund", THIS_FILE)
+    DSilHand_Utils.enableActorRefAlias(FakeEorlund, "Eorlund", THIS_FILE)
     DSilHand_Utils.enableActorRefAlias(FakeBrill, "FakeBrill", THIS_FILE)
     DSilHand_Utils.enableActorRefAlias(FakeTilma2, "FakeTilma2", THIS_FILE)
     ; Move actors outside Jorrvaskr, so they may run to their positions
@@ -486,6 +425,7 @@ Function prepareScenePeace()
     DSilHand_Utils.moveSingleNpcRefAlias(FakeVignar, xMarkerVignarStarting, "FakeVignar2", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(FakeBrill, xMarkerVignarStarting, "FakeBrill", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(FakeTilma2, xMarkerVignarStarting, "FakeTilma2", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(FakeEorlund, xMarkerVignarStarting, "FakeEorlund", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(Guard01, xMarkerVignarStarting, "Guard01", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(Guard02, xMarkerVignarStarting, "Guard02", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(Guard03, xMarkerVignarStarting, "Guard03", THIS_FILE)
@@ -494,6 +434,7 @@ Function prepareScenePeace()
     FakeVignar.GetActorReference().EnableAI(false)
     FakeBrill.GetActorReference().EnableAI(false)
     FakeTilma2.GetActorReference().EnableAI(false)
+    FakeEorlund.GetActorReference().EnableAI(false)
     Guard01.GetActorReference().EnableAI(false)
     Guard02.GetActorReference().EnableAI(false)
     Guard03.GetActorReference().EnableAI(false)
@@ -503,7 +444,7 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ;
-;
+; Do the preparations for the Armistice scene so it will occour as expected. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function prepareSceneVignarArmstice()
     Debug.Trace(THIS_FILE + " -- prepareSceneVignarArmstice()")
@@ -511,14 +452,10 @@ Function prepareSceneVignarArmstice()
     FakeVignar.GetActorReference().EnableAI(true)
     FakeBrill.GetActorReference().EnableAI(true)
     FakeTilma2.GetActorReference().EnableAI(true)
+    FakeEorlund.GetActorReference().EnableAI(true)
     Guard01.GetActorReference().EnableAI(true)
     Guard02.GetActorReference().EnableAI(true)
     Guard03.GetActorReference().EnableAI(true)
-    ;Debug.Trace(THIS_FILE + " -- enable actors before moving")
-    ;DSilHand_Utils.enableActorRefAlias(FakeVignar, "FakeVignar", THIS_FILE)
-    ;DSilHand_Utils.enableActorRefAlias(Eorlund, "Eorlund", THIS_FILE)
-    ;DSilHand_Utils.enableActorRefAlias(FakeBrill, "FakeBrill", THIS_FILE)
-    ;DSilHand_Utils.enableActorRefAlias(FakeTilma2, "FakeTilma2", THIS_FILE)
     ; Move actors outside Jorrvaskr, so they may run to their positions
     DSilHand_Utils.moveSingleNpcRefAlias(FakeVignar, xMarkerVignarStarting, "FakeVignar", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(FakeBrill, xMarkerVignarStarting, "FakeBrill", THIS_FILE)
@@ -527,6 +464,7 @@ Function prepareSceneVignarArmstice()
     DSilHand_Utils.moveSingleNpcRefAlias(Guard02, xMarkerVignarStarting, "Guard02", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(Guard03, xMarkerVignarStarting, "Guard03", THIS_FILE) 
 EndFunction
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -549,7 +487,10 @@ Function endSilverHandCompanionsWar()
     ; stop combat -- just in case
     stopAssaultNpcsCombat() 
     evaluateAllPackages()
+    ; bugfix: make the player do not be persecured on whiterun
+    freePlayerFromCrime()
 EndFunction
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -563,6 +504,7 @@ Function collectFragmentsAndClean()
     prepareWulltradWallAfterBattle()
     cleanBattleCorpses()
 EndFunction
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -580,10 +522,10 @@ Function stopAssaultNpcsCombat()
     DSilHand_Utils.stopAllCombatRefAlias(FakeAthis, "FakeAthis", THIS_FILE)
     DSilHand_Utils.stopAllCombatRefAlias(CompBretFrost, "CompBretFrost", THIS_FILE) 
     DSilHand_Utils.stopAllCombatRefAlias(CompImp02, "CompImp02", THIS_FILE)
-    DSilHand_Utils.stopAllCombatRefAlias(Eorlund, "Eorlund", THIS_FILE) 
     DSilHand_Utils.stopAllCombatRefAlias(FakeTorvar, "FakeTorvar", THIS_FILE)
     DSilHand_Utils.stopAllCombatRefAlias(FakeRia, "FakeRia", THIS_FILE) 
     DSilHand_Utils.stopAllCombatRefAlias(FakeVignar, "FakeVignar", THIS_FILE) 
+    DSilHand_Utils.stopAllCombatRefAlias(FakeEorlund, "FakeEorlund", THIS_FILE) 
     Debug.Trace(THIS_FILE + " -- stop silver hand combat")
     DSilHand_Utils.stopAllCombatRefAlias(fjol, "fjol", THIS_FILE) 
     DSilHand_Utils.stopAllCombatRefAlias(hillara, "hillara", THIS_FILE)
@@ -604,6 +546,7 @@ Function stopAssaultNpcsCombat()
     DSilHand_Utils.stopAllCombatRefAlias(Guard03, "Guard03", THIS_FILE)
 EndFunction
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ;
@@ -612,17 +555,17 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function enableOriginals()
     ; Torvar: Enable if he is alive
-    if (FakeTorvar.GetActorReference() != None && FakeTorvar.GetActorReference().IsDead() == false)
-        Debug.Trace(THIS_FILE + " -- disable FakeTorvar")
-        FakeTorvar.GetActorReference().Disable()
-        if(Torvar != None)
-            Torvar.GetActorReference().Enable()
-        else
-            Debug.Trace(THIS_FILE + " **ERROR** Tovar ReferenceAlias is EMPTY")
-        endif
-    else
-        Debug.Trace(THIS_FILE + " **WARNING** FakeTorvar referenceAlias is emptry or dead: cannot enable", 1)
-    endif
+    ;if (FakeTorvar.GetActorReference() != None && FakeTorvar.GetActorReference().IsDead() == false)
+    ;    Debug.Trace(THIS_FILE + " -- disable FakeTorvar")
+    ;    FakeTorvar.GetActorReference().Disable()
+    ;    if(Torvar != None)
+    ;        Torvar.GetActorReference().Enable()
+    ;    else
+    ;        Debug.Trace(THIS_FILE + " **ERROR** Tovar ReferenceAlias is EMPTY")
+    ;    endif
+    ;else
+    ;    Debug.Trace(THIS_FILE + " **WARNING** FakeTorvar referenceAlias is empty or dead: cannot enable", 1)
+    ;endif
     ;
     ; All essential and non-replacable companions/afiliated
     ;
@@ -631,18 +574,19 @@ Function enableOriginals()
     DSilHand_Utils.disableActorRefAlias(FakeVignar, "FakeVignar", THIS_FILE)
     ; Eorlund -- no copy
     DSilHand_Utils.enableActorRefAlias(Eorlund, "Eorlund", THIS_FILE)
+    DSilHand_Utils.enableActorRefAlias(FakeEorlund, "FakeEorlund", THIS_FILE)
     ; Brill
     DSilHand_Utils.enableActorRefAlias(Brill, "Brill", THIS_FILE)
     DSilHand_Utils.disableActorRefAlias(FakeBrill, "FakeBrill", THIS_FILE)
     ; Ria
-    DSilHand_Utils.enableActorRefAlias(Ria, "Ria", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(FakeRia, "FakeRia", THIS_FILE)
+    ;DSilHand_Utils.enableActorRefAlias(Ria, "Ria", THIS_FILE)
+    ;DSilHand_Utils.disableActorRefAlias(FakeRia, "FakeRia", THIS_FILE)
     ; Athis
-    DSilHand_Utils.enableActorRefAlias(Athis, "Athis", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(FakeAthis, "FakeAthis", THIS_FILE)
+    ;DSilHand_Utils.enableActorRefAlias(Athis, "Athis", THIS_FILE)
+    ;DSilHand_Utils.disableActorRefAlias(FakeAthis, "FakeAthis", THIS_FILE)
     ; Tilma     
-    DSilHand_Utils.enableActorRefAlias(Tilma, "Tilma", THIS_FILE)
-    DSilHand_Utils.disableActorRefAlias(FakeTilma2, "FakeTilma2", THIS_FILE)
+    ;DSilHand_Utils.enableActorRefAlias(Tilma, "Tilma", THIS_FILE)
+    ;DSilHand_Utils.disableActorRefAlias(FakeTilma2, "FakeTilma2", THIS_FILE)
 EndFunction
 
 
@@ -669,6 +613,7 @@ Function equipIrronkasPlateArmor()
     endif
 EndFunction
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ; 
@@ -676,10 +621,10 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function prepareWulltradWallBeforeBattle()
     Debug.Trace(THIS_FILE + " --  prepareWulltradWallBeforeBattle()")  
-    ; disable WallFrag02, wich is kept by Kodlack
-    DSilHand_Utils.disableObject(WallFrag02, "WallFrag02", THIS_FILE)
+    ; disable WallFrag05, wich is kept by Kodlack
+    DSilHand_Utils.disableObject(WallFrag05, "WallFrag05", THIS_FILE)
     ; enable the 3 fragments that should appear -- just in case
-    DSilHand_Utils.enableObject(WallFrag05, "WallFrag05", THIS_FILE)
+    DSilHand_Utils.enableObject(WallFrag02, "WallFrag02", THIS_FILE)
     DSilHand_Utils.enableObject(WallFrag06, "WallFrag06", THIS_FILE)
     DSilHand_Utils.enableObject(WallFrag11, "WallFrag11", THIS_FILE)
     ; disable all the other fragments -- just in case
@@ -693,6 +638,7 @@ Function prepareWulltradWallBeforeBattle()
     DSilHand_Utils.disableObject(WallFrag12, "WallFrag12", THIS_FILE)      
 EndFunction
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ; 
@@ -702,10 +648,11 @@ EndFunction
 Function prepareWulltradWallAfterBattle()
     Debug.Trace(THIS_FILE + " --  prepareWulltradWallAfterBattle()")  
     ; disable the fragments that were enabled  
-    DSilHand_Utils.disableObject(WallFrag05, "WallFrag05", THIS_FILE)
+    DSilHand_Utils.disableObject(WallFrag02, "WallFrag02", THIS_FILE)
     DSilHand_Utils.disableObject(WallFrag06, "WallFrag06", THIS_FILE)
     DSilHand_Utils.disableObject(WallFrag11, "WallFrag11", THIS_FILE)    
 EndFunction
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -733,7 +680,7 @@ Function evaluateAllPackages()
     FakeRia.GetActorReference().EvaluatePackage()
     FakeTorvar.GetActorReference().EvaluatePackage()
     FakeVignar.GetActorReference().EvaluatePackage()
-    Eorlund.GetActorReference().EvaluatePackage()
+    FakeEorlund.GetActorReference().EvaluatePackage()
     ; Others
     FakeBrill.GetActorReference().EvaluatePackage()
     FakeTilma2.GetActorReference().EvaluatePackage()
@@ -741,6 +688,7 @@ Function evaluateAllPackages()
     Guard02.GetActorReference().EvaluatePackage()
     Guard03.GetActorReference().EvaluatePackage()
 EndFunction
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -759,11 +707,40 @@ Function cleanBattleCorpses()
     DSilHand_Utils.disableActorRefAliasIfDead(SilverHand2,   "SilverHand2",   THIS_FILE)
     DSilHand_Utils.disableActorRefAliasIfDead(SilverHand3,   "SilverHand3",   THIS_FILE)
     DSilHand_Utils.disableActorRefAliasIfDead(SilverHand4,   "SilverHand4",   THIS_FILE)
+    kodlackAftherDeathCare()
 EndFunction
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+; 
+; This function prepares the body of Kodlack for his funeral.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function kodlackAftherDeathCare()
+    Debug.Trace(THIS_FILE + " -- kodlackAftherDeathCare()")
+    ; TODO <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    Debug.Trace(THIS_FILE + " -- TODO")
+EndFunction
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+; 
+; This is a bugfix function. It must to the stuff necessary to make 
+; Whiterun/Skyrim/Tamriel NPCs finendly to the player after the battle ended.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function freePlayerFromCrime()
+    Debug.Trace(THIS_FILE + " -- freePlayerFromCrime()")
+    CrimeFactionWhiterun.PlayerPayCrimeGold(false, false)
+    Game.GetPlayer().StopCombat()
+    Game.GetPlayer().StopCombatAlarm()    
+EndFunction
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; EVENTS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; This events is activate after the stage 10 from the quest M80, when the 
@@ -771,36 +748,11 @@ EndFunction
 ; is advanced.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Event OnUpdateGameTime()
-    Debug.Trace(THIS_FILE + " --  OnUpdateGameTime()")
-    ;if(GetState() == STAGE_WAIT_DUSK)
-        Debug.Trace(THIS_FILE + " --  OnUpdate(): Stage:" + GetState() + " => advance quest stage to " + STAGE_MEET_AT_SECRET_PASSAGE)
-        ; completes "Prepare to assault tomorrow at the begining of the dusk near Whiterun"
-        SetObjectiveCompleted(STAGE_WAIT_DUSK)
-        SetStage(STAGE_MEET_AT_SECRET_PASSAGE)
-        ; displays "Meet the men on the secret passage beneth the underforge on Whiterun"
-        SetObjectiveDisplayed(STAGE_MEET_AT_SECRET_PASSAGE)
-    ;endif
+    Debug.Trace(THIS_FILE + " --  OnUpdateGameTime(): Stage:" + GetState() + " => advance quest stage to " + STAGE_MEET_AT_SECRET_PASSAGE)
+    ; completes "Prepare to assault tomorrow at the begining of the dusk near Whiterun"
+    SetObjectiveCompleted(STAGE_WAIT_DUSK)
+    SetStage(STAGE_MEET_AT_SECRET_PASSAGE)
+    ; displays "Meet the men on the secret passage beneth the underforge on Whiterun"
+    SetObjectiveDisplayed(STAGE_MEET_AT_SECRET_PASSAGE)
 EndEvent
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

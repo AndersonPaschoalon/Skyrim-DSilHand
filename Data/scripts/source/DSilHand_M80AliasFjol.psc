@@ -30,8 +30,8 @@ Event OnLocationChange(Location akOldLoc, Location akNewLoc)
         ; this must happen once, and cant not be recursive
         alreadyActivated = true
         Debug.Trace(THIS_FILE + " -- moving Fjol to the last M80 scene location....")
-        Debug.MessageBox("Self trick" + (Self as ReferenceAlias))
-        DSilHand_Utils.moveSingleNpcRefAlias((Self as ReferenceAlias), xMarkerSkyforgeBlacksmith, "Fjol", THIS_FILE)
+        ;Debug.MessageBox("Self trick" + (Self as ReferenceAlias))
+        DSilHand_Utils.moveSingleNpc(GetActorReference(), xMarkerSkyforgeBlacksmith.GetReference(), "Fjol", THIS_FILE)
     endIf
 endEvent
 

@@ -7,7 +7,7 @@ Function Fragment_17(ReferenceAlias akAlias)
 ;BEGIN CODE
 ;WARNING: Script name in fragment (DSilHand_M80_SF_SceneWuuthra_02044360) does not match auto-generated script (SF_DSilHand_M80_SceneWuuthra_02044360)
 ;Source NOT loaded
-Debug.MessageBox("DSilHand_M80_ReassembleTime")
+Debug.Trace("DSilHand_M80_SF -- DSilHand_M80_ReassembleTime")
 ;END CODE
 EndFunction
 ;END FRAGMENT

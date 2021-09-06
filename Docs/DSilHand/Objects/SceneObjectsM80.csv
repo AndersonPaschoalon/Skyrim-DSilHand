@@ -5,6 +5,7 @@ Phase          , DSilHand_M60_SceneAssault, DSilHand_M60_SceneFjolDiscourse_Phas
 Action:Dialogue, DSilHand_M60_SceneAssault, DSilHand_M80DB_Topic01
 
 Scene          , DSilHand_M80_SceneArmistice, DSilHand_M80_SceneArmistice
+
 Phase          , DSilHand_M80_SceneArmistice, DSilHand_M80_SceneArmistice_Phase01
 Action:Package , DSilHand_M80_SceneArmistice, Fjol:DSilHand_M80_SceneGoToSpeech
 Action:Package , DSilHand_M80_SceneArmistice, FakeAthis:DSilHand_M80_SceneLookAtFjol

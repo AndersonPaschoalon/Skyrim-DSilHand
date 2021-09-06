@@ -134,9 +134,6 @@ ReferenceAlias Property xMarkerAssault10  Auto
 ReferenceAlias Property xMarkerAssault11  Auto  
 {xMarker for the place where the 11th Silver hand will start to run on Jorrvaskar, inside Whiterun}
 
-; ReferenceAlias Property xMarkerAssault12  Auto  
-; {xMarker for the place where the 12th Silver hand will start to run on Jorrvaskar, inside Whiterun}
-
 ReferenceAlias Property xMarkerAssaultDst  Auto  
 {xMarker for the place where all the Silver Hands soldiers will run inside Jorrvaskar to fight the Compaions}
 
@@ -213,7 +210,7 @@ ReferenceAlias Property FakeEorlund  Auto
 {Reference to Eorlund Copy}
 
 Faction Property IsGuardFaction  Auto  
-{}
+{Object referece to Guard Faction}
 
 Faction Property CrimeFactionWhiterun  Auto  
 {Whiterun crime faction}
@@ -257,6 +254,9 @@ ObjectReference Property WallFrag11  Auto
 ObjectReference Property WallFrag12  Auto  
 {Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
+ObjectReference Property xHeadingFjolListenVignar  Auto  
+{xHeading where Fjol is placed to listen to Vignar in the armistice scene}
+
 Scene Property DSilHand_M80_SceneArmisticeCall  Auto  
 {Object of the scene where Fjol calls all the Silver hand to stop the Combat. It is much light and faster than the main armistice scene, wich was causing an odd delay.}
 
@@ -264,11 +264,13 @@ Scene Property DSilHand_M80_SceneArmisticeCall  Auto
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Member variables
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-String THIS_FILE = "(DSilHand_M80Helper.psc) "
+; constants
+string THIS_FILE = "(DSilHand_M80Helper.psc) "
 int STAGE_WAIT_DUSK = 10
 int STAGE_MEET_AT_SECRET_PASSAGE = 20
 int STAGE_FJOL_SPEACH1 = 30
-
+; state
+bool Action2_Fjol_M80SceneTravelArmisticeSpeech_Completed = false 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Public Methods
@@ -445,9 +447,14 @@ EndFunction
 ; Input: void
 ;
 ; Do the preparations for the Armistice scene so it will occour as expected. 
+; (1) Ensure Fjol is at the right position
+; (2) Enable all Fake actors
+; (3) Move all of them outside Jorrvaskar so they may enter insede.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function prepareSceneVignarArmstice()
     Debug.Trace(THIS_FILE + " -- prepareSceneVignarArmstice()")
+    ; ensure Fjol is at the right position
+    ensureFjolIsAtTheArmisticeDiscoursePosition()
     ; Enable actors AI before moving
     FakeVignar.GetActorReference().EnableAI(true)
     FakeBrill.GetActorReference().EnableAI(true)
@@ -587,6 +594,40 @@ Function enableOriginals()
     ; Tilma     
     ;DSilHand_Utils.enableActorRefAlias(Tilma, "Tilma", THIS_FILE)
     ;DSilHand_Utils.disableActorRefAlias(FakeTilma2, "FakeTilma2", THIS_FILE)
+EndFunction
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+; **BUGFIX** After the Action DSilHand_M80SceneTravelArmisticeSpeech from the 
+; scene DSilHand_M80_SceneArmistice2 is completed, this flag must be set.  
+; This method is required because when the dialog DSilHand_M80SA_Topic02
+; finishes, it is necessary that the action  
+; DSilHand_M80SceneTravelArmisticeSpeech is completed too. 
+; If this flag is alread set as true, Fjol does not need to be moved
+; via code to the right location. It is necessary because sometimes Fjol may 
+; get stucked. 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function completeActionSceneTravelArmisticeSpeech()
+    Debug.Trace(THIS_FILE + " -- completeActionSceneTravelArmisticeSpeech()") 
+    Action2_Fjol_M80SceneTravelArmisticeSpeech_Completed = true
+EndFunction
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+; **BUGFIX** Ensure Fjol is at the right position when he finishes his 
+; dialog. It is rare, but he may get stucked sometimes.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function ensureFjolIsAtTheArmisticeDiscoursePosition()
+    if(Action2_Fjol_M80SceneTravelArmisticeSpeech_Completed == false)
+        ; force move Fjol
+        DSilHand_Utils.moveSingleNpcRefAlias2(fjol, xHeadingFjolListenVignar, "Fjol", THIS_FILE) 
+        ; wait 1s just in case
+        Utility.Wait(1)
+    endif
 EndFunction
 
 
@@ -755,4 +796,5 @@ Event OnUpdateGameTime()
     ; displays "Meet the men on the secret passage beneth the underforge on Whiterun"
     SetObjectiveDisplayed(STAGE_MEET_AT_SECRET_PASSAGE)
 EndEvent
+
 

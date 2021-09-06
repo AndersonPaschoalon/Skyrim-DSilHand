@@ -1,0 +1,28 @@
+# (Type:)Object, Scene ID                    , (Actor:)Object ID
+
+Scene          , DSilHand_M90_SceneExtraction, DSilHand_M90_SceneExtraction
+
+Phase          , DSilHand_M90_SceneExtraction, DSilHand_M90_SceneExtraction_Phase01
+Action:Dialogue, DSilHand_M90_SceneExtraction, KodlacksGhost:DSilHand_M90_GoToExtraction
+
+Phase          , DSilHand_M90_SceneExtraction, DSilHand_M90_SceneExtraction_Phase02
+Action:Dialogue, DSilHand_M90_SceneExtraction, KodlacksGhost:DSilHand_M90_GoToExtraction
+
+C06KodlakTravelToExtractionMarker
+
+DSilHand_M90AliasEternalFlameSconce
+
+
+DSilHand_M90_TalkToDragonborn
+DSilHand_M90_TravelToStatue
+DSilHand_M90_ActivateStatue
+DSilHand_M90_FinishTalk
+
+
+
+
+
+
+
+
+

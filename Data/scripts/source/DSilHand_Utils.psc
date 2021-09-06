@@ -768,7 +768,7 @@ Function playIdleHelper(ReferenceAlias aliasActor, string actorName, Idle akIdle
             logActorStatus(actorObj, actorName, 2, loginfo)
         endIf    
     else
-        Debug.Trace(loginfo + " **ERROR** cANNOT EXECUTE IDDLE ANIMATION (Actor object is EMPTY, disabled or dead!)", 2)      
+        Debug.Trace(loginfo + " **ERROR** CANNOT EXECUTE IDDLE ANIMATION (Actor object is EMPTY, disabled or dead!)", 2)      
     endif
 EndFunction
 

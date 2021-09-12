@@ -37,8 +37,9 @@ Function advancesQuestStage()
     Debug.Trace(THIS_FILE + " -- advancesQuestStage() for " + witchHeadLabel)
     GetOwningQuest().SetObjectiveCompleted(STAGE_KILL_WITCHES)
     GetOwningQuest().SetStage(STAGE_BURN_WITCH_HEADS)
-    GetOwningQuest().SetObjectiveCompleted(STAGE_BURN_WITCH_HEADS)
+    GetOwningQuest().SetObjectiveDisplayed(STAGE_BURN_WITCH_HEADS)
 EndFunction
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -47,30 +48,36 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function handlerHeadContainerChanged(ObjectReference akNewContainer, ObjectReference akOldContainer)
     Debug.Trace(THIS_FILE + " -- handlerHeadContainerChanged() for " + witchHeadLabel)
+    DSilHand_M90Helper m90Helper = (GetOwningQuest() as DSilHand_M90Helper)
     ObjectReference witchHeadObj = GetReference()
-    if(witchHeadObj != None)
+    if(witchHeadObj != None && m90Helper != None)
         Debug.Trace(THIS_FILE + " -- Decapit Witch procedure for witch head " + witchHeadLabel + "...")
         ; replace the witch by a decapted witch
         if (akNewContainer == Game.GetPlayer())
             Utility.Wait(0.1)
             if (akOldContainer.GetBaseObject() == baseActor)
+                ; decapit procedure
                 ObjectReference body = witchHeadObj.GetLinkedRef()
                 Debug.Trace(THIS_FILE + " -- Collecting head; new body is " + body)
                 body.MoveTo(akOldContainer)
                 body.Enable()
                 akOldContainer.RemoveAllItems(body)
                 akOldContainer.Delete()
+                ; increment witch head counter
+                m90Helper.collectWitchHead()
             endif
         endif
         ; advance the quest in case the player have depcated all the witches
-        if (Game.GetPlayer().GetItemCount(witchHeadObj) >= NUMBER_OF_WITCHES) 
+        int countWitchHead = m90Helper.getCollectedWitchHeads()
+        Debug.Trace(THIS_FILE + " -- Witch Head counter: " + countWitchHead + "/" + NUMBER_OF_WITCHES)
+        if (countWitchHead >= NUMBER_OF_WITCHES) 
             advancesQuestStage()
-        else
-            Debug.Trace(THIS_FILE + " -- WitchHead count: " + Game.GetPlayer().GetItemCount(witchHeadObj) + "/" + NUMBER_OF_WITCHES)
         endif
     else
-        Debug.Trace(THIS_FILE + " **ERROR** OBJECT TO THE WITCH HEAD IS NULL <" + witchHeadLabel + ">") 
-        Debug.Trace(THIS_FILE + " **ERROR** ADVANCES THE QUEST SO IT WILL NOT GET STUCKED <" + witchHeadLabel + ">") 
+        Debug.Trace(THIS_FILE + " **ERROR** OBJECT TO THE WITCH HEAD IS NULL <" + witchHeadLabel + ">", 2) 
+        Debug.Trace(THIS_FILE + " **WARNING** ADVANCES THE QUEST SO IT WILL NOT GET STUCKED <" + witchHeadLabel + ">", 1) 
+        Debug.Trace(THIS_FILE + " **WARNING**  witchHeadObj<:" + witchHeadObj + ">")
+        Debug.Trace(THIS_FILE + " **WARNING**  m90Helper<:" + m90Helper + ">")
         advancesQuestStage()
     endif
 EndFunction

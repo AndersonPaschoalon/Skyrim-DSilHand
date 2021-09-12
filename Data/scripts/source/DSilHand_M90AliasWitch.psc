@@ -55,7 +55,6 @@ EndFunction
 Event OnDeath(Actor akKiller)
     Debug.Trace(THIS_FILE + " -- Event OnDeath() of witch <" + WitchLabel + ">")
     handlerWitchDeath()
-
 endEvent
 
 

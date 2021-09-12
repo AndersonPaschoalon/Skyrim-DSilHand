@@ -12,11 +12,22 @@ C06KodlakTravelToExtractionMarker
 
 DSilHand_M90AliasEternalFlameSconce
 
+----
+DSilHand_M90_SceneOpenTomb
 
-DSilHand_M90_TalkToDragonborn
+DSilHand_M90_SceneOpenTomb_Phase01
+DSilHand_M90SOT_Topic01
+
+DSilHand_M90_SceneOpenTomb_Phase02
 DSilHand_M90_TravelToStatue
+
+DSilHand_M90_SceneOpenTomb_Phase03
 DSilHand_M90_ActivateStatue
-DSilHand_M90_FinishTalk
+
+DSilHand_M90_SceneOpenTomb_Phase04
+DSilHand_M90SOT_Topic02
+
+
 
 
 

@@ -7,21 +7,6 @@ Scriptname QF_DSilHand_M30ScholarFragme_02012F9B Extends Quest Hidden
 ReferenceAlias Property Alias_Nelacar Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Frag03
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Frag03 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY fjol
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_fjol Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Player
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Player Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY Satchel
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_Satchel Auto
@@ -32,11 +17,61 @@ ReferenceAlias Property Alias_Satchel Auto
 ReferenceAlias Property Alias_LetterNelacar2 Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY Player
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Player Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Frag03
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Frag03 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY fjol
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_fjol Auto
+;END ALIAS PROPERTY
+
+;BEGIN FRAGMENT Fragment_6
+Function Fragment_6()
+;BEGIN CODE
+Debug.Trace("(DSilHand_M30:10) -- ")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_5
+Function Fragment_5()
+;BEGIN CODE
+Debug.Trace("(DSilHand_M30:50) -- Quest M30 at Stage:50")
+;END CODE
+EndFunction
+;END FRAGMENT
+
 ;BEGIN FRAGMENT Fragment_0
 Function Fragment_0()
 ;BEGIN CODE
 Debug.Trace("(DSilHand_M30:0) -- starting DSilHand_M30")
 Alias_Frag03.GetReference().Disable()
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_2
+Function Fragment_2()
+;BEGIN CODE
+; Nelecar gives to Dragonborn a letter
+Debug.Trace("(DSilHand_M30:30) -- Add Item LetterNelacar2 to the players inventory");
+if(Alias_LetterNelacar2 != None)
+    Game.GetPlayer().AddItem(Alias_LetterNelacar2.GetReference())
+    Debug.MessageBox("Nelacar just smiles, and gives you a letter.")
+else 
+    Debug.Trace("(DSilHand_M30:30) ** ERROR**  Alias_LetterNelacar2 is NULL", 2);
+endif
+
+; Enables reference for the fragment
+Debug.Trace("(DSilHand_M30:30) -- Alias_Frag03.GetReference().Enable() ");
+Alias_Frag03.GetReference().Enable()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -63,43 +98,8 @@ DSilHand_M40CompConspiracy.SetStage(5)
 
 ; Starts misc quest mi20preDwammerTempering
 Debug.Trace("(DSilHand_M30:60) -- Starts misc quest mi20preDwammerTempering")
-DSilHand_mi20preDwammerTempering.SetStage(10)
-DSilHand_mi20preDwammerTempering.SetObjectiveDisplayed(10)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_5
-Function Fragment_5()
-;BEGIN CODE
-Debug.Trace("(DSilHand_M30:50) -- Quest M30 at Stage:50")
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_2
-Function Fragment_2()
-;BEGIN CODE
-; Nelecar gives to Dragonborn a letter
-Debug.Trace("(DSilHand_M30:30) -- Add Item LetterNelacar2 to the players inventory");
-if(Alias_LetterNelacar2 != None)
-    Game.GetPlayer().AddItem(Alias_LetterNelacar2.GetReference())
-    Debug.MessageBox("Nelacar just smiles, and gives you a letter.")
-else 
-    Debug.Trace("(DSilHand_M30:30) ** ERROR**  Alias_LetterNelacar2 is NULL", 2);
-endif
-
-; Enables reference for the fragment
-Debug.Trace("(DSilHand_M30:30) -- Alias_Frag03.GetReference().Enable() ");
-Alias_Frag03.GetReference().Enable()
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_6
-Function Fragment_6()
-;BEGIN CODE
-Debug.Trace("(DSilHand_M30:10) -- ")
+DSilHand_iS01Trigger.SetStage(10)
+DSilHand_iS01Trigger.SetObjectiveDisplayed(10)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -115,5 +115,8 @@ Quest Property DSilHand_M40CompConspiracy  Auto
 Book Property DSilHand_LetterNelacar  Auto  
 {DEPRECATED}
 
-Quest Property DSilHand_mi20preDwammerTempering  Auto  
-{Object to misc quest DSilHand_mi20preDwammerTempering}
+; Quest Property DSilHand_mi20preDwammerTempering  Auto  
+; {Object to misc quest DSilHand_mi20preDwammerTempering}
+
+Quest Property DSilHand_iS01Trigger  Auto  
+{Object reference to the miscelaneos quest, responsible for trigger the side quest S01. }

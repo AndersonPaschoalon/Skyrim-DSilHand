@@ -24,6 +24,7 @@ VisualEffect Property WerewolfExtractVFX  Auto
 String THIS_FILE = "(DSilHand_M90AliasEternalFlameSconce.psc) "
 int NUMBER_OF_WITCH_HEADS = 5
 int STAGE_BURN_WITCH_HEADS = 20
+int STAGE_KILL_WOLF_SPIRIT = 30
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -33,7 +34,8 @@ int STAGE_BURN_WITCH_HEADS = 20
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ; 
-; Burn the wiches head on the Harbinger Flame.
+; Burn the wiches head on the Harbinger Flame, and advance the quest to the 
+; next stage.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function playerBurnWitchHeads()
     GoToState("Done")
@@ -41,6 +43,11 @@ Function playerBurnWitchHeads()
     Game.GetPlayer().RemoveItem(WitchHead, NUMBER_OF_WITCH_HEADS)
     Debug.Trace(THIS_FILE + " -- DSilHand_M90_SceneExtraction.Start()")
     DSilHand_M90_SceneExtraction.Start()
+    Debug.Trace(THIS_FILE + " -- SetObjectiveCompleted/Displayed:" + STAGE_BURN_WITCH_HEADS  + "/" + STAGE_KILL_WOLF_SPIRIT)
+    Debug.Trace(THIS_FILE + " -- SetStage:" + STAGE_KILL_WOLF_SPIRIT) 
+    GetOwningQuest().SetObjectiveCompleted(STAGE_BURN_WITCH_HEADS)
+    GetOwningQuest().SetStage(STAGE_KILL_WOLF_SPIRIT)
+    GetOwningQuest().SetObjectiveDisplayed(STAGE_KILL_WOLF_SPIRIT)
 EndFunction
 
 

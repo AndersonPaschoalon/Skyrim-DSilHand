@@ -1,5 +1,9 @@
 Scriptname DSilHand_M80SkyforgeTrigger extends ReferenceAlias  
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; PROPERTIES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 Scene Property DSilHand_M80_SceneWuuthradReassemble  Auto  
 {Final Quest Scene}
 
@@ -33,6 +37,7 @@ ReferenceAlias Property xMarkerSkyforgeBlacksmith2  Auto
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; MEMBER VARIABLES
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 String THIS_FILE = "(DSilHand_M80SkyforgeTrigger.psc) "
 int LAST_M80_SCENE_START = 100
 int OBJ_M80_GOTOSKYFORGE = 100

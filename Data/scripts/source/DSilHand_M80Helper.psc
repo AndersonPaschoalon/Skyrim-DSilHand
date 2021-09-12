@@ -557,6 +557,22 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ;
+; This routine is used to rightly prepare Kodlak Journal, so Dragonborn can 
+; catch it.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function prepareKodlakJournal()
+    Debug.Trace(THIS_FILE + " -- prepareKodlakJournal()")
+    Debug.Trace(THIS_FILE + "    * KodlaksJournal.GetReference():" + KodlaksJournal.GetReference())
+    Debug.Trace(THIS_FILE + "    * Desk.GetReference():" + Desk.GetReference())
+    KodlaksJournal.GetReference().Enable()
+    Desk.GetReference().AddItem(KodlaksJournal.GetReference())
+    Desk.GetReference().SetActorOwner(Game.GetPlayer().GetActorBase())    
+Endfunction
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
 ; After the quest is done, this function must be called to disable all the 
 ; actor's copies and enable all originals.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -632,6 +648,42 @@ EndFunction
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+; 
+; Evaluate AI packages of all actors in this quest.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function evaluateAllPackages()
+    Debug.Trace(THIS_FILE + " --  evaluateAllPackages()")  
+    ; Silver Hands
+    Fjol.GetActorReference().EvaluatePackage()
+    SENAAR.GetActorReference().EvaluatePackage()
+    Hillara.GetActorReference().EvaluatePackage()
+    Irronkas.GetActorReference().EvaluatePackage()
+    Kurdak.GetActorReference().EvaluatePackage()
+    Kylmir.GetActorReference().EvaluatePackage()
+    Haknrm.GetActorReference().EvaluatePackage()
+    SilverHand1.GetActorReference().EvaluatePackage()
+    SilverHand2.GetActorReference().EvaluatePackage()
+    SilverHand3.GetActorReference().EvaluatePackage()
+    SilverHand4.GetActorReference().EvaluatePackage()
+    ; Companions
+    CompImp02.GetActorReference().EvaluatePackage()
+    CompBretFrost.GetActorReference().EvaluatePackage()
+    FakeAthis.GetActorReference().EvaluatePackage()
+    FakeRia.GetActorReference().EvaluatePackage()
+    FakeTorvar.GetActorReference().EvaluatePackage()
+    FakeVignar.GetActorReference().EvaluatePackage()
+    FakeEorlund.GetActorReference().EvaluatePackage()
+    ; Others
+    FakeBrill.GetActorReference().EvaluatePackage()
+    FakeTilma2.GetActorReference().EvaluatePackage()
+    Guard01.GetActorReference().EvaluatePackage()
+    Guard02.GetActorReference().EvaluatePackage()
+    Guard03.GetActorReference().EvaluatePackage()
+EndFunction
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Private Methods
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -692,42 +744,6 @@ Function prepareWulltradWallAfterBattle()
     DSilHand_Utils.disableObject(WallFrag02, "WallFrag02", THIS_FILE)
     DSilHand_Utils.disableObject(WallFrag06, "WallFrag06", THIS_FILE)
     DSilHand_Utils.disableObject(WallFrag11, "WallFrag11", THIS_FILE)    
-EndFunction
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
-; 
-; Evaluate AI packages of all actors in this quest.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function evaluateAllPackages()
-    Debug.Trace(THIS_FILE + " --  evaluateAllPackages()")  
-    ; Silver Hands
-    Fjol.GetActorReference().EvaluatePackage()
-    SENAAR.GetActorReference().EvaluatePackage()
-    Hillara.GetActorReference().EvaluatePackage()
-    Irronkas.GetActorReference().EvaluatePackage()
-    Kurdak.GetActorReference().EvaluatePackage()
-    Kylmir.GetActorReference().EvaluatePackage()
-    Haknrm.GetActorReference().EvaluatePackage()
-    SilverHand1.GetActorReference().EvaluatePackage()
-    SilverHand2.GetActorReference().EvaluatePackage()
-    SilverHand3.GetActorReference().EvaluatePackage()
-    SilverHand4.GetActorReference().EvaluatePackage()
-    ; Companions
-    CompImp02.GetActorReference().EvaluatePackage()
-    CompBretFrost.GetActorReference().EvaluatePackage()
-    FakeAthis.GetActorReference().EvaluatePackage()
-    FakeRia.GetActorReference().EvaluatePackage()
-    FakeTorvar.GetActorReference().EvaluatePackage()
-    FakeVignar.GetActorReference().EvaluatePackage()
-    FakeEorlund.GetActorReference().EvaluatePackage()
-    ; Others
-    FakeBrill.GetActorReference().EvaluatePackage()
-    FakeTilma2.GetActorReference().EvaluatePackage()
-    Guard01.GetActorReference().EvaluatePackage()
-    Guard02.GetActorReference().EvaluatePackage()
-    Guard03.GetActorReference().EvaluatePackage()
 EndFunction
 
 

@@ -39,48 +39,46 @@ String THIS_FILE = "(DSilHand_M90AliasStatueActivator.psc) "
 Function activateStatue(ObjectReference akActivator)
     Debug.Trace(THIS_FILE + " -- activateStatue()")
     if (ysgramorBladeOwner == akActivator)
-        if (ysgramorBladeOwner.GetItemCount(BladeOfYsgramor) > 0)
+        ;if (akActivator.GetItemCount(BladeOfYsgramor) > 0)
             NorPortcullisSCRIPT doorScript = TombDoor as NorPortcullisSCRIPT
-            ;;if (doorScript.isAlreadyOpen || doorScript.isOpening)
             if (TombDoor.IsDisabled())
                 return
             endif
-            ysgramorBladeOwner.RemoveItem(BladeOfYsgramor, 1)
-            if (GetOwningQuest().IsRunning() && GetOwningQuest().GetStageDone(40) == False)
-                GetOwningQuest().SetStage(40)
-            endif
+            akActivator.RemoveItem(BladeOfYsgramor, 1)
             GoToState("Blade")
-        endif
+        ;endif
     endif
 EndFunction 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ;
-;
+; Open the Ysgramor tomb door.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function openTombDoor()
     Debug.Trace(THIS_FILE + " -- openTombDoor()")
     BladeInstance.Enable()
     TombDoor.PlayAnimation("open")
-    Utility.Wait(10)
+    Utility.Wait(7)
     TombDoor.Disable(true)
 EndFunction 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ;
-;
+; Recover Ysgramor axe to its owner.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function recoverYsgramourAxe(ObjectReference akActivator)
     Debug.Trace(THIS_FILE + " -- recoverYsgramourAxe()")
     if (ysgramorBladeOwner == akActivator)
+        if(akActivator == Game.GetPlayer())
+            Debug.Trace(THIS_FILE + " You gave Wuulthrad back to Fjol")
+        endif
         ysgramorBladeOwner.AddItem(BladeOfYsgramor, 1)
         ; forget it, don't close the door once it's been opened
         GoToState("Done") 
     endif
 EndFunction
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Events
@@ -111,6 +109,7 @@ State Blade
         Debug.Trace(THIS_FILE + " -- OnActivate()")
         recoverYsgramourAxe(akActivator)
 	EndEvent
+    
 EndState
 
 State Done
@@ -119,8 +118,4 @@ State Done
 		BladeInstance.Disable()
 	EndEvent
 EndState
-
-
-
-
 

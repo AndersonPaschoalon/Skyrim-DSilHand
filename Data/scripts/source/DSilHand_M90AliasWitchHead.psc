@@ -20,6 +20,8 @@ String Property witchHeadLabel  Auto
 ; Consts
 String THIS_FILE = "(DSilHand_M90AliasWitchHead.psc) "
 int NUMBER_OF_WITCHES = 5
+; DEBUG VALUE
+;int NUMBER_OF_WITCHES = 1
 int STAGE_KILL_WITCHES = 10
 int STAGE_BURN_WITCH_HEADS = 20
 
@@ -95,8 +97,4 @@ Event OnContainerChanged(ObjectReference akNewContainer, ObjectReference akOldCo
     Debug.Trace(THIS_FILE + " -- OnContainerChanged()")
     handlerHeadContainerChanged(akNewContainer, akOldContainer)
 EndEvent
-
-
-
-
 

@@ -1,54 +1,64 @@
 Scriptname DSilHand_Utils extends Quest  
+{Utilities script, to help execute routines, and perform checking on objects before executing actions.}
 
 ;;
 ;; ;; GAME AND UTILS
-;; float Function GetCurrentHourOfDay() 
+;; 
+;; float Function GetCurrentHourOfDay() global
 ;; 
 ;; ;; ACTOR MOVE HANDLERS
 ;; 
-;; Function moveSingleNpcRefAlias(ReferenceAlias npc, ReferenceAlias marker, string npcLabel, string callerScript) 
-;; Function moveSingleNpcRefAlias2(ReferenceAlias npc, ObjectReference marker, string npcLabel, string callerScript) 
-;; Function moveSingleNpc(Actor npc, ObjectReference marker, string npcLabel, string callerScript) 
-;; Function moveNpcRefAliasIfAlive(ReferenceAlias npc, ReferenceAlias marker, String logInfo, string callerScript) 
-;; Function moveNpcIfAlive(Actor npc, ObjectReference marker, String logInfo, string callerScript) 
+;; Function moveSingleNpcRefAlias(ReferenceAlias npc, ReferenceAlias marker, string npcLabel, string callerScript) global
+;; Function moveSingleNpcRefAlias2(ReferenceAlias npc, ObjectReference marker, string npcLabel, string callerScript) global
+;; Function moveSingleNpc(Actor npc, ObjectReference marker, string npcLabel, string callerScript) global
+;; Function moveNpcRefAliasIfAlive(ReferenceAlias npc, ReferenceAlias marker, String logInfo, string callerScript) global
+;; Function moveNpcIfAlive(Actor npc, ObjectReference marker, String logInfo, string callerScript) global
 ;; 
 ;; ;; ACTOR FOLLOWER HELPERS
 ;; 
-;; bool Function actorRefAliasIsFollower(ReferenceAlias npc, string actorNameStr, Faction PotentialFollowerFaction, Faction CurrentFollowerFaction, string callerScript)  
-;; bool Function actorIsFollower(Actor npc, string actorNameStr, Faction PotentialFollowerFaction, Faction CurrentFollowerFaction, string callerScript) 
-;; Function setupFollowerRefAlias(ReferenceAlias npc, string actorName, string callerScript) 
-;; Function setupFollower(Actor npc, string actorName, string callerScript) 
-;; Function shutdownFollowerRefAlias(ReferenceAlias npc, string actorName, string callerScript) 
-;; Function shutdownFollower(Actor npc, string actorName, string callerScript) 
+;; bool Function actorRefAliasIsFollower(ReferenceAlias npc, string actorNameStr, Faction PotentialFollowerFaction, Faction CurrentFollowerFaction, string callerScript) global 
+;; bool Function actorIsFollower(Actor npc, string actorNameStr, Faction PotentialFollowerFaction, Faction CurrentFollowerFaction, string callerScript) global
+;; Function setupFollowerRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
+;; Function setupFollower(Actor npc, string actorName, string callerScript) global
+;; Function shutdownFollowerRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
+;; Function shutdownFollower(Actor npc, string actorName, string callerScript) global
 ;; 
-;; ;; ACTOR STATUS
-;; bool Function areAllActorsRefAliasDead(ReferenceAlias[] npcsArray, string callerScript) 
-;; bool Function areAllActorsDead(Actor[] npcsArray, string callerScript) 
-;; bool Function are2ActorsRefAliasDead(ReferenceAlias npc1, ReferenceAlias npc2, string callerScript) 
-;; bool Function are2ActorsDead(Actor npc1, Actor npc2, string callerScript) 
+;; ;; REPORT ACTOR OBJECT STATE
 ;; 
-;; ;; ENABLE/DISABLE 
-;; Function enableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) 
-;; Function enableActor(Actor npc, string actorName, string callerScript) 
-;; Function enableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) 
-;; Function enableObject(ObjectReference obj, string objName, string callerScript) 
-;; Function disableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) 
-;; Function disableActor(Actor npc, string actorName, string callerScript) 
+;; bool Function areAllActorsRefAliasDead(ReferenceAlias[] npcsArray, string callerScript) global
+;; bool Function areAllActorsDead(Actor[] npcsArray, string callerScript) global
+;; bool Function are2ActorsRefAliasDead(ReferenceAlias npc1, ReferenceAlias npc2, string callerScript) global
+;; bool Function are2ActorsDead(Actor npc1, Actor npc2, string callerScript) global
 ;; 
-;; Function disableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) 
-;; Function disableObject(ObjectReference obj, string objName, string callerScript) 
+;; ;; CHANGE ACTOR OBJECT STATE
 ;; 
-;; ;; COMBAT
-;; Function stopAllCombat(Actor npc, string actorName, string callerScript) 
-;; Function stopAllCombatRefAlias(ReferenceAlias npc, string actorName, string callerScript) 
+;; bool Function enableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
+;; bool Function enableActor(Actor npc, string actorName, string callerScript) global
+;; bool Function enableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) global
+;; bool Function enableObject(ObjectReference obj, string objName, string callerScript) global
+;; bool Function disableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
+;; bool Function disableActor(Actor npc, string actorName, string callerScript) global
+;; bool Function makeRefAliasInvulnerable(ReferenceAlias actorRefAlias, string actorLabel, string callerScript) global
+;; bool Function disableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) global
+;; bool Function disableObject(ObjectReference obj, string objName, string callerScript) global
+;; bool Function disableActorRefAliasIfDead(ReferenceAlias npc, string actorName, string callerScript) global
 ;; 
-;; ;; ANIMATIONS 
-;; Function playIdleHelper(ReferenceAlias aliasActor, string actorName, Idle akIdle, string idleDescription, string callerScript) 
-;; Function forceScene(Scene sceneObject, string sceneName, int max, string callerScript)
+;; 
+;; ;; CHANGE ACTOR BAHAVIOR IN THE WORLD
+;; 
+;; Function stopAllCombat(Actor npc, string actorName, string callerScript) global
+;; Function stopAllCombatRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
+;; Function playIdleHelper(ReferenceAlias aliasActor, string actorName, Idle akIdle, string idleDescription, string callerScript) global
+;; 
+;; ;; SCENES
+;; 
+;; bool Function forceRunScene(Scene sceneObject, string sceneName, int maxTries, string callerScript) global
+;; 
 ;; 
 ;; ;; TROUBLESHOOTING
-;; string Function logActorStatus(Actor actorObj, string actorName, int logLevel, string callerScript) 
-;;
+;; 
+;; string Function logActorStatus(Actor actorObj, string actorName, int logLevel, string callerScript) global
+;; 
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -198,6 +208,7 @@ Function moveNpcIfAlive(Actor npc, ObjectReference marker, String logInfo, strin
         endif
     endif
 endFunction
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ACTOR FOLLOWER HELPERS
@@ -352,8 +363,9 @@ endFunction
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ACTOR STATUS
+;; REPORT ACTOR OBJECT STATE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: Actor[] actorsArray - check if all actors are dead
@@ -508,7 +520,7 @@ endFunction
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ENABLE/DISABLE 
+;; CHANGE ACTOR OBJECT STATE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -523,7 +535,7 @@ endFunction
 ; Returns true in case of success. In case of failure returns false and logs
 ; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Bool Function enableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
+bool Function enableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if (npc == None) 
         Debug.Trace(loginfo + " **WARNING** CANNOT ENABLE ACTOR ReferenceAlias " + actorName + " Reason:IT IS EMPTY", 1)
@@ -544,7 +556,7 @@ endfunction
 ; Returns true in case of success. In case of failure returns false and logs
 ; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Bool Function enableActor(Actor npc, string actorName, string callerScript) global
+bool Function enableActor(Actor npc, string actorName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if (npc == None)
         Debug.Trace(loginfo + " **WARNING** CANNOT ENABLE ACTOR " + actorName + " Reason:IT IS EMPTY", 1)
@@ -569,7 +581,7 @@ endfunction
 ; Returns true in case of success. In case of failure returns false and logs
 ; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Bool Function enableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) global
+bool Function enableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if(objAlias != None)
         return enableObject(objAlias.GetReference(), objectName, loginfo)
@@ -588,7 +600,7 @@ endFunction
 ; Returns true in case of success. In case of failure returns false and logs
 ; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Bool Function enableObject(ObjectReference obj, string objName, string callerScript) global
+bool Function enableObject(ObjectReference obj, string objName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     Debug.Trace(loginfo + " -- Enable Object " + objName + " <" + obj + ">")
     if(obj != None)
@@ -603,13 +615,15 @@ endFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: ReferenceAlias npc - the actor passed as a ReferenceAlias.
 ; Input: string actorName - the name or actor label to be identifed on the logs
+; Input: string callerScript - script where this function was callet, used on
+;            logs only. 
 ; 
 ; Disable an actor after checking if the reference is empty. It it fails, 
 ; logs an error message.
 ; Returns true in case of success. In case of failure returns false and logs
 ; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Bool Function disableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
+bool Function disableActorRefAlias(ReferenceAlias npc, string actorName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if(npc != None)
         return disableActor(npc.GetActorReference(), actorName, loginfo)
@@ -629,7 +643,7 @@ endFunction
 ; Returns true in case of success. In case of failure returns false and logs
 ; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Bool Function disableActor(Actor npc, string actorName, string callerScript) global
+bool Function disableActor(Actor npc, string actorName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     Debug.Trace(loginfo + " -- Disable Actor " + actorName + " <" + npc + ">")
     if(npc != None)
@@ -651,7 +665,7 @@ endFunction
 ; Returns true in case of success. In case of failure returns false and logs
 ; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Bool Function disableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) global
+bool Function disableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if(objAlias != None)
         return disableObject(objAlias.GetReference(), objectName, loginfo)
@@ -670,7 +684,7 @@ endFunction
 ; Returns true in case of success. In case of failure returns false and logs
 ; the error reason. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Bool Function disableObject(ObjectReference obj, string objName, string callerScript) global
+bool Function disableObject(ObjectReference obj, string objName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     Debug.Trace(loginfo + " -- Disable Object " + objName + " <" + obj + ">")
     if(obj != None)
@@ -690,7 +704,7 @@ endFunction
 ; 
 ; Disable Actor of Reference Alias if actor is dead. Do nothing otherwise. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Bool Function disableActorRefAliasIfDead(ReferenceAlias npc, string actorName, string callerScript) global
+bool Function disableActorRefAliasIfDead(ReferenceAlias npc, string actorName, string callerScript) global
     string loginfo = logPrefix(callerScript)
     if(npc != None)
         Actor npcActor = npc.GetActorReference()
@@ -706,7 +720,36 @@ Bool Function disableActorRefAliasIfDead(ReferenceAlias npc, string actorName, s
 Endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; COMBAT
+; Input: ReferenceAlias actorRefAlias - the actor passed as a ReferenceAlias.
+; Input: string actorLabel - the name or actor label to be identifed on the logs
+; Input: string callerScript - script where this function was callet, used on
+;            logs only. 
+; 
+; This method is just a helper for making an Actor invulnerable, but 
+; checking if all the casts worked properly.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+bool Function makeRefAliasInvulnerable(ReferenceAlias actorRefAlias, string actorLabel, string callerScript) global
+    string loginfo = logPrefix(callerScript)
+    if(actorRefAlias == None)
+        Debug.Trace(loginfo + " **ERROR** parameter actorRefAlias is EMPTY for actor " + actorLabel, 2)
+        return false;
+    endif
+    Actor actorObj = actorRefAlias.GetActorReference()
+    if(actorObj == None)
+        Debug.Trace(loginfo + " **ERROR** COULD NOT CAST PARAMETER actorRefAlias<" + actorRefAlias + ">(LABEL: " + actorLabel + ") to and Actor object, it is EMPTY.", 2)
+        return false;        
+    endif
+    ActorBase actorBaseObj = actorObj.GetActorBase()
+    if(actorBaseObj == None)
+        Debug.Trace(loginfo + " **ERROR** COULD NOT CAST PARAMETER actorRefAlias<" + actorRefAlias + ">(LABEL: " + actorLabel + ") to and ActorBase object, it is EMPTY.", 2)
+        return false;            
+    endif
+    actorBaseObj.SetInvulnerable(true)
+EndFunction
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; CHANGE ACTOR BAHAVIOR IN THE WORLD
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -742,11 +785,6 @@ Function stopAllCombatRefAlias(ReferenceAlias npc, string actorName, string call
     endif
 endFunction
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ANIMATIONS 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: ReferenceAlias aliasActor - Actor that will execute the animation
 ; string actorName - infor to help the identification of the actro on the logs 
@@ -772,12 +810,18 @@ Function playIdleHelper(ReferenceAlias aliasActor, string actorName, Idle akIdle
     endif
 EndFunction
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; SCENES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: Scene sceneObject - scene object that must be forced to run
 ; Input: string sceneName -   script name to be logged
 ; Input: string callerScript - Script wich called this function
 ;
-;  
+; Force a scene to run maxTries times.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 bool Function forceRunScene(Scene sceneObject, string sceneName, int maxTries, string callerScript) global
     int i = 0

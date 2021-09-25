@@ -58,6 +58,7 @@ EndFunction
 ; Ready for quest activation
 auto State Waiting
 	Event OnActivate(ObjectReference akActivator)
+        Debug.Trace(THIS_FILE + " Activating Eternal Flame!!! State Waiting")
         Debug.Trace(THIS_FILE + " -- State Waiting OnActivate()")
 		if (Game.GetPlayer() == akActivator)
             Debug.Trace(THIS_FILE + " -- Number of WitchHeads")
@@ -71,23 +72,16 @@ EndState
 ; No more activation
 State Done
 	Event OnActivate(ObjectReference akActivator)
+        Debug.Trace(THIS_FILE + " Activating Eternal Flame!!! State Done")
         Debug.Trace(THIS_FILE + " -- State Done OnActivate()")
 	EndEvent
 EndState
 
 ; so existing saves will still function after Waiting/Done states were added
 Event OnActivate(ObjectReference akActivator)
+    Debug.Trace(THIS_FILE + " Activating Eternal Flame!!! State None")
     Debug.Trace(THIS_FILE + " -- State Default OnActivate()")
 	GoToState("Waiting")
 	GetReference().Activate(akActivator)
 EndEvent
-
-
-
-
-
-
-
-
-
 

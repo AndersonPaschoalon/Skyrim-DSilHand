@@ -30,6 +30,21 @@ ReferenceAlias Property ShieldOfYsgramor  Auto
 Int Property countWitchHeads  Auto  
 {Number of collected witch heads on the quest M90}
 
+ReferenceAlias Property StatueActivator  Auto  
+{Activator for Ysgramor statue}
+
+Faction Property SilverHandFaction  Auto  
+{Silver Hand Faction object}
+
+Quest Property DSilHand_S02IconoclasticRevenge  Auto  
+{Quest S02 Object.}
+
+WEAPON Property EbonyWarAxe  Auto  
+{Remove this axe when he starts following you, git it back when he give you Wuulthrad.}
+
+GlobalVariable Property DSilHand_isPlayerLeader  Auto  
+{Tells if the player is the Silver hand leader or not.}
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Member variables
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -37,6 +52,8 @@ Int Property countWitchHeads  Auto
 ; Consts
 String THIS_FILE = "(DSilHand_M90Helper.psc) "
 int KODLACK_WAITING_TIME = 10
+int RANK_SILVER_HAND_LEADER = 3
+int PLAYER_IS_LEADER = 1
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -55,8 +72,8 @@ bool Function setupQuestWorldElements()
     setupGlenmorilCoven()
     resetWitchCounter()
     setupYsgramorTomb()
+    forceFjolUseWuulthrad()
 EndFunction 
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -70,7 +87,6 @@ int Function collectWitchHead()
     return countWitchHeads    
 EndFunction
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ; Returns: Witch Head counter value.
@@ -81,8 +97,6 @@ int Function getCollectedWitchHeads()
     Debug.Trace(THIS_FILE + " -- getCollectedWitchHead():" + countWitchHeads)
     return countWitchHeads    
 EndFunction
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -102,8 +116,9 @@ Function saveKodlakSoul()
     ; wait some time
     Debug.Trace(THIS_FILE + " -- wait " + KODLACK_WAITING_TIME + " seconds...")
     Utility.Wait(KODLACK_WAITING_TIME)
+    Debug.Trace(THIS_FILE + " -- Delete Kodlak Actor")
+    kodlakActor.Delete()
 EndFunction
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -126,11 +141,39 @@ Function finalizeQuest()
         Debug.Trace(THIS_FILE + " **WARNING** Error Enabling dunGlenmorilAspirantMarker, object is EMPTY!", 1)
     endif
     ; Disable DSilHand witches from M90
-    if(dunGlenmorilAspirantMarker != None)
+    if(DSilHand_glenmorilWitches != None)
         DSilHand_glenmorilWitches.Disable()
     else
         Debug.Trace(THIS_FILE + " **WARNING** Error on Disabling DSilHand_glenmorilWitches, object is EMPTY!", 1)
     endif 
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: bool - tells it the will be leader or not
+; 
+; Make all actors friendly to the player.
+; Increase Player Rank on the Silver Hand Faction.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function playerSilverHandLeadership(bool makePlayerLeader)
+    int playerIsLeader = (DSilHand_isPlayerLeader.GetValue() as int)
+    Debug.Trace(THIS_FILE + " -- playerSilverHandLeadership():" + makePlayerLeader)
+    Debug.Trace(THIS_FILE + " -- DSilHand_isPlayerLeader.GetValue():" + playerIsLeader)
+    ; Make all actors very frindly to the player anyways
+    Fjol.GetActorReference().SetRelationshipRank(Game.GetPlayer(), 2)
+    ; make player reader and avoid executing it as true more than one time
+    if( (makePlayerLeader == true) && (playerIsLeader != PLAYER_IS_LEADER) )
+        Debug.Trace(THIS_FILE + " -- make the player leader")
+        ; set global flag
+        DSilHand_isPlayerLeader.SetValue(PLAYER_IS_LEADER)
+        ; Increase rank
+        Game.GetPlayer().ModFactionRank(SilverHandFaction, RANK_SILVER_HAND_LEADER)
+        ; Register for update the next quest
+        creatAlarmForS02()
+        ; give whuulthrad
+        giveWuulthradToPlayer()
+    endif
+    ; do some log
+    logPlayerSilverHandRank()
 EndFunction
 
 
@@ -166,7 +209,6 @@ bool Function setupGlenmorilCoven()
     return true
 EndFunction
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ; Returns: Witch Head counter value.
@@ -180,6 +222,64 @@ int Function resetWitchCounter()
     return countWitchHeads
 EndFunction
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+; Prepare the tomb for the quest: Enable Ysgramor shield, Kodlak ghost, an
+; the statue activator.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+bool Function setupYsgramorTomb()
+    Debug.Trace(THIS_FILE + " -- setupYsgramorTomb()")
+    ; Enable Ysgramor Shield
+    DSilHand_Utils.enableObjectRefAlias(ShieldOfYsgramor, "ShieldOfYsgramor", THIS_FILE) 
+    ; Enable Kodlack Ghost
+    DSilHand_Utils.enableActorRefAlias(KodlaksGhost, "KodlaksGhost", THIS_FILE) 
+    ; make Kodlak ghost invulnerable
+    DSilHand_Utils.makeRefAliasInvulnerable(KodlaksGhost, "KodlaksGhost", THIS_FILE)
+    ;KodlaksGhost.GetActorReference().GetActorBase().SetInvulnerable(true)
+    ; Enable statue activation
+    DSilHand_Utils.enableObjectRefAlias(StatueActivator, "StatueActivator", THIS_FILE) 
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+; Enable the Glowing Kodlak at Sovngarde, representing his soul after being 
+; freed.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function enableKodlakSovngarde()
+    Debug.Trace(THIS_FILE + " -- enableKodlakSovngarde()")
+    DSilHand_Utils.enableActor(KodlakSovngarde, "KodlakSovngarde", THIS_FILE)
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+; Create an alarm to startup the quest S02 (Totens of hercine)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function creatAlarmForS02()
+    Debug.Trace(THIS_FILE + " -- creatAlarmForS02()")
+    ; Just tell us when 5 days have passed in game
+    float timeToWait = 120.0 ; 24 * 5
+    RegisterForSingleUpdateGameTime(timeToWait) 
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+; This routine removes the Ebony waraxe, and equippis whuulthrad.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function forceFjolUseWuulthrad()
+    Debug.Trace(THIS_FILE + " -- forceFjolUseWuulthrad()")
+    Actor fjolObj = fjol.GetActorReference()
+    int countWuulthrad = fjolObj.GetItemCount(C06BladeOfYsgramor)
+    if(countWuulthrad == 0)
+        Debug.Trace(THIS_FILE + "**WARNING** countWuulthrad:" + countWuulthrad)
+        fjolObj.AddItem(C06BladeOfYsgramor)
+    endif
+    Debug.Trace(THIS_FILE + " -- Equip C06BladeOfYsgramor")
+    fjolObj.EquipItem(C06BladeOfYsgramor, true)
+Endfunction 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -211,30 +311,31 @@ Function giveWuulthradToPlayer()
     Game.GetPlayer().EquipItem(C06BladeOfYsgramor)
 EndFunction
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
+; Input:  void
 ;
-;
+; Just a method to log the player rank on the Silver Hand faction.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-bool Function setupYsgramorTomb()
-    Debug.Trace(THIS_FILE + " -- setupYsgramorTomb()")
-    ; Enable Ysgramor Shield
-    DSilHand_Utils.enableObjectRefAlias(ShieldOfYsgramor, "ShieldOfYsgramor", THIS_FILE) 
-    ; Enable Kodlack Ghost
-    DSilHand_Utils.enableActorRefAlias(KodlaksGhost, "KodlaksGhost", THIS_FILE) 
+Function logPlayerSilverHandRank()
+    Debug.Trace(THIS_FILE + " -- logPlayerSilverHandRank()")
+    Debug.Trace(THIS_FILE + "    * Game.GetPlayer().GetFactionRank(SilverHandFaction):" + Game.GetPlayer().GetFactionRank(SilverHandFaction))
+    Debug.Trace(THIS_FILE + "    * DSilHand_isPlayerLeader.GetValue():" + DSilHand_isPlayerLeader.GetValue())
 EndFunction
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; EVENTS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
-;
-; Enable the Glowing Kodlak at Sovngarde, representing his soul after being 
-; freed.
+; This events is used to start up the quest S01 (Totens of Hercine)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function enableKodlakSovngarde()
-    Debug.Trace(THIS_FILE + " -- enableKodlakSovngarde()")
-    DSilHand_Utils.enableActor(KodlakSovngarde, "KodlakSovngarde", THIS_FILE)
-EndFunction
+Event OnUpdateGameTime()
+    Debug.Trace(THIS_FILE + " -- OnUpdateGameTime()")
+    Debug.Trace(THIS_FILE + " --  Enable S02 quest start: DSilHand_S02IconoclasticRevenge.SetStage(10)")
+    DSilHand_S02IconoclasticRevenge.SetStage(10)
+EndEvent
+
+
 
 

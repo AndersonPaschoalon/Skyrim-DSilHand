@@ -57,4 +57,3 @@ Event OnDeath(Actor akKiller)
     handlerWitchDeath()
 endEvent
 
-

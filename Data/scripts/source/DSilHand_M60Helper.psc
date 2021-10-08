@@ -93,7 +93,127 @@ Int KILL_ALL_INVADERS_STAGE = 20
 Int KILL_ALL_INVADERS_NEXT = 30
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;  FUNCTIONS
+;  PUBLIC METHODS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+; Enable the references and actors for the scene of Fjol discourse.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Bool Function silverHandDriftshadeSetup()
+    Debug.Trace(THIS_FILE + " -- silverHandDriftshadeSetup()")
+    Actor sil01 = SilverRef01.GetActorReference()
+    Actor sil02 = SilverRef02.GetActorReference()
+    Actor sil03 = SilverRef03.GetActorReference()
+    Actor sil04 = SilverRef04.GetActorReference()
+    Actor sil05 = SilverRef05.GetActorReference()
+    Debug.Trace(THIS_FILE + " (Actor) sil01:{" + sil01 + "} (ReferenceAlias) SilverRef01:{" + SilverRef01 + "}")
+    Debug.Trace(THIS_FILE + " (Actor) sil02:{" + sil02 + "} (ReferenceAlias) SilverRef02:{" + SilverRef02 + "}")
+    Debug.Trace(THIS_FILE + " (Actor) sil03:{" + sil03 + "} (ReferenceAlias) SilverRef03:{" + SilverRef03 + "}")
+    Debug.Trace(THIS_FILE + " (Actor) sil04:{" + sil04 + "} (ReferenceAlias) SilverRef04:{" + SilverRef04 + "}")
+    Debug.Trace(THIS_FILE + " (Actor) sil05:{" + sil05 + "} (ReferenceAlias) SilverRef05:{" + SilverRef05 + "}")
+    ; Ressurect actors if they are dead  
+    if(sil01.IsDead())
+        sil01.Resurrect()
+    endif
+    if(sil02.IsDead())
+        sil02.Resurrect()
+    endif
+    if(sil03.IsDead())
+        sil03.Resurrect()
+    endif  
+    if(sil04.IsDead())
+        sil04.Resurrect()
+    endif
+    if(sil05.IsDead())
+        sil05.Resurrect()
+    endif
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+; 
+; Enable the werewolves for the quest M60.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function enableWerewolves()
+    Debug.Trace(THIS_FILE + " -- enableWerewolves()"); 
+    if(wildWerewolf1 != None)
+        Debug.Trace(THIS_FILE + " -- Enable wildWerewolf 1"); 
+        wildWerewolf1.Enable()
+    else
+        Debug.Trace(THIS_FILE + " **ERROR** WerewolfWild1 is EMPTY!", 2); 
+    endif
+    if(wildWerewolf2 != None)
+        Debug.Trace(THIS_FILE + " -- Enable wildWerewolf 2"); 
+        wildWerewolf2.Enable()
+    else
+        Debug.Trace(THIS_FILE + " **ERROR** wildWerewolf2 is EMPTY!", 2); 
+    endif
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+; 
+; Move the NPCs inside Gallows Rock, except the Circle members (Aela and Skjol).
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function moveNpcs()
+    Debug.Trace(THIS_FILE + " -- moveNpcs()")
+    ; Companions nords
+    DSilHand_Utils.moveSingleNpcRefAlias2(Alias_CompNord3, markCompNord3, "Alias_CompNord3", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias2(Alias_CompNord4, markCompNord4, "Alias_CompNord4", THIS_FILE)
+    ; Companions Redguards
+    DSilHand_Utils.moveSingleNpcRefAlias2(Alias_CompRed1, markCompRed1, "Alias_CompRed1", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias2(Alias_CompRed2, markCompRed2, "Alias_CompRed2", THIS_FILE)
+    ; Aela and Skjol
+    DSilHand_Utils.moveSingleNpcRefAlias2(Alias_Aela, markAela, "Alias_Aela", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias2(Alias_Skjol, markSkjol, "Alias_Skjol", THIS_FILE)
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+; 
+; Disable the Circle members for this quest.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function disableCircleMembers()
+    Debug.Trace(THIS_FILE + " -- disableCircleMembers()")
+    Actor aela = Alias_Aela.GetReference() as Actor
+    Actor skjol = Alias_Skjol.GetReference() as Actor
+    aela.Disable()
+    skjol.Disable()  
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+; 
+; Public: prepare the doors for quest M60 (close Gallows barred door and opnes
+; the wild werewolf cage).
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function setupDoors()
+    Debug.Trace(THIS_FILE + " -- setupDoors()")
+    closeGallowsBarredDoor()
+    openWerewolfCage()
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+; 
+; Public advance stage if all invaders are dead.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+bool Function advanceStageKillInvaders()
+    Debug.Trace(THIS_FILE + " -- advanceStageKillInvaders()")
+    if(invadersAreDead())
+        Debug.Trace(THIS_FILE + " -- Advances Quest M60 from Stage<" + KILL_ALL_INVADERS_STAGE + "> to Stage:<" + KILL_ALL_INVADERS_NEXT + ">")
+        DSilHand_M60Retaliation.SetObjectiveCompleted(KILL_ALL_INVADERS_STAGE);
+        DSilHand_M60Retaliation.SetStage(KILL_ALL_INVADERS_NEXT)
+        DSilHand_M60Retaliation.SetObjectiveDisplayed(KILL_ALL_INVADERS_NEXT)
+    endif
+EndFunction
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;  PRIVATE METHODS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -166,88 +286,6 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ; 
-; Public
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-bool Function advanceStageKillInvaders()
-    Debug.Trace(THIS_FILE + " -- advanceStageKillInvaders()")
-    if(invadersAreDead())
-        Debug.Trace(THIS_FILE + " -- Advances Quest M60 from Stage<" + KILL_ALL_INVADERS_STAGE + "> to Stage:<" + KILL_ALL_INVADERS_NEXT + ">")
-        DSilHand_M60Retaliation.SetObjectiveCompleted(KILL_ALL_INVADERS_STAGE);
-        DSilHand_M60Retaliation.SetStage(KILL_ALL_INVADERS_NEXT)
-        DSilHand_M60Retaliation.SetObjectiveDisplayed(KILL_ALL_INVADERS_NEXT)
-    endif
-EndFunction
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
-; 
-; Enable the werewolves for the quest M60.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function enableWerewolves()
-    Debug.Trace(THIS_FILE + " -- enableWerewolves()"); 
-    if(wildWerewolf1 != None)
-        Debug.Trace(THIS_FILE + " -- Enable wildWerewolf 1"); 
-        wildWerewolf1.Enable()
-    else
-        Debug.Trace(THIS_FILE + " **ERROR** WerewolfWild1 is EMPTY!", 2); 
-    endif
-    if(wildWerewolf2 != None)
-        Debug.Trace(THIS_FILE + " -- Enable wildWerewolf 2"); 
-        wildWerewolf2.Enable()
-    else
-        Debug.Trace(THIS_FILE + " **ERROR** wildWerewolf2 is EMPTY!", 2); 
-    endif
-EndFunction
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
-; 
-; Public: prepare the doors for quest M60 (close Gallows barred door and opnes
-; the wild werewolf cage).
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function setupDoors()
-    Debug.Trace(THIS_FILE + " -- setupDoors()")
-    closeGallowsBarredDoor()
-    openWerewolfCage()
-EndFunction
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
-; 
-; Move the NPCs inside Gallows Rock, except the Circle members (Aela and Skjol).
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function moveNpcs()
-    Debug.Trace(THIS_FILE + " -- moveNpcs()")
-    ; Companions nords
-    DSilHand_Utils.moveSingleNpcRefAlias2(Alias_CompNord3, markCompNord3, "Alias_CompNord3", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias2(Alias_CompNord4, markCompNord4, "Alias_CompNord4", THIS_FILE)
-    ; Companions Redguards
-    DSilHand_Utils.moveSingleNpcRefAlias2(Alias_CompRed1, markCompRed1, "Alias_CompRed1", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias2(Alias_CompRed2, markCompRed2, "Alias_CompRed2", THIS_FILE)
-    ; Aela and Skjol
-    DSilHand_Utils.moveSingleNpcRefAlias2(Alias_Aela, markAela, "Alias_Aela", THIS_FILE)
-    DSilHand_Utils.moveSingleNpcRefAlias2(Alias_Skjol, markSkjol, "Alias_Skjol", THIS_FILE)
-EndFunction
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
-; 
-; Disable the Circle members for this quest.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function disableCircleMembers()
-    Debug.Trace(THIS_FILE + " -- disableCircleMembers()")
-    Actor aela = Alias_Aela.GetReference() as Actor
-    Actor skjol = Alias_Skjol.GetReference() as Actor
-    aela.Disable()
-    skjol.Disable()  
-EndFunction
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
-; 
 ; Enable the circle members for this quest.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function enableCircleMembers()
@@ -258,13 +296,12 @@ Function enableCircleMembers()
     skjol.Enable()      
 EndFunction
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ; 
 ; Force close DSilHand_GallowsBarredDoor door
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function closeGallowsBarredDoor ()
+Function closeGallowsBarredDoor()
     Debug.Trace(THIS_FILE + " -- closeGallowsBarredDoor()");
     ; load references
     ObjectReference linkedDoor = DSilHand_GallowsDoorBar.getLinkedRef()
@@ -311,40 +348,6 @@ Function openWerewolfCage()
     endif
 EndFunction
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
-;
-; Enable the references and actors for the scene of Fjol discourse.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Bool Function silverHandDriftshadeSetup()
-    Debug.Trace(THIS_FILE + " -- silverHandDriftshadeSetup()")
-    Actor sil01 = SilverRef01.GetActorReference()
-    Actor sil02 = SilverRef02.GetActorReference()
-    Actor sil03 = SilverRef03.GetActorReference()
-    Actor sil04 = SilverRef04.GetActorReference()
-    Actor sil05 = SilverRef05.GetActorReference()
-    Debug.Trace(THIS_FILE + " (Actor) sil01:{" + sil01 + "} (ReferenceAlias) SilverRef01:{" + SilverRef01 + "}")
-    Debug.Trace(THIS_FILE + " (Actor) sil02:{" + sil02 + "} (ReferenceAlias) SilverRef02:{" + SilverRef02 + "}")
-    Debug.Trace(THIS_FILE + " (Actor) sil03:{" + sil03 + "} (ReferenceAlias) SilverRef03:{" + SilverRef03 + "}")
-    Debug.Trace(THIS_FILE + " (Actor) sil04:{" + sil04 + "} (ReferenceAlias) SilverRef04:{" + SilverRef04 + "}")
-    Debug.Trace(THIS_FILE + " (Actor) sil05:{" + sil05 + "} (ReferenceAlias) SilverRef05:{" + SilverRef05 + "}")
-    ; Ressurect actors if they are dead  
-    if(sil01.IsDead())
-        sil01.Resurrect()
-    endif
-    if(sil02.IsDead())
-        sil02.Resurrect()
-    endif
-    if(sil03.IsDead())
-        sil03.Resurrect()
-    endif  
-    if(sil04.IsDead())
-        sil04.Resurrect()
-    endif
-    if(sil05.IsDead())
-        sil05.Resurrect()
-    endif
-EndFunction
 
 
 

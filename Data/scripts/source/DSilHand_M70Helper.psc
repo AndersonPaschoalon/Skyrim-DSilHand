@@ -413,20 +413,7 @@ endFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function moveKrevToSovngarde()
     Debug.Trace(THIS_FILE + " -- moveKrevToSovngarde()")
-    ; -- new impl
     DSilHand_Utils.enableActor(KrevSovngarde, "KrevSovngarde", THIS_FILE)
-    ; -- old impl
-    ;Actor krevActor = Krev.GetReference() as Actor
-    ;krevActor.Enable()
-    ;ObjectReference mark = xMarkSovngarde.GetReference() as ObjectReference
-    ;DSilHand_Utils.moveSingleNpc(krevActor, mark, "krevActor", THIS_FILE)
-    ; delete 
-    ; moveSingleNpc(krevActor, mark, "Krev -> Sovngarde")
-    ;Debug.Trace(THIS_FILE + " -- make krev glow")
-    ;krevActor.AddSpell(AbFXSovengardeGlow)
-    ;AbFXSovengardeGlow.Cast(krevActor, krevActor)
-    ;Debug.Trace(THIS_FILE + " -- make krev invulnerable")
-    ;krevActor.GetActorBase().SetInvulnerable(true)
 endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -15,8 +15,7 @@ bool disabledOnInit = false
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; This script run on the Quest M20: Angarvundes' Treasure. It reports to the
-; Quest object that the player has taken the fragment from the boss chest
+; 
 ; 
 ; Input akNewContainer: destination container
 ; Input akOldContainer: First Container

@@ -8,6 +8,7 @@ Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 ; Finished the talk with Fjol in particular
 ; Now Fjol will promote you, and give to you some gigts
+
 Debug.Trace("(DSilHand_M60) -- Set Stage/Objective to 60")
 GetOwningQuest().SetObjectiveCompleted(60)
 GetOwningQuest().SetStage(70);

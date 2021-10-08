@@ -5,6 +5,8 @@ Scriptname DSilHand_Utils extends Quest
 ;; ;; GAME AND UTILS
 ;; 
 ;; float Function GetCurrentHourOfDay() global
+;; bool Function moveObjectToContainer(ReferenceAlias refAliasObj, ReferenceAlias refAliasContainer, string objectLabel, string containerLabel, string callerScript) global
+;; bool Function advanceQuest(Quest myQuest, int currObj, int nextObj, int nextStage, string callerScript) global
 ;; 
 ;; ;; ACTOR MOVE HANDLERS
 ;; 
@@ -82,6 +84,116 @@ float Function GetCurrentHourOfDay() global
 	Time *= 24 ; Convert from fraction of a day to number of hours
 	Return Time 
 EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: ReferenceAlias refAliasObj - object to be moved to the conteiner
+; Input: ReferenceAlias refAliasContainer - reference alias to the conteiner
+; Input: string objectLabel - label for the object, used on the log
+; Input: string containerLabel - label for the conteiner, used on the log
+; Input: string callerScript - script where this function was called.
+; Returns: bool - return true if move operation was executed, false if not.
+;
+; Tries to move an object to a conteiner both from ReferenceAlias objects,
+; but ensure they are not empty and enabled first. 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+bool Function moveObjectToContainer(ReferenceAlias refAliasObj, ReferenceAlias refAliasContainer, string objectLabel, string containerLabel, string callerScript) global
+    string logCall = logPrefix(callerScript)
+    Debug.Trace(logCall + "moveObjectToContainer()")
+    bool retVal = enableObjectRefAlias(refAliasObj, objectLabel, logCall)
+    if(retVal == false)
+        Debug.Trace(logCall + " **ERROR** Enabling Object to be moved " + objectLabel, 2)
+        return false
+    endif
+    retVal = enableObjectRefAlias(refAliasContainer, containerLabel, logCall)
+    if(retVal == false)
+        Debug.Trace(logCall + " **ERROR** Enabling Object Conteiner " + containerLabel, 2)
+        return false
+    endif
+    Debug.Trace(logCall + " move " + objectLabel + "(" + refAliasObj+ ") => " + containerLabel + "(" + refAliasContainer + ")")
+    Debug.MessageBox(objectLabel + " => " + containerLabel)
+    refAliasContainer.GetReference().AddItem(refAliasObj.GetReference())
+    return true
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input:  Quest myQuest - Quest to be modified
+; Input:  int currObj - current quest objective to be completed. 
+;             To skip this  this operation set any negative value.
+; Input:  int nextObj - next objective to be set.
+;             To skip this  this operation set any value smaller than 0.
+; Input:  int nextStage - next stage to be set.
+;             To skip this  this operation set any negative value.
+; Input:  string callerScript - optional parameter, used to log the caller 
+;             script for debug purposes.
+; Returns: true if the changes were applied successfully, false otherwise.
+;
+; This method helps to complete an objective and advance to the next one.
+; This is helpfull since the three operations SetStge(), 
+; SetObjectiveCompleted() and SetObjectiveDisplayed() frequently appear
+; together.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+bool Function advanceQuest(Quest myQuest, int currObj, int nextObj, int nextStage, string callerScript) global
+    string logCall = logPrefix(callerScript)
+    Debug.Trace(logCall + " -- advanceQuest()")
+    if (myQuest != None)
+        ; complate objective
+        Debug.Trace(logCall + " DONE Objective: " + currObj) 
+        if(currObj > 0)
+            myQuest.SetObjectiveCompleted(currObj)
+        endif       
+        ; advance quest
+        Debug.Trace(logCall + " SET  Stage/Objective: " + nextStage + "/" + nextObj)
+        if(nextObj > 0)
+            myQuest.SetObjectiveDisplayed(nextObj)
+        endif 
+        if(nextStage > 0)
+            myQuest.SetStage(nextStage)
+        endif 
+    else
+        Debug.Trace(logCall + " **ERROR** myQuest is EMPTY") 
+        return false      
+    endif
+    return true
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; 
+; 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+bool Function advanceIfAlreadyTaken(Quest myQuest, ObjectReference theObject, string objectLabel, int objToComplete,  int nextObj, int nextStage, string callerScript) global
+    string logCall = logPrefix(callerScript)
+    Debug.Trace(logCall + " -- advanceIfAlreadyTaken()")
+    ; check input
+    if (myQuest == None)
+        Debug.Trace(logCall + "**ERROR** myQuest IS EMPTY", 2)
+        return false
+    endif
+    if (theObject == None)
+        Debug.Trace(logCall + "**ERROR** theObject" + objectLabel + " IS EMPTY", 2)
+        return false
+    endif
+    int countItems = Game.GetPlayer().GetItemCount(theObject)
+    ; player has not taken the object => ok
+    if (countItems == 0)
+        Debug.Trace(logCall + " -- player has not taken the object yet.")
+        return true
+    endif
+    Debug.Trace(logCall + "**WARNING** player already taken the object.", 1)
+    ; complate objective
+    Debug.Trace(logCall + " DONE Objective: " + objToComplete) 
+    if(objToComplete > 0)
+        myQuest.SetObjectiveCompleted(objToComplete)
+    endif       
+    ; advance quest
+    Debug.Trace(logCall + " SET  Stage/Objective: " + nextStage + "/" + nextObj)
+    if(nextObj > 0)
+        myQuest.SetObjectiveDisplayed(nextObj)
+    endif 
+    if(nextStage > 0)
+        myQuest.SetStage(nextStage)
+    endif
+    return true
+Endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ACTOR MOVE HANDLERS

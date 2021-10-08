@@ -15,6 +15,9 @@ Scene Property DSilHand_M90_SceneExtraction  Auto
 VisualEffect Property WerewolfExtractVFX  Auto  
 {WerewolfExtractVFX scene effect}
 
+Message Property DSilHand_BurnWitchHeadsQuestion  Auto  
+{Question: Do you want to burn the Wotches heads?}
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Member variables
@@ -25,6 +28,8 @@ String THIS_FILE = "(DSilHand_M90AliasEternalFlameSconce.psc) "
 int NUMBER_OF_WITCH_HEADS = 5
 int STAGE_BURN_WITCH_HEADS = 20
 int STAGE_KILL_WOLF_SPIRIT = 30
+int MENU_YES = 0
+int MENU_NO = 1
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -38,16 +43,21 @@ int STAGE_KILL_WOLF_SPIRIT = 30
 ; next stage.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function playerBurnWitchHeads()
-    GoToState("Done")
-    Debug.Trace(THIS_FILE + " -- Activating flame of the harbinger; removing head and starting extraction")
-    Game.GetPlayer().RemoveItem(WitchHead, NUMBER_OF_WITCH_HEADS)
-    Debug.Trace(THIS_FILE + " -- DSilHand_M90_SceneExtraction.Start()")
-    DSilHand_M90_SceneExtraction.Start()
-    Debug.Trace(THIS_FILE + " -- SetObjectiveCompleted/Displayed:" + STAGE_BURN_WITCH_HEADS  + "/" + STAGE_KILL_WOLF_SPIRIT)
-    Debug.Trace(THIS_FILE + " -- SetStage:" + STAGE_KILL_WOLF_SPIRIT) 
-    GetOwningQuest().SetObjectiveCompleted(STAGE_BURN_WITCH_HEADS)
-    GetOwningQuest().SetStage(STAGE_KILL_WOLF_SPIRIT)
-    GetOwningQuest().SetObjectiveDisplayed(STAGE_KILL_WOLF_SPIRIT)
+    int mnuAns = DSilHand_BurnWitchHeadsQuestion.Show()
+    if (mnuAns == MENU_YES)
+        GoToState("Done")
+        Debug.Trace(THIS_FILE + " -- Activating flame of the harbinger; removing head and starting extraction")
+        Game.GetPlayer().RemoveItem(WitchHead, NUMBER_OF_WITCH_HEADS)
+        Debug.Trace(THIS_FILE + " -- DSilHand_M90_SceneExtraction.Start()")
+        DSilHand_M90_SceneExtraction.Start()
+        Debug.Trace(THIS_FILE + " -- SetObjectiveCompleted/Displayed:" + STAGE_BURN_WITCH_HEADS  + "/" + STAGE_KILL_WOLF_SPIRIT)
+        Debug.Trace(THIS_FILE + " -- SetStage:" + STAGE_KILL_WOLF_SPIRIT) 
+        GetOwningQuest().SetObjectiveCompleted(STAGE_BURN_WITCH_HEADS)
+        GetOwningQuest().SetStage(STAGE_KILL_WOLF_SPIRIT)
+        GetOwningQuest().SetObjectiveDisplayed(STAGE_KILL_WOLF_SPIRIT)
+    else
+        Debug.Trace(THIS_FILE + " -- PLAYER CHOOSE TO NOT BURN NOW. DO NOTHING!")
+    endif
 EndFunction
 
 
@@ -84,4 +94,5 @@ Event OnActivate(ObjectReference akActivator)
 	GoToState("Waiting")
 	GetReference().Activate(akActivator)
 EndEvent
+
 

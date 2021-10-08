@@ -7,7 +7,7 @@ Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 Debug.Trace("DSilHand_M60 -- Advances quest to Stage 55, where Silver Hand NPCSs will go back to their positions...")
-GetOwningQuest().SetStage(55)
+;GetOwningQuest().SetStage(55)
 ;END CODE
 EndFunction
 ;END FRAGMENT

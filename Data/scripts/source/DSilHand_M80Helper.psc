@@ -254,11 +254,15 @@ ObjectReference Property WallFrag11  Auto
 ObjectReference Property WallFrag12  Auto  
 {Object referece to the Wuulthrad fragment in the wall of Jorrvaskar}
 
+Potion Property RestoreHealth05  Auto  
+{Healing potion for the silver hands for the battle!!}
+
 ObjectReference Property xHeadingFjolListenVignar  Auto  
 {xHeading where Fjol is placed to listen to Vignar in the armistice scene}
 
 Scene Property DSilHand_M80_SceneArmisticeCall  Auto  
 {Object of the scene where Fjol calls all the Silver hand to stop the Combat. It is much light and faster than the main armistice scene, wich was causing an odd delay.}
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -381,6 +385,8 @@ Function moveNpcsToSecretPassage()
     DSilHand_Utils.enableActorRefAlias(SilverHand4, "SilverHand4", THIS_FILE)
     ; Change equipped items
     equipIrronkasPlateArmor()
+    ; prepare the people
+    givePotionsForSilverhands()
 EndFunction
 
 
@@ -706,6 +712,26 @@ Function equipIrronkasPlateArmor()
     endif
 EndFunction
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+; 
+; This method equip Irronkas with Stell Plate Armor and with a Tempered Silver
+; Greatsword.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function givePotionsForSilverhands()
+    Debug.Trace(THIS_FILE + " --  givePotionsForSilverhands()")
+    Irronkas.GetActorReference().AddItem(RestoreHealth05, 2)
+    SENAAR.GetActorReference().AddItem(RestoreHealth05, 2)
+    Kylmir.GetActorReference().AddItem(RestoreHealth05, 2)
+    Haknrm.GetActorReference().AddItem(RestoreHealth05, 2)
+    Kurdak.GetActorReference().AddItem(RestoreHealth05, 2)
+    hillara.GetActorReference().AddItem(RestoreHealth05, 2)
+    fjol.GetActorReference().AddItem(RestoreHealth05, 2)
+    SilverHand1.GetActorReference().AddItem(RestoreHealth05, 2)
+    SilverHand2.GetActorReference().AddItem(RestoreHealth05, 2)
+    SilverHand3.GetActorReference().AddItem(RestoreHealth05, 2)
+    SilverHand4.GetActorReference().AddItem(RestoreHealth05, 2)
+EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void

@@ -267,7 +267,7 @@ EndFunction
 ; Create an alarm to startup the quest S02 (Totens of hercine)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function creatAlarmForS02()
-    Debug.Trace(THIS_FILE + " -- creatAlarmForS02()")
+    Debug.Trace(THIS_FILE + " -- creat Alarm For Quest S02 => 5 days!")
     ; Just tell us when 5 days have passed in game
     float timeToWait = 120.0 ; 24 * 5
     RegisterForSingleUpdateGameTime(timeToWait) 

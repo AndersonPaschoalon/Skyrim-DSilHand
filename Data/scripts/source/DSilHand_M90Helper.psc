@@ -45,6 +45,10 @@ WEAPON Property EbonyWarAxe  Auto
 GlobalVariable Property DSilHand_isPlayerLeader  Auto  
 {Tells if the player is the Silver hand leader or not.}
 
+ReferenceAlias Property BossChest  Auto  
+{Boss Chest of Ysgramor tomb, where the Shield will be placed.}
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Member variables
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -54,6 +58,7 @@ String THIS_FILE = "(DSilHand_M90Helper.psc) "
 int KODLACK_WAITING_TIME = 10
 int RANK_SILVER_HAND_LEADER = 3
 int PLAYER_IS_LEADER = 1
+int STAGE_TOTEMS_QUEST_STARTUP = 5
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -78,9 +83,13 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 bool Function setupQuestWorldElements()
     Debug.Trace(THIS_FILE + " -- setupQuestWorldElements()")
+    ; enable the right witches
     setupGlenmorilCoven()
+    ; reset the counters, so it will rightly count how much head you are going to collect
     resetWitchCounter()
+    ; Setup the items on the Ysgramour tomb (ghost, shield, statue).
     setupYsgramorTomb()
+    ; Make Fjol use the axe 
     forceFjolUseWuulthrad()
 EndFunction 
 
@@ -239,13 +248,17 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 bool Function setupYsgramorTomb()
     Debug.Trace(THIS_FILE + " -- setupYsgramorTomb()")
-    ; Enable Ysgramor Shield
+    ; Enable Ysgramor Shield and move it to the right chest.
     DSilHand_Utils.enableObjectRefAlias(ShieldOfYsgramor, "ShieldOfYsgramor", THIS_FILE) 
+    bool retVal = DSilHand_Utils.moveObjectToContainer(ShieldOfYsgramor, BossChest, "ShieldOfYsgramor", "BossChest", THIS_FILE)
+    if (retVal == false)
+        Debug.Trace(THIS_FILE + "**WARNING** Could not place the ShieldOfYsgramor in the BossChest!!", 1)
+        ; continue since it is not critical...
+    endif
     ; Enable Kodlack Ghost
     DSilHand_Utils.enableActorRefAlias(KodlaksGhost, "KodlaksGhost", THIS_FILE) 
     ; make Kodlak ghost invulnerable
     DSilHand_Utils.makeRefAliasInvulnerable(KodlaksGhost, "KodlaksGhost", THIS_FILE)
-    ;KodlaksGhost.GetActorReference().GetActorBase().SetInvulnerable(true)
     ; Enable statue activation
     DSilHand_Utils.enableObjectRefAlias(StatueActivator, "StatueActivator", THIS_FILE) 
 EndFunction
@@ -331,6 +344,7 @@ Function logPlayerSilverHandRank()
     Debug.Trace(THIS_FILE + "    * DSilHand_isPlayerLeader.GetValue():" + DSilHand_isPlayerLeader.GetValue())
 EndFunction
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; EVENTS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -341,9 +355,10 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Event OnUpdateGameTime()
     Debug.Trace(THIS_FILE + " -- OnUpdateGameTime()")
-    Debug.Trace(THIS_FILE + " --  Enable S02 quest start: DSilHand_S02IconoclasticRevenge.SetStage(10)")
-    DSilHand_S02IconoclasticRevenge.SetStage(10)
+    Debug.Trace(THIS_FILE + " --  Enable S02 quest start: DSilHand_S02IconoclasticRevenge.SetStage():" + STAGE_TOTEMS_QUEST_STARTUP)
+    DSilHand_S02IconoclasticRevenge.SetStage(STAGE_TOTEMS_QUEST_STARTUP)
 EndEvent
+
 
 
 

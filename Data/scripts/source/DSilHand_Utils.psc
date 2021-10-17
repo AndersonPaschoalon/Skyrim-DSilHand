@@ -7,6 +7,7 @@ Scriptname DSilHand_Utils extends Quest
 ;; float Function GetCurrentHourOfDay() global
 ;; bool Function moveObjectToContainer(ReferenceAlias refAliasObj, ReferenceAlias refAliasContainer, string objectLabel, string containerLabel, string callerScript) global
 ;; bool Function advanceQuest(Quest myQuest, int currObj, int nextObj, int nextStage, string callerScript) global
+;; bool Function advanceIfAlreadyTaken(Quest myQuest, ObjectReference theObject, string objectLabel, int objToComplete,  int nextObj, int nextStage, string callerScript) global
 ;; 
 ;; ;; ACTOR MOVE HANDLERS
 ;; 
@@ -110,7 +111,7 @@ bool Function moveObjectToContainer(ReferenceAlias refAliasObj, ReferenceAlias r
         return false
     endif
     Debug.Trace(logCall + " move " + objectLabel + "(" + refAliasObj+ ") => " + containerLabel + "(" + refAliasContainer + ")")
-    Debug.MessageBox(objectLabel + " => " + containerLabel)
+    Debug.Trace(logCall + " " + objectLabel + " => " + containerLabel)
     refAliasContainer.GetReference().AddItem(refAliasObj.GetReference())
     return true
 EndFunction
@@ -157,8 +158,30 @@ bool Function advanceQuest(Quest myQuest, int currObj, int nextObj, int nextStag
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; 
-; 
+; This method helps to a quest to be advanced if an item is already taken.
+; In the best case, this script is suposed to do nothing, since the quests
+; usually should advance when the player takes an item. But this function 
+; can be used as a safe-guard in case the player takes the item before he 
+; is suposed to. It takes as input parameters the stage and objective state
+; the quest is suposed to have when the player aquire the item, and the 
+; item object reference.
+;
+; Input: Quest myQuest - quest where the stage is suposed to change. If this
+;                        script is called within the quest, you may use Self. 
+;                        If it is called from a script fragment, 
+;                        use GetOwningQuest().
+; Input: ObjectReference theObject - Object that should be thaken. If the 
+;                                    object is stored in an AliasReference,  
+;                                    use GetReference() method. It handles
+;                                    the case the parameter is null.
+; Input: string objectLabel - Just an object label used in the logs for debug.
+; Input: int objToComplete - Objective to be complete when the player aquire 
+;                            the item.
+; Input: int nextObj - Objective to be displayed when the player aquire 
+;                      the item.
+; Input: int nextStage - Stage to be advanced when the player aquire the item.
+; Input: string callerScript - script who called this method. Used only for 
+;                              logs for debug..
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 bool Function advanceIfAlreadyTaken(Quest myQuest, ObjectReference theObject, string objectLabel, int objToComplete,  int nextObj, int nextStage, string callerScript) global
     string logCall = logPrefix(callerScript)

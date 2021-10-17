@@ -355,18 +355,12 @@ bool Function prepareSilverHandFuneral()
     ; (4) If Hillara/Sennar is not your follower, move them to the funeral as well. 
     ;
     bool isFollower = false 
-    ; -- old impl
-    ;Actor hillaraActor = Hillara.GetReference() as Actor
-    ;Actor sennarActor = Sennar.GetReference() as Actor
-    ; make hillara follow
-    ; isFollower = actorIsFollower(hillaraActor, "HILLARA")
     ; -- new impl
     isFollower = DSilHand_Utils.actorRefAliasIsFollower(Hillara, "Hillara", PotentialFollowerFaction, CurrentFollowerFaction, THIS_FILE)
     if(isFollower == false)
         DSilHand_Utils.moveSingleNpcRefAlias(Hillara, xHeadHillara, "Hillara", THIS_FILE)
     endif
     ; make sennar follow
-    ; isFollower = actorIsFollower(sennarActor, "SENAAR")
     ; -- new impl
     isFollower = DSilHand_Utils.actorRefAliasIsFollower(Sennar, "Sennar", PotentialFollowerFaction, CurrentFollowerFaction, THIS_FILE)
     if(isFollower == false)
@@ -506,37 +500,9 @@ int Function calcAndDisableDeadSilverhand()
     Debug.Trace(THIS_FILE + "-- Number of DEAD Silver hands : " + nDeadSilverhands)
     Debug.Trace(THIS_FILE + "-- Number of ALIVE Silver hands: " + nAliveSilverhands)
     Debug.Trace(THIS_FILE + "-------------------------------------------------------")
-
     Debug.Trace(THIS_FILE + " -- calcAndDisableDeadSilverhand deadActors:<" + deadActors + ">, nInteractions:<" + i + ">")
     return deadActors        
 endfunction
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: Actor npc - Actor to be checked if he/she is a follower or not
-; Input: string actorNameStr - Actor name to be logged. It just used to be help 
-;        the debug, has no effect on the method operation. 
-; 
-; Tells if an actor is a follower or not.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;Bool Function actorIsFollower(Actor npc, string actorNameStr)
-;    Debug.Trace(THIS_FILE + " -- checking if actor " + actorNameStr + ":<" + npc + "> is a follower");
-;    ; check if the actor is valid
-;    if ( npc == None)
-;        Debug.Trace(THIS_FILE + " **WARNING** INPUT ACTOR IS EMPTY <" + actorNameStr + ">", 2);
-;        return false
-;    endif
-;    ; do the actual check if the NPC is a follower. If the NPC is a follower,
-;    ; both ranks must be equals to 0.
-;    int facRankP = npc.GetFactionRank(PotentialFollowerFaction)
-;    int facRankC = npc.GetFactionRank(CurrentFollowerFaction)
-;    Debug.Trace(THIS_FILE + " -- PotentialFollowerFaction:<" + facRankP + ">");
-;    Debug.Trace(THIS_FILE + " -- CurrentFollowerFaction:<" + facRankC + ">");
-;    if(  (facRankP >= 0 ) && (facRankC >= 0) )
-;        return true
-;    endif
-;    return false
-;endFunction
 
 
 

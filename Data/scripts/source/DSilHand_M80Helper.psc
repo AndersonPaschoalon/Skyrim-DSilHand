@@ -365,6 +365,7 @@ Function moveNpcsToSecretPassage()
     DSilHand_Utils.moveSingleNpcRefAlias(Haknrm, xMarkerHaknrm, "Haknrm", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(Irronkas, xMarkerIrronkas, "Irronkas", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(Kurdak, xMarkerKurdak, "Kurdak", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(Kylmir, xMarkerKylmir, "Kylmir", THIS_FILE)
     ; Move Followers
     bool hillaraIsFollower = false
     bool senaarIsFollower = false
@@ -398,13 +399,14 @@ EndFunction
 Function startSilverhandAssault()
     Debug.Trace(THIS_FILE + " -- startSilverhandAssault()")
     ; Move NPCs to whiterun
-    DSilHand_Utils.moveSingleNpc(Game.GetPlayer(), xMarkerAssault07.GetReference(), "Sennar", THIS_FILE)
+    DSilHand_Utils.moveSingleNpc(Game.GetPlayer(), xMarkerAssault07.GetReference(), "Dragonborn(Player)", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(Fjol, xMarkerAssault01, "Fjol", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(Haknrm, xMarkerAssault02, "Haknrm", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(Irronkas, xMarkerAssault03, "Irronkas", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(Kurdak, xMarkerAssault04, "Kurdak", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(Hillara, xMarkerAssault05, "Hillara", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(SENAAR, xMarkerAssault06, "Sennar", THIS_FILE)
+    DSilHand_Utils.moveSingleNpcRefAlias(Kylmir, xMarkerAssault07, "Kylmir", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(SilverHand1, xMarkerAssault08, "SilverHand1", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(SilverHand2, xMarkerAssault09, "SilverHand2", THIS_FILE)
     DSilHand_Utils.moveSingleNpcRefAlias(SilverHand3, xMarkerAssault10, "SilverHand3", THIS_FILE)
@@ -583,25 +585,10 @@ Endfunction
 ; actor's copies and enable all originals.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function enableOriginals()
-    ; Torvar: Enable if he is alive
-    ;if (FakeTorvar.GetActorReference() != None && FakeTorvar.GetActorReference().IsDead() == false)
-    ;    Debug.Trace(THIS_FILE + " -- disable FakeTorvar")
-    ;    FakeTorvar.GetActorReference().Disable()
-    ;    if(Torvar != None)
-    ;        Torvar.GetActorReference().Enable()
-    ;    else
-    ;        Debug.Trace(THIS_FILE + " **ERROR** Tovar ReferenceAlias is EMPTY")
-    ;    endif
-    ;else
-    ;    Debug.Trace(THIS_FILE + " **WARNING** FakeTorvar referenceAlias is empty or dead: cannot enable", 1)
-    ;endif
-    ;
-    ; All essential and non-replacable companions/afiliated
-    ;
     ; Vignar
     DSilHand_Utils.enableActorRefAlias(Vignar, "Vignar", THIS_FILE)
     DSilHand_Utils.disableActorRefAlias(FakeVignar, "FakeVignar", THIS_FILE)
-    ; Eorlund -- no copy
+    ; Eorlund 
     DSilHand_Utils.enableActorRefAlias(Eorlund, "Eorlund", THIS_FILE)
     DSilHand_Utils.enableActorRefAlias(FakeEorlund, "FakeEorlund", THIS_FILE)
     ; Brill
@@ -721,12 +708,12 @@ EndFunction
 Function givePotionsForSilverhands()
     Debug.Trace(THIS_FILE + " --  givePotionsForSilverhands()")
     Irronkas.GetActorReference().AddItem(RestoreHealth05, 2)
-    SENAAR.GetActorReference().AddItem(RestoreHealth05, 2)
+    SENAAR.GetActorReference().AddItem(RestoreHealth05, 3)
     Kylmir.GetActorReference().AddItem(RestoreHealth05, 2)
     Haknrm.GetActorReference().AddItem(RestoreHealth05, 2)
     Kurdak.GetActorReference().AddItem(RestoreHealth05, 2)
-    hillara.GetActorReference().AddItem(RestoreHealth05, 2)
-    fjol.GetActorReference().AddItem(RestoreHealth05, 2)
+    hillara.GetActorReference().AddItem(RestoreHealth05, 3)
+    fjol.GetActorReference().AddItem(RestoreHealth05, 3)
     SilverHand1.GetActorReference().AddItem(RestoreHealth05, 2)
     SilverHand2.GetActorReference().AddItem(RestoreHealth05, 2)
     SilverHand3.GetActorReference().AddItem(RestoreHealth05, 2)
@@ -809,7 +796,7 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ; 
-; This is a bugfix function. It must to the stuff necessary to make 
+; **BUGFIX** This is a bugfix function. It must to the stuff necessary to make 
 ; Whiterun/Skyrim/Tamriel NPCs finendly to the player after the battle ended.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function freePlayerFromCrime()

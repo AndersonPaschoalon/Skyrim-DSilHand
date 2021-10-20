@@ -2806,7 +2806,7 @@ Data/Scripts/Source/QF_BQ01_00095125.psc
 Data/Scripts/Source/QF_BQ02_000BD77F.psc
 Data/Scripts/Source/QF_BQ03_000BD78C.psc
 Data/Scripts/Source/QF_BQ04_000CBA9A.psc
-Data/Scripts/Source/QF_C00_0004B2D9.psc
+#Data/Scripts/Source/QF_C00_0004B2D9.psc -- modified on DSilHand
 Data/Scripts/Source/QF_C00DebugFollowerComeHere_000A81FE.psc
 Data/Scripts/Source/QF_C00GiantAttack_000C97D9.psc
 Data/Scripts/Source/QF_C00JorrvaskrFight_000BC0BD.psc
@@ -2819,8 +2819,8 @@ Data/Scripts/Source/QF_C01_0001CEF4.psc
 Data/Scripts/Source/QF_C01_0006E803.psc
 Data/Scripts/Source/QF_C02_0001CEF5.psc
 Data/Scripts/Source/QF_C02_0006E804.psc
-Data/Scripts/Source/QF_C02Kicker_000A3EF8.psc
-Data/Scripts/Source/QF_C03_0001CEF6.psc
+Data/Scripts/Source/QF_C02Kicker_000A3EF8.ps
+# Data/Scripts/Source/QF_C03_0001CEF6.psc -- modified on DSilHand
 Data/Scripts/Source/QF_C03AelaRadiantKicker_000AEF91.psc
 Data/Scripts/Source/QF_C03PostQuest_000B3E08.psc
 Data/Scripts/Source/QF_C03Rampage_000AEBFE.psc

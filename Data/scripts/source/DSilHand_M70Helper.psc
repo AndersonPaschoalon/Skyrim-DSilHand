@@ -161,9 +161,6 @@ ReferenceAlias Property xMarkGrave  Auto
 ReferenceAlias Property xMarkSovngarde  Auto  
 {Reference to the place where Krev will be teleported on Sovngarde on the Hall of Valor}
 
-; SPELL Property AbFXSovengardeGlow  Auto  
-; {Spell for glowing on sovngarde -- not working}
-
 ReferenceAlias Property xHeadSilver01  Auto  
 {reference to xMarker where the Silver Hand 01 is placed on Krev's funeral}
 

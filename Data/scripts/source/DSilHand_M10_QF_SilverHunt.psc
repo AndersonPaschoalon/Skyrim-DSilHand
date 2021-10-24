@@ -2,44 +2,24 @@
 ;NEXT FRAGMENT INDEX 19
 Scriptname DSilHand_M10_QF_SilverHunt Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY hillara
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_hillara Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY GallowsGuard
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GallowsGuard Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY fjol
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_fjol Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY GiantTroll
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_GiantTroll Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Krev
+;BEGIN ALIAS PROPERTY DriftshadeGuard
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Krev Auto
+ReferenceAlias Property Alias_DriftshadeGuard Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Skull
+;BEGIN ALIAS PROPERTY hillara
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Skull Auto
+ReferenceAlias Property Alias_hillara Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY GallowsEntranceTrigger
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_GallowsEntranceTrigger Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY DriftshadeGuard
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_DriftshadeGuard Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY SpyWhiterun
@@ -52,15 +32,52 @@ ReferenceAlias Property Alias_SpyWhiterun Auto
 ReferenceAlias Property Alias_DriftshadeEntranceTrigger Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY Krev
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Krev Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Skull
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Skull Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY fjol
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_fjol Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY SENAAR
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_SENAAR Auto
 ;END ALIAS PROPERTY
 
-;BEGIN FRAGMENT Fragment_5
-Function Fragment_5()
+;BEGIN ALIAS PROPERTY GallowsGuard
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_GallowsGuard Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Kurdak
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Kurdak Auto
+;END ALIAS PROPERTY
+
+;BEGIN FRAGMENT Fragment_3
+Function Fragment_3()
 ;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE 20")
+Debug.Trace(THIS_FILE + "#STAGE10")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_7
+Function Fragment_7()
+;BEGIN CODE
+; Log Quest Stage
+Debug.Trace(THIS_FILE + "#STAGE 30")
+
+; Enable Frost troll
+DSilHand_Utils.enableActorRefAlias(Alias_GiantTroll, "Alias_GiantTroll", THIS_FILE)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -69,6 +86,53 @@ EndFunction
 Function Fragment_0()
 ;BEGIN CODE
 Debug.Trace(THIS_FILE + "#STAGE 00")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_16
+Function Fragment_16()
+;BEGIN AUTOCAST TYPE DSilHand_M10Helper
+Quest __temp = self as Quest
+DSilHand_M10Helper kmyQuest = __temp as DSilHand_M10Helper
+;END AUTOCAST
+;BEGIN CODE
+Debug.Trace(THIS_FILE + "#STAGE 100 => FAILED")
+
+;
+; Setup after joined Companions
+; 
+Debug.Trace(THIS_FILE + "-- kmyQuest.setupCompanionsJoin() ")
+kmyQuest.setupCompanionsJoin() 
+
+
+;
+; Set objective failed
+;
+Debug.Trace(THIS_FILE +" -- SetObjectiveFailed(100)")
+SetObjectiveFailed(100)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_11
+Function Fragment_11()
+;BEGIN CODE
+Debug.Trace(THIS_FILE + "#STAGE 50")
+
+; remove the trool skull from the player inventory
+Game.GetPlayer().RemoveItem(Alias_Skull.GetReference())
+
+; Enable Krev
+DSilHand_Utils.enableActorRefAlias(Alias_Krev, "Alias_Krev", THIS_FILE)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_5
+Function Fragment_5()
+;BEGIN CODE
+Debug.Trace(THIS_FILE + "#STAGE 20")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -114,65 +178,6 @@ EndFunction
 Function Fragment_9()
 ;BEGIN CODE
 Debug.Trace(THIS_FILE + "#STAGE 40")
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_7
-Function Fragment_7()
-;BEGIN CODE
-; Log Quest Stage
-Debug.Trace(THIS_FILE + "#STAGE 30")
-
-; Enable Frost troll
-DSilHand_Utils.enableActorRefAlias(Alias_GiantTroll, "Alias_GiantTroll", THIS_FILE)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_16
-Function Fragment_16()
-;BEGIN AUTOCAST TYPE DSilHand_M10Helper
-Quest __temp = self as Quest
-DSilHand_M10Helper kmyQuest = __temp as DSilHand_M10Helper
-;END AUTOCAST
-;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE 100 => FAILED")
-
-;
-; Setup after joined Companions
-; 
-Debug.Trace(THIS_FILE + "-- kmyQuest.setupCompanionsJoin() ")
-kmyQuest.setupCompanionsJoin() 
-
-
-;
-; Set objective failed
-;
-Debug.Trace(THIS_FILE +" -- SetObjectiveFailed(100)")
-SetObjectiveFailed(100)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_11
-Function Fragment_11()
-;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE 50")
-
-; remove the trool skull from the player inventory
-Game.GetPlayer().RemoveItem(Alias_Skull.GetReference())
-
-; Enable Krev
-DSilHand_Utils.enableActorRefAlias(Alias_Krev, "Alias_Krev", THIS_FILE)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_3
-Function Fragment_3()
-;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE10")
 ;END CODE
 EndFunction
 ;END FRAGMENT

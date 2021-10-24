@@ -40,6 +40,9 @@ ReferenceAlias Property SpyWhiterun  Auto
 ReferenceAlias Property fjol  Auto  
 {Fjol actor reference alias}
 
+ReferenceAlias Property Kurdak  Auto  
+{Kurdak actor reference alias}
+
 ReferenceAlias Property DriftshadeGuard  Auto  
 {Reference for Guard of Driftshade refugee fort.}
 
@@ -103,7 +106,6 @@ Actor Property FakeTorvar  Auto
 Actor Property FakeKodlak  Auto  
 {Actor object for the copy of the actor KodlakWhitemane used on the quest M80.}
 
-
 Actor Property FakeVignar  Auto  
 {Actor object for the copy of Torvar used on the quest M80.}
 
@@ -118,6 +120,7 @@ Actor Property FakeRia  Auto
 
 Actor Property FakeTilma  Auto  
 {Actor object for the copy of Torvar used on the quest M80.}
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Member variables
@@ -233,10 +236,11 @@ endFunction
 ;; Private Methods
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ; 
-;
+; Disable the quest C00 Take Up Arms.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function disable_C00()
     ; According to C00KodlakJoinUpStartTopic on C00, if the quest level is smaller than 10
@@ -269,7 +273,6 @@ Function disable_C00JorrvaskrFight()
         C00JorrvaskrFight.Stop()
     endif
 endFunction
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
@@ -337,7 +340,11 @@ Function disableSilverhandUniqueActors()
     DSilHand_Utils.disableActorRefAlias(DriftshadeGuard, "DriftshadeGuard", THIS_FILE)
     ; Disable Whiterun Spy 
     DSilHand_Utils.disableActorRefAlias(SpyWhiterun, "SpyWhiterun", THIS_FILE)
+    ; Disable Kurdak
+    DSilHand_Utils.disableActorRefAlias(Kurdak, "Kurdak", THIS_FILE)    
 endFunction
+
+
 
 
 

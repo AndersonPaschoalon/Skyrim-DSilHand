@@ -9,6 +9,9 @@ Scriptname DSilHand_M90Helper extends Quest
 Actor Property KodlakSovngarde  Auto  
 {Reference to the Kodlak object at Sovngarde}
 
+Actor Property KodlakSovngardeOriginal  Auto  
+{Actor reference to the original Kodlak actor.}
+
 ObjectReference Property dunGlenmorilAspirantMarker  Auto  
 {Object reference enabler for all for the default withces on the dungeon}
 
@@ -47,6 +50,21 @@ GlobalVariable Property DSilHand_isPlayerLeader  Auto
 
 ReferenceAlias Property BossChest  Auto  
 {Boss Chest of Ysgramor tomb, where the Shield will be placed.}
+
+ReferenceAlias Property Witch01  Auto  
+{Reference Alias to the witch 01}
+
+ReferenceAlias Property Witch02  Auto  
+{Reference Alias to the witch 02}
+
+ReferenceAlias Property Witch03  Auto  
+{Reference Alias to the witch 03}
+
+ReferenceAlias Property Witch04  Auto  
+{Reference Alias to the witch 04}
+
+ReferenceAlias Property Witch05  Auto  
+{Reference Alias to the witch 05}
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -119,7 +137,8 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ;
-; Make Kodlak ghost desapear after some waiting time.
+; (1) Make Kodlak ghost desapear after some waiting time.
+; (2) Send Kodlack to Sovngarde
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function saveKodlakSoul()
     Debug.Trace(THIS_FILE + " -- saveKodlakSoul()")
@@ -136,22 +155,23 @@ Function saveKodlakSoul()
     Utility.Wait(KODLACK_WAITING_TIME)
     Debug.Trace(THIS_FILE + " -- Delete Kodlak Actor")
     kodlakActor.Delete()
+    ; Send Kodlack on Sovngarde
+    enableKodlakSovngarde()
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Input: void
 ;
 ; This method is responsible for prepare all the after quest settings, such
-; as:
-; (1) Send Kodlack to Sovngarde
-; (2) Enable the Hagravens on Glenmoril Coven (using 
+; as: 
+; (1) Enable the Hagravens on Glenmoril Coven (using 
 ;     dunGlenmorilAspirantMarker)
-; (3) Register for Update the startup of quest about the Totens of Hircine
+; (2) Register for Update the startup of quest about the Totens of Hircine
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function finalizeQuest()
     Debug.Trace(THIS_FILE + " -- finalizeQuest()")
     ; Send Kodlack on Sovngarde
-    enableKodlakSovngarde()
+    ; enableKodlakSovngarde()
     ; Enable default Witches
     if(dunGlenmorilAspirantMarker != None)
         dunGlenmorilAspirantMarker.Enable()
@@ -192,6 +212,32 @@ Function playerSilverHandLeadership(bool makePlayerLeader)
     endif
     ; do some log
     logPlayerSilverHandRank()
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+; Enable the Glowing Kodlak at Sovngarde, representing his soul after being 
+; freed.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function enableKodlakSovngarde()
+    Debug.Trace(THIS_FILE + " -- enableKodlakSovngarde()")
+    DSilHand_Utils.enableActor(KodlakSovngarde, "KodlakSovngarde", THIS_FILE)
+    DSilHand_Utils.disableActor(KodlakSovngardeOriginal, "KodlakSovngardeOriginal", THIS_FILE)
+EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+;
+; Disables the witches in the cave. 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function disableWitches()
+    Debug.Trace(THIS_FILE + " -- disableWitches()")    
+    DSilHand_Utils.disableActorRefAlias(Witch01, "Witch01", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(Witch02, "Witch02", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(Witch03, "Witch03", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(Witch04, "Witch04", THIS_FILE)
+    DSilHand_Utils.disableActorRefAlias(Witch05, "Witch05", THIS_FILE)
 EndFunction
 
 
@@ -261,17 +307,6 @@ bool Function setupYsgramorTomb()
     DSilHand_Utils.makeRefAliasInvulnerable(KodlaksGhost, "KodlaksGhost", THIS_FILE)
     ; Enable statue activation
     DSilHand_Utils.enableObjectRefAlias(StatueActivator, "StatueActivator", THIS_FILE) 
-EndFunction
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Input: void
-;
-; Enable the Glowing Kodlak at Sovngarde, representing his soul after being 
-; freed.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function enableKodlakSovngarde()
-    Debug.Trace(THIS_FILE + " -- enableKodlakSovngarde()")
-    DSilHand_Utils.enableActor(KodlakSovngarde, "KodlakSovngarde", THIS_FILE)
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -358,6 +393,9 @@ Event OnUpdateGameTime()
     Debug.Trace(THIS_FILE + " --  Enable S02 quest start: DSilHand_S02IconoclasticRevenge.SetStage():" + STAGE_TOTEMS_QUEST_STARTUP)
     DSilHand_S02IconoclasticRevenge.SetStage(STAGE_TOTEMS_QUEST_STARTUP)
 EndEvent
+
+
+
 
 
 

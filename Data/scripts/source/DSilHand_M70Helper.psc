@@ -236,6 +236,21 @@ Actor[] silverArray = None
 ;     xMarkerHeading are all filled.
 ; (4) If Hillara/Sennar is not your follower, move them to the funeral as well.  
 ; (5) Move Fjol to the funeral
+; Hint
+; To test if Krev was saved into Sovngarde, you can use the following
+; commands, after you finished the quest:
+;     player.forceav dragonsouls 30
+;     player.teachword 13E22
+;     player.teachword 13E23
+;     player.teachword 13E24
+;     player.teachword 44251
+;     player.teachword 44252
+;     player.teachword 44253
+;     player.teachword 3CD31
+;     player.teachword 3CD32
+;     player.teachword 3CD33
+;     SetStage MQ304 10
+;     coc SovngardeStart
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 bool Function prepareSilverHandFuneral()
     Debug.Trace(THIS_FILE + " -- prepareSilverHandFuneral()")  

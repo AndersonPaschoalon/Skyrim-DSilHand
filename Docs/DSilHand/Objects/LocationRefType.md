@@ -1,0 +1,3 @@
+DSilHand_BeastBoss
+DSilHand_GlenmorilWitchBoss
+DSilHand_WerewolfBoss

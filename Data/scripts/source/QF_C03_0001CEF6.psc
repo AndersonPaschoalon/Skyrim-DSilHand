@@ -2,19 +2,14 @@
 ;NEXT FRAGMENT INDEX 50
 Scriptname QF_C03_0001CEF6 Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY YsgramorsTombMapMarker
+;BEGIN ALIAS PROPERTY BossChest
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_YsgramorsTombMapMarker Auto
+ReferenceAlias Property Alias_BossChest Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Sarcophagus
+;BEGIN ALIAS PROPERTY Eorlund
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Sarcophagus Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY KodlaksFragment
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_KodlaksFragment Auto
+ReferenceAlias Property Alias_Eorlund Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Vilkas
@@ -27,39 +22,9 @@ ReferenceAlias Property Alias_Vilkas Auto
 ReferenceAlias Property Alias_Player Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY KodlakBodyMarker
+;BEGIN ALIAS PROPERTY KodlaksFragment
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_KodlakBodyMarker Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Eorlund
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Eorlund Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY GhostKodlak
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GhostKodlak Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY BossChest
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_BossChest Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY FuneralLocationMarker
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_FuneralLocationMarker Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY YsgramorsTomb
-;ALIAS PROPERTY TYPE LocationAlias
-LocationAlias Property Alias_YsgramorsTomb Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY KodlaksEndTable
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_KodlaksEndTable Auto
+ReferenceAlias Property Alias_KodlaksFragment Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Skjor
@@ -67,34 +32,14 @@ ReferenceAlias Property Alias_KodlaksEndTable Auto
 ReferenceAlias Property Alias_Skjor Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY YsgramorsTomb
+;ALIAS PROPERTY TYPE LocationAlias
+LocationAlias Property Alias_YsgramorsTomb Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY Farkas
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_Farkas Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Skyforge
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Skyforge Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY YsgramorsBlade
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_YsgramorsBlade Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY SHIELD
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SHIELD Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Kodlak
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Kodlak Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY KodlaksJournal
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_KodlaksJournal Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY YsgramorStatue
@@ -107,9 +52,24 @@ ReferenceAlias Property Alias_YsgramorStatue Auto
 ReferenceAlias Property Alias_Font Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY GhostKodlak
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_GhostKodlak Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY WolfSpirit
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_WolfSpirit Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY KodlaksEndTable
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_KodlaksEndTable Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY KodlaksJournal
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_KodlaksJournal Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Aela
@@ -117,11 +77,87 @@ ReferenceAlias Property Alias_WolfSpirit Auto
 ReferenceAlias Property Alias_Aela Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY YsgramorsTombMapMarker
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_YsgramorsTombMapMarker Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY SHIELD
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SHIELD Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY YsgramorsBlade
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_YsgramorsBlade Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Kodlak
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Kodlak Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY FuneralLocationMarker
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_FuneralLocationMarker Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Skyforge
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Skyforge Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Sarcophagus
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Sarcophagus Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY KodlakBodyMarker
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_KodlakBodyMarker Auto
+;END ALIAS PROPERTY
+
 ;BEGIN FRAGMENT Fragment_43
 Function Fragment_43()
 ;BEGIN CODE
 SetObjectiveCompleted(30, 1)
 SetObjectiveDisplayed(35, 1)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_35
+Function Fragment_35()
+;BEGIN AUTOCAST TYPE C06QuestScript
+Quest __temp = self as Quest
+C06QuestScript kmyQuest = __temp as C06QuestScript
+;END AUTOCAST
+;BEGIN CODE
+kmyQuest.Setup()
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_15
+Function Fragment_15()
+;BEGIN CODE
+SetObjectiveCompleted(40, 1)
+SetObjectiveDisplayed(50, 1)
+
+Alias_GhostKodlak.GetReference().Enable(true)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_33
+Function Fragment_33()
+;BEGIN AUTOCAST TYPE C06QuestScript
+Quest __temp = self as Quest
+C06QuestScript kmyQuest = __temp as C06QuestScript
+;END AUTOCAST
+;BEGIN CODE
+kmyQuest.Init()
+SetStage(10)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -139,20 +175,35 @@ Alias_Farkas.GetActorRef().EvaluatePackage()
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_3
-Function Fragment_3()
+;BEGIN FRAGMENT Fragment_23
+Function Fragment_23()
 ;BEGIN AUTOCAST TYPE C06QuestScript
 Quest __temp = self as Quest
 C06QuestScript kmyQuest = __temp as C06QuestScript
 ;END AUTOCAST
 ;BEGIN CODE
-SetObjectiveDisplayed(10, 1)
+SetObjectiveCompleted(50, 1)
+SetObjectiveDisplayed(60, 1)
 
-kmyQuest.StartFuneral()
+kmyQuest.FuneralEnabler.Disable()
+PyreBurnStart.Disable()
+PyreBurnFinish.Disable()
+;END CODE
+EndFunction
+;END FRAGMENT
 
-(kmyQuest.CentralQuest as CompanionsHousekeepingScript).Shutup(Alias_Aela.GetActorReference())
-(kmyQuest.CentralQuest as CompanionsHousekeepingScript).Shutup(Alias_Farkas.GetActorReference())
-(kmyQuest.CentralQuest as CompanionsHousekeepingScript).Shutup(Alias_Vilkas.GetActorReference())
+;BEGIN FRAGMENT Fragment_38
+Function Fragment_38()
+;BEGIN AUTOCAST TYPE C06QuestScript
+Quest __temp = self as Quest
+C06QuestScript kmyQuest = __temp as C06QuestScript
+;END AUTOCAST
+;BEGIN CODE
+SetObjectiveCompleted(60, 1)
+SetObjectiveDisplayed(65, 1)
+
+kmyQuest.WolfSpiritChill = false
+Alias_WolfSpirit.GetActorRef().EvaluatePackage()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -170,28 +221,13 @@ StatueActivator.Enable()
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_47
-Function Fragment_47()
+;BEGIN FRAGMENT Fragment_25
+Function Fragment_25()
 ;BEGIN CODE
-SetObjectiveCompleted(18, 1)
-SetObjectiveDisplayed(20, 1)
+SetObjectiveCompleted(65, 1)
+SetObjectiveDisplayed(70, 1)
 
-Game.GetPlayer().RemoveItem(Alias_KodlaksFragment.GetReference())
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_49
-Function Fragment_49()
-;BEGIN CODE
-SetObjectiveCompleted(17, 1)
-SetObjectiveDisplayed(18, 1)
-
-ObserverQuest.Stop()
-
-Alias_Aela.GetRef().MoveTo(AelaSpot)
-Alias_Farkas.GetRef().MoveTo(FarkasSpot)
-Alias_Vilkas.GetRef().MoveTo(VilkasSpot)
+Alias_Aela.GetActorRef().ResetHealthAndLimbs()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -225,39 +261,10 @@ Game.IncrementStat("Questlines Completed")
 ;
 ; -- Plugin Dawn of the Silver Hands integration --
 ;
-Debug.Trace("(C06)(DSilHand_M90) --  Player saved Kodlack Soul in the Companion's Questline!")
-DSilHand_M90Helper m90Helper = (DSilHand_M90HonYsgramor as DSilHand_M90Helper)
+;Debug.Trace("(C06)(DSilHand_M90) --  Player saved Kodlack Soul in the Companion's Questline!")
+;DSilHand_M90Helper m90Helper = (DSilHand_M90HonYsgramor as DSilHand_M90Helper)
 ; runs script to save kodlak soul
-m90Helper.enableKodlakSovngarde()
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_33
-Function Fragment_33()
-;BEGIN AUTOCAST TYPE C06QuestScript
-Quest __temp = self as Quest
-C06QuestScript kmyQuest = __temp as C06QuestScript
-;END AUTOCAST
-;BEGIN CODE
-kmyQuest.Init()
-SetStage(10)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_38
-Function Fragment_38()
-;BEGIN AUTOCAST TYPE C06QuestScript
-Quest __temp = self as Quest
-C06QuestScript kmyQuest = __temp as C06QuestScript
-;END AUTOCAST
-;BEGIN CODE
-SetObjectiveCompleted(60, 1)
-SetObjectiveDisplayed(65, 1)
-
-kmyQuest.WolfSpiritChill = false
-Alias_WolfSpirit.GetActorRef().EvaluatePackage()
+;m90Helper.setupKodlakSovngarde()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -271,25 +278,31 @@ SetObjectiveDisplayed(15,1)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_25
-Function Fragment_25()
+;BEGIN FRAGMENT Fragment_47
+Function Fragment_47()
 ;BEGIN CODE
-SetObjectiveCompleted(65, 1)
-SetObjectiveDisplayed(70, 1)
+SetObjectiveCompleted(18, 1)
+SetObjectiveDisplayed(20, 1)
 
-Alias_Aela.GetActorRef().ResetHealthAndLimbs()
+Game.GetPlayer().RemoveItem(Alias_KodlaksFragment.GetReference())
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_35
-Function Fragment_35()
+;BEGIN FRAGMENT Fragment_3
+Function Fragment_3()
 ;BEGIN AUTOCAST TYPE C06QuestScript
 Quest __temp = self as Quest
 C06QuestScript kmyQuest = __temp as C06QuestScript
 ;END AUTOCAST
 ;BEGIN CODE
-kmyQuest.Setup()
+SetObjectiveDisplayed(10, 1)
+
+kmyQuest.StartFuneral()
+
+(kmyQuest.CentralQuest as CompanionsHousekeepingScript).Shutup(Alias_Aela.GetActorReference())
+(kmyQuest.CentralQuest as CompanionsHousekeepingScript).Shutup(Alias_Farkas.GetActorReference())
+(kmyQuest.CentralQuest as CompanionsHousekeepingScript).Shutup(Alias_Vilkas.GetActorReference())
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -313,30 +326,17 @@ SetObjectiveDisplayed(17,1)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_15
-Function Fragment_15()
+;BEGIN FRAGMENT Fragment_49
+Function Fragment_49()
 ;BEGIN CODE
-SetObjectiveCompleted(40, 1)
-SetObjectiveDisplayed(50, 1)
+SetObjectiveCompleted(17, 1)
+SetObjectiveDisplayed(18, 1)
 
-Alias_GhostKodlak.GetReference().Enable(true)
-;END CODE
-EndFunction
-;END FRAGMENT
+ObserverQuest.Stop()
 
-;BEGIN FRAGMENT Fragment_23
-Function Fragment_23()
-;BEGIN AUTOCAST TYPE C06QuestScript
-Quest __temp = self as Quest
-C06QuestScript kmyQuest = __temp as C06QuestScript
-;END AUTOCAST
-;BEGIN CODE
-SetObjectiveCompleted(50, 1)
-SetObjectiveDisplayed(60, 1)
-
-kmyQuest.FuneralEnabler.Disable()
-PyreBurnStart.Disable()
-PyreBurnFinish.Disable()
+Alias_Aela.GetRef().MoveTo(AelaSpot)
+Alias_Farkas.GetRef().MoveTo(FarkasSpot)
+Alias_Vilkas.GetRef().MoveTo(VilkasSpot)
 ;END CODE
 EndFunction
 ;END FRAGMENT

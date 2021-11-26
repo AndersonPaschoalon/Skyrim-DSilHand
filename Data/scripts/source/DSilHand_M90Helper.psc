@@ -218,7 +218,7 @@ EndFunction
 ; Input: void
 ;
 ; Enable the Glowing Kodlak at Sovngarde, representing his soul after being 
-; freed.
+; freed by the player in the Silverhand questline.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function enableKodlakSovngarde()
     Debug.Trace(THIS_FILE + " -- enableKodlakSovngarde()")
@@ -393,6 +393,7 @@ Event OnUpdateGameTime()
     Debug.Trace(THIS_FILE + " --  Enable S02 quest start: DSilHand_S02IconoclasticRevenge.SetStage():" + STAGE_TOTEMS_QUEST_STARTUP)
     DSilHand_S02IconoclasticRevenge.SetStage(STAGE_TOTEMS_QUEST_STARTUP)
 EndEvent
+
 
 
 

@@ -126,6 +126,7 @@ Actor Property FakeTilma  Auto
 ;; Member variables
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 String THIS_FILE = "(DSilHand_M10Helper.psc) "
+int STAGE_FAIL_QUEST = 100
 int C00_FAILED_STAGE = 90
 int C00_FAILED_OBJECTIVE = 90
 int C00JORRVASKRFIGHT_LASTSTAGE = 100
@@ -231,6 +232,19 @@ Function dSilHandSetup()
     DSilHand_Utils.disableActor(FakeAthis , "FakeAthis", THIS_FILE)  
 endFunction
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: void
+; 
+; Fail if player is already a Companions member.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function failIfPlayerIsCompanions()
+    Debug.Trace(THIS_FILE + " -- failIfPlayerIsCompanions()")
+    bool retVal = Game.GetPlayer().IsInFaction(CompanionsFaction)
+    if(retVal == true)
+        Debug.Trace(THIS_FILE + "    Player is already a Companion, force the quest to FAIL")
+        SetStage(STAGE_FAIL_QUEST)
+    endif
+endFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Private Methods

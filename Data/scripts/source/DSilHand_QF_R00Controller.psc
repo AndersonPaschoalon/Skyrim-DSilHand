@@ -1,6 +1,6 @@
 ;BEGIN FRAGMENT CODE - Do not edit anything between this and the end comment
 ;NEXT FRAGMENT INDEX 13
-Scriptname DSilHand_QF_R00Contoller Extends Quest Hidden
+Scriptname DSilHand_QF_R00Controller Extends Quest Hidden
 
 ;BEGIN ALIAS PROPERTY SilverHand4
 ;ALIAS PROPERTY TYPE ReferenceAlias
@@ -17,9 +17,9 @@ ReferenceAlias Property Alias_hillara Auto
 ReferenceAlias Property Alias_SENAAR Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY SilverHand1
+;BEGIN ALIAS PROPERTY QuestGiver
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SilverHand1 Auto
+ReferenceAlias Property Alias_QuestGiver Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY SilverHand2
@@ -27,32 +27,40 @@ ReferenceAlias Property Alias_SilverHand1 Auto
 ReferenceAlias Property Alias_SilverHand2 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY SilverHand3
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SilverHand3 Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY TriggerLeavesGallows
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_TriggerLeavesGallows Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY QuestGiver
+;BEGIN ALIAS PROPERTY SilverHand3
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_QuestGiver Auto
+ReferenceAlias Property Alias_SilverHand3 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN FRAGMENT Fragment_10
-Function Fragment_10()
+;BEGIN ALIAS PROPERTY SilverHand1
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SilverHand1 Auto
+;END ALIAS PROPERTY
+
+;BEGIN FRAGMENT Fragment_6
+Function Fragment_6()
 ;BEGIN AUTOCAST TYPE DSilHand_R00Helper
 Quest __temp = self as Quest
 DSilHand_R00Helper kmyQuest = __temp as DSilHand_R00Helper
 ;END AUTOCAST
 ;BEGIN CODE
-; In this stage the questgiver will have the DSilHand_R02BeastExtermination dialog enabled.
-; When this stage is completed, the stage 50, 60 or 70 will be set.
-Debug.Trace(THIS_FILE + "#STAGE " + 20)
+; The quest giver will follow the player
+Debug.Trace(THIS_FILE + "#STAGE " + 60)
 kmyQuest.dumpDSilHandR00Controller()
+
+; updates the quest giver ReferenceAlias
+; Actor questGiver = kmyQuest.getsQuestGiverActor()
+; Alias_QuestGiver.ForceRefTo(questGiver as ObjectReference)
+; Debug.Trace(THIS_FILE + " -- Alias_QuestGiver:" + Alias_QuestGiver)
+; Debug.Trace(THIS_FILE + " --  questGiverr:" +  questGiver)
+
+Utility.Wait(1)
+Alias_QuestGiver.GetActorReference().EvaluatePackage()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -67,17 +75,22 @@ Debug.Trace(THIS_FILE + "#STAGE " + 72)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_8
-Function Fragment_8()
+;BEGIN FRAGMENT Fragment_7
+Function Fragment_7()
 ;BEGIN AUTOCAST TYPE DSilHand_R00Helper
 Quest __temp = self as Quest
 DSilHand_R00Helper kmyQuest = __temp as DSilHand_R00Helper
 ;END AUTOCAST
 ;BEGIN CODE
-; In this stage the questgiver will have the DSilHand_R04WitchHunter dialog enabled.
-; When this stage is completed, the stage 50, 60 or 70 will be set.
-Debug.Trace(THIS_FILE + "#STAGE " + 40)
+; The player will go alone to execute the contract
+Debug.Trace(THIS_FILE + "#STAGE " + 50)
 kmyQuest.dumpDSilHandR00Controller()
+
+; ; updates the quest giver ReferenceAlias
+; ObjectReference questGiverObj = (kmyQuest.getsQuestGiverActor() as ObjectReference)
+; Alias_QuestGiver.ForceRefTo(questGiverObj)
+; Debug.Trace(THIS_FILE + " -- Alias_QuestGiver:" + Alias_QuestGiver)
+; Debug.Trace(THIS_FILE + " --  questGiver:" +  questGiverObj)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -182,45 +195,17 @@ kmyQuest.dumpDSilHandR00Controller()
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_7
-Function Fragment_7()
+;BEGIN FRAGMENT Fragment_8
+Function Fragment_8()
 ;BEGIN AUTOCAST TYPE DSilHand_R00Helper
 Quest __temp = self as Quest
 DSilHand_R00Helper kmyQuest = __temp as DSilHand_R00Helper
 ;END AUTOCAST
 ;BEGIN CODE
-; The player will go alone to execute the contract
-Debug.Trace(THIS_FILE + "#STAGE " + 50)
+; In this stage the questgiver will have the DSilHand_R04WitchHunter dialog enabled.
+; When this stage is completed, the stage 50, 60 or 70 will be set.
+Debug.Trace(THIS_FILE + "#STAGE " + 40)
 kmyQuest.dumpDSilHandR00Controller()
-
-; ; updates the quest giver ReferenceAlias
-; ObjectReference questGiverObj = (kmyQuest.getsQuestGiverActor() as ObjectReference)
-; Alias_QuestGiver.ForceRefTo(questGiverObj)
-; Debug.Trace(THIS_FILE + " -- Alias_QuestGiver:" + Alias_QuestGiver)
-; Debug.Trace(THIS_FILE + " --  questGiver:" +  questGiverObj)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_6
-Function Fragment_6()
-;BEGIN AUTOCAST TYPE DSilHand_R00Helper
-Quest __temp = self as Quest
-DSilHand_R00Helper kmyQuest = __temp as DSilHand_R00Helper
-;END AUTOCAST
-;BEGIN CODE
-; The quest giver will follow the player
-Debug.Trace(THIS_FILE + "#STAGE " + 60)
-kmyQuest.dumpDSilHandR00Controller()
-
-; updates the quest giver ReferenceAlias
-; Actor questGiver = kmyQuest.getsQuestGiverActor()
-; Alias_QuestGiver.ForceRefTo(questGiver as ObjectReference)
-; Debug.Trace(THIS_FILE + " -- Alias_QuestGiver:" + Alias_QuestGiver)
-; Debug.Trace(THIS_FILE + " --  questGiverr:" +  questGiver)
-
-Utility.Wait(1)
-Alias_QuestGiver.GetActorReference().EvaluatePackage()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -254,6 +239,21 @@ SetStage(nextStage)
 
 ; Enable targes -- this will run only once
 kmyQuest.enableRadiantTargets()
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_10
+Function Fragment_10()
+;BEGIN AUTOCAST TYPE DSilHand_R00Helper
+Quest __temp = self as Quest
+DSilHand_R00Helper kmyQuest = __temp as DSilHand_R00Helper
+;END AUTOCAST
+;BEGIN CODE
+; In this stage the questgiver will have the DSilHand_R02BeastExtermination dialog enabled.
+; When this stage is completed, the stage 50, 60 or 70 will be set.
+Debug.Trace(THIS_FILE + "#STAGE " + 20)
+kmyQuest.dumpDSilHandR00Controller()
 ;END CODE
 EndFunction
 ;END FRAGMENT

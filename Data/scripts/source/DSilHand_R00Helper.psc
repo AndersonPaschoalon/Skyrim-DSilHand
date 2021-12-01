@@ -6,6 +6,10 @@ Scriptname DSilHand_R00Helper extends Quest
 ;; Properties
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;
+; QUEST REFERENCE ALIAS
+;
+
 ReferenceAlias Property SilverHand1  Auto  
 {Reference Alias to SilverHand1.}
 
@@ -27,6 +31,10 @@ ReferenceAlias Property hillara  Auto
 ReferenceAlias Property QuestGiverRefAlias  Auto  
 {Reference alias to QuestGiver.}
 
+;
+; CHILD QUESTS
+;
+
 Quest Property DSilHand_R01WolfHunt  Auto  
 {Reference to Wolf Hunt radiant quest.}
 
@@ -38,6 +46,10 @@ Quest Property DSilHand_R03WerewolfLair  Auto
 
 Quest Property DSilHand_R04WitchHunter  Auto  
 {Reference to Witch Hunter  radiant quest.}
+
+;
+; WORLD OBJECTS
+;
 
 ObjectReference Property XMarker01  Auto  
 {Object pointing to the xMarker DSilHand_R00XMarker01 outside gallows rock.}
@@ -60,6 +72,10 @@ GlobalVariable Property DSilHand_accGold  Auto
 MiscObject Property Gold001  Auto  
 {Gold coins.}
 
+;
+; EVENTS
+;
+
 Keyword Property DSilHand_R01Keyword  Auto  
 {Keword to fire the radiant quest R01.}
 
@@ -71,6 +87,33 @@ Keyword Property DSilHand_R03Keyword  Auto
 
 Keyword Property DSilHand_R04Keyword  Auto  
 {Keword to fire the radiant quest R04.}
+
+;
+; ACTORS PLACED AT THE WORLD
+;
+
+; WEREWOLFS
+
+Actor Property R01Werewolf_BronzeWaterCave  Auto  
+{(Location, World Object Name, Script Name) = (BronzeWaterCave, DSilHand_R01WerewolfBossRef, R01Werewolf_BronzeWaterCave)}
+
+; BEASTS
+
+Actor Property R02Beast_TolvaldsCave01  Auto  
+{(Location, World Object Name, Script Name)=(TolvaldsCave01, DSilHand_R02BeastBoss02Ref, R02Beast_TolvaldsCave01)}
+
+Actor Property R02Beast_RiversideShackExterior01  Auto  
+{(Location, World Object Name, Script Name)=(RiversideShackExterior01, DSilHand_R02BeastBoss02Ref, R02Beast_RiversideShackExterior01)}
+
+; BANDIT BOSS
+
+Actor Property R03BanditBoss  Auto  
+{Single bandit boss to be enabled.}
+
+; WITCHES
+
+Actor Property R04Witch_AlchemistsShackExterior  Auto  
+{(Location, World Object Name, Script Name)=(AlchemistsShackExterior, DSilhand_R04GlenmorilWitch01Ref, R04Witch_AlchemistsShackExterior)}
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -115,15 +158,60 @@ bool areTargetsEnabled = false
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
+; Input: questTarget - RefAlias for the quest target
+; Input: quest - Quest referene to for the quest to be completed
+; Input: questLabel - string to log the quest name on the logs
+; Input: callerScript - script from where this function was called
+; Output: bool - true if the quest was finished, false if not.
+;
+; Helper to complete a given radiant quest in the proper way, so the rotation
+; of radiant quests will work as expected.
+; Usage:
+; DSilhand_R00Helper r00Helper = (DSilHand_R00Controller as DSilhand_R00Helper)
+; r00Helper.completesQuestTargedFailed(Alias_Werewolf, DSilHand_R01WolfHunt, "DSilHand_R01WolfHunt", THIS_FILE)
+; r00Helper.completesQuestTargedFailed(Alias_Beast, DSilHand_R02BeastExtermination, "DSilHand_R02BeastExtermination", THIS_FILE)
+; r00Helper.completesQuestTargedFailed(Alias_BanditBoss, DSilHand_R03WerewolfLair, "DSilHand_R03WerewolfLair", THIS_FILE)
+; r00Helper.completesQuestTargedFailed(Alias_Witch, DSilHand_R04WitchHunter, "DSilHand_R04WitchHunter", THIS_FILE)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function completesQuestTargedFailed(ReferenceAlias npc, Quest radQuest, string questLabel, string callerScript) 
+    if(npc == None)
+        Debug.Trace(THIS_FILE + " **WARNING** completesQuestTargedFailed() - npc is None  in the quest " + questLabel, 1)
+        ; complete radiant
+        completesGivenRadiantQuest(radQuest, questLabel)
+        ; reset controller
+        SetStage(STAGE_CONTROLLER_SETUP_ALARMS)
+    endif
+Endfunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
 ; Input:  void
 ; Output: void
 ;
-; Enables the radiant quests targets.
+; Enable all radiant targets. This method should run a single time per
+; sevegame, since irt will run when the player enables the radiant quest 
+; system, when he finish the Silver Hand's main quest. Therefore it is 
+; controlled by the flag areTargetsEnabled, wich is set only once.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function enableRadiantTargets()
     Debug.Trace(THIS_FILE + " -- enableRadiantTargets()")
     if (areTargetsEnabled == false)
         Debug.Trace(THIS_FILE + " -- enabling radiant targets")
+        ; R01 Targets
+        Debug.Trace(THIS_FILE + " * ENABLE WEREWOLFS ")
+        enableAndRessurect(R01Werewolf_BronzeWaterCave)
+        ; R02 Targest
+        Debug.Trace(THIS_FILE + " * ENABLE BEASTS ")
+        enableAndRessurect(R02Beast_TolvaldsCave01)
+        enableAndRessurect(R02Beast_RiversideShackExterior01)
+        ; R03Targes (a single bandit boos)
+        Debug.Trace(THIS_FILE + " * ENABLE A BANDIT BOSS ")
+        enableAndRessurect(R03BanditBoss)
+        ; T04 Targets
+        Debug.Trace(THIS_FILE + " * ENABLE GENMORIL WITCHES ")
+        enableAndRessurect(R04Witch_AlchemistsShackExterior)
+        ; set the flag to execute only once
         areTargetsEnabled = true
     else
         Debug.Trace(THIS_FILE + " -- the targets have already been enabled")
@@ -131,6 +219,7 @@ Function enableRadiantTargets()
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
 ; Input:  void
 ; Output: void
 ;
@@ -164,7 +253,9 @@ Function dumpDSilHandR00Controller()
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
 ; Input:  void
+; Output: void
 ;
 ; Randomly select next radiant quest to be played,  following this rule:
 ; 1. Wolf Hunt - 30% 
@@ -173,45 +264,51 @@ EndFunction
 ; 4. Witch Hunter - 10%
 ; This also clears the quest giver -- just in case.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-int Function selectNextRadiant()
-    Debug.Trace(THIS_FILE + " -- selectNextRadiant()")
+int Function selectNextRadiantId()
+    Debug.Trace(THIS_FILE + " -- selectNextRadiantId()")
+    int debugR01 = 10
+    int debugR02 = 40
+    int debugR03 = 70
+    int debugR04 = 100
     ; clears the quest giver just in case...
     clearQuestGiver()
     ; clear variables
     RowbackQuest = false
     EnableSetGold = false
     GoldReward = 0   
-    ; 1. Wolf Hunt - 30%            
-    ; 2. Beast Extermination - 30%
-    ; 3. Werewolf Lair - 30%
-    ; 4. Witch Hunter - 10%
+    ; 1. Wolf Hunt           - 30%  0:30     
+    ; 2. Beast Extermination - 30%  31:60
+    ; 3. Werewolf Lair       - 30%  61:90
+    ; 4. Witch Hunter        - 10%  91:100
     int limR1 = PROB_R1
     int limR2 = limR1 + PROB_R2
     int limR3 = limR2 + PROB_R3
     ; Get a random number between 0 and 100
     int random = Utility.RandomInt(0, 100)
-    ; TEST QUEST M20
-    ; random = 40
-    Debug.Trace(THIS_FILE + " -- selectNextRadiant() - random = " + random)
+    Debug.Trace(THIS_FILE + " -- selectNextRadiantId() - random = " + random)
     if (random <= limR1)
-        Debug.Trace(THIS_FILE + " -- selectNextRadiant() - Wolf Hunt")
+        Debug.Trace(THIS_FILE + " -- selectNextRadiantId() - Wolf Hunt")
         return STAGE_SELECT_R1
     elseif (random <= limR2)
-        Debug.Trace(THIS_FILE + " -- selectNextRadiant() - Beast Extermination")
+        Debug.Trace(THIS_FILE + " -- selectNextRadiantId() - Beast Extermination")
         return STAGE_SELECT_R2
     elseif (random <= limR3)
-        Debug.Trace(THIS_FILE + " -- selectNextRadiant() - Werewolf Lair")
-        return STAGE_SELECT_R3
+        Debug.Trace(THIS_FILE + " -- selectNextRadiantId() - Werewolf Lair")
+        ; return STAGE_SELECT_R3
+        ; DEBUG - DELETE
+        return STAGE_SELECT_R4
     else
-        Debug.Trace(THIS_FILE + " -- selectNextRadiant() - Witch Hunter")
+        Debug.Trace(THIS_FILE + " -- selectNextRadiantId() - Witch Hunter")
         return STAGE_SELECT_R4
     endif
 Endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
 ; Input:  int nextR00Stage - next controller stage to be selected for the 
 ;           controller quest.
-; Input: int questGiver - quest giver Actor number.
+; Input:  int questGiver - quest giver Actor number.
+; Output: void
 ;
 ; Starts the right radiant quest, based on the current stage of the controller
 ; quest. It sets the child radiant quest in the right stage and objective, 
@@ -219,80 +316,71 @@ Endfunction
 ; provided. This method is called on the dialog view.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function startsRadiantQuest(int nextR00Stage, int questGiverId)
-    Debug.Trace(THIS_FILE + " -- startsRadiantQuest():nextR00Stage" + nextR00Stage + ", questGiverId" + questGiverId)
-    ; Ensure at least on tasget of each quest is alive, so the radiant will not fail.
+    Debug.Trace(THIS_FILE + " -- startsRadiantQuest() nextR00Stage:<" + nextR00Stage + ">, questGiverId:<" + questGiverId + ">")
+ 
+    ; (1) Ensure at least on tasget of each quest is alive, so the radiant will not fail.
     ensureOneTargetAlive()
-    ; Initialize radiant quest
+ 
+    ; (2) Force QuestGiver id to be set on the controller quest 
+    ; so the radiant quest will be populated with the correct quest giver.
+    ; sets the quest giver number
+    setsQuestGiverId(questGiverId)
+    Actor questGiverActObj = getsQuestGiverActor()
+    ObjectReference questGiverObj = getsQuestGiverObject()
+    Debug.Trace(THIS_FILE + "  * getsQuestGiverActor:<" + questGiverActObj + ">")
+    ; DEBUG DELETE 
+    Debug.MessageBox("getsQuestGiverActor:<" + questGiverActObj + ">, questGiverObj:" + questGiverObj)
+    ; clears and set the quest giver into the controller reference alias.
+    QuestGiverRefAlias.Clear()
+    QuestGiverRefAlias.ForceRefTo(questGiverObj)
+    Debug.Trace(THIS_FILE + "  * QuestGiverRefAlias.GetActorRef():<" + QuestGiverRefAlias.GetActorRef() + ">")
+    ; DEBUG DELETE 
+    Debug.MessageBox("QuestGiverRefAlias.GetActorRef():<" + QuestGiverRefAlias.GetActorRef() + ">")
+    Debug.MessageBox("QuestGiverRefAlias.GetRef():<" + QuestGiverRefAlias.GetRef() + ">")
+
+    ; (3) Initialize right radiant quest
     int currentStage = GetStage()
     if (currentStage == STAGE_SELECT_R1)
 	    Debug.Trace(THIS_FILE + " -- START DSilHand_R01WolfHunt")
         CurrentRadiantQuest = 1
         DSilHand_R01WolfHunt.Reset()
-        DSilHand_R01WolfHunt.Stop()
+        DSilHand_R01WolfHunt.SetActive(true)
         DSilHand_R01WolfHunt.Start()
         DSilHand_R01WolfHunt.SetStage(0)      
-        DSilHand_R01WolfHunt.SetActive(true)
-		; currObj: -1
-		; nextObj: 10
-		; nextStage: 10
-		DSilHand_Utils.advanceQuest(DSilHand_R01WolfHunt, -1, 10, 10, THIS_FILE)
+        ; currObj: -1
+        ; nextObj: 10
+        ; nextStage: 10
+        DSilHand_Utils.advanceQuest(DSilHand_R01WolfHunt, -1, 10, 10, THIS_FILE)
+        ;startsGivenRadiantQuest(DSilHand_R01WolfHunt, "DSilHand_R01WolfHunt")
 	elseif (currentStage == STAGE_SELECT_R2)
 		Debug.Trace(THIS_FILE + " -- START DSilHand_R02BeastExtermination")
         CurrentRadiantQuest = 2
-        DSilHand_R02BeastExtermination.Reset()
-        DSilHand_R02BeastExtermination.Stop()
-        DSilHand_R02BeastExtermination.Start()
-        DSilHand_R02BeastExtermination.SetStage(0)      
-        DSilHand_R02BeastExtermination.SetActive(true)
-		; currObj: -1
-		; nextObj: 10
-		; nextStage: 10
-		DSilHand_Utils.advanceQuest(DSilHand_R02BeastExtermination, -1, 10, 10, THIS_FILE)	
+        startsGivenRadiantQuest(DSilHand_R02BeastExtermination, "DSilHand_R02BeastExtermination")
 	elseif (currentStage == STAGE_SELECT_R3)
 		Debug.Trace(THIS_FILE + " -- START DSilHand_R03WerewolfLair")
         CurrentRadiantQuest = 3
-        DSilHand_R03WerewolfLair.Reset()
-        DSilHand_R03WerewolfLair.Stop()
-        DSilHand_R03WerewolfLair.Start()
-        DSilHand_R03WerewolfLair.SetStage(0)      
-        DSilHand_R03WerewolfLair.SetActive(true)
-		; currObj: -1
-		; nextObj: 10
-		; nextStage: 10
-		DSilHand_Utils.advanceQuest(DSilHand_R03WerewolfLair, -1, 10, 10, THIS_FILE)	
+        startsGivenRadiantQuest(DSilHand_R03WerewolfLair, "DSilHand_R03WerewolfLair")
 	elseif (currentStage == STAGE_SELECT_R4)
 		Debug.Trace(THIS_FILE + " -- START DSilHand_R04WitchHunter")
         CurrentRadiantQuest = 4
-        DSilHand_R04WitchHunter.Reset()
-        DSilHand_R04WitchHunter.Stop()
-        DSilHand_R04WitchHunter.Start()
-        DSilHand_R04WitchHunter.SetStage(0)      
-        DSilHand_R04WitchHunter.SetActive(true)
-		; currObj: -1
-		; nextObj: 10
-		; nextStage: 10
-		DSilHand_Utils.advanceQuest(DSilHand_R04WitchHunter, -1, 10, 10, THIS_FILE)	
+        startsGivenRadiantQuest(DSilHand_R04WitchHunter, "DSilHand_R04WitchHunter")
 	else
 		; Default radiant quest
 		Debug.Trace(THIS_FILE + " **WARNING** INVALID CURRENT STAGE " + currentStage + ". SELECTING DEFAULT RADIANT QUEST", 1)
 	    Debug.Trace(THIS_FILE + " -- START DSilHand_R01WolfHunt")
         CurrentRadiantQuest = 1
-        DSilHand_R01Keyword.SendStoryEvent()
-		DSilHand_R01WolfHunt.Start()
-		; currObj: -1
-		; nextObj: 10
-		; nextStage: 10
-		DSilHand_Utils.advanceQuest(DSilHand_R01WolfHunt, -1, 10, 10, THIS_FILE)		
+        startsGivenRadiantQuest(DSilHand_R01WolfHunt, "DSilHand_R01WolfHunt")	
     endif
-    ; Advance controller stage
+
+    ; (4) Advance controller stage
     Debug.Trace(THIS_FILE + " -- Next Controller Quest: " + nextR00Stage)
     SetStage(nextR00Stage)
-    ; sets the quest giver number
-    setsQuestGiver(questGiverId)
 EndFunction 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
 ; Input: void
+; Output: void
 ;
 ; Prepare the Silver hand band to follow you until the quest is completed.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -308,7 +396,9 @@ Function prepareSilverHandBand()
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
 ; Input: void
+; Output: quest giver Actor object
 ;
 ; Returns the right Actor object of the current quest giver.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -328,8 +418,26 @@ Actor Function getsQuestGiverActor()
     endif   
 EndFunction
 
+ObjectReference Function getsQuestGiverObject()
+    Debug.Trace(THIS_FILE + " -- getsQuestGiverObject()")
+    ObjectReference hillaraNpc = hillara.GetReference()
+    ObjectReference senaarNpc = SENAAR.GetReference()
+    if(QuestGiver == 1)
+        Debug.Trace(THIS_FILE + " -- QUEST GIVER IS HILLARA")
+        return hillaraNpc
+    elseif(QuestGiver == 2)
+        Debug.Trace(THIS_FILE + " -- QUEST GIVER IS SENAAR")
+        return senaarNpc
+    else
+        Debug.Trace(THIS_FILE + " **WARNING** INVALID QUEST GIVER. Returning default Actor Hillara", 1)
+        return hillaraNpc
+    endif   
+EndFunction
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
 ; Input: void
+; Output: void
 ;
 ; Reset the quest giver state.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -338,7 +446,9 @@ Function clearQuestGiver()
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
 ; Input: void
+; Output: void
 ;
 ; Creates an alar to row back the quest to its start. Enables the flag and 
 ; calls register for single update game time.
@@ -354,15 +464,17 @@ Function createAlarmRowbackQuest()
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
 ; Input: void
+; Output: void
 ;
 ; Calculate a random time to rowback.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 int Function calcTimeToRowback()
     ; INIT - DELETE - DEBUG
-    Debug.Trace(THIS_FILE + "DEBUG: ONLY ONE DAY")
+    Debug.Trace(THIS_FILE + "DEBUG: ONLY ONE HOUR")
     ; INIT - DELETE - DEBUG
-    return 24
+    return 1
     ; Debug.Trace(THIS_FILE + " -- calcTimeToRowback()") 
     ; ; Create alarm to row back the quest - from 5 to 10 days.
     ; int daysToRowBack = Utility.RandomInt(5, 10)
@@ -373,6 +485,7 @@ int Function calcTimeToRowback()
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
 ; Input: void
 ; Output: void
 ; 
@@ -393,6 +506,7 @@ Function creatAlarmReward()
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
 ; Input: void
 ; Output: void
 ; 
@@ -408,6 +522,7 @@ Function updateRadiantAccGold()
 Endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
 ; Input: void
 ; Output: void
 ;
@@ -425,6 +540,7 @@ Function giveRewardToPlayer()
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Public Method
 ; Input: void
 ; Output: void
 ;
@@ -437,28 +553,19 @@ Function completeRadiantQuest()
     if (currRadQuest == RADIANT_QUEST_R01)
         ; Complete R01 Wolf Hunt
         Debug.Trace(THIS_FILE + " -- completeRadiantQuest:DSilHand_R01WolfHunt")
-        DSilHand_R01WolfHunt.SetObjectiveCompleted(OBJECTIVE_TALK_QUESTGIVER)
-        DSilHand_R01WolfHunt.SetStage(STAGE_COMPLETE_RADIANT)
-        DSilHand_R01WolfHunt.CompleteQuest()
+        completesGivenRadiantQuest(DSilHand_R01WolfHunt, "DSilHand_R01WolfHunt")
     elseif (currRadQuest == RADIANT_QUEST_R02)
         ; Complete R02 Beast Extermination
         Debug.Trace(THIS_FILE + " -- completeRadiantQuest:DSilHand_R02BeastExtermination")
-        DSilHand_R02BeastExtermination.SetObjectiveCompleted(OBJECTIVE_TALK_QUESTGIVER)
-        DSilHand_R02BeastExtermination.SetStage(STAGE_COMPLETE_RADIANT)
-        DSilHand_R02BeastExtermination.CompleteAllObjectives()
-        ;DSilHand_R02BeastExtermination.CompleteQuest()
+        completesGivenRadiantQuest(DSilHand_R02BeastExtermination, "DSilHand_R02BeastExtermination")
     elseif (currRadQuest == RADIANT_QUEST_R03)
         ; Complete R03 Werewolf Lair
         Debug.Trace(THIS_FILE + " -- completeRadiantQuest:DSilHand_R03WerewolfLair")
-        DSilHand_R03WerewolfLair.SetObjectiveCompleted(OBJECTIVE_TALK_QUESTGIVER)
-        DSilHand_R03WerewolfLair.SetStage(STAGE_COMPLETE_RADIANT)
-        DSilHand_R03WerewolfLair.CompleteQuest()
+        completesGivenRadiantQuest(DSilHand_R03WerewolfLair, "DSilHand_R03WerewolfLair")
     elseif (currRadQuest == RADIANT_QUEST_R04)
         ; Complete R04 Witch Hunter
         Debug.Trace(THIS_FILE + " -- completeRadiantQuest:DSilHand_R04WitchHunter")
-        DSilHand_R04WitchHunter.SetObjectiveCompleted(OBJECTIVE_TALK_QUESTGIVER)
-        DSilHand_R04WitchHunter.SetStage(STAGE_COMPLETE_RADIANT)
-        DSilHand_R04WitchHunter.CompleteQuest()
+        completesGivenRadiantQuest(DSilHand_R04WitchHunter, "DSilHand_R04WitchHunter")
     else
         Debug.Trace(THIS_FILE + " **ERROR** completeRadiantQuest() - ERROR: Unknown Radiant Quest")
     endif
@@ -466,13 +573,16 @@ Function completeRadiantQuest()
     SetStage(STAGE_CONTROLLER_SETUP_ALARMS)
 EndFunction
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Private Methods
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Private Method
 ; Input:  void
+; Output: void 
 ;
 ; Re-evaluate all the actors AIs from the current controller quest.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -523,23 +633,27 @@ Function evalueateBandAIPackages()
 Endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Private Method
 ; Input: void
+; Output: void 
 ;
 ; Sets the quest giver state.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function setsQuestGiver(int questGiverId)
+Function setsQuestGiverId(int questGiverId)
     if(questGiverId < 0)
-        Debug.Trace(THIS_FILE + " **WARNING** setsQuestGiver() - Invalid quest giver id < 0. Setting to 1", 1)
+        Debug.Trace(THIS_FILE + " **WARNING** setsQuestGiverId() - Invalid quest giver id < 0. Setting to 1", 1)
         questGiverId = 1
     elseif(questGiverId > 2) 
-        Debug.Trace(THIS_FILE + " **WARNING** setsQuestGiver() - Invalid quest giver id > 2. Setting to 2", 1)
+        Debug.Trace(THIS_FILE + " **WARNING** setsQuestGiverId() - Invalid quest giver id > 2. Setting to 2", 1)
         questGiverId = 2
     endif
     QuestGiver = questGiverId
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Private Method
 ; Input:  void
+; Output: void 
 ;
 ; Teleports all the band to the right xMarkers outside gallows rock.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -556,7 +670,9 @@ Function teleportBand()
 Endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Private Method
 ; Input:  void
+; Output: void 
 ;
 ; Return the number of the current quest being executed.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -574,14 +690,89 @@ int Function getCurrentRadiantQuest()
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Private Method
 ; Input:  void
+; Output: bool - true if the quest was started, false if not.
+; 
+; Helper to starts a given radiant quest in the proper way, que Alias values 
+; will be recalculated, and the quest will be displayed as expected to the 
+; user.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+bool Function startsGivenRadiantQuest(Quest radQuest, string radQuestLabel)
+    Debug.Trace(THIS_FILE + " -- startsGivenRadiantQuest() => " + radQuestLabel)
+    Debug.MessageBox("STOP " + radQuestLabel)
+    radQuest.Stop()
+    Debug.MessageBox("RESET " + radQuestLabel)
+    radQuest.Reset()
+    Debug.MessageBox("START " + radQuestLabel)
+    radQuest.SetActive(true)
+    radQuest.Start()
+    Debug.MessageBox("SETSTAGE 0  " + radQuestLabel)
+    radQuest.SetStage(0)      
+    ; currObj: -1
+    ; nextObj: 10
+    ; nextStage: 10
+    Debug.MessageBox("ADVANCE TO " + radQuestLabel)
+    bool retVal = DSilHand_Utils.advanceQuest(radQuest, -1, 10, 10, THIS_FILE)
+    Debug.MessageBox("** radQuest.GetStage():" + radQuest.GetStage())
+    return retVal
+Endfunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Private Method
+; Input:  void
+; Output: bool - true if the quest was finished, false if not.
+;
+; Helper to complete a given radiant quest in the proper way, so the rotation
+; of radiant quests will work as expected.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+bool Function completesGivenRadiantQuest(Quest radQuest, string radQuestLabel)
+    Debug.Trace(THIS_FILE + " -- completeRadiantQuest() => " + radQuestLabel)
+    radQuest.SetObjectiveCompleted(OBJECTIVE_TALK_QUESTGIVER)
+    bool retVal = radQuest.SetStage(STAGE_COMPLETE_RADIANT)
+    radQuest.CompleteQuest()
+    radQuest.Stop()
+    return retVal
+Endfunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Private Method
+; Input:  void
+; Output: void 
 ;
 ; Ensure at least on of each targets are alive and enabled before the radiant
-; quests starts.
+; quests starts. This is a safeness method, to avoid the radiant quest sistem 
+; fails and stop to work. As I noticed during the development, the alias may 
+; not be filled if the targed is dead, and WILL NOT if it is disabled. So,
+; I run this method everytime before starting a radiant queest, so the game
+; engine will find at least a single valid instance if the objects it is
+; searching for. Ideally, this should not be really necessary, since there 
+; will be many valid actors available in the game, and they should have 
+; respawned when there is no more available options. 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function ensureOneTargetAlive()
     Debug.Trace(THIS_FILE + " -- ensureOneTargetAlive()")
+    ; at least one werewolf
+    DSilHand_Utils.enableActor(R01Werewolf_BronzeWaterCave, "R01Werewolf_BronzeWaterCave", THIS_FILE)
+    ; At least one beast
+    DSilHand_Utils.enableActor(R02Beast_TolvaldsCave01, "R02Beast_TolvaldsCave01", THIS_FILE)
+    ; at least one witch
+    DSilHand_Utils.enableActor(R04Witch_AlchemistsShackExterior, "R04Witch_AlchemistsShackExterior", THIS_FILE)  
 Endfunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Private Method
+; Input:  void
+; Output: void 
+;
+; A not-null safe helper method, only ment to be used here, to enable and 
+; ressurect the radiant quest targets.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Function enableAndRessurect(Actor npc)
+    Debug.Trace(THIS_FILE + " -- enableAndRessurect()")
+    npc.Enable()
+    npc.Resurrect()
+EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; EVENTS

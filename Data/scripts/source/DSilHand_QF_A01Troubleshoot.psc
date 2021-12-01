@@ -2,6 +2,27 @@
 ;NEXT FRAGMENT INDEX 17
 Scriptname DSilHand_QF_A01Troubleshoot Extends Quest Hidden
 
+;BEGIN FRAGMENT Fragment_6
+Function Fragment_6()
+;BEGIN CODE
+; This stages completes M70
+Debug.MessageBox("DSilHand Troubleshooter: Initializing Quest Uncovering the Past")
+
+Debug.MessageBox("You Have Joined the Silver Hands!")
+Game.GetPlayer().AddToFaction(SilverHandFaction)
+CompanionsFaction.SetEnemy(SilverHandFaction)
+CompanionsFaction.SetEnemy(PlayerFaction)    
+Debug.MessageBox("Finalizing DSilHand_M60Retaliation...");
+DSilHand_M60Retaliation.Start()
+DSilHand_M60Retaliation.SetObjectiveDisplayed(60)    
+DSilHand_M60Retaliation.SetStage(70)
+Debug.MessageBox("Starting DSilHand_M70UncPast...");
+DSilHand_M70UncPast.Start()
+DSilHand_M70UncPast.SetStage(5)
+;END CODE
+EndFunction
+;END FRAGMENT
+
 ;BEGIN FRAGMENT Fragment_5
 Function Fragment_5()
 ;BEGIN CODE
@@ -19,6 +40,106 @@ Debug.Trace(THIS_FILE + " -- INITIALIZING M60");
 DSilHand_M60Retaliation.Start()
 DSilHand_M60Retaliation.SetStage(10)
 DSilHand_M60Retaliation.SetObjectiveDisplayed(10)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_8
+Function Fragment_8()
+;BEGIN CODE
+; This stages completes M90
+Debug.MessageBox("DSilHand Troubleshooter: Initializing Quest In honor of Ysgramor")
+
+; Join the Silver Hands
+Debug.MessageBox("You Have Joined the Silver Hands!")
+Game.GetPlayer().AddToFaction(SilverHandFaction) 
+SilverHandFaction.SetAlly(CompanionsFaction)
+
+Debug.Trace(THIS_FILE + " -- INITIALIZING M90");
+; Initializing trigger quest
+DSilHand_iM90Trigger.Start()
+DSilHand_iM90Trigger.SetStage(10)
+DSilHand_iM90Trigger.SetStage(20)
+
+; Give Wuulthrad to Fjol, and equip
+DSilHand_Fjol.AddItem(C06BladeOfYsgramor)
+DSilHand_Fjol.EquipItem(C06BladeOfYsgramor)
+
+; Give Kodlak journal to the player
+Game.GetPlayer().AddItem(C06KodlaksJournal)
+
+; Move Fjol next to the player
+DSilHand_Fjol.MoveTo(Game.GetPlayer())
+
+; Add witch heads
+Game.GetPlayer().AddItem(DSilHand_HagravenHead, 5, false)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_11
+Function Fragment_11()
+;BEGIN CODE
+; 0: FACTION(MAIN) QUESTS
+; This quest is an invisible quest, used to complete quests and setup the world as if 
+; it was actually completed. 
+; It can be used to Debug or troubleshoot.
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_12
+Function Fragment_12()
+;BEGIN CODE
+; 200: RADIANT QUESTS
+Debug.MessageBox("DSilHand Troubleshooter: Startup Radiant controller")
+DSilHand_R00Controller.Start()
+DSilHand_R00Controller.SetStage(5)
+
+; Join the silver hands
+Game.GetPlayer().AddToFaction(SilverHandFaction)
+
+; Setup Init quest
+DSilHand_M10SilverHunt.Start()
+DSilHand_M10SilverHunt.SetStage(60)
+DSilHand_M10SilverHunt.SetObjectiveCompleted(60)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_16
+Function Fragment_16()
+;BEGIN CODE
+; 100: SIDE QUESTS
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_7
+Function Fragment_7()
+;BEGIN CODE
+; This stages completes M80
+Debug.MessageBox("DSilHand Troubleshooter: Initializing Quest Assault on Jorrvaskr")
+Debug.Trace(THIS_FILE + " -- INITIALIZING M80");
+
+; Join the Silver Hand
+Debug.MessageBox("You Have Joined the Silver Hands!")
+
+; Setup Init quest
+DSilHand_M10SilverHunt.Start()
+DSilHand_M10SilverHunt.SetStage(60)
+DSilHand_M10SilverHunt.SetObjectiveCompleted(60)
+
+; Setup Quest
+DSilHand_M80AssaultJor.Start()
+DSilHand_M80AssaultJor.SetStage(10)
+DSilHand_M80AssaultJor.SetObjectiveDisplayed(10)
+
+; Setup World
+AelaTheHuntress.Disable()
+Skjor.Disable()
+Njada.Disable()
+Farkas.Disable()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -68,10 +189,23 @@ DSilHand_S02IconoclasticRevenge.SetStage(5)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_13
-Function Fragment_13()
+;BEGIN FRAGMENT Fragment_4
+Function Fragment_4()
 ;BEGIN CODE
-; Reavaliar AIs de todos os personagens
+; This stages completes M50
+Debug.MessageBox("DSilHand Troubleshooter: Initializing Quest Wolf Ambush")
+
+; Join the Silver Hands
+Debug.MessageBox("You Have Joined the Silver Hands!")
+Game.GetPlayer().AddToFaction(SilverHandFaction)
+CompanionsFaction.SetEnemy(SilverHandFaction)
+CompanionsFaction.SetEnemy(PlayerFaction)   
+
+; Setup Quest
+Debug.Trace(THIS_FILE + " -- INITIALIZING M50");
+DSilHand_KrevTheSkinner.Enable()
+DSilHand_M50WolfAmbush.Start()
+DSilHand_M50WolfAmbush.SetStage(5)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -97,26 +231,10 @@ DSilHand_M30ScholarFragment.SetObjectiveDisplayed(10)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_11
-Function Fragment_11()
+;BEGIN FRAGMENT Fragment_14
+Function Fragment_14()
 ;BEGIN CODE
-; 0: FACTION(MAIN) QUESTS
-; This quest is an invisible quest, used to complete quests and setup the world as if 
-; it was actually completed. 
-; It can be used to Debug or troubleshoot.
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_0
-Function Fragment_0()
-;BEGIN CODE
-; This stages completes M10
-Debug.MessageBox("DSilHand Troubleshooter: Silver Hunt")
-
-; Quest Setup
-DSilHand_M10SilverHunt.Start()
-DSilHand_M10SilverHunt.SetStage(10)
+;
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -134,31 +252,13 @@ DSilHand_iS01Trigger.SetObjectiveDisplayed(10)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_7
-Function Fragment_7()
+;BEGIN FRAGMENT Fragment_15
+Function Fragment_15()
 ;BEGIN CODE
-; This stages completes M80
-Debug.MessageBox("DSilHand Troubleshooter: Initializing Quest Assault on Jorrvaskr")
-Debug.Trace(THIS_FILE + " -- INITIALIZING M80");
+; This stages completes S02
+Debug.MessageBox("DSilHand Troubleshooter: Initializing Main Quest Sovngarde")
 
-; Join the Silver Hand
-Debug.MessageBox("You Have Joined the Silver Hands!")
-
-; Setup Init quest
-DSilHand_M10SilverHunt.Start()
-DSilHand_M10SilverHunt.SetStage(60)
-DSilHand_M10SilverHunt.SetObjectiveCompleted(60)
-
-; Setup Quest
-DSilHand_M80AssaultJor.Start()
-DSilHand_M80AssaultJor.SetStage(10)
-DSilHand_M80AssaultJor.SetObjectiveDisplayed(10)
-
-; Setup World
-AelaTheHuntress.Disable()
-Skjor.Disable()
-Njada.Disable()
-Farkas.Disable()
+Game.GetPlayer().ModActorValue("DragonSouls", 30)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -184,115 +284,23 @@ DSilHand_M20AngarvundesTreasure.SetObjectiveDisplayed(10)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_12
-Function Fragment_12()
+;BEGIN FRAGMENT Fragment_13
+Function Fragment_13()
 ;BEGIN CODE
-; 200: RADIANT QUESTS
-Debug.MessageBox("DSilHand Troubleshooter: Startup Radiant controller")
-DSilHand_R00Controller.Start()
-DSilHand_R00Controller.SetStage(5)
+; Reavaliar AIs de todos os personagens
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_6
-Function Fragment_6()
+;BEGIN FRAGMENT Fragment_0
+Function Fragment_0()
 ;BEGIN CODE
-; This stages completes M70
-Debug.MessageBox("DSilHand Troubleshooter: Initializing Quest Uncovering the Past")
+; This stages completes M10
+Debug.MessageBox("DSilHand Troubleshooter: Silver Hunt")
 
-Debug.MessageBox("You Have Joined the Silver Hands!")
-Game.GetPlayer().AddToFaction(SilverHandFaction)
-CompanionsFaction.SetEnemy(SilverHandFaction)
-CompanionsFaction.SetEnemy(PlayerFaction)    
-Debug.MessageBox("Finalizing DSilHand_M60Retaliation...");
-DSilHand_M60Retaliation.Start()
-DSilHand_M60Retaliation.SetObjectiveDisplayed(60)    
-DSilHand_M60Retaliation.SetStage(70)
-Debug.MessageBox("Starting DSilHand_M70UncPast...");
-DSilHand_M70UncPast.Start()
-DSilHand_M70UncPast.SetStage(5)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_16
-Function Fragment_16()
-;BEGIN CODE
-; 100: SIDE QUESTS
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_4
-Function Fragment_4()
-;BEGIN CODE
-; This stages completes M50
-Debug.MessageBox("DSilHand Troubleshooter: Initializing Quest Wolf Ambush")
-
-; Join the Silver Hands
-Debug.MessageBox("You Have Joined the Silver Hands!")
-Game.GetPlayer().AddToFaction(SilverHandFaction)
-CompanionsFaction.SetEnemy(SilverHandFaction)
-CompanionsFaction.SetEnemy(PlayerFaction)   
-
-; Setup Quest
-Debug.Trace(THIS_FILE + " -- INITIALIZING M50");
-DSilHand_KrevTheSkinner.Enable()
-DSilHand_M50WolfAmbush.Start()
-DSilHand_M50WolfAmbush.SetStage(5)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_8
-Function Fragment_8()
-;BEGIN CODE
-; This stages completes M90
-Debug.MessageBox("DSilHand Troubleshooter: Initializing Quest In honor of Ysgramor")
-
-; Join the Silver Hands
-Debug.MessageBox("You Have Joined the Silver Hands!")
-Game.GetPlayer().AddToFaction(SilverHandFaction) 
-SilverHandFaction.SetAlly(CompanionsFaction)
-
-Debug.Trace(THIS_FILE + " -- INITIALIZING M90");
-; Initializing trigger quest
-DSilHand_iM90Trigger.Start()
-DSilHand_iM90Trigger.SetStage(10)
-DSilHand_iM90Trigger.SetStage(20)
-
-; Give Wuulthrad to Fjol, and equip
-DSilHand_Fjol.AddItem(C06BladeOfYsgramor)
-DSilHand_Fjol.EquipItem(C06BladeOfYsgramor)
-
-; Give Kodlak journal to the player
-Game.GetPlayer().AddItem(C06KodlaksJournal)
-
-; Move Fjol next to the player
-DSilHand_Fjol.MoveTo(Game.GetPlayer())
-
-; Add witch heads
-Game.GetPlayer().AddItem(DSilHand_HagravenHead, 5, false)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_14
-Function Fragment_14()
-;BEGIN CODE
-;
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_15
-Function Fragment_15()
-;BEGIN CODE
-; This stages completes S02
-Debug.MessageBox("DSilHand Troubleshooter: Initializing Main Quest Sovngarde")
-
-Game.GetPlayer().ModActorValue("DragonSouls", 30)
+; Quest Setup
+DSilHand_M10SilverHunt.Start()
+DSilHand_M10SilverHunt.SetStage(10)
 ;END CODE
 EndFunction
 ;END FRAGMENT

@@ -697,12 +697,13 @@ bool Function enableActor(Actor npc, string actorName, string callerScript) glob
         Debug.Trace(loginfo + " **WARNING** CANNOT ENABLE ACTOR " + actorName + " Reason:IT IS EMPTY", 1)
         return false
     else
-        npc.Enable()
+        if (npc.IsEnabled() == false)
+            npc.Enable()
+        endif
         if(npc.IsDead() == true)
             Debug.Trace(loginfo + " -- NPC " + actorName + " is dead! => Resurrect!")
             npc.Resurrect()
         endif
-        ;npc.EvaluatePackage()
         return true
     endif
 endfunction

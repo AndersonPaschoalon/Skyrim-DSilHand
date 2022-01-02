@@ -2,19 +2,14 @@
 ;NEXT FRAGMENT INDEX 4
 Scriptname DSilHand_R02_QF_BeastExtermination Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY Beast
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Beast Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY BeastLocation
 ;ALIAS PROPERTY TYPE LocationAlias
 LocationAlias Property Alias_BeastLocation Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY ContractGiver
+;BEGIN ALIAS PROPERTY Beast
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_ContractGiver Auto
+ReferenceAlias Property Alias_Beast Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY LocationMarker
@@ -22,28 +17,43 @@ ReferenceAlias Property Alias_ContractGiver Auto
 ReferenceAlias Property Alias_LocationMarker Auto
 ;END ALIAS PROPERTY
 
-;BEGIN FRAGMENT Fragment_2
-Function Fragment_2()
-;BEGIN CODE
-; Talk to quest giver
-Debug.Trace(THIS_FILE + " #Stage 20")
-;END CODE
-EndFunction
-;END FRAGMENT
+;BEGIN ALIAS PROPERTY ContractGiver
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_ContractGiver Auto
+;END ALIAS PROPERTY
 
 ;BEGIN FRAGMENT Fragment_1
 Function Fragment_1()
 ;BEGIN CODE
 ; Go execute the contract
-Debug.Trace(THIS_FILE + " #Stage 10")
-Debug.MessageBox("Alias_ContractGiver:" + Alias_ContractGiver)
 
+; Quest setup
+Debug.Trace(THIS_FILE + " #Stage 10")
+SetActive(true)
+Start()
+SetObjectiveDisplayed(10)
+
+; ensure target is alive and location is revealed
 Debug.Trace(THIS_FILE + "  * Alias_Beast:<" + Alias_Beast + ">")
 Debug.Trace(THIS_FILE + "  * Alias_LocationMarker:<" + Alias_LocationMarker + ">")
 Debug.Trace(THIS_FILE + "  * Alias_BeastLocation:<" + Alias_BeastLocation + ">")
 Alias_Beast.GetReference().Enable()
 Alias_Beast.GetActorReference().Resurrect()
 Alias_LocationMarker.GetReference().AddToMap()
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_0
+Function Fragment_0()
+;BEGIN CODE
+; startup stage
+Debug.Trace(THIS_FILE + " #Stage 0")
+SetObjectiveDisplayed(10, false)
+SetObjectiveDisplayed(20, false)
+
+Alias_Beast.GetReference().Enable()
+Alias_Beast.GetActorReference().Resurrect()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -57,13 +67,11 @@ Debug.Trace(THIS_FILE + " #Stage 30")
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_0
-Function Fragment_0()
+;BEGIN FRAGMENT Fragment_2
+Function Fragment_2()
 ;BEGIN CODE
-; startup stage
-Debug.Trace(THIS_FILE + " #Stage 0")
-SetObjectiveDisplayed(10, false)
-SetObjectiveDisplayed(20, false)
+; Talk to quest giver
+Debug.Trace(THIS_FILE + " #Stage 20")
 ;END CODE
 EndFunction
 ;END FRAGMENT

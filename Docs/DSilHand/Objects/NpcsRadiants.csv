@@ -1,0 +1,52 @@
+NPC Type, Type Count, Location Name, Location ID, World Space, World Object Name, Script Variable Name, Enabler Parent, Location description
+,,,,,,,,,
+Werewolf, 01, Bronze Water Cave, BronzeWaterCave, Tamriel, DSilHand_R01BeastBoss01Ref, R02Werewolf_BronzeWaterCave, DSilHand_R01xMarker01, Cave
+Werewolf, 02, Tolvald's Cave, TolvaldsCave01, Tamriel, DSilHand_R01BeastBoss02Ref, R02Werewolf_TolvaldsCave01, DSilHand_R01xMarker02, Cave
+Werewolf, 03, Riverside Shack, RiversideShackExterior01, Tamriel, DSilHand_R01BeastBoss03Ref, R02Werewolf_RiversideShackExterior01, DSilHand_R01xMarker03, Abandoned Hut
+Werewolf, 04, Crystaldrift Cave, CrystaldriftCave01, Interiors, DSilHand_R01BeastBoss04Ref, R02Werewolf_CrystaldriftCave01, DSilHand_R01xMarker04, Cave
+# Werewolf, 05, Avanchnzel, AvanchnzelExterior Avanchnzel01, Interiors??, DSilHand_R01BeastBoss05Ref, R02Werewolf_Avanchnzel01, DSilHand_R01xMarker05, Dwammer Ruin
+Werewolf, 06, Darkshade, Darkshade01, Interiors, DSilHand_R01BeastBoss06Ref, R02Werewolf_Darkshade01, DSilHand_R01xMarker06, Cave
+Werewolf, 07, Greywater Grotto, GreywaterGrotto01, Interiors, DSilHand_R01BeastBoss07Ref, R02Werewolf_GreywaterGrotto01, DSilHand_R01xMarker07, Cave
+Werewolf, 08, Evergreen Grove, EvergreenGroveExterior, Tamriel, DSilHand_R01BeastBoss08Ref, R02Werewolf_EvergreenGroveExterior, DSilHand_R01xMarker08, Wildness
+Werewolf, 09, Greenspring Hollows, GreenSpringHollowExterior01, Tamriel, DSilHand_R01BeastBoss09Ref, R02Werewolf_GreenSpringHollowExterior01, DSilHand_R01xMarker09, Wildness
+Werewolf, 10, Brood Cavern, BroodCavern01, Interions, DSilHand_R01BeastBoss10Ref, R02Werewolf_BroodCavern01, DSilHand_R01xMarker10, Cave
+Werewolf, 11, Brinewater Grotto, BrinewaterGrottoStart, BrubewaterGrottoWorld, DSilHand_R01BeastBoss11Ref, R02Werewolf_BrinewaterGrottoStart, DSilHand_R01xMarker11, Cave
+Werewolf, 12, Windward Ruins, WindwardRuinsExterior, Tamriel, DSilHand_R01BeastBoss12Ref, R02Werewolf_WindwardRuinsExterior, DSilHand_R01xMarker12, Ancient Ruin
+Werewolf, 13, Roadside Ruins, RoadsideRuinsExterior, Tamriel, DSilHand_R01BeastBoss13Ref, R02Werewolf_RoadsideRuinsExterior, DSilHand_R01xMarker13, Ancient Ruin
+Werewolf, 14, Honeystrand Cave, HoneystrandGrove01, Interions, DSilHand_R01BeastBoss14Ref, R02Werewolf_HoneystrandGrove01, DSilHand_R01xMarker14, Cave
+Werewolf, 15, Pinefrost Tower, PinefrostTowerExterior01, Tamriel, DSilHand_R01BeastBoss15Ref, R02Werewolf_PinefrostTowerExterior01, DSilHand_R01xMarker15, Tower Ruin
+,,,,,,,,,
+Beast, 01, Bronze Water Cave, BronzeWaterCave, Tamriel, DSilHand_R02BeastBoss01Ref, R02Beast_BronzeWaterCave, DSilHand_R02xMarker01, Cave
+Beast, 02, Tolvald's Cave, TolvaldsCave01, Tamriel, DSilHand_R02BeastBoss02Ref, R02Beast_TolvaldsCave01, DSilHand_R02xMarker02, Cave
+Beast, 03, Riverside Shack, RiversideShackExterior01, Tamriel, DSilHand_R02BeastBoss03Ref, R02Beast_RiversideShackExterior01, DSilHand_R02xMarker03, Abandoned Hut
+Beast, 04, Crystaldrift Cave, CrystaldriftCave01, Interiors, DSilHand_R02BeastBoss04Ref, R02Beast_CrystaldriftCave01, DSilHand_R02xMarker04, Cave
+# Beast, 05, Avanchnzel, AvanchnzelExterior Avanchnzel01, Interiors??, DSilHand_R02BeastBoss05Ref, R02Beast_Avanchnzel01, DSilHand_R02xMarker05, Dwammer Ruin
+Beast, 06, Darkshade, Darkshade01, Interiors, DSilHand_R02BeastBoss06Ref, R02Beast_Darkshade01, DSilHand_R02xMarker06, Cave
+Beast, 07, Greywater Grotto, GreywaterGrotto01, Interiors, DSilHand_R02BeastBoss07Ref, R02Beast_GreywaterGrotto01, DSilHand_R02xMarker07, Cave
+Beast, 08, Evergreen Grove, EvergreenGroveExterior, Tamriel, DSilHand_R02BeastBoss08Ref, R02Beast_EvergreenGroveExterior, DSilHand_R02xMarker08, Wildness
+Beast, 09, Greenspring Hollows, GreenSpringHollowExterior01, Tamriel, DSilHand_R02BeastBoss09Ref, R02Beast_GreenSpringHollowExterior01, DSilHand_R02xMarker09, Wildness
+Beast, 10, Brood Cavern, BroodCavern01, Interions, DSilHand_R02BeastBoss10Ref, R02Beast_BroodCavern01, DSilHand_R02xMarker10, Cave
+Beast, 11, Brinewater Grotto, BrinewaterGrottoStart, BrubewaterGrottoWorld, DSilHand_R02BeastBoss11Ref, R02Beast_BrinewaterGrottoStart, DSilHand_R02xMarker11, Cave
+Beast, 12, Windward Ruins, WindwardRuinsExterior, Tamriel, DSilHand_R02BeastBoss12Ref, R02Beast_WindwardRuinsExterior, DSilHand_R02xMarker12, Ancient Ruin
+Beast, 13, Roadside Ruins, RoadsideRuinsExterior, Tamriel, DSilHand_R02BeastBoss13Ref, R02Beast_RoadsideRuinsExterior, DSilHand_R02xMarker13, Ancient Ruin
+Beast, 14, Honeystrand Cave, HoneystrandGrove01, Interions, DSilHand_R02BeastBoss14Ref, R02Beast_HoneystrandGrove01, DSilHand_R02xMarker14, Cave
+Beast, 15, Pinefrost Tower, PinefrostTowerExterior01, Tamriel, DSilHand_R02BeastBoss15Ref, R02Beast_PinefrostTowerExterior01, DSilHand_R02xMarker15, Tower Ruin
+,,,,,,,,,
+Witch,1, Alchemists Shack, AlchemistsShackExterior, Tamriel, DSilhand_R04GlenmorilWitch01Ref, R04Witch_AlchemistsShackExterior, DsilHand_R04xMarker01, Sourcery Place
+Witch,2, Witchmist Grove, WitchmistGroveExterior, Tamriel, DSilhand_R04GlenmorilWitch02Ref, R04Witch_WitchmistGroveExterior, DsilHand_R04xMarker02, Sourcery Place
+Witch,3, The Shadow Stone, DoomstoneFallForest01, Tamriel, DSilhand_R04GlenmorilWitch03Ref, R04Witch_DoomstoneFallForest01, DsilHand_R04xMarker03, Doomstone
+Witch,4, The Ritual Stone, DoomstoneTundra01, Tamriel, DSilhand_R04GlenmorilWitch04Ref, R04Witch_DoomstoneTundra01, DsilHand_R04xMarker04, Doomstone
+Witch,5, Sunderstone George, SunderstoneGeorge01, Interiors, DSilHand_R04GlenmorilWitch05Ref, R04Witch_SunderstoneGeorge01, DsilHand_R04xMarker05, Necomancer Dungeon
+# Witch,6, Swindler's Den, SwindlersDen01, Interiors, DSilHand_R04GlenmorilWitch06Ref, R04Witch_SwindlersDen01,x, Bandit Camp
+# Witch,7, Wolfskull Cave, WolfskullCave01, Interiors, DSilHand_R04GlenmorilWitch07Ref, R04Witch_WolfskullCave01,x, Necomancer Dungeon
+Witch,8, Kjenstag Ruins, KjenstagRuinsExterior, Tamriel, DSilHand_R04GlenmorilWitch08Ref, R04Witch_KjenstagRuinsExterior,DSilHand_R04xMarker08, Sourcery Place
+Witch,9, Halldirs Cairn, HalldirsCairn01, Interiors, DSilHand_R04GlenmorilWitch09Ref, R04Witch_HalldirsCairn01,DSilHand_R04xMarker09, Nordic Ruins
+# Witch,10, Falkreath Hold, POIPineForest24, Tamriel, DSilHand_R04GlenmorilWitch10Ref, R04Witch_POIPineForest24,x, Sourcery Place
+Witch,11, The Lady Stone, DoomstonePineForest01, Tamriel, DSilHand_R04GlenmorilWitch11Ref, R04Witch_DoomstonePineForest01,DSilHand_R04xMarker11, Doomstone 
+# Witch,12, Ilinalta's Deep, IlinaltasDeep01, Interiors, DSilHand_R04GlenmorilWitch12Ref, R04Witch_IlinaltasDeep01,x, Necomancer Dungeon
+Witch,13, South Brittleshin Pass, BrittleshinPass01, Interiors, DSilHand_R04GlenmorilWitch13Ref, R04Witch_BrittleshinPass01,DSilHand_R04xMarker13, Necomancer Dungeon
+Witch,14, Boulderfall Cave, BoulderfallCave01, Interiors, DSilHand_R04GlenmorilWitch14Ref, R04Witch_BoulderfallCave01,DSilHand_R04xMarker14, Necomancer Dungeon
+Witch,15, Ansilvund, AnsilvundExterior, Tamriel, DSilHand_R04GlenmorilWitch15Ref, R04Witch_AnsilvundExterior,DSilHand_R04xMarker15, Necomancer Dungeon
+Witch,16, Falkreath Watchtower, FalkreathWatchtowerExterior, Tamriel, DSilHand_R04GlenmorilWitch16Ref, R04Witch_FalkreathWatchtowerExterior,DSilHand_R04xMarker16, Necomancer Dungeon
+Witch,17, Hob's Fall Cave, HobsFallCave01, Interiors, DSilHand_R04GlenmorilWitch17Ref, R04Witch_HobsFallCave01,DSilHand_R04xMarker17, Necomancer Dungeon
+Witch,18, Morvunskar, Morvunskar01, Interiors, DSilHand_R04GlenmorilWitch18Ref, R04Witch_Morvunskar01,DSilHand_R04xMarker18, Necomancer Dungeon

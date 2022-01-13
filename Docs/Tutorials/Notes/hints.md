@@ -41,7 +41,6 @@ GetOwningQuest().SetStage(10)
 
 Items para fazer animação de absorção de dragão:
 
->>>>>>>>>>>>>>>>>>>>
 Objeto  MQ105TombActivator
 ID do Activator -> WindCallerTomb
 

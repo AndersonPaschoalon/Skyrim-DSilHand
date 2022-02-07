@@ -740,7 +740,9 @@ bool Function enableObject(ObjectReference obj, string objName, string callerScr
     string loginfo = logPrefix(callerScript)
     Debug.Trace(loginfo + " -- Enable Object " + objName + " <" + obj + ">")
     if(obj != None)
-        obj.Enable()
+        if (obj.IsEnabled() == false)
+            obj.Enable()
+        endif
         return true
     else
         Debug.Trace(loginfo + " **ERROR** ObjectReference obj to <" + objName + "> is EMPTY!", 2)

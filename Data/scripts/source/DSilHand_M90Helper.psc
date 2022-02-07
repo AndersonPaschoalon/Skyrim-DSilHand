@@ -66,6 +66,12 @@ ReferenceAlias Property Witch04  Auto
 ReferenceAlias Property Witch05  Auto  
 {Reference Alias to the witch 05}
 
+Quest Property DSilHand_A03PlayerHouse  Auto  
+{Enable palyer house quest.}
+
+Quest Property DSilHand_R00Controller  Auto  
+{Controller of contract quests. To startup, set the stage 5.}
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Member variables
@@ -77,6 +83,8 @@ int KODLACK_WAITING_TIME = 10
 int RANK_SILVER_HAND_LEADER = 3
 int PLAYER_IS_LEADER = 1
 int STAGE_TOTEMS_QUEST_STARTUP = 5
+int STAGE_A03_PLAYERHOUSE = 10
+int STAGE_R00_CONTRACTS = 5
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -209,6 +217,15 @@ Function playerSilverHandLeadership(bool makePlayerLeader)
         creatAlarmForS02()
         ; give whuulthrad
         giveWuulthradToPlayer()
+        ; A03 - Player house quest
+        ; Make the player own the house on gallows rock, and allow him to decorate it
+        Debug.Trace(THIS_FILE + " -- A03 - Setup Player house quest")
+        DSilHand_A03Helper a03Helper = (DSilHand_A03PlayerHouse as DSilHand_A03Helper)
+        a03Helper.playerAcquireHouse()
+        DSilHand_A03PlayerHouse.SetStage(STAGE_A03_PLAYERHOUSE)  
+        ; R00 - Radiant quests controller
+        Debug.Trace(THIS_FILE + " -- R00 - Setup Radiant quests controller")
+        DSilHand_R00Controller.SetStage(STAGE_R00_CONTRACTS)
     endif
     ; do some log
     logPlayerSilverHandRank()
@@ -393,6 +410,7 @@ Event OnUpdateGameTime()
     Debug.Trace(THIS_FILE + " --  Enable S02 quest start: DSilHand_S02IconoclasticRevenge.SetStage():" + STAGE_TOTEMS_QUEST_STARTUP)
     DSilHand_S02IconoclasticRevenge.SetStage(STAGE_TOTEMS_QUEST_STARTUP)
 EndEvent
+
 
 
 

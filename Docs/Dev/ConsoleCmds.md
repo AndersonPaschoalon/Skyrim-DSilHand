@@ -71,4 +71,13 @@ player.moveto {NPCrefID}
 
 Move to an NPC. Note that if the NPC is dead, the Dragonborn will be moved to the Dead Body Cleanup Cell where the NPC can be resurrected using the console command, but will need to use the coc command to return.
 
+## Time commands
+
+<pre><b>
+set timescale to <#>
+</b></pre>
+
+Set the rate at which time passes (20 is the default, 1 is realtime).
+
+
 

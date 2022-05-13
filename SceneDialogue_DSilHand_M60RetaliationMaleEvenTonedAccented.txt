@@ -1,0 +1,7 @@
+LINE ID	QUEST	SCENE	ALIAS	VOICE TYPE	FILENAME	RESPONSE TEXT	SUPPORTING DIALOGUE	EMOTION	SCRIPT NOTES	HEADTRACK TARGET	SCENE PHASE
+FFFFFFFF	DSilHand_M60Retaliation	DSilHand_M60_SceneFjolDiscourse	Fjol	MaleEvenTonedAccented	DSilHand_M60Retaliation__00030A66_1	Listen to brothers! We have important news from Gallows Rock!		Neutral 50		xHeadFjol	0
+FFFFFFFF	DSilHand_M60Retaliation	DSilHand_M60_SceneFjolDiscourse	Fjol	MaleEvenTonedAccented	DSilHand_M60Retaliation__00030A69_1	Listen brothers of Hunt! We just had a victory over the Companions. They assaulted Gallows Rock, but we were able to defeat them!		Happy 50			2
+FFFFFFFF	DSilHand_M60Retaliation	DSilHand_M60_SceneFjolDiscourse	Fjol	MaleEvenTonedAccented	DSilHand_M60Retaliation__00030A69_2	Three members of the circle have fallen, including Aela and Skjor.		Neutral 50			2
+FFFFFFFF	DSilHand_M60Retaliation	DSilHand_M60_SceneFjolDiscourse	Fjol	MaleEvenTonedAccented	DSilHand_M60Retaliation__00030A69_3	 Unfortunately our leader Krev have perished in the battle. 		Neutral 50			2
+FFFFFFFF	DSilHand_M60Retaliation	DSilHand_M60_SceneFjolDiscourse	Fjol	MaleEvenTonedAccented	DSilHand_M60Retaliation__00030A69_4	He guided us for our these years, and turned the Silver Hands stronger than ever.		Neutral 50			2
+FFFFFFFF	DSilHand_M60Retaliation	DSilHand_M60_SceneFjolDiscourse	Fjol	MaleEvenTonedAccented	DSilHand_M60Retaliation__00030A69_5	Now we celebrate for the honor of his name, and his glorious entrance to Sovngarde!		Neutral 50			2

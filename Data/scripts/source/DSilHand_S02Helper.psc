@@ -38,10 +38,10 @@ Actor Property CragwallowActor02  Auto
 {Cragwallow's Totem Owner.}
 
 Actor Property MorvunskarActor01  Auto  
-{Morvunskar's Totem Owner.}
+{Darklight Tower's Totem Owner.}
 
 Actor Property MorvunskarActor02  Auto  
-{Morvunskar's Totem Owner.}
+{Darklight Tower's Totem Owner.}
 
 WEAPON Property DSilHand_LunarSilverSword  Auto  
 {Lunar Silver Sword.}

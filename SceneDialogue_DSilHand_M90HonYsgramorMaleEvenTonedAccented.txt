@@ -1,0 +1,4 @@
+LINE ID	QUEST	SCENE	ALIAS	VOICE TYPE	FILENAME	RESPONSE TEXT	SUPPORTING DIALOGUE	EMOTION	SCRIPT NOTES	HEADTRACK TARGET	SCENE PHASE
+FFFFFFFF	DSilHand_M90HonYsgramor	DSilHand_M90_SceneOpenTomb	Fjol	MaleEvenTonedAccented	DSilHand_M90HonYsgramor__00052B83_1	Do you see? Ysgramor axe is missing on his statue. 		Happy 50			0
+FFFFFFFF	DSilHand_M90HonYsgramor	DSilHand_M90_SceneOpenTomb	Fjol	MaleEvenTonedAccented	DSilHand_M90HonYsgramor__00052B83_2	I believe Wuulthrad is the key to open.		Happy 50			0
+FFFFFFFF	DSilHand_M90HonYsgramor	DSilHand_M90_SceneOpenTomb	Fjol	MaleEvenTonedAccented	DSilHand_M90HonYsgramor__00052B85_1	That's it! It's opening!		Happy 70		StatueActivator	3

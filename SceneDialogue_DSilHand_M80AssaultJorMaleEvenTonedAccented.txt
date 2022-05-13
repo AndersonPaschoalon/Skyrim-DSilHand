@@ -1,4 +1,8 @@
 LINE ID	QUEST	SCENE	ALIAS	VOICE TYPE	FILENAME	RESPONSE TEXT	SUPPORTING DIALOGUE	EMOTION	SCRIPT NOTES	HEADTRACK TARGET	SCENE PHASE
+FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneWuuthradReassemble	Fjol	MaleEvenTonedAccented	DSilHand_M80AssaultJor__0004591E_1	Brothers and sisters. Today is a great day that will be remembered through the ages.		Happy 70			4
+FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneWuuthradReassemble	Fjol	MaleEvenTonedAccented	DSilHand_M80AssaultJor__0004591E_2	Bards will sing songs calling our names, in memory  of what we did today. 		Happy 50			4
+FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneWuuthradReassemble	Fjol	MaleEvenTonedAccented	DSilHand_M80AssaultJor__0004591E_3	In the very same day, we freed Skyrim's heart from the foul Hircine influence, and reassembled the ancient axe: Wuuthrad.		Neutral 50			4
+FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneWuuthradReassemble	Fjol	MaleEvenTonedAccented	DSilHand_M80AssaultJor__0004591E_4	Today Ysgramor's honor over this land is finally restored!		Neutral 50			4
 FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneAssault	Fjol	MaleEvenTonedAccented	DSilHand_M80AssaultJor__00042853_1	Here we are brothers, this will be the end for them.		Anger 50			0
 FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneAssault	Fjol	MaleEvenTonedAccented	DSilHand_M80AssaultJor__00042853_2	I hope you're hungry!		Anger 50			0
 FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneAssault	Fjol	MaleEvenTonedAccented	DSilHand_M80AssaultJor__00042853_3	Today, let's eat roast dog meat on Skyforge!		Anger 50			0
@@ -44,7 +48,3 @@ FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneArmistice2	FakeVignar	MaleOldG
 FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneArmistice2	FakeVignar	MaleOldGrumpy	DSilHand_M80AssaultJor__00048F20_4		This would escalate to another endless war among our factions once again.	Sad 70		Fjol	7
 FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneArmistice2	FakeVignar	MaleOldGrumpy	DSilHand_M80AssaultJor__00048F20_5		You and our group should not come to Whiterun. At least not for a long time, until the wounds are healed... 	Sad 70		Fjol	7
 FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneArmisticeCall	Fjol	MaleEvenTonedAccented	DSilHand_M80AssaultJor__0004A4BF_1	Brothers, put down your weapons!! 		Anger 50			0
-FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneWuuthradReassemble	Fjol	MaleEvenTonedAccented	DSilHand_M80AssaultJor__0004591E_1	Brothers and sisters. Today is a great day that will be remembered through the ages.		Happy 70			4
-FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneWuuthradReassemble	Fjol	MaleEvenTonedAccented	DSilHand_M80AssaultJor__0004591E_2	Bards will sing songs calling our names, in memory  of what we did today. 		Happy 50			4
-FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneWuuthradReassemble	Fjol	MaleEvenTonedAccented	DSilHand_M80AssaultJor__0004591E_3	In the very same day, we freed Skyrim's heart from the foul Hircine influence, and reassembled the ancient axe: Wuuthrad.		Neutral 50			4
-FFFFFFFF	DSilHand_M80AssaultJor	DSilHand_M80_SceneWuuthradReassemble	Fjol	MaleEvenTonedAccented	DSilHand_M80AssaultJor__0004591E_4	Today Ysgramor's honor over this land is finally restored!		Neutral 50			4

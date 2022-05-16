@@ -22,7 +22,6 @@ This document enumerates the changes on the Vanilla Pluings.
 
 ## (Quest) C00
 
-
 * Location: `Character > Quest > Faction > Companions> Story > C00` 
 
 * Change Description:
@@ -31,5 +30,11 @@ This document enumerates the changes on the Vanilla Pluings.
         - added script "DSilHand_M10SilverHunt.SetStage(100)"
     - Script modified:
     - QF_C00_0004B2D9
+
+## (Location) GallowsRockLocation
+
+* Location: `WorldData > Location > TamrielLocation > EastmarchHoldLocation > GallowsRockLocation`
+
+* Change Description: On Gallows Rock Location editor, in the section "Keywords" the keyword "LocTypeBanditCamp" was removed. That's because the fort "Gallows Rock" should not be a target of "Bnadit Bounty"  quests. It was not necessary to remove this keyword from Driftsahde, because it is not present on ints Location object. 
 
 

@@ -2,6 +2,9 @@
 
 This is the Dawn of the Silver Hand Documentation. 
 
+## Vanilla Changes
+- [Vanilla Changes](./VanillaChanges/VanillaChanges.md)
+
 ## Quests Documentation 
 
 - [Quest M10](./Quests/M10.md)

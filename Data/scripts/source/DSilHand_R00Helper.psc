@@ -422,10 +422,14 @@ ObjectReference Property DSilHand_R04xMarker18  Auto
 ;
 String THIS_FILE = "(DSilHand_R00Helper.psc) "
 ; probability of each radiant. The sum MUST be 100
-int PROB_R1 = 25
-int PROB_R2 = 25
-int PROB_R3 = 30
-int PROB_R4 = 20
+;int PROB_R1 = 25
+;int PROB_R2 = 25
+;int PROB_R3 = 30
+;int PROB_R4 = 20
+int PROB_R1 = 5
+int PROB_R2 = 5
+int PROB_R3 = 85
+int PROB_R4 = 5
 ; stage of radiant selection
 int STAGE_SELECT_RESET = 0
 int STAGE_SELECT_R1 = 10
@@ -477,10 +481,10 @@ int GoldReward = 0
 ; Randomly select next radiant quest to be played. It tries to start the
 ; the radiant quest, and retuns its ID (R01 returns 10, R02 returns 20, 
 ; R03 returns 30, R04 returns 40)  following this rule:
-; 1. Wolf Hunt - 30% 
-; 2. Beast Extermination - 30%
+; 1. Wolf Hunt - 25% 
+; 2. Beast Extermination - 25%
 ; 3. Werewolf Lair - 30%
-; 4. Witch Hunter - 10%
+; 4. Witch Hunter - 20%
 ; This also clears the quest giver -- just in case.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 int Function selectNextRadiantStage()
@@ -491,10 +495,10 @@ int Function selectNextRadiantStage()
     int radQuestNextStage = STAGE_SELECT_RESET
     ; clears controller state(event flags) before starting the next quest
     restControllerState()
-    ; 1. Wolf Hunt           - 30%  0:30     
-    ; 2. Beast Extermination - 30%  31:60
-    ; 3. Werewolf Lair       - 30%  61:90
-    ; 4. Witch Hunter        - 10%  91:100
+    ; 1. Wolf Hunt           - 25%  0:25     
+    ; 2. Beast Extermination - 25%  26:50
+    ; 3. Werewolf Lair       - 30%  51:80
+    ; 4. Witch Hunter        - 20%  81:100
     int limR1 = PROB_R1
     int limR2 = limR1 + PROB_R2
     int limR3 = limR2 + PROB_R3
@@ -502,7 +506,7 @@ int Function selectNextRadiantStage()
     ; (2) Select the first quest to start
     ; Get a random number between 0 and 100
     int random = Utility.RandomInt(0, 100)
-    Debug.Trace(THIS_FILE + " -- selectNextRadiantStage() - random = " + random)
+    Debug.Trace(THIS_FILE + " -- selectNextRadiantStage() - RANDOM NUMBER PICKED = " + random)
     if (random <= limR1)
         Debug.Trace(THIS_FILE + " -- selectNextRadiantStage() - Wolf Hunt")
         radQuestNextStage = STAGE_SELECT_R1
@@ -516,10 +520,6 @@ int Function selectNextRadiantStage()
         Debug.Trace(THIS_FILE + " -- selectNextRadiantStage() - Witch Hunter")
         radQuestNextStage = STAGE_SELECT_R4
     endif
-    ;; ** DELETE - DEBUG: SELEC ANOTHER QUEST TO START FIRST
-    ;int debugRadQuest = STAGE_SELECT_R4
-    ;radQuestNextStage = debugRadQuest 
-    ;; ** DELETE - DEBUG: SELEC ANOTHER QUEST TO START FIRST
 
     ;; (3) Enable all quest targets, so the quest should not fail to start
     enableAllTartgets()
@@ -629,7 +629,7 @@ Function startsRadiantQuest(int nextR00Stage, int questGiverId)
     SetStage(nextR00Stage)
 
     ; (4) Safenet in case the radiant quest fail to properly initialize
-    completRadQuestIfFailed(questStartRetVal) 
+    completRadQuestIfFailed(questStartRetVal, currentStage) 
 EndFunction 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -642,7 +642,7 @@ EndFunction
 Function creatAlarmReward()
     Debug.Trace(THIS_FILE + " -- creatAlarmReward()")
     int currRadQuest = getCurrentRadiantQuest()
-    ; Create alarm of onw day
+    ; Create alarm of one day
     EnableSetGold = true
     ; Reward: 500 + PlayerLevel*10
     if (currRadQuest == RADIANT_QUEST_R01 || currRadQuest == RADIANT_QUEST_R02 || currRadQuest == RADIANT_QUEST_R04)
@@ -777,7 +777,7 @@ Actor Function getRadiantQuestTarget()
     elseif (radQuestNumber == RADIANT_QUEST_R02)
         targetActor = R02Target.GetActorReference()
     elseif(radQuestNumber == RADIANT_QUEST_R03)
-        targetActor = R02Target.GetActorReference()
+        targetActor = R03Target.GetActorReference()
     elseif(radQuestNumber == RADIANT_QUEST_R04)
         targetActor = R04Target.GetActorReference()
     else ; returns target from RADIANT_QUEST_R01 as default
@@ -999,12 +999,89 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 bool Function completesGivenRadiantQuest(Quest radQuest, string radQuestLabel)
     Debug.Trace(THIS_FILE + " -- completeRadiantQuest() => " + radQuestLabel)
-    radQuest.SetObjectiveCompleted(OBJECTIVE_TALK_QUESTGIVER)
+    radQuest.CompleteAllObjectives()
+    ; radQuest.SetObjectiveCompleted(OBJECTIVE_TALK_QUESTGIVER)
     bool retVal = radQuest.SetStage(STAGE_COMPLETE_RADIANT)
     radQuest.CompleteQuest()
     radQuest.Stop()
     return retVal
 Endfunction
+
+;; TEST >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+;; TENTAR RESOLVER O PROBLEMA DE QUANDO A QUEST FALHA AO SE INICIALIZAR
+;; TENTAR RESETAR E STARTAR A QUEST 50X ANTES DE DESISTIR
+;; 
+
+bool Function restartQuestHelper(Quest questObj, int questRadStage)
+	; re-initializes
+	questObj.Reset()
+	if startRadQuestStoryManager(questRadStage) == false
+		return false
+	endif
+	; first stage
+	;if  forceSetStage(questObj, 10) == false
+	;	return false
+	;endif
+	ObjectReference questGiverObj = getsQuestGiverObject()
+	;if (questGiverObj == None)
+	;	Debug.Trace(THIS_FILE + "**ERROR** QUEST GIVER OBJECT IS EMPTY!", 2)
+	;	return false
+	if (questRadStage == STAGE_SELECT_R1)
+	    R01ContractGiver.Clear()
+        R01ContractGiver.ForceRefTo(questGiverObj)
+	elseif (questRadStage == STAGE_SELECT_R2)
+	    R02ContractGiver.Clear()
+        R02ContractGiver.ForceRefTo(questGiverObj)	
+	elseif (questRadStage == STAGE_SELECT_R3)
+	    R03ContractGiver.Clear()
+        R03ContractGiver.ForceRefTo(questGiverObj)	
+	elseif (questRadStage == STAGE_SELECT_R4)
+	    R04ContractGiver.Clear()
+        R04ContractGiver.ForceRefTo(questGiverObj)	
+	else
+		Debug.Trace(THIS_FILE + "**ERROR** INVALID STAGE_SELECT VALUE " + questRadStage, 2)
+		return false
+	endif
+    Utility.Wait(5.0)
+    forceSetStage(questObj, 10)
+	return true
+EndFunction
+
+
+bool Function  restartQuest(int questRadStage)
+	bool questStartRetVal = false 
+	int i = 0
+	while (i < 50)
+		; try to restart the quest
+		if (questRadStage == STAGE_SELECT_R1)
+			questStartRetVal = restartQuestHelper(DSilHand_R01WolfHunt, STAGE_SELECT_R1)
+		elseif (questRadStage == STAGE_SELECT_R2)
+			questStartRetVal = restartQuestHelper(DSilHand_R02BeastExtermination, STAGE_SELECT_R2)
+		elseif (questRadStage == STAGE_SELECT_R3)
+			questStartRetVal = restartQuestHelper(DSilHand_R03WerewolfLair, STAGE_SELECT_R3)
+		elseif (questRadStage == STAGE_SELECT_R4)
+			questStartRetVal = restartQuestHelper(DSilHand_R04WitchHunter, STAGE_SELECT_R4)
+		else
+			Debug.Trace(THIS_FILE + "**ERROR** INVALID STAGE_SELECT VALUE " + questRadStage, 2)
+			return false
+		endif	
+		if questStartRetVal == true
+			Utility.Wait(0.1)
+			Actor target = getRadiantQuestTarget()
+			if (target != None)
+				return true
+			endif
+		endif 
+		; Wait and try again
+		Utility.Wait(0.2)
+		i += 1
+	endWhile
+	return false
+EndFunction
+
+
+
+;; TEST <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 ;
 ; Private Game Modifiers and Actions (actions that are not going to be applied alone)
@@ -1024,21 +1101,31 @@ Endfunction
 ; will be completed. Another quests can be started later normally, and the 
 ; player will receive the reward anyway.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-bool Function completRadQuestIfFailed(bool questStartResult=true)
+Function completRadQuestIfFailed(bool questStartResult=true, int questSelectStage)
+    Debug.Trace(THIS_FILE + "#############################################################################")
+    Debug.Trace(THIS_FILE + "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
     Debug.Trace(THIS_FILE + " -- completRadQuestIfFailed()")
-    bool retVal = true
     Actor target = getRadiantQuestTarget()
+    Debug.Trace(THIS_FILE + " target:" + target)
+    Debug.Trace(THIS_FILE + " questStartResult:" + questStartResult)
+    Debug.MessageBox(THIS_FILE + " -- completRadQuestIfFailed() target:" + target + ", questStartResult:" + questStartResult)
     if(target == None || questStartResult == false)
         Debug.Trace(THIS_FILE + " **WARNING** completRadQuestIfFailed() - target is None  in the quest " + CurrentRadiantQuest, 1)
+        Debug.Trace(THIS_FILE + " try to restart radiant quest") 
+        bool start = restartQuest(questSelectStage)
+        if (start == true)
+            Debug.Trace(THIS_FILE + "QUEST RESTARTED SUCCESSFULLY")
+            return
+        endif 
         ; Show a message to the player, since it is a error
-        Debug.MessageBox("*ERROR* An error ocurred while trying to start the quest. The quest will be completed. Contact the Mod developer to fix this issue. Sorry for the inconvenience.")
+        String errorMessagePopup = "*ERROR* An error ocurred while trying to start the quest. The quest will be completed. Contact the Mod developer to fix this issue. Sorry for the inconvenience."
+        Debug.Trace(THIS_FILE + errorMessagePopup, 2)
+        Debug.MessageBox(errorMessagePopup)
         ; complete radiant
         completeRadiantQuest()
-        ;completesGivenRadiantQuest(CurrentRadiantQuest, CurrentRadiantQuest)
         ; reset controller
         SetStage(STAGE_CONTROLLER_SETUP_ALARMS)
     endif
-    return retVal
 Endfunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1178,7 +1265,7 @@ Function enableAllTartgets(int questId=0)
 EndFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Public Method
+; Private Method
 ; Input: Actor target - actor to not be disables.
 ; Output: void
 ;
@@ -1449,6 +1536,7 @@ Function disableAllTargetsExcept(Actor target, int questId=0)
         endif        
     endif  
 EndFunction
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Private Method

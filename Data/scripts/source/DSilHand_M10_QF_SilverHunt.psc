@@ -7,9 +7,24 @@ Scriptname DSilHand_M10_QF_SilverHunt Extends Quest Hidden
 ReferenceAlias Property Alias_DriftshadeGuard Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY GiantTroll
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_GiantTroll Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY Krev
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_Krev Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY GallowsGuard
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_GallowsGuard Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Kurdak
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Kurdak Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Skull
@@ -22,14 +37,14 @@ ReferenceAlias Property Alias_Skull Auto
 ReferenceAlias Property Alias_SpyWhiterun Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY SENAAR
+;BEGIN ALIAS PROPERTY fjol
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SENAAR Auto
+ReferenceAlias Property Alias_fjol Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY GiantTroll
+;BEGIN ALIAS PROPERTY GallowsEntranceTrigger
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GiantTroll Auto
+ReferenceAlias Property Alias_GallowsEntranceTrigger Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY DriftshadeEntranceTrigger
@@ -42,33 +57,10 @@ ReferenceAlias Property Alias_DriftshadeEntranceTrigger Auto
 ReferenceAlias Property Alias_hillara Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY GallowsGuard
+;BEGIN ALIAS PROPERTY SENAAR
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GallowsGuard Auto
+ReferenceAlias Property Alias_SENAAR Auto
 ;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY GallowsEntranceTrigger
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GallowsEntranceTrigger Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY fjol
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_fjol Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Kurdak
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Kurdak Auto
-;END ALIAS PROPERTY
-
-;BEGIN FRAGMENT Fragment_3
-Function Fragment_3()
-;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE 10")
-;END CODE
-EndFunction
-;END FRAGMENT
 
 ;BEGIN FRAGMENT Fragment_0
 Function Fragment_0()
@@ -85,6 +77,14 @@ kmyQuest.failIfPlayerIsCompanions()
 EndFunction
 ;END FRAGMENT
 
+;BEGIN FRAGMENT Fragment_5
+Function Fragment_5()
+;BEGIN CODE
+Debug.Trace(THIS_FILE + "#STAGE 20")
+;END CODE
+EndFunction
+;END FRAGMENT
+
 ;BEGIN FRAGMENT Fragment_11
 Function Fragment_11()
 ;BEGIN CODE
@@ -95,31 +95,6 @@ Game.GetPlayer().RemoveItem(Alias_Skull.GetReference())
 
 ; Enable Krev
 DSilHand_Utils.enableActorRefAlias(Alias_Krev, "Alias_Krev", THIS_FILE)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_16
-Function Fragment_16()
-;BEGIN AUTOCAST TYPE DSilHand_M10Helper
-Quest __temp = self as Quest
-DSilHand_M10Helper kmyQuest = __temp as DSilHand_M10Helper
-;END AUTOCAST
-;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE 100 => FAILED")
-
-;
-; Setup after joined Companions
-; 
-Debug.Trace(THIS_FILE + "-- kmyQuest.setupCompanionsJoin() ")
-kmyQuest.setupCompanionsJoin() 
-
-
-;
-; Set objective failed
-;
-Debug.Trace(THIS_FILE +" -- SetObjectiveFailed(100)")
-SetObjectiveFailed(100)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -150,6 +125,7 @@ Game.GetPlayer().AddItem(ArmorBanditGauntlets)
 Game.GetPlayer().AddItem(ArmorIronBandedShield)
 Game.GetPlayer().AddItem(SilverSword)
 Game.GetPlayer().AddItem(Book2CommonSongOfReturnV7)
+Game.GetPlayer().AddItem(RestoreHealth03)
 
 ;
 ; Setup next quest
@@ -157,14 +133,6 @@ Game.GetPlayer().AddItem(Book2CommonSongOfReturnV7)
 Debug.Trace(THIS_FILE + "-- Starting next quest! -- but do not display")
 DSilHand_M20AngarvundesTreasure.SetStage(10)
 ; DSilHand_M20AngarvundesTreasure.SetObjectiveDisplayed(10)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_9
-Function Fragment_9()
-;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE 40")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -181,10 +149,43 @@ DSilHand_Utils.enableActorRefAlias(Alias_GiantTroll, "Alias_GiantTroll", THIS_FI
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_5
-Function Fragment_5()
+;BEGIN FRAGMENT Fragment_16
+Function Fragment_16()
+;BEGIN AUTOCAST TYPE DSilHand_M10Helper
+Quest __temp = self as Quest
+DSilHand_M10Helper kmyQuest = __temp as DSilHand_M10Helper
+;END AUTOCAST
 ;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE 20")
+Debug.Trace(THIS_FILE + "#STAGE 100 => FAILED")
+
+;
+; Setup after joined Companions
+; 
+Debug.Trace(THIS_FILE + "-- kmyQuest.setupCompanionsJoin() ")
+kmyQuest.setupCompanionsJoin() 
+
+
+;
+; Set objective failed
+;
+Debug.Trace(THIS_FILE +" -- SetObjectiveFailed(100)")
+SetObjectiveFailed(100)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_3
+Function Fragment_3()
+;BEGIN CODE
+Debug.Trace(THIS_FILE + "#STAGE 10")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_9
+Function Fragment_9()
+;BEGIN CODE
+Debug.Trace(THIS_FILE + "#STAGE 40")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -235,3 +236,6 @@ Book Property Book2CommonSongOfReturnV7  Auto
 
 String Property THIS_FILE  Auto  
 {File name used in the logs.}
+
+Potion Property RestoreHealth03  Auto  
+{Reward for joining: Potion of Plentiful Healing.}

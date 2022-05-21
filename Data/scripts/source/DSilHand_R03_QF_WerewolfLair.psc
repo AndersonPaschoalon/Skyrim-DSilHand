@@ -2,6 +2,11 @@
 ;NEXT FRAGMENT INDEX 6
 Scriptname DSilHand_R03_QF_WerewolfLair Extends Quest Hidden
 
+;BEGIN ALIAS PROPERTY MapMarker
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_MapMarker Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY SelectedHold
 ;ALIAS PROPERTY TYPE LocationAlias
 LocationAlias Property Alias_SelectedHold Auto
@@ -15,11 +20,6 @@ ReferenceAlias Property Alias_BanditBoss Auto
 ;BEGIN ALIAS PROPERTY ContractGiver
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_ContractGiver Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY MapMarker
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_MapMarker Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY BountyLocation
@@ -37,11 +37,11 @@ SetObjectiveDisplayed(20, false)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_1
-Function Fragment_1()
+;BEGIN FRAGMENT Fragment_2
+Function Fragment_2()
 ;BEGIN CODE
-; Talk to quest giver
-Debug.Trace(THIS_FILE + " #Stage 20")
+; Complete quest
+Debug.Trace(THIS_FILE + " #Stage 30")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -52,29 +52,32 @@ Function Fragment_3()
 ; Go execute the contract
 
 ; Quest setup
-Debug.Trace(THIS_FILE + " #Stage 10")
-SetActive(true)
-Start()
-SetObjectiveDisplayed(10)
-
-; ensure target is alive and location is revealed
-Debug.Trace(THIS_FILE + "  * Alias_SelectedHold:<" + Alias_SelectedHold + ">")
-Debug.Trace(THIS_FILE + "  * Alias_BountyLocation:<" + Alias_BountyLocation + ">")
-Debug.Trace(THIS_FILE + "  * Alias_MapMarker:<" + Alias_MapMarker + ">")
-Debug.Trace(THIS_FILE + "  * Alias_BanditBoss:<" + Alias_BanditBoss + ">")
-Debug.Trace(THIS_FILE + "  * Alias_ContractGiver:<" + Alias_ContractGiver + ">")
-Alias_BanditBoss.GetReference().Enable()
-Alias_BanditBoss.GetActorReference().Resurrect()
-Alias_MapMarker.GetReference().AddToMap()
+if (Alias_BanditBoss.GetReference() != None)
+    Debug.Trace(THIS_FILE + " #Stage 10")
+    SetActive(true)
+    Start()
+    SetObjectiveDisplayed(10)
+    ; ensure target is alive and location is revealed
+    Debug.Trace(THIS_FILE + "  * Alias_SelectedHold:<" + Alias_SelectedHold + ">")
+    Debug.Trace(THIS_FILE + "  * Alias_BountyLocation:<" + Alias_BountyLocation + ">")
+    Debug.Trace(THIS_FILE + "  * Alias_MapMarker:<" + Alias_MapMarker + ">")
+    Debug.Trace(THIS_FILE + "  * Alias_BanditBoss:<" + Alias_BanditBoss + ">")
+    Debug.Trace(THIS_FILE + "  * Alias_ContractGiver:<" + Alias_ContractGiver + ">")
+    Alias_BanditBoss.GetReference().Enable()
+    Alias_BanditBoss.GetActorReference().Resurrect()
+    Alias_MapMarker.GetReference().AddToMap()
+else
+    Debug.Trace(THIS_FILE + "**ERROR** Bandit Boss target is EMPTY!. This quest must be RESTARTED.")
+endif
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_2
-Function Fragment_2()
+;BEGIN FRAGMENT Fragment_1
+Function Fragment_1()
 ;BEGIN CODE
-; Complete quest
-Debug.Trace(THIS_FILE + " #Stage 30")
+; Talk to quest giver
+Debug.Trace(THIS_FILE + " #Stage 20")
 ;END CODE
 EndFunction
 ;END FRAGMENT

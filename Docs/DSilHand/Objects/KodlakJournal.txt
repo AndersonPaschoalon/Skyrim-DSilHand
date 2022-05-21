@@ -1,0 +1,38 @@
+<font face='$HandwrittenFont'>In my dream, I see the line of Harbingers start with Ysgramor. Each of them ascends to Sovngarde, until we come to Terrfyg, who first turned us to the ways of the beast. He tries to enter Sovngarde, but before he can even approach Tsun, he is set upon by a great wolf, who pulls him into the Hunting Grounds, where Hircine laughs with welcoming arms. 
+
+Terrfyg seems regretful, but also eager to join Hircine after a lifetime of service as a beast. 
+
+Then I see every next Harbinger turn away from Sovngarde and enter the Hunting Grounds of their own accord. Until it comes to me, and I see great Tsun on the misty horizon, beckoning me. It appears I have a choice. And then, at my side, a stranger I had not seen before. As I look into <Alias.PronounPosObj=Player> eyes, we turn to see the same wolf who dragged away Terrfyg, and <Alias.Pronoun=Player> and I draw weapons together. 
+
+I realize this is only a dream, but a strong enough dream to inspire a man like me to take to writing, so it must be of some import. 
+[pagebreak]
+I've spoken of my thoughts to the Circle, withholding the part about the stranger lest Skjor worry I will no longer seek his counsel, and I was not surprised to see them torn by it. Skjor and Aela are strong in the ways of the beast, and even seemed to suggest that the Hunting Grounds would be their choice of afterlife, if it were truly a choice. 
+
+Vilkas seemed most troubled. The boy is as fierce as a sabre cat in battle, but his heart's fire burns too brightly at times. He felt deceived, and I don't blame him. Farkas didn't know what to think, but I believe he will come around with me and his brother eventually. He usually does. 
+
+I don't know what to do about Skjor and Aela. I know they respect the Companions, and me, but they take to the blood more deeply than the rest of us.
+[pagebreak]
+Fortune smiles upon us. Yesterday, Vilkas was telling me how difficult it had been for him to give up his transformations. Until we can pursue a true cure, the twins and I have chosen not to give in to the beastblood. For me, it's provided a clearer head, but Vilkas seems to be suffering a bit for it. Farkas seems completely untroubled. That boy continues to amaze with his fortitude. 
+
+While Vilkas was confiding, through the shadows of Jorrvaskr, I saw a newcomer approach, who wished to join our numbers. It was the stranger from my dream, the one who would stand with me against the beast. Vilkas began speaking obliquely, not wishing to air our problems in front of our guest, and I had to be doubly cautious to not reveal anything of our secrets to the newcomer while also not revealing the details of my dream to Vilkas. I don't know how the politicians deal with these sorts of machinations daily. 
+
+In any case, I've sent Vilkas to test the newcomer. We'll see if <Alias.Pronoun=Player> is truly the great warrior I dreamt of. 
+[pagebreak]
+This newcomer, it seems, is made of decent stock. <Alias.PronounCap=Player> calls <Alias.PronounRef=Player> <Alias=Player>, and has already impressed some of the Circle with <Alias.PronounPosObj=Player> mettle. I still keep my own counsel on <Alias.PronounPosObj=Player> place in my dream, for now. Let us see what kind of destiny <Alias.Pronoun=Player> is carving before hitching to <Alias.PronounObj=Player>. 
+
+In the meanwhile, I look for ways of cleansing my blood. The writings and legends on the subject are sparse and contradictory. I don't wish to engage any wizardry on this matter, but I fear they may be the only ones who best know how to navigate these worlds of knowledge. 
+
+It's apparent to me now that Terrfyg's choice to turn us was indeed a mistake. Magics and their ilk are not in keeping with the spirit of the Companions. We face our problems directly, without the needs of such trickery. I can only hope to guide us back to the true path of Ysgramor before the rot takes me.
+[pagebreak]
+<Alias=Player> continues to impress. I don't know yet where <Alias.Pronoun=Player> will stand on the question of the blood, but the question has not been presented yet. <Alias.PronounCap=Player> does know that we carry the beastblood, and appears curious about it. Soon enough, I can explain our troubles, and hopefully see what role <Alias.Pronoun=Player> will play.
+[pagebreak]
+I'm amazed that Aela thinks she can keep a secret among this drunken rabble. Especially with the loss of Skjor (my heart aches), emotions are fraying, and the walls of discretion are the first to fall. 
+
+Apparently she and <Alias=Player> are waging their own separate war against the Silver Hand, in retaliation for Skjor's death. Their hearts are noble, but the course of vengeance is running hot, and I fear the counterstroke that may come if they do not rein in their fury. 
+
+<Alias=Player> shows valor, though, even in this more underhanded time. We have not had cause to speak much, and that is something I deeply regret. I have high hopes for <Alias.PronounPosObj=Player> destiny, as I realized that <Alias.PronounPosObj=Player> appearance in my dream may indeed mark <Alias.PronounObj=Player> as the Harbinger to succeed me. 
+
+I have received few dreams over the course of my life, but when they come, I have learned to trust them. I have also learned to trust the instincts of my heart, which tells me that <Alias=Player> can carry the Companions legacy as truly as any residing in Jorrvaskr, especially with the loss of Skjor. Aela is too solitary, Vilkas too fiery, and Farkas too kind-hearted. Only <Alias=Player> stands as a true warrior who can keep a still mind amidst these burning hearts.
+
+I will not speak to <Alias.PronounObj=Player> of any of this, though. It is too much to burden another with. My hope is that <Alias.Pronoun=Player> and I can keep counsel over the coming years, that I can impart the wisdom of the Harbingers. All things in time. Firstly, I will seek <Alias.PronounPosObj=Player> assistance in the matter of the witches of Glenmoril. It would appear that our path to the cure is not without some poetic justice for the tricksters who first cursed us. 
+</font>

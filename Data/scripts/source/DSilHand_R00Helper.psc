@@ -422,10 +422,10 @@ ObjectReference Property DSilHand_R04xMarker18  Auto
 ;
 String THIS_FILE = "(DSilHand_R00Helper.psc) "
 ; probability of each radiant. The sum MUST be 100
-;int PROB_R1 = 25
-;int PROB_R2 = 25
-;int PROB_R3 = 30
-;int PROB_R4 = 20
+;int PROB_R1 = 25 ? 15
+;int PROB_R2 = 25 ? 25
+;int PROB_R3 = 30 ? 40
+;int PROB_R4 = 20 ? 20
 int PROB_R1 = 5
 int PROB_R2 = 5
 int PROB_R3 = 85
@@ -1013,19 +1013,20 @@ Endfunction
 ;; 
 
 bool Function restartQuestHelper(Quest questObj, int questRadStage)
+    ; complete objectives
+    questObj.CompleteAllObjectives()
 	; re-initializes
 	questObj.Reset()
 	if startRadQuestStoryManager(questRadStage) == false
+        Debug.Trace(THIS_FILE + "**ERROR** COULD NOT INITIALIZE RADIANT QUEST " + questRadStage + " USING THE STORY MANAGER.", 2)
 		return false
 	endif
-	; first stage
-	;if  forceSetStage(questObj, 10) == false
-	;	return false
-	;endif
+    Utility.Wait(0.1)
 	ObjectReference questGiverObj = getsQuestGiverObject()
-	;if (questGiverObj == None)
-	;	Debug.Trace(THIS_FILE + "**ERROR** QUEST GIVER OBJECT IS EMPTY!", 2)
-	;	return false
+    if (questGiverObj == None)
+        Debug.Trace(THIS_FILE + "**ERROR** COULD NOT RETRIVE AN VALID ACTOR TARGET FROM RADIANT QUEST " + questRadStage, 2)
+        return false
+    endif
 	if (questRadStage == STAGE_SELECT_R1)
 	    R01ContractGiver.Clear()
         R01ContractGiver.ForceRefTo(questGiverObj)
@@ -1043,7 +1044,10 @@ bool Function restartQuestHelper(Quest questObj, int questRadStage)
 		return false
 	endif
     Utility.Wait(5.0)
-    forceSetStage(questObj, 10)
+    if (forceSetStage(questObj, STAGE_START_RADIANT) == false)
+        Debug.Trace(THIS_FILE + "**ERROR** CANNOT ADVANCE QUEST STAGE " + questRadStage, 2)
+        return false
+    endif
 	return true
 EndFunction
 
@@ -1051,7 +1055,7 @@ EndFunction
 bool Function  restartQuest(int questRadStage)
 	bool questStartRetVal = false 
 	int i = 0
-	while (i < 50)
+	while (i < 15)
 		; try to restart the quest
 		if (questRadStage == STAGE_SELECT_R1)
 			questStartRetVal = restartQuestHelper(DSilHand_R01WolfHunt, STAGE_SELECT_R1)
@@ -1065,13 +1069,10 @@ bool Function  restartQuest(int questRadStage)
 			Debug.Trace(THIS_FILE + "**ERROR** INVALID STAGE_SELECT VALUE " + questRadStage, 2)
 			return false
 		endif	
-		if questStartRetVal == true
-			Utility.Wait(0.1)
-			Actor target = getRadiantQuestTarget()
-			if (target != None)
-				return true
-			endif
-		endif 
+        if (questStartRetVal == true)
+            Debug.Trace(THIS_FILE + "**SUCCESS** RESTARTED QUEST " + questRadStage)
+            return true
+        endif
 		; Wait and try again
 		Utility.Wait(0.2)
 		i += 1
@@ -1106,11 +1107,10 @@ Function completRadQuestIfFailed(bool questStartResult=true, int questSelectStag
     Debug.Trace(THIS_FILE + "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
     Debug.Trace(THIS_FILE + " -- completRadQuestIfFailed()")
     Actor target = getRadiantQuestTarget()
-    Debug.Trace(THIS_FILE + " target:" + target)
-    Debug.Trace(THIS_FILE + " questStartResult:" + questStartResult)
-    Debug.MessageBox(THIS_FILE + " -- completRadQuestIfFailed() target:" + target + ", questStartResult:" + questStartResult)
+    Debug.Trace(THIS_FILE + " -- completRadQuestIfFailed() target:" + target + ", questStartResult:" + questStartResult)
     if(target == None || questStartResult == false)
         Debug.Trace(THIS_FILE + " **WARNING** completRadQuestIfFailed() - target is None  in the quest " + CurrentRadiantQuest, 1)
+        Debug.MessageBox(THIS_FILE + " **WARNING** completRadQuestIfFailed() - target is None  in the quest " + CurrentRadiantQuest)
         Debug.Trace(THIS_FILE + " try to restart radiant quest") 
         bool start = restartQuest(questSelectStage)
         if (start == true)

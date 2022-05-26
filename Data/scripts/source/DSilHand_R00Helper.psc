@@ -1110,7 +1110,6 @@ Function completRadQuestIfFailed(bool questStartResult=true, int questSelectStag
     Debug.Trace(THIS_FILE + " -- completRadQuestIfFailed() target:" + target + ", questStartResult:" + questStartResult)
     if(target == None || questStartResult == false)
         Debug.Trace(THIS_FILE + " **WARNING** completRadQuestIfFailed() - target is None  in the quest " + CurrentRadiantQuest, 1)
-        Debug.MessageBox(THIS_FILE + " **WARNING** completRadQuestIfFailed() - target is None  in the quest " + CurrentRadiantQuest)
         Debug.Trace(THIS_FILE + " try to restart radiant quest") 
         bool start = restartQuest(questSelectStage)
         if (start == true)
@@ -1632,7 +1631,6 @@ bool Function startRadQuestStoryManager(int questRadStage)
             hasStarted = true
         else
             Debug.Trace(THIS_FILE + " **ERROR** R01 No quest started", 2)
-            Debug.MessageBox("**ERROR** R01 No quest started")
         endIf
     elseif (questRadStage == STAGE_SELECT_R2)
         if (DSilHand_R02Keyword.SendStoryEventAndWait())
@@ -1640,7 +1638,6 @@ bool Function startRadQuestStoryManager(int questRadStage)
             hasStarted = true
         else
             Debug.Trace(THIS_FILE + " **ERROR** R02 No quest started", 2)
-            Debug.MessageBox("**ERROR** R02 No quest started")
         endIf     
     elseif (questRadStage == STAGE_SELECT_R3)
         if (DSilHand_R03Keyword.SendStoryEventAndWait())
@@ -1648,7 +1645,6 @@ bool Function startRadQuestStoryManager(int questRadStage)
             hasStarted = true
         else
             Debug.Trace(THIS_FILE + " **ERROR** R03 No quest started", 2)
-            Debug.MessageBox("**ERROR** R03 No quest started")
         endIf      
     elseif (questRadStage == STAGE_SELECT_R4)
         if (DSilHand_R04Keyword.SendStoryEventAndWait())
@@ -1656,7 +1652,6 @@ bool Function startRadQuestStoryManager(int questRadStage)
             hasStarted = true
         else
             Debug.Trace(THIS_FILE + " **ERROR**  R04 No quest started", 2)
-            Debug.MessageBox("**ERROR** R04 No quest started")
         endIf
     elseif (questRadStage == STAGE_SELECT_RESET)
         Debug.Trace(THIS_FILE + " **WARNING** RESETING CONTROLLER QUEST!", 1)
@@ -1792,7 +1787,9 @@ bool Function forceSetStage(Quest qst, int stage)
         retVal = qst.SetStage(stage)
         stopFlag = retVal
         if (stopFlag == false) && (tryCount > maxTries)
-            Debug.MessageBox("ERROR STARTING QUEST. PLEASE CONTACT THE MOD DEVELOPER.")
+            string errMsg = "ERROR STARTING QUEST. Contact the Mod developer to fix this issue. Sorry for the inconvenience."
+            Debug.Trace(THIS_FILE + " **ERROR** " + errMsg, 2)
+            Debug.MessageBox(errMsg)
             stopFlag = true
         endif
     endWhile

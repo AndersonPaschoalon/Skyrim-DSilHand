@@ -58,6 +58,9 @@ ReferenceAlias Property GiantTroll  Auto
 Actor Property CompNord01  Auto  
 {Acotr object for the Farkas Shield brother for the quest M40.}
 
+Actor Property CompNord01F  Auto  
+{Acotr object for the Farkas Shield brother for the quest M40.}
+
 Actor Property CompNord02  Auto  
 {Acotr object for the Njada Shield brother for the quest M50.}
 
@@ -209,6 +212,7 @@ Function dSilHandSetup()
     DSilHand_Utils.disableActorRefAlias(GiantTroll, "GiantTroll", THIS_FILE)
     ; disable companions actors 
     DSilHand_Utils.disableActor(CompNord01, "CompNord01", THIS_FILE)
+    DSilHand_Utils.disableActor(CompNord01F , "CompNord01F", THIS_FILE)
     DSilHand_Utils.disableActor(CompNord02, "CompNord02", THIS_FILE)  
     DSilHand_Utils.disableActor(CompNord03, "CompNord03", THIS_FILE)  
     DSilHand_Utils.disableActor(CompNord04, "CompNord04", THIS_FILE)  
@@ -229,7 +233,7 @@ Function dSilHandSetup()
     DSilHand_Utils.disableActor(FakeVignar , "FakeVignar", THIS_FILE)  
     DSilHand_Utils.disableActor(FakeTilma , "FakeTilma", THIS_FILE)  
     DSilHand_Utils.disableActor(FakeRia , "FakeRia", THIS_FILE)  
-    DSilHand_Utils.disableActor(FakeAthis , "FakeAthis", THIS_FILE)  
+    DSilHand_Utils.disableActor(FakeAthis , "FakeAthis", THIS_FILE)    
 endFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -357,6 +361,8 @@ Function disableSilverhandUniqueActors()
     ; Disable Kurdak
     DSilHand_Utils.disableActorRefAlias(Kurdak, "Kurdak", THIS_FILE)    
 endFunction
+
+
 
 
 

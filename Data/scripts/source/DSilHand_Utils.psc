@@ -45,7 +45,8 @@ Scriptname DSilHand_Utils extends Quest
 ;; bool Function disableObjectRefAlias(ReferenceAlias objAlias, string objectName, string callerScript) global
 ;; bool Function disableObject(ObjectReference obj, string objName, string callerScript) global
 ;; bool Function disableActorRefAliasIfDead(ReferenceAlias npc, string actorName, string callerScript) global
-;; 
+;; bool Function makeRefAliasInvulnerable(ReferenceAlias actorRefAlias, string actorLabel, string callerScript) global
+;;
 ;; 
 ;; ;; CHANGE ACTOR BAHAVIOR IN THE WORLD
 ;; 
@@ -884,6 +885,26 @@ bool Function makeRefAliasInvulnerable(ReferenceAlias actorRefAlias, string acto
     endif
     actorBaseObj.SetInvulnerable(true)
 EndFunction
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Input: Actor npc - the actor to have its race changed.
+; Input: string npcName - the name of the actor. Used for log only.
+; Input: string callerScript - the script to script where this function was 
+;           called. Used for log only.
+;
+; Changes an Actor NPC race to the Player race.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+bool Function setPlayerRace(Actor npc, string npcName, string callerScript) global
+    string loginfo = logPrefix(callerScript)
+    if(npc == None)
+        Debug.Trace(loginfo + " **ERROR** Provided NPC's actor object is EMPTY. npcName is" + npcName, 2)
+        return false;        
+    endif
+    Race playerRace = Game.GetPlayer().GetRace()
+    Debug.Trace(loginfo + " -- Player Race object: " + playerRace)
+    npc.SetRace(playerRace)
+    Debug.Trace(loginfo + " -- NPC " + npcName + " race was changed to player race.")
+EndFunction 
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -2,6 +2,16 @@
 ;NEXT FRAGMENT INDEX 10
 Scriptname DSilHand_M20_QF_AngarvundesTreasure Extends Quest Hidden
 
+;BEGIN ALIAS PROPERTY hillara
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_hillara Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Krev
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Krev Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY chest
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_chest Auto
@@ -12,21 +22,26 @@ ReferenceAlias Property Alias_chest Auto
 ReferenceAlias Property Alias_Frag08 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Krev
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Krev Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY hillara
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_hillara Auto
-;END ALIAS PROPERTY
-
-;BEGIN FRAGMENT Fragment_9
-Function Fragment_9()
+;BEGIN FRAGMENT Fragment_2
+Function Fragment_2()
 ;BEGIN CODE
-; In this stage you have to go talk to Hillara
-Debug.Trace(THIS_FILE + "#STAGE 20")
+; On this stage you have to talk to krev to start the quest
+
+Debug.Trace(THIS_FILE + "#STAGE 10")
+
+; Enable Frag08
+Debug.Trace(THIS_FILE + "-- Enable Frag08")
+DSilHand_Utils.enableObjectRefAlias(Alias_Frag08, "Alias_Frag08", THIS_FILE)
+; Move to the right Chest
+DSilHand_Utils.moveObjectToContainer(Alias_Frag08, Alias_Chest, "Frag08", "Chest", THIS_FILE)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_8
+Function Fragment_8()
+;BEGIN CODE
+Debug.Trace(THIS_FILE + "#STAGE 40")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -55,14 +70,6 @@ DSilHand_M30ScholarFragment.SetObjectiveDisplayed(10)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_8
-Function Fragment_8()
-;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE 40")
-;END CODE
-EndFunction
-;END FRAGMENT
-
 ;BEGIN FRAGMENT Fragment_0
 Function Fragment_0()
 ;BEGIN CODE
@@ -71,6 +78,15 @@ Debug.Trace(THIS_FILE + "#STAGE 00")
 
 Debug.Trace(THIS_FILE + "-- Disable  Frag08 before quest starts")
 DSilHand_Utils.disableObjectRefAlias(Alias_Frag08, "Alias_Frag08", THIS_FILE)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_9
+Function Fragment_9()
+;BEGIN CODE
+; In this stage you have to go talk to Hillara
+Debug.Trace(THIS_FILE + "#STAGE 20")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -92,22 +108,9 @@ DSilHand_Utils.setupFollowerRefAlias(Alias_Hillara, "Alias_Hillara", THIS_FILE)
 ; nextStage - 40
 Debug.Trace(THIS_FILE + "-- Avance in case the players alredy has the fragment -> this shoudl not happen...");
 DSilHand_Utils.advanceIfAlreadyTaken(Self, Alias_Frag08.GetReference(), "Frag08", 30,  40, 40, THIS_FILE)
-;END CODE
-EndFunction
-;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_2
-Function Fragment_2()
-;BEGIN CODE
-; On this stage you have to talk to krev to start the quest
-
-Debug.Trace(THIS_FILE + "#STAGE 10")
-
-; Enable Frag08
-Debug.Trace(THIS_FILE + "-- Enable Frag08")
-DSilHand_Utils.enableObjectRefAlias(Alias_Frag08, "Alias_Frag08", THIS_FILE)
-; Move to the right Chest
-DSilHand_Utils.moveObjectToContainer(Alias_Frag08, Alias_Chest, "Frag08", "Chest", THIS_FILE)
+; Add map marker
+AngarvundeMarker.AddToMap()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -129,3 +132,5 @@ Actor Property DSilHand_HillaraRef  Auto
 
 String Property THIS_FILE  Auto  
 {File name to be used on the logs.}
+
+ObjectReference Property AngarvundeMarker  Auto  

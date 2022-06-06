@@ -58,7 +58,11 @@ int MIN_WAIT_TIME = 10
 int N_ITEMS = 12
 int STAGE_INIT_QUEST = 0
 int STAGE_START_QUEST = 5
-bool DEBUG_FLAG = true
+bool DEBUG_FLAG = false
+;
+; Quest State
+;
+bool firstTimeExecuted = false
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -79,6 +83,7 @@ Function finalizeQuest()
     pickReward()
     createAlarmRowbackQuest()
     CompleteQuest()
+    Debug.Trace(THIS_FILE + " -- quest completed!")
 EndFunction
 
 
@@ -86,13 +91,16 @@ EndFunction
 ; Private Method
 ; Input: int min_days - minumum amount of days to wait before rowback
 ; Input: int max_days - maximum amount of days o wait before rowback
+; Input: int firstTimeExe - indicates if the quest is executed for the first time or not.
 ; Output: void
 ;
 ; Creates an alar to row back the quest to its start. Enables the flag and 
 ; calls register for single update game time.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function createAlarmRowbackQuest(int min_days = 10, int max_days = 20)
+Function createAlarmRowbackQuest(int min_days = 10, int max_days = 20, bool firstTimeExe  = false)
     Debug.Trace(THIS_FILE + " -- createAlarmRowbackQuest()")
+    ; set execution flag
+    firstTimeExecuted = firstTimeExe
     ; Create alarm to row back the quest. Default: from 5 to 10 days.
     int timeToRowback = daysToRowBack(min_days, max_days)
     ; register the event
@@ -194,9 +202,10 @@ EndFunction
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Event OnUpdateGameTime()
     Debug.Trace(THIS_FILE +" -- Rowback Quest!!")
-    Reset()
-    ; BUG esta sendo completada duas vezes.
-    ; Stop()
+    if firstTimeExecuted == false
+        Debug.Trace(THIS_FILE + "    * firstTimeExecuted: false")
+        Stop()
+    endif
     DSilHand_iR05Trigger.Start()
     DSilHand_iR05Trigger.SetStage(10)
 EndEvent

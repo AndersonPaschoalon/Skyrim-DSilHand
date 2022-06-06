@@ -2,9 +2,9 @@
 ;NEXT FRAGMENT INDEX 5
 Scriptname DSilHand_R05_QF_FjolsResearch Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY fjol
+;BEGIN ALIAS PROPERTY LocationMarker
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_fjol Auto
+ReferenceAlias Property Alias_LocationMarker Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY BookLocation
@@ -12,14 +12,9 @@ ReferenceAlias Property Alias_fjol Auto
 LocationAlias Property Alias_BookLocation Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Book
+;BEGIN ALIAS PROPERTY fjol
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Book Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY BookContainer
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_BookContainer Auto
+ReferenceAlias Property Alias_fjol Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY HoldingChest
@@ -27,17 +22,21 @@ ReferenceAlias Property Alias_BookContainer Auto
 ReferenceAlias Property Alias_HoldingChest Auto
 ;END ALIAS PROPERTY
 
-;BEGIN FRAGMENT Fragment_2
-Function Fragment_2()
+;BEGIN ALIAS PROPERTY BookContainer
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_BookContainer Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Book
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Book Auto
+;END ALIAS PROPERTY
+
+;BEGIN FRAGMENT Fragment_3
+Function Fragment_3()
 ;BEGIN CODE
-; Fjol gives you the quest
-Debug.Trace(THIS_FILE + " #Stage 10")
-
-; Move the book from the holding chest to the boos chest (BookContainer)
-Alias_BookContainer.GetReference().AddItem(Alias_Book.GetReference())
-
-; Update objective
-SetObjectiveDisplayed(10)
+; The player have found the book. It is time to deliver it to Fjol
+Debug.Trace(THIS_FILE + " #Stage 20")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -47,6 +46,15 @@ Function Fragment_1()
 ;BEGIN CODE
 ; Radiant quest enabled
 Debug.Trace(THIS_FILE + " #Stage 5")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_0
+Function Fragment_0()
+;BEGIN CODE
+; startup stage
+Debug.Trace(THIS_FILE + " #Stage 0")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -70,20 +78,23 @@ kmyQuest.finalizeQuest()
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_0
-Function Fragment_0()
+;BEGIN FRAGMENT Fragment_2
+Function Fragment_2()
 ;BEGIN CODE
-; startup stage
-Debug.Trace(THIS_FILE + " #Stage 0")
-;END CODE
-EndFunction
-;END FRAGMENT
+; Fjol gives you the quest
+Debug.Trace(THIS_FILE + " #Stage 10")
 
-;BEGIN FRAGMENT Fragment_3
-Function Fragment_3()
-;BEGIN CODE
-; The player have found the book. It is time to deliver it to Fjol
-Debug.Trace(THIS_FILE + " #Stage 20")
+; Start the quest for the player
+Start()
+
+; Move the book from the holding chest to the boos chest (BookContainer)
+Alias_BookContainer.GetReference().AddItem(Alias_Book.GetReference())
+
+; Update objective
+SetObjectiveDisplayed(10)
+
+; add location to map
+Alias_LocationMarker.GetReference().AddToMap()
 ;END CODE
 EndFunction
 ;END FRAGMENT

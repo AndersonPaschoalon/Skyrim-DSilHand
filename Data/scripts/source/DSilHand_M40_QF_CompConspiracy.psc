@@ -2,59 +2,9 @@
 ;NEXT FRAGMENT INDEX 16
 Scriptname DSilHand_M40_QF_CompConspiracy Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY xMarkerS11
+;BEGIN ALIAS PROPERTY xMarkerS03
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS11 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY gateNew01
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_gateNew01 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xMarkerS09
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS09 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY DustXMarker
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_DustXMarker Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xMarkerS04
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS04 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY SilverH04
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SilverH04 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Nord01
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Nord01 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xMarkerS02
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS02 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xMarkerS10
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS10 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Silver06
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Silver06 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Silver07
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Silver07 Auto
+ReferenceAlias Property Alias_xMarkerS03 Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Silver04
@@ -62,14 +12,24 @@ ReferenceAlias Property Alias_Silver07 Auto
 ReferenceAlias Property Alias_Silver04 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Silver05
+;BEGIN ALIAS PROPERTY xMarkerS07
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Silver05 Auto
+ReferenceAlias Property Alias_xMarkerS07 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY xMarkerS03
+;BEGIN ALIAS PROPERTY xMarkerS04
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS03 Auto
+ReferenceAlias Property Alias_xMarkerS04 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Silver09
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Silver09 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xMarkerFjol
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xMarkerFjol Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY SilverH01
@@ -77,14 +37,29 @@ ReferenceAlias Property Alias_xMarkerS03 Auto
 ReferenceAlias Property Alias_SilverH01 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY chest
+;BEGIN ALIAS PROPERTY Silver10
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_chest Auto
+ReferenceAlias Property Alias_Silver10 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Frag07
+;BEGIN ALIAS PROPERTY xMarkerCompStartPoint
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Frag07 Auto
+ReferenceAlias Property Alias_xMarkerCompStartPoint Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Silver08
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Silver08 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Silver05
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Silver05 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY SilverH02
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SilverH02 Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY FarkasOriginal
@@ -92,9 +67,29 @@ ReferenceAlias Property Alias_Frag07 Auto
 ReferenceAlias Property Alias_FarkasOriginal Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY xMarkerS01
+;BEGIN ALIAS PROPERTY xMarkerS05
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS01 Auto
+ReferenceAlias Property Alias_xMarkerS05 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Silver11
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Silver11 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Silver02
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Silver02 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Silver03
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Silver03 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xMarkerS02
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xMarkerS02 Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY exploreMarker
@@ -107,19 +102,59 @@ ReferenceAlias Property Alias_exploreMarker Auto
 ReferenceAlias Property Alias_gateOriginal01 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Silver03
+;BEGIN ALIAS PROPERTY SilverH04
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Silver03 Auto
+ReferenceAlias Property Alias_SilverH04 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY SilverH03
+;BEGIN ALIAS PROPERTY FarkasTrigger
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SilverH03 Auto
+ReferenceAlias Property Alias_FarkasTrigger Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY fjol
+;BEGIN ALIAS PROPERTY DriftshadeTrigger
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_fjol Auto
+ReferenceAlias Property Alias_DriftshadeTrigger Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY leverNew02
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_leverNew02 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY leverNew01
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_leverNew01 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xMarkerS10
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xMarkerS10 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xMarkerS08
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xMarkerS08 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY chest
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_chest Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xMarkerS09
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xMarkerS09 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xMarkerS13
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xMarkerS13 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Nord01
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Nord01 Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Silver01
@@ -127,9 +162,94 @@ ReferenceAlias Property Alias_fjol Auto
 ReferenceAlias Property Alias_Silver01 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY xMarkerS07
+;BEGIN ALIAS PROPERTY xMarkerS12
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS07 Auto
+ReferenceAlias Property Alias_xMarkerS12 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Silver06
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Silver06 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Silver07
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Silver07 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY SilverH03
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_SilverH03 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY rubbleParent
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_rubbleParent Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY fjol
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_fjol Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY gateNew02
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_gateNew02 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xMarkerS01
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xMarkerS01 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Silver12
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Silver12 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Key
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Key Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Farkas
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Farkas Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY leverOriginal01
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_leverOriginal01 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY gateNew01
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_gateNew01 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xMarkerS15
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xMarkerS15 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY DustXMarker
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_DustXMarker Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY gateOriginal02
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_gateOriginal02 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xMarkerS11
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xMarkerS11 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY xMarkerS16
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xMarkerS16 Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY Krev
@@ -142,134 +262,9 @@ ReferenceAlias Property Alias_Krev Auto
 ReferenceAlias Property Alias_xMarkerS06 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Silver02
+;BEGIN ALIAS PROPERTY Frag07
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Silver02 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY gateOriginal02
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_gateOriginal02 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xMarkerS14
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS14 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Silver08
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Silver08 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xMarkerS12
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS12 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Silver09
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Silver09 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xMarkerS16
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS16 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Silver12
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Silver12 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY rubbleParent
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_rubbleParent Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xMarkerS15
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS15 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY DriftshadeTrigger
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_DriftshadeTrigger Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY FarkasTrigger
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_FarkasTrigger Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Key
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Key Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xMarkerS08
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS08 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Silver11
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Silver11 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY leverNew02
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_leverNew02 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xMarkerCompStartPoint
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerCompStartPoint Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY gateNew02
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_gateNew02 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY leverNew01
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_leverNew01 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY leverOriginal01
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_leverOriginal01 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xMarkerS13
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS13 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xMarkerFjol
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerFjol Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Silver10
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Silver10 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY xMarkerS05
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_xMarkerS05 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY SilverH02
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_SilverH02 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Farkas
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Farkas Auto
+ReferenceAlias Property Alias_Frag07 Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY leverOriginal02
@@ -277,25 +272,10 @@ ReferenceAlias Property Alias_Farkas Auto
 ReferenceAlias Property Alias_leverOriginal02 Auto
 ;END ALIAS PROPERTY
 
-;BEGIN FRAGMENT Fragment_8
-Function Fragment_8()
-;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE 40")
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_0
-Function Fragment_0()
-;BEGIN AUTOCAST TYPE DSilHand_M40Helper
-Quest __temp = self as Quest
-DSilHand_M40Helper kmyQuest = __temp as DSilHand_M40Helper
-;END AUTOCAST
-;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE 00")
-;END CODE
-EndFunction
-;END FRAGMENT
+;BEGIN ALIAS PROPERTY xMarkerS14
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_xMarkerS14 Auto
+;END ALIAS PROPERTY
 
 ;BEGIN FRAGMENT Fragment_5
 Function Fragment_5()
@@ -327,22 +307,43 @@ Alias_leverNew02.GetReference().Enable()
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_10
-Function Fragment_10()
+;BEGIN FRAGMENT Fragment_8
+Function Fragment_8()
+;BEGIN CODE
+Debug.Trace(THIS_FILE + "#STAGE 40")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_15
+Function Fragment_15()
+;BEGIN CODE
+;
+; This is a temporary stage. It is used to activate the Fjol's ForceGreeting.
+;
+Debug.Trace(THIS_FILE + "#STAGE 35")
+Debug.Trace(THIS_FILE + " -- Evaluate Fjol AI Packages to ensure forge greeting")
+Alias_Fjol.GetActorRef().EvaluatePackage()
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_9
+Function Fragment_9()
+;BEGIN CODE
+Debug.Trace(THIS_FILE + "#STAGE 50")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_0
+Function Fragment_0()
 ;BEGIN AUTOCAST TYPE DSilHand_M40Helper
 Quest __temp = self as Quest
 DSilHand_M40Helper kmyQuest = __temp as DSilHand_M40Helper
 ;END AUTOCAST
 ;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE 60")
-
-; Remove Frag07
-Debug.Trace(THIS_FILE + " -- Remove Fragment 07 from inventory")
-Game.GetPlayer().RemoveItem(Alias_Frag07.GetReference())
-
-; Fjol AI
-Debug.Trace(THIS_FILE + " -- Reevalueta AI Packages for Fjol")
-DSilHand_Utils.shutdownFollowerRefAlias(Alias_Fjol, "Alias_Fjol", "(DSilHand_M40:60)")
+Debug.Trace(THIS_FILE + "#STAGE 00")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -351,6 +352,29 @@ EndFunction
 Function Fragment_3()
 ;BEGIN CODE
 Debug.Trace(THIS_FILE + "#STAGE 05")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_2
+Function Fragment_2()
+;BEGIN AUTOCAST TYPE DSilHand_M40Helper
+Quest __temp = self as Quest
+DSilHand_M40Helper kmyQuest = __temp as DSilHand_M40Helper
+;END AUTOCAST
+;BEGIN CODE
+Debug.Trace(THIS_FILE + "#STAGE 10")
+
+; Move Fjol to Dustman's Cairn
+Debug.Trace("(DSilHand_M40:10) -- Quest M40 stage 10")
+DSilHand_Utils.moveSingleNpcRefAlias(Alias_Fjol, Alias_DustXMarker, "Fjol", "(DSilHand_M40:10)")
+
+; Update Aliases if necessary
+Debug.Trace(THIS_FILE + "# RefAlias Setup!")
+kmyQuest.setupQuestAliases()
+
+; Add map marker
+DustmansCairnMarker.AddToMap()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -367,15 +391,22 @@ Debug.Trace(THIS_FILE + "#STAGE 30")
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_15
-Function Fragment_15()
+;BEGIN FRAGMENT Fragment_10
+Function Fragment_10()
+;BEGIN AUTOCAST TYPE DSilHand_M40Helper
+Quest __temp = self as Quest
+DSilHand_M40Helper kmyQuest = __temp as DSilHand_M40Helper
+;END AUTOCAST
 ;BEGIN CODE
-;
-; This is a temporary stage. It is used to activate the Fjol's ForceGreeting.
-;
-Debug.Trace(THIS_FILE + "#STAGE 35")
-Debug.Trace(THIS_FILE + " -- Evaluate Fjol AI Packages to ensure forge greeting")
-Alias_Fjol.GetActorRef().EvaluatePackage()
+Debug.Trace(THIS_FILE + "#STAGE 60")
+
+; Remove Frag07
+Debug.Trace(THIS_FILE + " -- Remove Fragment 07 from inventory")
+Game.GetPlayer().RemoveItem(Alias_Frag07.GetReference())
+
+; Fjol AI
+Debug.Trace(THIS_FILE + " -- Reevalueta AI Packages for Fjol")
+DSilHand_Utils.shutdownFollowerRefAlias(Alias_Fjol, "Alias_Fjol", "(DSilHand_M40:60)")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -401,34 +432,6 @@ Game.GetPlayer().AddItem(DSilHand_ArmorBearHelmet)
 ; Init next quest: M50
 Debug.Trace(THIS_FILE + " -- Init M50 -> set stage 5")
 DSilHand_M50WolfAmbush.SetStage(5)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_9
-Function Fragment_9()
-;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE 50")
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_2
-Function Fragment_2()
-;BEGIN AUTOCAST TYPE DSilHand_M40Helper
-Quest __temp = self as Quest
-DSilHand_M40Helper kmyQuest = __temp as DSilHand_M40Helper
-;END AUTOCAST
-;BEGIN CODE
-Debug.Trace(THIS_FILE + "#STAGE 10")
-
-; Move Fjol to Dustman's Cairn
-Debug.Trace("(DSilHand_M40:10) -- Quest M40 stage 10")
-DSilHand_Utils.moveSingleNpcRefAlias(Alias_Fjol, Alias_DustXMarker, "Fjol", "(DSilHand_M40:10)")
-
-; Update Aliases if necessary
-Debug.Trace(THIS_FILE + "# RefAlias Setup!")
-kmyQuest.setupQuestAliases()
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -470,3 +473,5 @@ Quest Property DSilHand_M50WolfAmbush  Auto
 
 String Property THIS_FILE  Auto  
 {Name of this script to be used on logs.}
+
+ObjectReference Property DustmansCairnMarker  Auto  

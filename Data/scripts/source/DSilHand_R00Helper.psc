@@ -422,14 +422,14 @@ ObjectReference Property DSilHand_R04xMarker18  Auto
 ;
 String THIS_FILE = "(DSilHand_R00Helper.psc) "
 ; probability of each radiant. The sum MUST be 100
-;int PROB_R1 = 25 ? 15
-;int PROB_R2 = 25 ? 25
-;int PROB_R3 = 30 ? 40
-;int PROB_R4 = 20 ? 20
-int PROB_R1 = 5
-int PROB_R2 = 5
-int PROB_R3 = 85
-int PROB_R4 = 5
+int PROB_R1 = 20
+int PROB_R2 = 20
+int PROB_R3 = 40
+int PROB_R4 = 20
+; int PROB_R1 = 5
+; int PROB_R2 = 5
+; int PROB_R3 = 85
+; int PROB_R4 = 5
 ; stage of radiant selection
 int STAGE_SELECT_RESET = 0
 int STAGE_SELECT_R1 = 10
@@ -453,7 +453,7 @@ int RADIANT_QUEST_R04 = 4
 ; Misc
 int ENABLE_DELAY = 2
 ; DEBUG 
-bool DEBUG_FLAG = true
+bool DEBUG_FLAG = false
 
 ;
 ; SCRIPT STATE

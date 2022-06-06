@@ -11,23 +11,36 @@ Stop()
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_3
-Function Fragment_3()
+;BEGIN FRAGMENT Fragment_0
+Function Fragment_0()
 ;BEGIN CODE
-Debug.Trace("(DSilHand_iR05Trigger) # Stage 0")
+string THIS_FILE = "(DSilHand_iR05Trigger) "
+
+Debug.Trace(THIS_FILE +  "# Stage 10")
+Debug.Trace(THIS_FILE +  "# DSilHand_R05FjolsResearch.Start()")
+
+bool start = DSilHand_R05FjolsResearch.Start()
+Debug.Trace(THIS_FILE +  " start:" + start )
+
+Debug.Trace(THIS_FILE +  " DSilHand_R05FjolsResearch.SetStage(0)" )
+bool set0 = DSilHand_R05FjolsResearch.SetStage(0)
+Debug.Trace(THIS_FILE +  " set0:" + set0 )
+
+Utility.Wait(2)
+Debug.Trace(THIS_FILE +  " DSilHand_R05FjolsResearch.SetStage(5)" )
+bool set5 = DSilHand_R05FjolsResearch.SetStage(5)
+Debug.Trace(THIS_FILE +  " set5:" + set5 )
+
+
+SetStage(20)
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_0
-Function Fragment_0()
+;BEGIN FRAGMENT Fragment_3
+Function Fragment_3()
 ;BEGIN CODE
-Debug.Trace("(DSilHand_iR05Trigger) # Stage 10")
-DSilHand_R05FjolsResearch.Start()
-DSilHand_R05FjolsResearch.SetStage(0)
-Utility.Wait(2)
-DSilHand_R05FjolsResearch.SetStage(5)
-SetStage(20)
+Debug.Trace("(DSilHand_iR05Trigger) # Stage 0")
 ;END CODE
 EndFunction
 ;END FRAGMENT

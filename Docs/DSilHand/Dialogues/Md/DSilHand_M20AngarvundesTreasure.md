@@ -54,37 +54,6 @@ _This is the mods second quest. It will be enabled once the player finishes the 
 ``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M20KS__00013A65_8.xwm``    
 
 
-### DSilHand_M20_Branch02_HillaraMeet
-> _The player must call Hillara to accompany you in the Angarvunde's exploration._
-> 
-> Dialog Type:``PlayerDialogue``, Actor Race:``WoodElfRace``, Voice Type:``FemaleEvenToned``.
-
-#### DSilHand_M20HM_Topic01
-
-**Player**: Krev said that we will look for the Wuuthrad ax.
-
-**HIllara** (*Surprise 50*): Aw yes. Krev told told me about the clues Fjol was able to find.     
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\FemaleEvenToned\DSilHand_M_DSilHand_M20HM__00013A68_1.xwm``    
-
-**HIllara** (*Happy 50*): He believes that one of the missing fragments of Ysgramor's ax is part of Angarvunde treasure trove.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\FemaleEvenToned\DSilHand_M_DSilHand_M20HM__00013A68_2.xwm``    
-
-**HIllara** (*Happy 50*): I'll mark the location of the tomb on your map. It is located between Riften and Ivarstead.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\FemaleEvenToned\DSilHand_M_DSilHand_M20HM__00013A68_3.xwm``    
-
-
-#### DSilHand_M20HM_Topic02
-
-**Player**: Let's go!
-
-**HIllara** (*Happy 50*): Lead the way.     
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\FemaleEvenToned\DSilHand_M_DSilHand_M20HM__00013A6A_1.xwm``    
-
-
 ### DSilHand_M20_Branch02_KrevFrag
 > _Krev you give you congradulations for completing the mission. He will suggest you to meet Fjol. A new quest will start at this momment._
 > 
@@ -115,6 +84,37 @@ _This is the mods second quest. It will be enabled once the player finishes the 
 **HIllara** (*Happy 50*): We did it! You found the fragment! Let not waste any time. We must return to Gallows Rock and bring it to Krev.    
 
 ``Data\Sound\Voice\DawnOfTheSilverHand.esp\FemaleEvenToned\DSilHand_M_DSilHand_M20HC__00013A6E_1.xwm``    
+
+
+### DSilHand_M20_Branch02_HillaraMeet
+> _The player must call Hillara to accompany you in the Angarvunde's exploration._
+> 
+> Dialog Type:``PlayerDialogue``, Actor Race:``WoodElfRace``, Voice Type:``FemaleEvenToned``.
+
+#### DSilHand_M20HM_Topic01
+
+**Player**: Krev said that we will look for the Wuuthrad ax.
+
+**HIllara** (*Surprise 50*): Aw yes. Krev told told me about the clues Fjol was able to find.     
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\FemaleEvenToned\DSilHand_M_DSilHand_M20HM__00013A68_1.xwm``    
+
+**HIllara** (*Happy 50*): He believes that one of the missing fragments of Ysgramor's ax is part of Angarvunde treasure trove.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\FemaleEvenToned\DSilHand_M_DSilHand_M20HM__00013A68_2.xwm``    
+
+**HIllara** (*Happy 50*): I'll mark the location of the tomb on your map. It is located between Riften and Ivarstead.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\FemaleEvenToned\DSilHand_M_DSilHand_M20HM__00013A68_3.xwm``    
+
+
+#### DSilHand_M20HM_Topic02
+
+**Player**: Let's go!
+
+**HIllara** (*Happy 50*): Lead the way.     
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\FemaleEvenToned\DSilHand_M_DSilHand_M20HM__00013A6A_1.xwm``    
 
 
 

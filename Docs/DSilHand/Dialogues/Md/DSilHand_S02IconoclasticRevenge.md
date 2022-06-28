@@ -3,26 +3,18 @@
 _In this side quest Fjol reveal to you he knows the location of the Totems of Hircine in Skyrim and wants your help to banish the items. In this quest, the player has to find the location of all the items and banish them by burning the totems in the Eternal Flame in the Ysgramour tomb._
 
 ## Branches
-### DSilHand_S02_FindSecondTotem
-> _The player shows to Fjol the second totem._
+### DSilHand_S02_SecondTotem
+> _Fjol gives you information about the second totem._
 > 
 > Dialog Type:``PlayerDialogue``, Actor Race:``NordRace``, Voice Type:``MaleEvenTonedAccented``.
 
-#### DSilHand_S02_F2T_Topic01
+#### DSilHand_S02_2T_Topic01
 
-**Player**: A drum, it must be the Totem of Brotherhood...
+**Player**: Where is the second totem?
 
-**Fjol** (*Happy 70*): Great job again my brother. We are doing well on this quest. It matches the totem description from the book.    
+**Fjol** (*Happy 50*): The second totem is called Totem of Brotherhood.  It resembles a simple drum. It must be inside Cragwallow Slope.    
 
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleEvenTonedAccented\DSilHand_S_DSilHand_S02_F2_00059210_1.xwm``    
-
-**Fjol** (*Happy 50*): The third and last totem was closer than we would ever imagine. It must be inside Morvunskar.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleEvenTonedAccented\DSilHand_S_DSilHand_S02_F2_00059210_2.xwm``    
-
-**Fjol** (*Happy 50*): It is a carved wolf skull with some feathers attached to it. It is called the Totem of Fear.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleEvenTonedAccented\DSilHand_S_DSilHand_S02_F2_00059210_3.xwm``    
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleEvenTonedAccented\DSilHand_S_DSilHand_S02_2T_0005920D_1.xwm``    
 
 
 ### DSilHand_S02_TalkWithFjol
@@ -145,34 +137,6 @@ _In this side quest Fjol reveal to you he knows the location of the Totems of Hi
 ``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleEvenTonedAccented\DSilHand_S_DSilHand_S02ABT_00059219_2.xwm``    
 
 
-### DSilHand_S02_ThirdTotem
-> _Fjol gives you information about the third totem._
-> 
-> Dialog Type:``PlayerDialogue``, Actor Race:``NordRace``, Voice Type:``MaleEvenTonedAccented``.
-
-#### DSilHand_S02_3T_Topic01
-
-**Player**: Where is the third totem?
-
-**Fjol** (*Happy 50*): The last totem must be inside Morvunskar. It is called Totem of Fear and resembles a Wolf's carved skull.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleEvenTonedAccented\DSilHand_S_DSilHand_S02_3T_00059213_1.xwm``    
-
-
-### DSilHand_S02_SecondTotem
-> _Fjol gives you information about the second totem._
-> 
-> Dialog Type:``PlayerDialogue``, Actor Race:``NordRace``, Voice Type:``MaleEvenTonedAccented``.
-
-#### DSilHand_S02_2T_Topic01
-
-**Player**: Where is the second totem?
-
-**Fjol** (*Happy 50*): The second totem is called Totem of Brotherhood.  It resembles a simple drum. It must be inside Cragwallow Slope.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleEvenTonedAccented\DSilHand_S_DSilHand_S02_2T_0005920D_1.xwm``    
-
-
 ### DSilHand_S02_FindFirstTotem
 > _The player shows to Fjol the first totem._
 > 
@@ -189,6 +153,42 @@ _In this side quest Fjol reveal to you he knows the location of the Totems of Hi
 **Fjol** (*Happy 50*): The second totem must be on Cragwallow Slope. It resembles a usual drum. It is called the Totem of Brotherhood.    
 
 ``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleEvenTonedAccented\DSilHand_S_DSilHand_S02_F1_0005920A_2.xwm``    
+
+
+### DSilHand_S02_ThirdTotem
+> _Fjol gives you information about the third totem._
+> 
+> Dialog Type:``PlayerDialogue``, Actor Race:``NordRace``, Voice Type:``MaleEvenTonedAccented``.
+
+#### DSilHand_S02_3T_Topic01
+
+**Player**: Where is the third totem?
+
+**Fjol** (*Happy 50*): The last totem must be inside the Darklight Tower. It is called Totem of Fear and resembles a Wolf's carved skull.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleEvenTonedAccented\DSilHand_S_DSilHand_S02_3T_00059213_1.xwm``    
+
+
+### DSilHand_S02_FindSecondTotem
+> _The player shows to Fjol the second totem._
+> 
+> Dialog Type:``PlayerDialogue``, Actor Race:``NordRace``, Voice Type:``MaleEvenTonedAccented``.
+
+#### DSilHand_S02_F2T_Topic01
+
+**Player**: A drum, it must be the Totem of Brotherhood...
+
+**Fjol** (*Happy 70*): Great job again my brother. We are doing well on this quest. It matches the totem description from the book.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleEvenTonedAccented\DSilHand_S_DSilHand_S02_F2_00059210_1.xwm``    
+
+**Fjol** (*Happy 50*): The third and last totem is at the Darklight Tower, and hold by Hagraven Witches.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleEvenTonedAccented\DSilHand_S_DSilHand_S02_F2_00059210_2.xwm``    
+
+**Fjol** (*Happy 50*): It is a carved wolf skull with some feathers attached to it. It is called the Totem of Fear.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleEvenTonedAccented\DSilHand_S_DSilHand_S02_F2_00059210_3.xwm``    
 
 
 

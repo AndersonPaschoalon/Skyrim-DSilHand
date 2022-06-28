@@ -3,44 +3,6 @@
 _This is the first side quest enabled in the mod. In this quest Kurdak sends you to find the ingredients for his secret silver sword's tempering._
 
 ## Branches
-### DSilHand_S10_Deliver
-> _In this dialog, the player brings the secret forging ingredients to Kurdak creating the secret silver tempering. The quest will be completed after the end._
-> 
-> Dialog Type:``PlayerDialogue``, Actor Race:``OrcRace``, Voice Type:``MaleOrc``.
-
-#### DSilHand_S10DL_Topic01
-
-**Player**: Here the materials you requested.
-
-**Kurdak Golpbu** (*Neutral 50*): Thanks! Ok, now let's begin. First of all, we must prepare the right alloy.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_1.xwm``    
-
-**Kurdak Golpbu** (*Neutral 50*): We forge together the silver with a small portion of the Quicksilver.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_2.xwm``    
-
-**Kurdak Golpbu** (*Neutral 50*): Then, we use the fire salts to get the forge just at the right temperature.     
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_3.xwm``    
-
-**Kurdak Golpbu** (*Neutral 50*): The alloy must then be folded many times along with the void salts.     
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_4.xwm``    
-
-**Kurdak Golpbu** (*Neutral 50*): To temper the blade, we must immerse it in pure Dwrammer Oil.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_5.xwm``    
-
-**Kurdak Golpbu** (*Neutral 50*): Once it is done, It will become as hard as ebony, but will keep all the special properties of the silver against foul creatures.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_6.xwm``    
-
-**Kurdak Golpbu** (*Neutral 50*): I'll teach you everything I know about forging silver.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_7.xwm``    
-
-
 ### DSilHand_S10_NotDeliver
 > _This dialog is enabled if the player does not bring all the ingredients Kurdak requested._
 > 
@@ -81,6 +43,44 @@ _This is the first side quest enabled in the mod. In this quest Kurdak sends you
 **Kurdak Golpbu** (*Neutral 50*): Come back when you have all these materials, and I'll teach all I know about silver fogering.     
 
 ``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10ND__0003FCFA_2.xwm``    
+
+
+### DSilHand_S10_Deliver
+> _In this dialog, the player brings the secret forging ingredients to Kurdak creating the secret silver tempering. The quest will be completed after the end._
+> 
+> Dialog Type:``PlayerDialogue``, Actor Race:``OrcRace``, Voice Type:``MaleOrc``.
+
+#### DSilHand_S10DL_Topic01
+
+**Player**: Here the materials you requested.
+
+**Kurdak Golpbu** (*Neutral 50*): Thanks! Ok, now let's begin. First of all, we must prepare the right alloy.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_1.xwm``    
+
+**Kurdak Golpbu** (*Neutral 50*): We forge together the silver with a small portion of the Quicksilver.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_2.xwm``    
+
+**Kurdak Golpbu** (*Neutral 50*): Then, we use the fire salts to get the forge just at the right temperature.     
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_3.xwm``    
+
+**Kurdak Golpbu** (*Neutral 50*): The alloy must then be folded many times along with the void salts.     
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_4.xwm``    
+
+**Kurdak Golpbu** (*Neutral 50*): To temper the blade, we must immerse it in pure Dwrammer Oil.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_5.xwm``    
+
+**Kurdak Golpbu** (*Neutral 50*): Once it is done, It will become as hard as ebony, but will keep all the special properties of the silver against foul creatures.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_6.xwm``    
+
+**Kurdak Golpbu** (*Neutral 50*): I'll teach you everything I know about forging silver.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleOrc\DSilHand_S_DSilHand_S10DL__0003F791_7.xwm``    
 
 
 

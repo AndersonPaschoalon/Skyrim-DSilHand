@@ -3,6 +3,126 @@
 _It is the first quest for the mod Down of the Silver Hand. The player to start it must talk with three different people: a spy on The Drunk Huntsman on Whiterun, the Gallow�s Rock�s guard, or the Driftshade Refuge�s guar. In any case, the Gallows Rock�s guard will give a quest to kill a Frost Troll, and bring its Skull. After that, you will be allowed to talk to the Silver Hand leader: Krev the Skinner, and ask permission to join. Note: if you join the Companions before completing this quest, it will fail, and the Silver Hands will become hostile to you._
 
 ## Branches
+### DSilHand_M10_GallowsMeetKrev
+> _This dialog is enabled to deliver tre Frost Troll skull to Krev, as proof of your hunt. After that, you can join the Silver Hand._
+> 
+> Dialog Type:``PlayerDialogue``, Actor Race:``NordRace``, Voice Type:``MaleNord``.
+
+#### DSilHand_M10GMK_Topic01
+
+**Player**: Are you Krev the Skinner? I'm here because I want to join the Silver Hand.
+
+**Krev The Skinner** (*Happy 50*): Yes I'm! Welcome! You did well against the frost troll on the Cold Rock Pass. Congratulations! You proceed well on our initiation.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000E96B_1.xwm``    
+
+**Krev The Skinner** (*Neutral 50*): But, before we proceed, I have a question. Why do you want to join the Silver Hands?    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000E96B_2.xwm``    
+
+
+#### DSilHand_M10GMK_Topic02
+
+**Player**: I want to hunt Werewolves.
+
+**Krev The Skinner** (*Neutral 50*): An adventure seeker eh? We need more people like you here.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000E96D_1.xwm``    
+
+**Krev The Skinner** (*Neutral 50*): But I have more things to say before you can join us.     
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000E96D_2.xwm``    
+
+
+#### DSilHand_M10GMK_Topic03
+
+**Player**: I want to fight against the influence of Daedra in Skyrim.
+
+**Krev The Skinner** (*Neutral 50*): This is an honor cause that every sons and daughters of Skyrim who wish to go Sovngarde one day, must fight for.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000E96F_1.xwm``    
+
+**Krev The Skinner** (*Neutral 50*): But I have more things to say before you can join us.     
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000E96F_2.xwm``    
+
+
+#### DSilHand_M10GMK_Topic04
+
+**Player**: What things?
+
+**Krev The Skinner** (*Disgust 50*): We fight against these beasts to cleanse this foul daedric disease that has taken the sanity of many of our brothers and sisters here on Skyrim.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED4_1.xwm``    
+
+**Krev The Skinner** (*Anger 50*): But worst than that, have corrupted the souls of many sons of Skyrim, and take them away from Sovngarde in exchange of an ephemeral power in life.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED4_2.xwm``    
+
+**Krev The Skinner** (*Disgust 50*): But, you must be aware. No only beggars and forgotten people have lycanthropy here on Skyrim.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED4_3.xwm``    
+
+**Krev The Skinner** (*Anger 50*): Many influential and powerful  people have this curse... or "gift" as many of them say.     
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED4_4.xwm``    
+
+**Krev The Skinner** (*Neutral 50*): If you become a Silver Hand, you will have to fight not only physically, but also politically and economically powerful people.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED4_5.xwm``    
+
+**Krev The Skinner** (*Puzzled 50*): After all I said, do you still want to become a Silver Hand?    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED4_6.xwm``    
+
+
+#### DSilHand_M10GMK_Topic05
+
+**Player**: Yes, I do!
+
+**Krev The Skinner** (*Neutral 50*): Now, you are officially a silver hand initiate. Take this armor and shield.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_1.xwm``    
+
+**Krev The Skinner** (*Neutral 50*): They are not expensive ones, but are especially good to protect against the cold weather of the ice fields.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_2.xwm``    
+
+**Krev The Skinner** (*Neutral 50*): Take this weapon, it is a Silver sword. It will protect you against foul creatures we fight against.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_3.xwm``    
+
+**Krev The Skinner** (*Neutral 50*): I will give you one book too, it is called Songs of Return, volume seven.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_4.xwm``    
+
+**Krev The Skinner** (*Neutral 50*): Read it, you will learn more about the Ysgramor and its legacy.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_5.xwm``    
+
+**Krev The Skinner** (*Neutral 50*): Each Silver Hand must read one of this.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_6.xwm``    
+
+**Krev The Skinner** (*Neutral 50*): Downstairs, there is a library, where you will find other useful book, if you are interested to learn more.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_7.xwm``    
+
+
+### DSIlHand_M10_GallowsAfterTroll
+> _After you kill the Frost Troll on the Cold Rock Pass, you must talk with the Gallows Rock's Guard again._
+> 
+> Dialog Type:``PlayerDialogue``, Actor Race:``NordRace``, Voice Type:``MaleCommoner``.
+
+#### DSIlHand_M10GAT_Topic01
+
+**Player**: I killed the Toll in Cold Rock Pass. Here is its Skull.
+
+**Kylmir Shade Skinner** (*Happy 70*): I know you would be able to do it. Go talk to "Krev the Skinner", our leader. He is inside, on the main Hall. Go talk to him. Good Luck!    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleCommoner\DSilHand_M_DSIlHand_M10GAT_0000DEA3_1.xwm``    
+
+
 ### DSilHand_M10_GallowsGreetings
 > _This dialog tree is enabled if you go to Gallows Rock before joining the Silver Hand. The Gallows Rock Guard will force greet you. Then, you may request to join the faction._
 > 
@@ -124,20 +244,6 @@ _It is the first quest for the mod Down of the Silver Hand. The player to start 
 ``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleCommoner\DSilHand_M_DSilHand_M10GG__00009DFA_1.xwm``    
 
 
-### DSIlHand_M10_GallowsAfterTroll
-> _After you kill the Frost Troll on the Cold Rock Pass, you must talk with the Gallows Rock's Guard again._
-> 
-> Dialog Type:``PlayerDialogue``, Actor Race:``NordRace``, Voice Type:``MaleCommoner``.
-
-#### DSIlHand_M10GAT_Topic01
-
-**Player**: I killed the Toll in Cold Rock Pass. Here is its Skull.
-
-**Kylmir Shade Skinner** (*Happy 70*): I know you would be able to do it. Go talk to "Krev the Skinner", our leader. He is inside, on the main Hall. Go talk to him. Good Luck!    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleCommoner\DSilHand_M_DSIlHand_M10GAT_0000DEA3_1.xwm``    
-
-
 ### DSilHand_M10_Driftshade
 > _This dialog tree is enabled if you go to Driftshade Refuge before joining the Silver Hand. If you ask to join, the guard will ask for you to go to Gallows Rock._
 > 
@@ -200,112 +306,6 @@ _It is the first quest for the mod Down of the Silver Hand. The player to start 
 **Irrokas Head Torn** (*Disgust 50*): I can sense the presence of evil daedra here in this city. Go to Gallows Rock, if you want to know the truth.    
 
 ``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10DH__00009878_1.xwm``    
-
-
-### DSilHand_M10_GallowsMeetKrev
-> _This dialog is enabled to deliver tre Frost Troll skull to Krev, as proof of your hunt. After that, you can join the Silver Hand._
-> 
-> Dialog Type:``PlayerDialogue``, Actor Race:``NordRace``, Voice Type:``MaleNord``.
-
-#### DSilHand_M10GMK_Topic01
-
-**Player**: Are you Krev the Skinner? I'm here because I want to join the Silver Hand.
-
-**Krev The Skinner** (*Happy 50*): Yes I'm! Welcome! You did well against the frost troll on the Cold Rock Pass. Congratulations! You proceed well on our initiation.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000E96B_1.xwm``    
-
-**Krev The Skinner** (*Neutral 50*): But, before we proceed, I have a question. Why do you want to join the Silver Hands?    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000E96B_2.xwm``    
-
-
-#### DSilHand_M10GMK_Topic02
-
-**Player**: I want to hunt Werewolves.
-
-**Krev The Skinner** (*Neutral 50*): An adventure seeker eh? We need more people like you here.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000E96D_1.xwm``    
-
-**Krev The Skinner** (*Neutral 50*): But I have more things to say before you can join us.     
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000E96D_2.xwm``    
-
-
-#### DSilHand_M10GMK_Topic03
-
-**Player**: I want to fight against the influence of Daedra in Skyrim.
-
-**Krev The Skinner** (*Neutral 50*): This is an honor cause that every sons and daughters of Skyrim who wish to go Sovngarde one day, must fight for.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000E96F_1.xwm``    
-
-**Krev The Skinner** (*Neutral 50*): But I have more things to say before you can join us.     
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000E96F_2.xwm``    
-
-
-#### DSilHand_M10GMK_Topic04
-
-**Player**: What things?
-
-**Krev The Skinner** (*Disgust 50*): We fight against these beasts to cleanse this foul daedric disease that has taken the sanity of many of our brothers and sisters here on Skyrim.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED4_1.xwm``    
-
-**Krev The Skinner** (*Anger 50*): But worst than that, have corrupted the souls of many sons of Skyrim, and take them away from Sovngarde in exchange of an ephemeral power in life.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED4_2.xwm``    
-
-**Krev The Skinner** (*Disgust 50*): But, you must be aware. No only beggars and forgotten people have lycanthropy here on Skyrim.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED4_3.xwm``    
-
-**Krev The Skinner** (*Anger 50*): Many influential and powerful  people have this curse... or "gift" as many of them say.     
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED4_4.xwm``    
-
-**Krev The Skinner** (*Neutral 50*): If you become a Silver Hand, you will have to fight not only physically, but also politically and economically powerful people.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED4_5.xwm``    
-
-**Krev The Skinner** (*Puzzled 50*): After all I said, do you still want to become a Silver Hand?    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED4_6.xwm``    
-
-
-#### DSilHand_M10GMK_Topic05
-
-**Player**: Yes, I do!
-
-**Krev The Skinner** (*Neutral 50*): Now, you are officially a silver hand initiate. Take this armor and shield.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_1.xwm``    
-
-**Krev The Skinner** (*Neutral 50*): They are not expensive ones, but are especially good to protect against the cold weather of the ice fields.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_2.xwm``    
-
-**Krev The Skinner** (*Neutral 50*): Take this weapon, it is a Silver sword. It will protect you against foul creatures we fight against.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_3.xwm``    
-
-**Krev The Skinner** (*Neutral 50*): I will give you one book too, it is called Songs of Return, volume seven.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_4.xwm``    
-
-**Krev The Skinner** (*Neutral 50*): Read it, you will learn more about the Ysgramor and its legacy.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_5.xwm``    
-
-**Krev The Skinner** (*Neutral 50*): Each Silver Hand must read one of this.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_6.xwm``    
-
-**Krev The Skinner** (*Neutral 50*): Downstairs, there is a library, where you will find other useful book, if you are interested to learn more.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleNord\DSilHand_M_DSilHand_M10GMK_0000EED7_7.xwm``    
 
 
 

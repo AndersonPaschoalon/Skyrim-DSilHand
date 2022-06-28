@@ -36,7 +36,7 @@ _This is the last main quest for the mod and is started when the player brings t
 
 #### DSilHand_M90_ASK_Topic03
 
-**Player**: He allowed them to kill Krev and Kodlak. He deserved it!
+**Player**: He allowed the Companions to kill Krev. He deserved it!
 
 **Fjol** (*Neutral 50*): Yes, Krev perished as well...    
 

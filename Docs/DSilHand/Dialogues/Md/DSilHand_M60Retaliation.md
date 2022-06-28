@@ -3,6 +3,73 @@
 _In this quest, the player will have to defeat all the Companions inside Gallows Rock, including Aela and Skjol. Arriving in the main chamber, you will discover that Krev was killed by the Companions. Senaar will talk to you and ask you o go to Driftshade and tell to Fjol what happened. At this point, you may call him to be your follower.  In Diftshade you will be able to tell Fjol what happened. He will tell you things about Krev's past, and make a discourse for all the Silver Hands telling that Krev has perished bravely. After the discourse, he will talk to you in particular and offer the leadership of Gallows Rock fort._
 
 ## Branches
+### DSilHand_M60_GallowsGuard
+> _You can engage in a conversation with Kylmir Shade-Skinner. He will tell that the Companions have assaulted the fort._
+> 
+> Dialog Type:``PlayerDialogue``, Actor Race:``NordRace``, Voice Type:``MaleCommoner``.
+
+#### DSilHand_M60GG_Topic01
+
+**Player**: What happened?
+
+**Kylmir Shade Skinner** (*Neutral 50*): Companions... th-they came sneaky, assault the fort. They released those beasts on the cages... Please brother... avenge our shed blood.... ohhh    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleCommoner\DSilHand_M_DSilHand_M60GG__0001C14A_1.xwm``    
+
+
+#### DSilHand_M60GG_Topic02
+
+**Player**: And what about you?
+
+**Kylmir Shade Skinner** (*Neutral 50*): I'll be fine... I have a healing potion... You must hurry inside help our brothers...    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleCommoner\DSilHand_M_DSilHand_M60GG__0001C14C_1.xwm``    
+
+
+### DSilHand_M60_Sennar
+> _This is the conversation with Senaar after the battle. He will ask you to tell Fjol what happened. He may become your follower after that._
+> 
+> Dialog Type:``PlayerDialogue``, Actor Race:``KhajiitRace``, Voice Type:``MaleKhajiit``.
+
+#### DSilHand_M60SE_Topic01
+
+**Player**: Its's done...
+
+**Senaar** (*Sad 50*): Yes, we did it, we won the battle... But we lost our Leader, Krev. May his soul rest in peace in Sovngarde.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleKhajiit\DSilHand_M_DSilHand_M60SE__00024D52_1.xwm``    
+
+
+#### DSilHand_M60SE_Topic02
+
+**Player**: Any idea did they decide to attack us?
+
+**Senaar** (*Anger 70*): We were waiting to be attacked in retaliation to Farkas and Njada's death. But they attacked sooner than we expected.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleKhajiit\DSilHand_M_DSilHand_M60SE__0002581A_1.xwm``    
+
+**Senaar** (*Happy 40*): Anyway, we had an important victory tonight. Krev must be proud of all of us now. Listen, Fjol needs to be notified of what happened.     
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleKhajiit\DSilHand_M_DSilHand_M60SE__0002581A_2.xwm``    
+
+**Senaar** (*Puzzled 50*): Since he was the second in charge, he must claim our leadership now.     
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleKhajiit\DSilHand_M_DSilHand_M60SE__0002581A_3.xwm``    
+
+
+#### DSilHand_M60SE_Topic03
+
+**Player**: I'll notify him!
+
+**Senaar** (*Happy 50*): Good! We will be taking care of things here. We must clean up this mess, rebuild our defenses,  and make the proper funerals.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleKhajiit\DSilHand_M_DSilHand_M60SE__00025819_1.xwm``    
+
+**Senaar** (*Neutral 50*): Fjol will tell us the next steps.    
+
+``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleKhajiit\DSilHand_M_DSilHand_M60SE__00025819_2.xwm``    
+
+
 ### DSilHand_M60_FjolPlans
 > _In this conversation, Fjol will talk about Krev past._
 > 
@@ -106,73 +173,6 @@ _In this quest, the player will have to defeat all the Companions inside Gallows
 **Fjol** (*Neutral 50*): Now you are officially an Stronghold Chief, and the second on the succession line of our group. Congratulations! Please, accept these gifts.    
 
 ``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleEvenTonedAccented\DSilHand_M_DSilHand_M60FPt_0002582E_1.xwm``    
-
-
-### DSilHand_M60_Sennar
-> _This is the conversation with Senaar after the battle. He will ask you to tell Fjol what happened. He may become your follower after that._
-> 
-> Dialog Type:``PlayerDialogue``, Actor Race:``KhajiitRace``, Voice Type:``MaleKhajiit``.
-
-#### DSilHand_M60SE_Topic01
-
-**Player**: Its's done...
-
-**Senaar** (*Sad 50*): Yes, we did it, we won the battle... But we lost our Leader, Krev. May his soul rest in peace in Sovngarde.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleKhajiit\DSilHand_M_DSilHand_M60SE__00024D52_1.xwm``    
-
-
-#### DSilHand_M60SE_Topic02
-
-**Player**: Any idea did they decide to attack us?
-
-**Senaar** (*Anger 70*): We were waiting to be attacked in retaliation to Farkas and Njada's death. But they attacked sooner than we expected.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleKhajiit\DSilHand_M_DSilHand_M60SE__0002581A_1.xwm``    
-
-**Senaar** (*Happy 40*): Anyway, we had an important victory tonight. Krev must be proud of all of us now. Listen, Fjol needs to be notified of what happened.     
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleKhajiit\DSilHand_M_DSilHand_M60SE__0002581A_2.xwm``    
-
-**Senaar** (*Puzzled 50*): Since he was the second in charge, he must claim our leadership now.     
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleKhajiit\DSilHand_M_DSilHand_M60SE__0002581A_3.xwm``    
-
-
-#### DSilHand_M60SE_Topic03
-
-**Player**: I'll notify him!
-
-**Senaar** (*Happy 50*): Good! We will be taking care of things here. We must clean up this mess, rebuild our defenses,  and make the proper funerals.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleKhajiit\DSilHand_M_DSilHand_M60SE__00025819_1.xwm``    
-
-**Senaar** (*Neutral 50*): Fjol will tell us the next steps.    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleKhajiit\DSilHand_M_DSilHand_M60SE__00025819_2.xwm``    
-
-
-### DSilHand_M60_GallowsGuard
-> _You can engage in a conversation with Kylmir Shade-Skinner. He will tell that the Companions have assaulted the fort._
-> 
-> Dialog Type:``PlayerDialogue``, Actor Race:``NordRace``, Voice Type:``MaleCommoner``.
-
-#### DSilHand_M60GG_Topic01
-
-**Player**: What happened?
-
-**Kylmir Shade Skinner** (*Neutral 50*): Companions... th-they came sneaky, assault the fort. They released those beasts on the cages... Please brother... avenge our shed blood.... ohhh    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleCommoner\DSilHand_M_DSilHand_M60GG__0001C14A_1.xwm``    
-
-
-#### DSilHand_M60GG_Topic02
-
-**Player**: And what about you?
-
-**Kylmir Shade Skinner** (*Neutral 50*): I'll be fine... I have a healing potion... You must hurry inside help our brothers...    
-
-``Data\Sound\Voice\DawnOfTheSilverHand.esp\MaleCommoner\DSilHand_M_DSilHand_M60GG__0001C14C_1.xwm``    
 
 
 

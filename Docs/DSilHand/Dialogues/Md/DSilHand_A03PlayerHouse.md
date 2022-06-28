@@ -1,6 +1,6 @@
 # Quest DSilHand_A03PlayerHouse
 
-_This is a invisible quest to crontrol the procedure of decorationg the Gallows Rock quarter after the player became the Silver Hand leader._
+_This is an invisible quest to control the procedure of decorating the Gallows Rock quarter after the player became the Silver Hand leader._
 
 ## Branches
 ### DSilHand_A03_AskDecoration
@@ -41,7 +41,7 @@ _This is a invisible quest to crontrol the procedure of decorationg the Gallows 
 
 #### DSilHand_A03AD_Topic04
 
-**Player**: Some furniture for storage. (1500 gold) 
+**Player**: Some furniture for storage. (1500 gold)
 
 **Senaar** (*Neutral 50*):      
 

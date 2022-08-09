@@ -94,6 +94,9 @@ Actor Property CompRed02  Auto
 Actor Property FakeFarkas  Auto  
 {Actor object for the Farkas copy of the quest M40. }
 
+Actor Property FakeNjada  Auto  
+{Actor object for the copy of Njada used on the quest M50.}
+
 Actor Property FakeAela  Auto  
 {Actor object for the Aela copy of the quest M60. }
 
@@ -180,6 +183,8 @@ Function setupCompanionsJoin()
     Debug.Trace(THIS_FILE + " -- setupCompanionsJoin()")    
     afterjoinCompanions()
     disableSilverhandUniqueActors()
+    ; Bugfix for mod compatibility
+    DSilHand_M40CompConspiracy.CompleteQuest()
 endFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -223,7 +228,8 @@ Function dSilHandSetup()
     DSilHand_Utils.disableActor(CompImp02, "CompImp02", THIS_FILE) 
     DSilHand_Utils.disableActor(CompRed01, "CompRed01", THIS_FILE) 
     DSilHand_Utils.disableActor(CompRed02, "CompRed02", THIS_FILE)  
-    DSilHand_Utils.disableActor(FakeFarkas, "FakeFarkas", THIS_FILE) 
+    DSilHand_Utils.disableActor(FakeFarkas, "FakeFarkas", THIS_FILE)
+    DSilHand_Utils.disableActor(FakeNjada, "FakeNjada", THIS_FILE)
     DSilHand_Utils.disableActor(FakeAela, "FakeAela", THIS_FILE)
     DSilHand_Utils.disableActor(FakeSkjor , "FakeSkjor", THIS_FILE)  
     DSilHand_Utils.disableActor(FakeVilkas , "FakeVilkas", THIS_FILE)  
@@ -368,3 +374,7 @@ endFunction
 
 
 
+
+
+
+Quest Property DSilHand_M40CompConspiracy  Auto  

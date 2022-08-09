@@ -980,12 +980,17 @@ EndFunction
 ; Input: string sceneName -   script name to be logged
 ; Input: string callerScript - Script wich called this function
 ;
-; Force a scene to run maxTries times.
+; Force a scene to run maxTries times. If the quest is already running, it 
+; does not start the quest.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 bool Function forceRunScene(Scene sceneObject, string sceneName, int maxTries, string callerScript) global
     int i = 0
-    bool sceneIsRunning = false
+    bool sceneIsRunning = sceneObject.IsPlaying()
     string loginfo = logPrefix(callerScript)
+    if (sceneIsRunning == true)
+        Debug.Trace(loginfo + " -- scene is already running")
+        return true
+    endif
     while (i < maxTries)
         Debug.Trace(loginfo + " -- running scene " + sceneName + " try [" + i + "/" + maxTries + "]")
         sceneObject.ForceStart()

@@ -2,24 +2,9 @@
 ;NEXT FRAGMENT INDEX 9
 Scriptname DSilHand_M50_QF_WolfAmbush Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY GallowsTrigger
+;BEGIN ALIAS PROPERTY Krev
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_GallowsTrigger Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CompNord2
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CompNord2 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY PreM60xMarkerImp1
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_PreM60xMarkerImp1 Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY PreM60xMarkerBret1
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_PreM60xMarkerBret1 Auto
+ReferenceAlias Property Alias_Krev Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY CaveTrigger
@@ -27,9 +12,9 @@ ReferenceAlias Property Alias_PreM60xMarkerBret1 Auto
 ReferenceAlias Property Alias_CaveTrigger Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY NjadaXMarker
+;BEGIN ALIAS PROPERTY CompImp1
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_NjadaXMarker Auto
+ReferenceAlias Property Alias_CompImp1 Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY CompBret1
@@ -37,19 +22,34 @@ ReferenceAlias Property Alias_NjadaXMarker Auto
 ReferenceAlias Property Alias_CompBret1 Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY NjadaXMarker
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_NjadaXMarker Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY CompNord2
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CompNord2 Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY Njada
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_Njada Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Krev
+;BEGIN ALIAS PROPERTY NjadaOriginal
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Krev Auto
+ReferenceAlias Property Alias_NjadaOriginal Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY CompImp1
+;BEGIN ALIAS PROPERTY PreM60xMarkerBret1
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CompImp1 Auto
+ReferenceAlias Property Alias_PreM60xMarkerBret1 Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY PreM60xMarkerImp1
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_PreM60xMarkerImp1 Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY CompNor2XMarker
@@ -57,11 +57,15 @@ ReferenceAlias Property Alias_CompImp1 Auto
 ReferenceAlias Property Alias_CompNor2XMarker Auto
 ;END ALIAS PROPERTY
 
-;BEGIN FRAGMENT Fragment_6
-Function Fragment_6()
+;BEGIN ALIAS PROPERTY GallowsTrigger
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_GallowsTrigger Auto
+;END ALIAS PROPERTY
+
+;BEGIN FRAGMENT Fragment_3
+Function Fragment_3()
 ;BEGIN CODE
-; Temp stage
-Debug.Trace(THIS_FILE + " #STAGE 5")
+Debug.Trace(THIS_FILE + " -- Quest M60 Completed")
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -71,20 +75,6 @@ Function Fragment_0()
 ;BEGIN CODE
 ; Starts DSilHand_M50WolfAmbush Quest
 Debug.Trace(THIS_FILE + " #STAGE 0 : Starts DSilHand_M50WolfAmbush Quest ")
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_1
-Function Fragment_1()
-;BEGIN CODE
-; Kill Njada Stonearm and her Shield Brother Objective completed
-Debug.Trace(THIS_FILE + "#STAGE 30")
-
-; Teleport the companions rokies to Gallows entrance
-Debug.Trace(THIS_FILE + " -- M50 preM60: teleport the companions rookies to Gallows Rock entrace")
-DSilHand_Utils.moveSingleNpcRefAlias(Alias_CompBret1, Alias_PreM60xMarkerBret1, "Alias_CompBret1", THIS_FILE) 
-DSilHand_Utils.moveSingleNpcRefAlias(Alias_CompImp1, Alias_PreM60xMarkerImp1, "Alias_CompImp1", THIS_FILE)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -108,10 +98,25 @@ BonechillMarker.AddToMap()
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_3
-Function Fragment_3()
+;BEGIN FRAGMENT Fragment_6
+Function Fragment_6()
 ;BEGIN CODE
-Debug.Trace(THIS_FILE + " -- Quest M60 Completed")
+; Temp stage
+Debug.Trace(THIS_FILE + " #STAGE 5")
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_1
+Function Fragment_1()
+;BEGIN CODE
+; Kill Njada Stonearm and her Shield Brother Objective completed
+Debug.Trace(THIS_FILE + "#STAGE 30")
+
+; Teleport the companions rokies to Gallows entrance
+Debug.Trace(THIS_FILE + " -- M50 preM60: teleport the companions rookies to Gallows Rock entrace")
+DSilHand_Utils.moveSingleNpcRefAlias(Alias_CompBret1, Alias_PreM60xMarkerBret1, "Alias_CompBret1", THIS_FILE) 
+DSilHand_Utils.moveSingleNpcRefAlias(Alias_CompImp1, Alias_PreM60xMarkerImp1, "Alias_CompImp1", THIS_FILE)
 ;END CODE
 EndFunction
 ;END FRAGMENT

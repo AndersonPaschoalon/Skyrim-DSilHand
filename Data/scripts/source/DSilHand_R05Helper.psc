@@ -54,7 +54,8 @@ Quest Property DSilHand_iR05Trigger  Auto
 ; Consts
 ;
 String THIS_FILE = "(DSilHand_R05Helper.psc) "
-int MIN_WAIT_TIME = 10
+int MIN_WAIT_TIME = 4 ; 4 DAYS
+int MAX_WAIT_TIME = 8 ; 8 DAYS
 int N_ITEMS = 12
 int STAGE_INIT_QUEST = 0
 int STAGE_START_QUEST = 5
@@ -81,7 +82,7 @@ bool firstTimeExecuted = false
 Function finalizeQuest()
     Debug.Trace(THIS_FILE + " -- finalizeQuest()")
     pickReward()
-    createAlarmRowbackQuest()
+    createAlarmRowbackQuest(MIN_WAIT_TIME, MAX_WAIT_TIME)
     CompleteQuest()
     Debug.Trace(THIS_FILE + " -- quest completed!")
 EndFunction
@@ -97,7 +98,7 @@ EndFunction
 ; Creates an alar to row back the quest to its start. Enables the flag and 
 ; calls register for single update game time.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function createAlarmRowbackQuest(int min_days = 10, int max_days = 20, bool firstTimeExe  = false)
+Function createAlarmRowbackQuest(int min_days = 4, int max_days = 8, bool firstTimeExe  = false)
     Debug.Trace(THIS_FILE + " -- createAlarmRowbackQuest()")
     ; set execution flag
     firstTimeExecuted = firstTimeExe

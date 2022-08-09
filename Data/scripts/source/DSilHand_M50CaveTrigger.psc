@@ -7,6 +7,9 @@ Scriptname DSilHand_M50CaveTrigger extends ReferenceAlias
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ReferenceAlias Property Njada  Auto  
+{Copy of NjadaStonearm actor ReferenceAlias.}
+
+ReferenceAlias Property NjadaOriginal  Auto  
 {NjadaStonearm actor ReferenceAlias.}
 
 ReferenceAlias Property CompNord2  Auto  
@@ -80,7 +83,7 @@ EndFunction
 ; Input: void
 ; 
 ; This function teleports NjadaStonearm and DSilHand_CompanionRookieNord02
-; to the XMarker Locations.  Must run only once.
+; to the XMarker Locations, and disable original Njada.  Must run only once.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function bonechillDSilHandM50Teleport()
     Debug.Trace(THIS_FILE + " -- run function: bonechillDSilHandM50Teleport()")
@@ -88,17 +91,16 @@ Function bonechillDSilHandM50Teleport()
     GetOwningQuest().SetObjectiveCompleted(10)
     GetOwningQuest().SetStage(20)
     GetOwningQuest().SetObjectiveDisplayed(20)
-    ; Njada 
+    ; Njada: diable original, enable copy and move
+    if (NjadaOriginal != None) 
+        NjadaOriginal.GetActorRef().Disable()
+    else
+        Debug.Trace(THIS_FILE + "**ERROR** NjadaOriginal actor object is EMPTY!", 2)
+    endif
+    Njada.GetActorRef().Enable()
     DSilHand_Utils.moveSingleNpcRefAlias(Njada, NjadaXMarker, "Njada", THIS_FILE)
     ; Njada Shield Brother    
     DSilHand_Utils.moveSingleNpcRefAlias(CompNord2, CompNor2XMarker, "(Njada Shield brother) CompNord2", THIS_FILE)
-    ; Njada 
-    ;NjadaStonearm.MoveTo(NjadaMarker)
-    ;NjadaStonearm.SetPosition(NjadaMarker.GetPositionX(), NjadaMarker.GetPositionY(), NjadaMarker.GetPositionZ())
-    ; Njada Shield Brother    
-    ;NjadaShield.MoveTo(ShieldMarker)
-    ;NjadaShield.Enable()
-    ;NjadaShield.SetPosition(ShieldMarker.GetPositionX(), ShieldMarker.GetPositionY(), ShieldMarker.GetPositionZ())
 EndFunction 
 
 
@@ -114,6 +116,8 @@ EndFunction
 Event OnTriggerEnter(ObjectReference akTriggerRef)
     bonechillDSIlHandM50EventHandler(akTriggerRef)     
 EndEvent
+
+
 
 
 

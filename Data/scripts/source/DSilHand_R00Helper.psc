@@ -450,6 +450,9 @@ int RADIANT_QUEST_R01 = 1
 int RADIANT_QUEST_R02 = 2
 int RADIANT_QUEST_R03 = 3
 int RADIANT_QUEST_R04 = 4
+; Rowback time
+int MIN_ROWBACK_TIME = 1
+int MAX_ROWBACK_TIME = 5
 ; Misc
 int ENABLE_DELAY = 2
 ; DEBUG 
@@ -943,8 +946,8 @@ int Function calcTimeToRowback()
     else
         int timeToRowback = 0
         Debug.Trace(THIS_FILE + " -- calcTimeToRowback()") 
-        ; Create alarm to row back the quest - from 5 to 10 days.
-        int daysToRowBack = Utility.RandomInt(5, 10)
+        ; Create alarm to row back the quest - from MIN_ROWBACK_TIME to MAX_ROWBACK_TIME days.
+        int daysToRowBack = Utility.RandomInt(MIN_ROWBACK_TIME, MAX_ROWBACK_TIME)
         Debug.Trace(THIS_FILE + "    * daysToRowBack: " + daysToRowBack)
         timeToRowback = daysToRowBack*24   
         Debug.Trace(THIS_FILE + "    * timeToRowback:" + timeToRowback) 

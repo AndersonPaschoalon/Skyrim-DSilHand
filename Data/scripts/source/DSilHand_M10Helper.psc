@@ -341,6 +341,8 @@ endFunction
 Function afterjoinCompanions()
     Debug.Trace(THIS_FILE + " -- afterjoinCompanions()")
     SilverHandFaction.SetEnemy(PlayerFaction)
+    Debug.Trace(THIS_FILE + " -- Set the Companions enemy to the Silver Hand Factin")
+    CompanionsFaction.SetEnemy(SilverHandFaction)    
 endFunction
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

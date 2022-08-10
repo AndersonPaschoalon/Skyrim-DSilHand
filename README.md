@@ -10,7 +10,7 @@ Notation:
 > vX.Y.Z
 > X - Official Release Version (tab/nexus)
 > Y - Official Patch or Demo Release
-> Z - Number of Trello Cards closed 
+> Z - Git Commit
 
 ### Current Release
 
@@ -36,4 +36,15 @@ git config --global credential.helper cache
 * Just add, commit and push something, and use the generated token as the password instead
 
 * The toke will be saved, and next time you push, you will not be asked again :) 
+
+
+# Build
+
+Copiar novo script do ajuste na quest dos companions
+QF_C00_0004B2D9
+https://www.creationkit.com/index.php?title=Archive.exe
+
+
+
+
 

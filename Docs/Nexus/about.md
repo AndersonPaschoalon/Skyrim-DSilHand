@@ -17,9 +17,12 @@ _The Beast Blood... Or the Silver Hands!_
 Contents: 
 1. Overview
 1. Lore
-1. Play-through
+1. How to Start
+1. Playthrough
+1. Requirements
 1. Installation
 1. Troubleshooting
+1. FAQ
 1. Credits
 
 ## Overview
@@ -82,9 +85,30 @@ Some assumptions I took about the past of the Silver Hands are:
 * In the start of the game the Silver Hands have the possession of four fragments of Wuulthrad, the same number of fragments The Companions have. They were searching for the fragments since their foundation.
 
 
+## How to Start
+
+There are three entry-points in the game to start the Silver Hand quest-line:
+
+1. Go to the tavern "The Drunken Huntsman" in Whiterun. Talk to a man called Irronkas. He should be walking around.
+2. Go to Driftshade Refugee and talk to the guard. 
+3. Go to Gallows Rock and talk to the guard.
+
+Following any option, you will be redirected to Gallows Rock, and a quest will start. 
+ 
+Some notes about the gameplay: 
+
+* In the start of the game the Silver Hands will be **neutral** to the player;
+* You will not be able to complete this quest after you complete the quest "Take Up Arms". If you do, the quest "Silver Hunt" will fail, and the Silver Hands will become **aggressive** to you -- as they are in the Vanilla;
+* If you complete the quest "Silver Hunt" **The Companions** will become **aggressive** to you. Therefore you may have some trouble completing any quest that depends of Vignar, and walking inside Whiterun. The guards will be nice to you, but any Companion will try to kill you. **This is NOT A BUG**, this is an intend behaviour of the mod to increase immersion. They will not be aggressive to you forever. After you finish the quest-line The Companions (that are alive) will be nice to you once again... and this includes Vignar. After the conflict is resolved you will be able to do quests for him once again.
+
+
 ## Playthrough
 
 (coming soon...)
+
+## Requirements
+
+No requirements, except the Vanilla game. No DLC is required as well (but they are recommended).
 
 
 ## Installation 
@@ -173,9 +197,13 @@ First of all: I advise testing first if the mod has any clear conflict. It can b
 coc GallowsRockExterior
 ```
 
+_NOTE: I'll put comments on the code after the hash (#) explaining what the command does, but they should not be typed._
+
 If they are fine to you, probably everithing should be working well. 
 
 I also advise saving your game oftern. 
+
+If you have any trouble in the questline, please contact me using the comments section. I'll be creating a discord server for this purpose as well. I'll try to answer as soon as possible.
 
 I also created some codes to help debug the game during the development phase, and did not took they off from the final version. 
 If you loaded the mod in the right order, they probably are not necessary at all. 
@@ -305,11 +333,28 @@ setstage DSilHand_A01Troubleshoot 401
 
 ```
 
+## FAQ
+
+1. Can I join both The Companions and The Silver Hands?
+
+_No_
+
+2. This mod will be released for the Special Edition?
+
+_Yes! I plan to do so. But some bugs occurred after I tried to do my first port. First I was planning to release for both version at the same time. But since this version is already fine, I decided to release it first here._
+
+
 ## Credits
 
 AndersonPaschoalon - Story, Level Design, and Scripting.
+[Github](https://github.com/AndersonPaschoalon)
+[Youtube](https://www.youtube.com/user/AndersonPaschoalon)
+
 
 Heather Longail - Soundtrack.
+[Soundcloud](https://soundcloud.com/serratedskies)
+[Youtube](https://www.youtube.com/c/serratedskies)
+[Twitch](https://www.twitch.tv/serrated_skies)
 
 
 

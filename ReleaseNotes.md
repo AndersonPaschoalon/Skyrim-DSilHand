@@ -1,10 +1,28 @@
-# v0.2.0 -- Iron Ore 
+# v0.xx.xx -- Iron Ore 
+
+**Abstract**
+First port to Special Edition
+
+**Date** 
+xx/xx/2022
+
+**Number of Cards Closed**
+xx
+
+**Main Features**
+* Update on Soundtrack
+* Port for Special Edition
+* Bugfixes
+
+----
+
+# v0.1.72 -- Iron Ore 
 
 **Abstract**
 A first full-functional version of the mod.
 
 **Date** 
-10/07/2022
+24/008/2022
 
 **Number of Cards Closed**
 182
@@ -22,8 +40,7 @@ A first full-functional version of the mod.
 - Quest Documentation
 - New Weapons
 
-
----
+----
 
 # v0.1.0 -- Corundum Ore
 
